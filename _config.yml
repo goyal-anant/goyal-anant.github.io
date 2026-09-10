@@ -1,3 +1,45 @@
-theme: jekyll-theme-minimal
-title: Anant's homepage
-description: Bookmark this to keep an eye on my project updates!
+title: Anant Goyal
+description: "Writing, projects, and books."
+url: "https://goyal-anant.github.io"
+baseurl: ""
+
+collections:
+  rants:
+    output: true
+    permalink: /rant/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: rants
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: page
+
+permalink: /blog/:year/:month/:day/:title/
+markdown: kramdown
+
+exclude:
+  - docs/
+  - lib/
+  - bin/
+  - .superpowers/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
