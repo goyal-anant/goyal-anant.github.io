@@ -1,6 +1,6 @@
 ---
-layout: page
+layout: home
 title: Home
 permalink: /
 ---
-Scaffold placeholder — replaced in Task 4.
+Writing, projects, and books.
