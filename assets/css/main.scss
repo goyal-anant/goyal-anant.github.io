@@ -116,3 +116,28 @@ main {
   white-space: nowrap;
 }
 .post-list .post-sep { color: var(--muted); }
+
+.shelf {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.spine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  margin-top: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.spine:hover { filter: brightness(1.08); text-decoration: none; }
+.spine .genre-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.spine--fiction { background: #7a1f3d; }
+.spine--nonfiction { background: #1f4e79; }
+.spine--sci-fi { background: #2f6b3a; }
