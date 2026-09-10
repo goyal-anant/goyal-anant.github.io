@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Scaffold a working Jekyll personal site with Home, Blog, Bookshelf, Rant, Projects, and About sections, a light/dark theme toggle, and a live clock — buildable via `bundle exec jekyll build` and deployable as-is to GitHub Pages.
+**Goal:** Scaffold a working Jekyll personal site with Home, Blog, Bookshelf, Rant, Projects, and About sections, a light/dark theme toggle, and a live clock — buildable via `bin/jekyll build` (see Task 1) and deployable as-is to GitHub Pages.
 
-**Architecture:** Plain Jekyll (no theme gem), custom `_layouts`/`_includes`, hand-written SCSS compiled by Jekyll's built-in Sass support, two vanilla-JS files (theme toggle, clock). Two post-like collections (`_posts` for Blog, `_rants` for Rant) share one `post.html` layout and one `post-list.html` include. Bookshelf is data-driven from `_data/books.yml`, no per-book pages.
+**Architecture:** Plain Jekyll (no theme gem), custom `_layouts`/`_includes`, hand-written SCSS compiled by Jekyll's built-in Sass support, two vanilla-JS files (theme toggle, clock). Two post-like collections (`_posts` for Blog, `_rants` for Rant) share one `post.html` layout and one `post-list.html` include. Bookshelf is data-driven from `_data/books.yml`, no per-book pages. Task 1 also adds a `bin/jekyll` wrapper working around a local Ruby 4.0.6 / `github-pages` gem (Jekyll 3.9.0, pinned `liquid = 4.0.3`) incompatibility — see Global Constraints.
 
-**Tech Stack:** Ruby 4.0.6, Jekyll 4.4.1 (via the `github-pages` gem), Bundler, plain SCSS, vanilla JS. No frameworks, no build tooling beyond Jekyll itself.
+**Tech Stack:** Ruby 4.0.6, Jekyll 3.9.0 (pinned by the `github-pages` gem — not the standalone 4.4.1 gem), Bundler, plain SCSS, vanilla JS. No frameworks, no build tooling beyond Jekyll itself.
 
 **Spec:** `docs/superpowers/specs/2026-09-10-personal-site-design.md`
 
@@ -20,28 +20,35 @@
 - Nav is exactly 6 links, always in this order: Home / Blog / Bookshelf / Rant / Projects / About.
 - Theme toggle defaults to `prefers-color-scheme` and persists the visitor's override via `localStorage`.
 - The clock is client-side only (no server/build-time timestamp).
-- `bundle exec jekyll build` must succeed with no errors before any commit that touches build output.
+- `bin/jekyll build` (see Task 1) must succeed with no errors before any commit that touches build output.
+- **Ruby/Liquid compat ruling (made during Task 1 review):** `github-pages` gem hard-pins `liquid = 4.0.3` exactly, whose render path calls `String#tainted?` — a method Ruby removed in 3.2+ (this machine runs Ruby 4.0.6). Running `bundle exec jekyll build`/`serve` directly crashes with `NoMethodError: undefined method 'tainted?'`, regardless of layouts/content. Fix: a local-only compat shim (`lib/taint_compat.rb`, restores `tainted?`/`taint`/`untaint` as no-ops) loaded via `RUBYOPT` through a wrapper script (`bin/jekyll`), created in Task 1. **From Task 1 onward, every step below that says `bin/jekyll build` or `bin/jekyll serve` must actually be run that way — never as raw `bundle exec jekyll`** — the wrapper forwards all args to `bundle exec jekyll` after setting `RUBYOPT`. Local-machine-only: GitHub Pages' real build server runs its own pinned environment independent of this repo's local Ruby, so production deploys are unaffected, and the shim has no effect on rendered output.
 
 ---
 
-### Task 1: Project scaffold (Gemfile, config, gitignore)
+### Task 1: Project scaffold (Gemfile, config, gitignore, Ruby/Liquid compat wrapper)
 
 **Files:**
 - Create: `Gemfile`
 - Create: `_config.yml`
 - Create: `.gitignore`
 - Create: `index.md` (temporary placeholder, replaced in Task 4)
+- Create: `lib/taint_compat.rb` (Ruby 3.2+ / Liquid 4.0.3 compat shim — see Global Constraints)
+- Create: `bin/jekyll` (wrapper: sets `RUBYOPT` to load the shim, then execs `bundle exec jekyll "$@"`)
 
 **Interfaces:**
 - Consumes: nothing (first task)
-- Produces: working `bundle exec jekyll build` command; `_config.yml` collections `posts` (built-in), `rants`, `projects`, each defaulted to layout `post` (posts/rants) or `page` (projects); site title available to later tasks as `site.title`
+- Produces: working `bin/jekyll build` / `bin/jekyll serve` commands (use these, not raw `bundle exec jekyll`, from here on — see Global Constraints); `_config.yml` collections `posts` (built-in), `rants`, `projects`, each defaulted to layout `post` (posts/rants) or `page` (projects), plus an `exclude:` list keeping `docs/`, `lib/`, `bin/`, `.superpowers/` out of the generated site; site title available to later tasks as `site.title`
 
 - [ ] **Step 1: Create `Gemfile`**
 
 ```ruby
-source "https://pages.github.com"
+source "https://rubygems.org"
 gem "github-pages", group: :jekyll_plugins
+gem "csv"
+gem "bigdecimal"
 ```
+
+(`csv`/`bigdecimal` are Ruby stdlib gems that Ruby 3.4+ no longer bundles by default — `github-pages`'s pinned Jekyll 3.9.0 still needs them, so they must be explicit dependencies here.)
 
 - [ ] **Step 2: Create `_config.yml`**
 
@@ -78,7 +85,22 @@ defaults:
 
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
+
+exclude:
+  - docs/
+  - lib/
+  - bin/
+  - .superpowers/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 ```
+
+(The `exclude` list keeps Jekyll from trying to parse this repo's plan/spec docs, or its own tooling scripts, as site content — without it, Jekyll attempts to Liquid-render every `.md` file in the repo, including the plan file's own `{% include ... %}` code examples, and crashes on invalid syntax. Setting `exclude:` at all in `_config.yml` REPLACES Jekyll's built-in default exclude list rather than extending it — Jekyll does not merge this key — so the last 7 entries above (`Gemfile`, `Gemfile.lock`, `node_modules`, `vendor/bundle/`, `vendor/cache/`, `vendor/gems/`, `vendor/ruby/`) are Jekyll's own defaults, copied in explicitly so they aren't silently lost. Without them, `Gemfile`/`Gemfile.lock` leak into the generated `_site/` output.)
 
 - [ ] **Step 3: Create `.gitignore`**
 
@@ -101,19 +123,58 @@ permalink: /
 Scaffold placeholder — replaced in Task 4.
 ```
 
-- [ ] **Step 5: Install gems and verify a clean build**
+- [ ] **Step 5: Create `lib/taint_compat.rb`**
+
+```ruby
+# Ruby 3.2+ removed Object#taint/untaint/tainted? (deprecated since 2.7).
+# The github-pages gem pins liquid = 4.0.3 exactly, and liquid 4.0.3's
+# render path still calls String#tainted? internally, so it crashes on
+# modern Ruby. Restore harmless no-op shims so that call site doesn't
+# raise. Loaded via RUBYOPT before Bundler/Jekyll start (see bin/jekyll)
+# so it applies regardless of Jekyll's plugin safe-mode. Local-build-only
+# compatibility shim; has no effect on rendered site output.
+unless Object.method_defined?(:tainted?)
+  class Object
+    def tainted?
+      false
+    end
+
+    def taint
+      self
+    end
+
+    def untaint
+      self
+    end
+  end
+end
+```
+
+- [ ] **Step 6: Create `bin/jekyll`**
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export RUBYOPT="${RUBYOPT:-} -r${root}/lib/taint_compat.rb"
+exec bundle exec jekyll "$@"
+```
+
+Then: `chmod +x bin/jekyll`
+
+- [ ] **Step 7: Install gems and verify a clean build**
 
 Run: `bundle install`
 Expected: completes with no errors, creates `Gemfile.lock`.
 
-Run: `bundle exec jekyll build`
-Expected: `Configuration file: _config.yml` then `done in` with no `Liquid Exception` or `Error:` lines. This will fail until Task 2 adds `page.html` layout referenced by `index.md` — if it fails with `Could not locate the layout 'page'`, that's expected at this step; note it and continue to Task 2 (layouts) before re-running.
+Run: `bin/jekyll build`
+Expected: `Configuration file: _config.yml` then `done in <N> seconds.` with no `Liquid Exception` or `Error:` lines (a yellow `GitHub Metadata: ... 403 - API rate limit exceeded` warning may appear — that's a non-fatal network warning from the bundled `jekyll-github-metadata` plugin hitting GitHub's unauthenticated API rate limit, not a build failure; ignore it). Confirm `_site/index.html` was created and contains "Scaffold placeholder — replaced in Task 4."
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
-git add Gemfile _config.yml .gitignore index.md
-git commit -m "chore: scaffold jekyll project"
+git add Gemfile _config.yml .gitignore index.md lib/taint_compat.rb bin/jekyll
+git commit -m "chore: scaffold jekyll project with Ruby/Liquid compat wrapper"
 ```
 
 ---
@@ -337,7 +398,7 @@ Short bio placeholder. Real content coming soon.
 
 - [ ] **Step 9: Build and verify**
 
-Run: `bundle exec jekyll build`
+Run: `bin/jekyll build`
 Expected: `done in` with no errors.
 
 Run: `grep -c 'class="site-nav"' _site/about/index.html`
@@ -422,7 +483,7 @@ Add a `.clock` rule to `assets/css/main.scss` (append near `.site-mark`):
 
 - [ ] **Step 4: Build and verify markup is present**
 
-Run: `bundle exec jekyll build && grep -c 'id="clock"' _site/about/index.html`
+Run: `bin/jekyll build && grep -c 'id="clock"' _site/about/index.html`
 Expected: `1`
 
 Run: `grep -c 'clock.js' _site/about/index.html`
@@ -430,9 +491,9 @@ Expected: `1`
 
 - [ ] **Step 5: Verify it actually ticks (manual browser check)**
 
-Run: `bundle exec jekyll serve --detach`
+Run: `bin/jekyll serve --detach`
 Then open `http://127.0.0.1:4000/about/` in a browser, confirm the clock shows today's real day/date/time and that the minute value updates after waiting (or observe via two screenshots ~65 seconds apart).
-Run: `bundle exec jekyll serve --detach` process should then be stopped: find it with `pgrep -f jekyll` and `kill <pid>`, or note the PID printed by `--detach` and kill it directly.
+Run: `bin/jekyll serve --detach` process should then be stopped: find it with `pgrep -f jekyll` and `kill <pid>`, or note the PID printed by `--detach` and kill it directly.
 
 - [ ] **Step 6: Commit**
 
@@ -476,7 +537,7 @@ Writing, projects, and books.
 
 - [ ] **Step 3: Build and verify**
 
-Run: `bundle exec jekyll build && grep -c 'layout-home' _site/index.html`
+Run: `bin/jekyll build && grep -c 'layout-home' _site/index.html`
 Expected: `1`
 
 Run: `grep -c 'Writing, projects, and books.' _site/index.html`
@@ -484,7 +545,7 @@ Expected: `1`
 
 - [ ] **Step 4: Manual visual check**
 
-Run: `bundle exec jekyll serve --detach`, open `http://127.0.0.1:4000/`, confirm the header+nav block is vertically centered with generous whitespace above and below (no long hero paragraph). Stop the server (`pgrep -f jekyll` then `kill`).
+Run: `bin/jekyll serve --detach`, open `http://127.0.0.1:4000/`, confirm the header+nav block is vertically centered with generous whitespace above and below (no long hero paragraph). Stop the server (`pgrep -f jekyll` then `kill`).
 
 - [ ] **Step 5: Commit**
 
@@ -581,7 +642,7 @@ First post. Real content coming soon.
 
 - [ ] **Step 6: Build and verify**
 
-Run: `bundle exec jekyll build && grep -c 'class="post-list"' _site/blog/index.html`
+Run: `bin/jekyll build && grep -c 'class="post-list"' _site/blog/index.html`
 Expected: `1`
 
 Run: `grep -c 'Hello, world' _site/blog/index.html`
@@ -635,7 +696,7 @@ Placeholder rant. Real opinions coming soon.
 
 - [ ] **Step 3: Build and verify**
 
-Run: `bundle exec jekyll build && grep -c 'class="post-list"' _site/rant/index.html`
+Run: `bin/jekyll build && grep -c 'class="post-list"' _site/rant/index.html`
 Expected: `1`
 
 Run: `grep -c 'A short rant about something' _site/rant/index.html`
@@ -694,7 +755,7 @@ permalink: /projects/
 
 - [ ] **Step 3: Build and verify**
 
-Run: `bundle exec jekyll build && grep -c 'Sample Project' _site/projects/index.html`
+Run: `bin/jekyll build && grep -c 'Sample Project' _site/projects/index.html`
 Expected: `1`
 
 Run: `ls _site/projects/sample-project/index.html`
@@ -788,7 +849,7 @@ permalink: /bookshelf/
 
 - [ ] **Step 4: Build and verify**
 
-Run: `bundle exec jekyll build && grep -c 'class="spine spine--fiction"' _site/bookshelf/index.html`
+Run: `bin/jekyll build && grep -c 'class="spine spine--fiction"' _site/bookshelf/index.html`
 Expected: `1`
 
 Run: `grep -c 'class="spine spine--nonfiction"' _site/bookshelf/index.html`
@@ -832,7 +893,7 @@ Short bio placeholder. Real content coming soon.
 
 - [ ] **Step 2: Full clean build**
 
-Run: `rm -rf _site .jekyll-cache && bundle exec jekyll build`
+Run: `rm -rf _site .jekyll-cache && bin/jekyll build`
 Expected: `done in` with zero `Error:`/`Liquid Exception` lines.
 
 - [ ] **Step 3: Confirm every route exists**
@@ -847,7 +908,7 @@ Expected: `OK` for all six.
 
 - [ ] **Step 4: Manual browser walkthrough**
 
-Run: `bundle exec jekyll serve --detach`. Visit `http://127.0.0.1:4000/` and click through all 6 nav links (Home, Blog, Bookshelf, Rant, Projects, About), confirm each loads and the nav highlights the current section. Click the theme toggle, confirm colors flip and the choice survives a page reload. Confirm the header clock is present and ticking on every page. Confirm the bookshelf shows 3 differently-colored spine bars. Then stop the server (`pgrep -f jekyll`, `kill <pid>`).
+Run: `bin/jekyll serve --detach`. Visit `http://127.0.0.1:4000/` and click through all 6 nav links (Home, Blog, Bookshelf, Rant, Projects, About), confirm each loads and the nav highlights the current section. Click the theme toggle, confirm colors flip and the choice survives a page reload. Confirm the header clock is present and ticking on every page. Confirm the bookshelf shows 3 differently-colored spine bars. Then stop the server (`pgrep -f jekyll`, `kill <pid>`).
 
 - [ ] **Step 5: Commit**
 
