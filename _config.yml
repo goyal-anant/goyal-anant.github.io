@@ -2,6 +2,7 @@ title: Anant Goyal
 description: "Writing, projects, and books."
 url: "https://goyal-anant.github.io"
 baseurl: ""
+theme: null
 
 collections:
   rants:

@@ -3,4 +3,5 @@ layout: page
 title: Rant
 permalink: /rant/
 ---
-{% include post-list.html posts=site.rants %}
+{% assign reversed_rants = site.rants | reverse %}
+{% include post-list.html posts=reversed_rants %}
