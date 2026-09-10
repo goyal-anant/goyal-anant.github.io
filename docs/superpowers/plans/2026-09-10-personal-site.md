@@ -667,11 +667,14 @@ git commit -m "feat: blog index and post layout"
 
 **Files:**
 - Create: `rant.md`
-- Create: `_rants/2026-09-10-a-short-rant.md`
+- Create: `_rants/a-short-rant.md` (deliberately NOT date-prefixed — see note below)
 
 **Interfaces:**
 - Consumes: `_includes/post-list.html`, `_layouts/post.html` (Task 5); `rants` collection config (Task 1)
 - Produces: `/rant/` index page
+- Do NOT modify `_config.yml` — the `rants` collection's `permalink: /rant/:path/` (set in Task 1) already produces the correct URL for a non-date-prefixed filename; no config change is needed for this task.
+
+(Note: unlike `_posts`, Jekyll's `rants` collection does not auto-strip a date prefix from `:path` — only the special `_posts` collection does that. Since the filename here has no date prefix, `:path` for `a-short-rant.md` resolves cleanly to `a-short-rant`, giving `/rant/a-short-rant/` with no extra `slug:` front matter required. The `date:` front matter field alone is sufficient for `post-list.html`'s `{{ post.date | date: ... }}` display and any future chronological sorting — don't reintroduce a date-prefixed filename or a `:slug` permalink pattern; the current `:path` pattern plus a plain filename is the minimal correct fix.)
 
 - [ ] **Step 1: Create `rant.md`**
 
@@ -684,7 +687,7 @@ permalink: /rant/
 {% include post-list.html posts=site.rants %}
 ```
 
-- [ ] **Step 2: Create `_rants/2026-09-10-a-short-rant.md`**
+- [ ] **Step 2: Create `_rants/a-short-rant.md`**
 
 ```markdown
 ---

@@ -6,7 +6,7 @@ baseurl: ""
 collections:
   rants:
     output: true
-    permalink: /rant/:slug/
+    permalink: /rant/:path/
   projects:
     output: true
     permalink: /projects/:path/
