@@ -10,8 +10,10 @@
   <header class="site-header">
     <a class="site-mark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
     {% include clock.html %}
-    {% include nav.html %}
-    {% include theme-toggle.html %}
+    <div class="nav-row">
+      {% include nav.html %}
+      {% include theme-toggle.html %}
+    </div>
   </header>
   <main>
     {{ content }}

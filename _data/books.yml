@@ -1,12 +1,17 @@
 - title: "Norwegian Wood"
   author: "Haruki Murakami"
   genre: fiction
+  status: completed
   link: "https://www.goodreads.com/book/show/11297.Norwegian_Wood"
+  summary: ""
 - title: "Sapiens"
   author: "Yuval Noah Harari"
   genre: nonfiction
+  status: completed
   link: "https://www.goodreads.com/book/show/23692271-sapiens"
+  summary: ""
 - title: "Project Hail Mary"
   author: "Andy Weir"
   genre: sci-fi
+  status: reading
   link: "https://www.goodreads.com/book/show/54493401-project-hail-mary"
