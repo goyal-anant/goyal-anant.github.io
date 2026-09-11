@@ -3,6 +3,7 @@ description: "Writing, projects, and books."
 url: "https://goyal-anant.github.io"
 baseurl: ""
 theme: null
+private_url: "https://anantgo.pages.dev"
 
 collections:
   rants:
