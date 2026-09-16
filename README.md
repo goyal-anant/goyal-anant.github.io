@@ -22,5 +22,5 @@ a thin wrapper that sets that up via `RUBYOPT` before calling Jekyll.
 
 - `_posts/` — blog posts
 - `_rants/` — rants
-- `_projects/` — projects
+- `_research/` — research
 - `_data/books.yml` — bookshelf entries

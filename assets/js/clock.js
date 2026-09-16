@@ -7,7 +7,7 @@
     el.textContent = now.toLocaleDateString(undefined, {
       weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
     }) + ' · ' + now.toLocaleTimeString(undefined, {
-      hour: 'numeric', minute: '2-digit'
+      hour: '2-digit', minute: '2-digit', hour12: false
     });
   }
   document.addEventListener('DOMContentLoaded', function () {

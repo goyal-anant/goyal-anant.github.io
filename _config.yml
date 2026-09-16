@@ -1,5 +1,5 @@
 title: Anant Goyal
-description: "Writing, projects, and books."
+description: "Writing, research, and books."
 url: "https://goyal-anant.github.io"
 baseurl: ""
 theme: null
@@ -9,9 +9,9 @@ collections:
   rants:
     output: true
     permalink: /rant/:path/
-  projects:
+  research:
     output: true
-    permalink: /projects/:path/
+    permalink: /research/:path/
 
 defaults:
   - scope:
@@ -26,7 +26,7 @@ defaults:
       layout: post
   - scope:
       path: ""
-      type: projects
+      type: research
     values:
       layout: page
 

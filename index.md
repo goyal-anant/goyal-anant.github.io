@@ -3,4 +3,4 @@ layout: home
 title: Home
 permalink: /
 ---
-Writing, projects, and books.
+Writing, research, music and books.

@@ -62,24 +62,24 @@ Your rant body in Markdown.
 
 **Remove:** delete the file.
 
-## 5. Add / edit / remove a project
+## 5. Add / edit / remove a research entry
 
-Projects live in `_projects/`.
+Research entries live in `_research/`.
 
-**Add:** create a file in `_projects/`:
+**Add:** create a file in `_research/`:
 
 ```markdown
 ---
-title: "Project Name"
+title: "Research Title"
 summary: "One-line description."
 link: "https://github.com/you/repo"
 ---
-Longer write-up in Markdown (optional — shown on the project's own page,
-not on the projects listing).
+Longer write-up in Markdown (optional — shown on the entry's own page,
+not on the research listing).
 ```
 
 `summary` and `link` are both optional but recommended — `summary` shows up
-on the projects listing page, `link` makes the project title clickable.
+on the research listing page, `link` makes the entry title clickable.
 
 **Edit:** open the file, change front matter or body, save.
 
@@ -107,9 +107,29 @@ render with the default/unstyled spine color until you add CSS for it.
 
 **Remove:** delete the entry (the `-`-prefixed block) from the list.
 
+## 6b. Add / edit / remove a music entry
+
+Music entries are data, in `_data/music.yml` as a flat list.
+
+**Add:** append an entry:
+
+```yaml
+- title: "Album or Track Title"
+  artist: "Artist Name"
+  thumbnail: "/assets/images/music/filename.jpg"
+  note: "Why you like it."
+```
+
+Drop the cover image file in `assets/images/music/` first, then point
+`thumbnail` at its path.
+
+**Edit:** change the relevant fields on that entry.
+
+**Remove:** delete the entry (the `-`-prefixed block) from the list.
+
 ## 7. Edit a static page
 
-`about.md`, `index.md`, `blog.md`, `bookshelf.md`, `rant.md`, `projects.md`
+`about.md`, `index.md`, `blog.md`, `bookshelf.md`, `music.md`, `rant.md`, `research.md`
 at the repo root are the site's fixed pages. Open the one you want, edit the
 content below the `---` front matter block, save. Don't touch the front
 matter (`layout`, `title`, `permalink`) unless you mean to change the page's
@@ -134,9 +154,9 @@ URL or template.
    <li><a href="{{ '/pagename/' | relative_url }}" {% if page.url contains '/pagename' %}class="active"{% endif %}>Page Name</a></li>
    ```
 
-## 9. Add a new content-type section (like rants or projects)
+## 9. Add a new content-type section (like rants or research)
 
-This mirrors how the rants and projects sections were set up.
+This mirrors how the rants and research sections were set up.
 
 1. **Create the collection folder**: `_pagename/` (e.g. `_talks/`).
 
@@ -164,7 +184,7 @@ This mirrors how the rants and projects sections were set up.
    a different layout if it needs its own template.)
 
 4. **Create items** in `_pagename/*.md` with whatever front matter fields
-   you need (follow the rants/projects examples above).
+   you need (follow the rants/research examples above).
 
 5. **Create a landing page** at the repo root, `pagename.md`, that lists
    the items — reuse the `post-list.html` include if it's a simple
@@ -179,7 +199,7 @@ This mirrors how the rants and projects sections were set up.
    {% include post-list.html posts=site.pagename %}
    ```
 
-   Or write a custom loop (see `projects.md` or `bookshelf.md` for examples
+   Or write a custom loop (see `research.md` or `bookshelf.md` for examples
    with extra fields).
 
 6. **Add a nav link** — same as step 2 in section 8.
