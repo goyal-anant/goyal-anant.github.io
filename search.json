@@ -24,6 +24,10 @@ permalink: /search.json
   {% unless first %},{% endunless %}{% assign first = false %}
   {"title": {{ track.title | jsonify }}, "url": {{ '/music/' | relative_url | jsonify }}, "section": "Music", "body": {{ track.artist | append: ' ' | append: track.note | jsonify }}}
 {% endfor %}
+{% for pick in site.data.picks %}
+  {% unless first %},{% endunless %}{% assign first = false %}
+  {"title": {{ pick.title | jsonify }}, "url": {{ '/picks/' | relative_url | jsonify }}, "section": "Picks", "body": {{ pick.note | jsonify }}}
+{% endfor %}
 {% for p in site.html_pages %}
   {% if p.title %}
     {% unless first %},{% endunless %}{% assign first = false %}

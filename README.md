@@ -24,3 +24,5 @@ a thin wrapper that sets that up via `RUBYOPT` before calling Jekyll.
 - `_rants/` — rants
 - `_research/` — research
 - `_data/books.yml` — bookshelf entries
+- `_data/music.yml` — music entries
+- `_data/picks.yml` — picks entries

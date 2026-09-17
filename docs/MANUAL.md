@@ -127,9 +127,27 @@ Drop the cover image file in `assets/images/music/` first, then point
 
 **Remove:** delete the entry (the `-`-prefixed block) from the list.
 
+## 6c. Add / edit / remove a pick
+
+Picks are data, in `_data/picks.yml` as a flat list, grouped by `type`
+on the page (any string works — video, article, how-to, etc.).
+
+**Add:** append an entry:
+
+```yaml
+- title: "Title of the thing"
+  type: article
+  link: "https://example.com"
+  note: "Why you picked it."
+```
+
+**Edit:** change the relevant fields on that entry.
+
+**Remove:** delete the entry (the `-`-prefixed block) from the list.
+
 ## 7. Edit a static page
 
-`about.md`, `index.md`, `blog.md`, `bookshelf.md`, `music.md`, `rant.md`, `research.md`
+`about.md`, `index.md`, `blog.md`, `bookshelf.md`, `music.md`, `picks.md`, `rant.md`, `research.md`
 at the repo root are the site's fixed pages. Open the one you want, edit the
 content below the `---` front matter block, save. Don't touch the front
 matter (`layout`, `title`, `permalink`) unless you mean to change the page's
