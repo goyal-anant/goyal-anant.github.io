@@ -12,6 +12,7 @@
     {% include clock.html %}
     <div class="nav-row">
       {% include nav.html %}
+      {% include search-toggle.html %}
       {% include theme-toggle.html %}
     </div>
   </header>
@@ -21,5 +22,8 @@
   {% include footer.html %}
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/clock.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/music.js' | relative_url }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
 </body>
 </html>

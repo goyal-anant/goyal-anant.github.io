@@ -75,7 +75,7 @@ a:hover { text-decoration: underline; }
   gap: 1rem;
 }
 body:not(.layout-home) .nav-row { flex: 1 1 auto; }
-body:not(.layout-home) #theme-toggle { margin-left: auto; }
+body:not(.layout-home) .search-box { margin-left: auto; }
 
 #theme-toggle {
   display: flex;
@@ -100,6 +100,72 @@ body:not(.layout-home) #theme-toggle { margin-left: auto; }
 #theme-toggle .icon-moon { display: none; }
 [data-theme="dark"] #theme-toggle .icon-sun { display: none; }
 [data-theme="dark"] #theme-toggle .icon-moon { display: block; }
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  line-height: 0;
+  transition: color 0.15s ease;
+}
+#search-toggle:hover { color: var(--fg); }
+#search-toggle svg { width: 1.05rem; height: 1.05rem; }
+#search-input {
+  width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--fg);
+  font-size: 0.9rem;
+  transition: width 0.15s ease, padding 0.15s ease;
+}
+.search-box.is-open #search-input {
+  width: 9rem;
+  padding: 0.2rem 0.4rem;
+  border-bottom: 1px solid var(--muted);
+  margin-left: 0.5rem;
+}
+#search-results {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 14rem;
+  max-width: 20rem;
+  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+#search-results:empty { display: none; }
+#search-results li:not(.search-empty) { display: block; }
+#search-results:not(:empty) { display: block; }
+#search-results a {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 3px;
+  color: var(--fg);
+}
+#search-results a:hover { background: color-mix(in srgb, var(--fg) 8%, transparent); text-decoration: none; }
+.search-result-title { font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-result-section { color: var(--muted); font-size: 0.75rem; white-space: nowrap; }
+.search-empty { padding: 0.4rem 0.5rem; color: var(--muted); font-size: 0.85rem; }
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) #theme-toggle .icon-sun { display: none; }
   :root:not([data-theme="light"]) #theme-toggle .icon-moon { display: block; }
@@ -239,14 +305,34 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1.25rem;
 }
+.music-thumb-wrap { position: relative; }
 .music-thumb {
+  display: block;
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
+.music-note {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+.music-thumb-wrap:hover .music-note,
+.music-thumb-wrap.is-open .music-note {
+  opacity: 1;
+}
 .music-info { margin-top: 0.5rem; }
 .music-title { display: block; font-weight: 600; }
 .music-artist { display: block; color: var(--muted); font-size: 0.85rem; }
-.music-note { margin: 0.4rem 0 0; font-size: 0.9rem; }

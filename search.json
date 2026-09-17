@@ -1,0 +1,33 @@
+---
+layout: null
+permalink: /search.json
+---
+[
+{% assign first = true %}
+{% for post in site.posts %}
+  {% unless first %},{% endunless %}{% assign first = false %}
+  {"title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "section": "Blog", "body": {{ post.content | strip_html | normalize_whitespace | truncatewords: 60 | jsonify }}}
+{% endfor %}
+{% for rant in site.rants %}
+  {% unless first %},{% endunless %}{% assign first = false %}
+  {"title": {{ rant.title | jsonify }}, "url": {{ rant.url | relative_url | jsonify }}, "section": "Rant", "body": {{ rant.content | strip_html | normalize_whitespace | truncatewords: 60 | jsonify }}}
+{% endfor %}
+{% for item in site.research %}
+  {% unless first %},{% endunless %}{% assign first = false %}
+  {"title": {{ item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "section": "Research", "body": {{ item.content | strip_html | normalize_whitespace | truncatewords: 60 | jsonify }}}
+{% endfor %}
+{% for book in site.data.books %}
+  {% unless first %},{% endunless %}{% assign first = false %}
+  {"title": {{ book.title | jsonify }}, "url": {{ '/bookshelf/' | relative_url | jsonify }}, "section": "Bookshelf", "body": {{ book.author | append: ' ' | append: book.genre | append: ' ' | append: book.summary | jsonify }}}
+{% endfor %}
+{% for track in site.data.music %}
+  {% unless first %},{% endunless %}{% assign first = false %}
+  {"title": {{ track.title | jsonify }}, "url": {{ '/music/' | relative_url | jsonify }}, "section": "Music", "body": {{ track.artist | append: ' ' | append: track.note | jsonify }}}
+{% endfor %}
+{% for p in site.html_pages %}
+  {% if p.title %}
+    {% unless first %},{% endunless %}{% assign first = false %}
+    {"title": {{ p.title | jsonify }}, "url": {{ p.url | relative_url | jsonify }}, "section": "Page", "body": ""}
+  {% endif %}
+{% endfor %}
+]
