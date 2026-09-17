@@ -336,3 +336,47 @@ main {
 .music-info { margin-top: 0.5rem; }
 .music-title { display: block; font-weight: 600; }
 .music-artist { display: block; color: var(--muted); font-size: 0.85rem; }
+
+.music-controls {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.music-play,
+.music-apple-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
+  color: var(--fg);
+  cursor: pointer;
+}
+.music-apple-link { color: var(--muted); }
+.music-play svg,
+.music-apple-link svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.music-play .icon-play { fill: currentColor; stroke: none; }
+.music-play .icon-vinyl { display: none; }
+.music-play .vinyl-groove,
+.music-play .vinyl-label { fill: none; }
+.music-play .vinyl-label { fill: currentColor; }
+.music-play.is-playing .icon-play { display: none; }
+.music-play.is-playing .icon-vinyl {
+  display: block;
+  animation: vinyl-spin 1.8s linear infinite;
+}
+
+@keyframes vinyl-spin {
+  to { transform: rotate(360deg); }
+}
