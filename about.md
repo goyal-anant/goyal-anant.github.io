@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-It is very difficult to detach *I* from existence but to experiment I will try to speak in the third person. It is important to detach *I* if you are talking about self while being honest because only by detaching you will be able to see yourself.
+It is very difficult to detach *I* from existence, but to experiment, I will try to speak in the third person. It is important to detach *I* if you are talking about self while being honest, because only by detaching you will be able to see yourself.
 
 Anant is a human, a friend, a brother, and a son. At present, he is earning PhD at [NEMO](https://www.ee.iitm.ac.in/uday/nemo.html), Indian Institute of Technology Madras, India, where he works on intelligent wireless power transfer systems, inverse design of metasurfaces, and computational electromagnetics with [Prof. Uday Khankhoje](https://www.ee.iitm.ac.in/uday/).
 
