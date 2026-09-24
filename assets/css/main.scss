@@ -236,6 +236,7 @@ main {
 .post { overflow-wrap: break-word; }
 /* wide display equations scroll inside themselves on phones */
 .post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+.post-readtime { color: var(--muted); }
 .post-subtitle {
   margin-top: -0.5rem;
   color: var(--muted);
