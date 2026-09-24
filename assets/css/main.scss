@@ -436,11 +436,10 @@ main {
 .cg-swatch {
   display: inline-block;
   flex: none;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  border: 1px solid var(--muted);
+  width: 2.4rem;
+  height: 2.4rem;
 }
+.cg-swatch path { stroke: var(--muted); stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
 .cg-feedback { min-height: 1.5rem; }
 .cg-next { margin-top: 0.25rem; }
 .colour-game { position: relative; }
@@ -451,4 +450,4 @@ main {
 .cg-slider input { flex: 1; }
 .cg-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.75rem; }
 .cg-item { margin: 0; text-align: center; font-size: 0.9rem; }
-.cg-item .cg-swatch { width: 3.5rem; height: 3.5rem; display: block; margin: 0 auto 0.35rem; }
+.cg-item .cg-swatch { width: 4rem; height: 4rem; display: block; margin: 0 auto 0.35rem; }

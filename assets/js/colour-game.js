@@ -104,8 +104,7 @@
     }
     var pr = at(R, 620), pg = at(R, 530);
     return 'Your screen\'s "yellow" is red light plus green light. The ' + obj + ' reflects about ' + pct(pr) +
-      '% of the red and ' + pct(pg) + '% of the green, so ' +
-      (pr > 1.5 * pg ? 'the red wins and it looks reddish.' : pg > 1.5 * pr ? 'the green wins and it looks greenish.' : 'it stays yellowish.');
+      '% of the red and ' + pct(pg) + '% of the green, and that mix comes back to your eye as ' + S[obj].name + '.';
   }
 
   var scenes = {};
@@ -117,11 +116,27 @@
     if (text) e.textContent = text;
     return e;
   }
-  function swatch(c) {
-    var s = el('span', 'cg-swatch');
-    s.style.background = c.css;
-    s.setAttribute('aria-hidden', 'true');
-    return s;
+  // Outline shapes (40 x 40 box): [filled body, extra detail lines drawn on top]
+  var APPLE = ['M20 12C14 7 5 9 5 20c0 10 7 17 12 16 2-.5 4-.5 6 0 5 1 12-6 12-16 0-11-9-13-15-8z', 'M20 12c0-3 1-6 3-8'];
+  var SHAPES = {
+    'red apple': APPLE, 'green apple': APPLE,
+    'apple leaf': ['M6 34C6 16 18 6 35 5c-1 17-11 29-29 29z', 'M6 34L30 10'],
+    'white paper': ['M8 5h18l6 6v24H8z', 'M26 5v6h6']
+  };
+  var NS = 'http://www.w3.org/2000/svg';
+  function swatch(c, obj) {
+    var svg = document.createElementNS(NS, 'svg'), shape = SHAPES[obj];
+    svg.setAttribute('viewBox', '0 0 40 40');
+    svg.setAttribute('class', 'cg-swatch');
+    svg.setAttribute('aria-hidden', 'true');
+    var body = document.createElementNS(NS, 'path');
+    body.setAttribute('d', shape[0]);
+    body.setAttribute('fill', c.css);
+    var line = document.createElementNS(NS, 'path');
+    line.setAttribute('d', shape[1]);
+    line.setAttribute('fill', 'none');
+    svg.appendChild(body); svg.appendChild(line);
+    return svg;
   }
 
   var reset = el('button', 'cg-reset', 'Reset');
@@ -176,7 +191,7 @@
     opts.forEach(function (c) {
       var b = el('button', 'cg-option');
       b.type = 'button';
-      b.appendChild(swatch(c));
+      b.appendChild(swatch(c, obj));
       b.appendChild(el('span', null, c.name));
       b.onclick = function () {
         var ok = c === right;
@@ -214,7 +229,7 @@
     row.innerHTML = '';
     OBJECTS.forEach(function (o) {
       var f = el('figure', 'cg-item');
-      f.appendChild(swatch(S[o]));
+      f.appendChild(swatch(S[o], o));
       f.appendChild(el('figcaption', null, o + ': ' + S[o].name));
       row.appendChild(f);
     });
