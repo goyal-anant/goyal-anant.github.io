@@ -1,6 +1,6 @@
 ---
 title: "Why is an apple red?"
-subtitle: "And what happens when you take the red away"
+subtitle: "And what happens when you take the red away?"
 ---
 A few questions have been bothering me for a while:
 
@@ -356,6 +356,15 @@ So to do this experiment properly, you need truly monochromatic light:
 
 Put a red apple, a green apple, and something white next to each other and watch the colours drain out. I'd love to see your photos if you try this :)
 
+## Try it yourself
+
+If you don't have a sodium lamp lying around (I don't either), here is a small game. For every question, the page actually computes the colour: it multiplies the spectrum of the light with how much the object reflects at each wavelength, feeds that into the standard colour-matching functions of the human eye[^cie1931], and converts the result into a colour your screen can show. Sunlight is the CIE standard daylight spectrum D65[^d65], and the leaf is a real apple leaf, measured with a spectroradiometer[^braun]. Guess first, then read why.
+
+<div id="colour-game" class="colour-game"><noscript>This game needs JavaScript.</noscript></div>
+<script src="/assets/js/colour-game.js" defer></script>
+
+*A few honest caveats. The two apples use the schematic curves of Figure 4, not measured data. The phone's "yellow" is modelled as two narrow bands at 530 and 620 nm, mixed so that the cones see the same ratio as they do for 589 nm light; real screens differ a little. White paper is idealised as reflecting 90% at every wavelength. And your screen cannot show the pure, saturated yellow of a sodium lamp at all, so the game shows the closest colour it can.*
+
 ## So, how does anything take colour?
 
 Putting it all together: an object's colour is the part of the light which it doesn't absorb, as decoded by three types of cells in our eyes. The absorbing is done by molecules which behave like tiny tuned receivers, and the reflecting is helped along by every boundary where the refractive index jumps. An apple is green when chlorophyll is taking out the red and blue, red when anthocyanin is taking out the green, brown when broken cells let an enzyme build a new brown pigment, and glassy when its air pockets fill with liquid. Change the light and the colour changes with it.
@@ -413,6 +422,12 @@ Until next time.
 [^woolley]: J. T. Woolley, "Reflectance and Transmittance of Light by Leaves," *Plant Physiology*, vol. 47, no. 5, pp. 656--662, 1971. <https://doi.org/10.1104/pp.47.5.656>
 
 [^umdwater]: M. Farcuh, "Water core in apples: what is it, what causes it and how can it be controlled?," University of Maryland Extension. <https://extension.umd.edu/resource/water-core-apples-what-it-what-causes-it-and-how-can-it-be-controlled>
+
+[^cie1931]: CIE, "CIE 1931 colour-matching functions, 2 degree observer," CIE data table, <https://doi.org/10.25039/CIE.DS.xvudnb9b>; values used from the CVRL database, <http://www.cvrl.org/>
+
+[^d65]: CIE, "CIE standard illuminant D65," CIE data table. <https://doi.org/10.25039/CIE.DS.hjfjmt59>
+
+[^braun]: A. Braun et al., "A Multi-Temporal Field Spectroscopy Dataset of Apple Leaf Reflectance for Tree Vitality Monitoring," Zenodo, 2026, CC BY 4.0. <https://doi.org/10.5281/zenodo.22143346> The game uses the mean of the 30 spectra measured on 16 July 2025.
 
 [^janisiewicz]: W. Janisiewicz and A. R. Biggs, "Blue Mold on Apple," Extension Foundation. <https://apples.extension.org/blue-mold-on-apple/>
 

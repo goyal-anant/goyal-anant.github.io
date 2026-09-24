@@ -408,3 +408,45 @@ main {
 @keyframes vinyl-spin {
   to { transform: rotate(360deg); }
 }
+
+/* colour game in "Why is an apple red?" */
+.colour-game {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+}
+.colour-game button {
+  font: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+.colour-game button:disabled { cursor: default; }
+.colour-game button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.cg-title { font-weight: 600; margin: 0.25rem 0 0.75rem; }
+.cg-count { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.cg-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.5rem; }
+.cg-option { display: flex; align-items: center; gap: 0.5rem; text-align: left; }
+.colour-game .cg-right { border: 2px solid #2e9e4f; }
+.colour-game .cg-wrong { border: 2px solid #c0282d; }
+.cg-swatch {
+  display: inline-block;
+  flex: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--muted);
+}
+.cg-feedback { min-height: 1.5rem; }
+.cg-next { margin-top: 0.25rem; }
+.cg-play { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--muted); }
+.cg-lights { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.cg-slider { display: flex; align-items: center; gap: 0.75rem; margin: 0.75rem 0; }
+.cg-slider input { flex: 1; }
+.cg-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.75rem; }
+.cg-item { margin: 0; text-align: center; font-size: 0.9rem; }
+.cg-item .cg-swatch { width: 3.5rem; height: 3.5rem; display: block; margin: 0 auto 0.35rem; }
