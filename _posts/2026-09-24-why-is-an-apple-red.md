@@ -241,7 +241,7 @@ It sounds reasonable. The last part is even right: a brown apple *does* absorb m
 
 First, the time scale doesn't fit. Cut an apple and leave it on the table: the surface turns brown in minutes. No significant number of cells disappears in a few minutes, so something must be getting added.
 
-And what gets added is a new pigment. Inside an apple cell, the enzyme polyphenol oxidase (PPO) sits in small compartments called plastids, while its raw material, the phenolic compounds, is stored in the vacuole. In a healthy cell the two never meet, so there is no browning. When the compartments break, by cutting, bruising, insects, or simply by ageing, the enzyme meets the phenolics in the presence of oxygen and turns them into quinones, which then chemically link up into brown polymers[^murata]. The same mechanism is behind the browning of fresh-cut apple, puree, and juice, which the food industry spends a lot of effort to prevent[^arnold]. In the language of the electromagnetic section, the broken cell builds a brand new set of receivers.
+And what gets added is a new pigment. Inside an apple cell, the enzyme polyphenol oxidase (PPO) sits in small compartments called plastids, while its raw material, the phenolic compounds, is stored in the vacuole. In a healthy cell the two never meet, so there is no browning. When the compartments break, by cutting, bruising, insects, or just by ageing, the enzyme meets the phenolics in the presence of oxygen and turns them into quinones, which then chemically link up into brown polymers[^murata]. The same mechanism is behind the browning of fresh-cut apple, puree, and juice, which the food industry spends a lot of effort to prevent[^arnold]. In the language of the electromagnetic section, the broken cell builds a brand new set of receivers.
 
 <figure>
 <svg viewBox="0 0 640 220" role="img" aria-labelledby="fig2title fig2desc" style="width:100%;height:auto;max-width:640px;font-family:inherit">
@@ -348,7 +348,7 @@ Our eyes explain why. Look at the dashed line in Figure 2: at 589 nm the S-cones
 
 Here is the trap. If you open a picture of plain yellow on your phone and hold an apple in front of it, the apple will still look reddish. Why? Because your screen has no yellow light. Each pixel has only red, green, and blue sub-pixels, and "yellow" on a screen is red plus green light at the same time. Our eyes can't tell the difference: all that matters is how strongly the M- and L-cones fire, and a suitable mix of red and green makes them fire just like pure 589 nm light does. This is the whole reason almost any colour can be matched by mixing three primaries[^kalloniatis]. Two lights with completely different spectra look the same to us, but the apple is not fooled: it reflects the red part of your "yellow" screen and looks red.
 
-So to do this experiment properly, you need truly monochromatic light:
+So to do this experiment properly, you need pure monochromatic light:
 
 1. A sodium lamp, if you can still find one.
 2. A sodium flame. Sprinkle a pinch of table salt into a gas flame (a gas stove works) in a dark room. The bright yellow you see is the same sodium D-line emission[^nist]. It is not very bright, so keep the apple close, and be careful with the fire.

@@ -95,7 +95,7 @@
   function pct(v) { return Math.round(v * 100); }
   function explain(obj, key, S) {
     var R = D.objects[obj];
-    if (key === 'sun') return 'Sunlight has every colour in it, so the ' + obj + ' simply shows its own colour.';
+    if (key === 'sun') return 'Sunlight has every colour in it, so the ' + obj + ' just shows its own colour.';
     if (key === 'sodium') {
       var rel = S[obj].Y / S['white paper'].Y;
       return 'The sodium lamp gives only 589 nm light, so all the ' + obj + ' can do is reflect more or less of it: about ' +
