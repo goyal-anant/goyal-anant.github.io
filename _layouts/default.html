@@ -25,5 +25,12 @@
   <script src="{{ '/assets/js/music.js' | relative_url }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
   <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+  <script>
+    // Open links to other sites in a new tab.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href]');
+      if (a && /^https?:$/.test(a.protocol) && a.origin !== location.origin) a.target = '_blank';
+    });
+  </script>
 </body>
 </html>
