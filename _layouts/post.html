@@ -4,6 +4,7 @@ layout: default
 <article class="post">
   <p class="post-date">{{ page.date | date: "%d %b %Y" }}</p>
   <h1>{{ page.title }}</h1>
+  {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
   {{ content }}
 </article>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

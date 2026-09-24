@@ -1,5 +1,6 @@
 ---
-title: "Why is an apple red? (And what happens when you take the red away)"
+title: "Why is an apple red?"
+subtitle: "And what happens when you take the red away"
 ---
 A few questions have been bothering me for a while:
 
@@ -10,13 +11,13 @@ A few questions have been bothering me for a while:
 
 I also had my own guess for the third one, which I will come back to, because it turned out to be wrong in an interesting way.
 
-In my PhD I work with electromagnetic waves, mostly at a few megahertz, for wireless power transfer. Light is the same thing, just at a much higher frequency. Red light with a wavelength of $$\lambda = 600$$ nm oscillates at
+I work with electromagnetic waves every day, mostly somewhere between a few MHz and a few GHz. Light is the same thing, just at a much, much higher frequency. Red light with a wavelength of $$\lambda = 600$$ nm oscillates at
 
 $$
 f = \frac{c}{\lambda} = \frac{3 \times 10^{8}\ \text{m/s}}{600 \times 10^{-9}\ \text{m}} = 5 \times 10^{14}\ \text{Hz},
 $$
 
-i.e. 500 THz. So, this topic is not too far from home for me, and I will look at it the way I look at my own antennas and coils in a separate section.
+i.e. 500 THz. So, this topic is not too far from home for me, and in a separate section I will look at it the way I look at my own antennas and coils.
 
 ## How does anything take colour?
 

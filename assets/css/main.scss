@@ -236,6 +236,14 @@ main {
 .post { overflow-wrap: break-word; }
 /* wide display equations scroll inside themselves on phones */
 .post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+.post-subtitle {
+  margin-top: -0.5rem;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+.post figure { margin: 1.5rem auto; }
+.post figure svg,
+.post figure img { display: block; margin: 0 auto; }
 
 .post-list {
   list-style: none;
