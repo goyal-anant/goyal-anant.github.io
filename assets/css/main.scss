@@ -234,6 +234,8 @@ main {
 
 /* long URLs (e.g. in footnotes) must wrap instead of widening the page */
 .post { overflow-wrap: break-word; }
+/* wide display equations scroll inside themselves on phones */
+.post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
 
 .post-list {
   list-style: none;
