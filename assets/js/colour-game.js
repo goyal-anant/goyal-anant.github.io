@@ -124,6 +124,11 @@
     return s;
   }
 
+  var reset = el('button', 'cg-reset', 'Reset');
+  reset.type = 'button';
+  reset.setAttribute('aria-label', 'Reset the game: new questions, score back to zero');
+  root.appendChild(reset);
+
   /* ---------- quiz ---------- */
   var quiz = el('div', 'cg-quiz');
   root.appendChild(quiz);
@@ -230,6 +235,11 @@
   play.appendChild(sl);
   play.appendChild(row);
   root.appendChild(play);
+
+  reset.onclick = function () {
+    current = 'sun'; slider.value = 589;
+    start(); render();
+  };
 
   start();
   render();

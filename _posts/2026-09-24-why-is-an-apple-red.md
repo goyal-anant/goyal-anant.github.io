@@ -363,7 +363,7 @@ If you don't have a sodium lamp lying around (I don't either), here is a small g
 <div id="colour-game" class="colour-game"><noscript>This game needs JavaScript.</noscript></div>
 <script src="/assets/js/colour-game.js" defer></script>
 
-*A few honest caveats. The two apples use the schematic curves of Figure 4, not measured data. The phone's "yellow" is modelled as two narrow bands at 530 and 620 nm, mixed so that the cones see the same ratio as they do for 589 nm light; real screens differ a little. White paper is idealised as reflecting 90% at every wavelength. And your screen cannot show the pure, saturated yellow of a sodium lamp at all, so the game shows the closest colour it can.*
+*A few things to know about the game. The two apples use the schematic curves of Figure 4, not measured data. The phone's "yellow" is modelled as two narrow bands at 530 and 620 nm, mixed so that the cones see the same ratio as they do for 589 nm light; real screens differ a little. White paper is idealised as reflecting 90% at every wavelength. And your screen cannot show the pure, saturated yellow of a sodium lamp at all, so the game shows the closest colour it can.*
 
 ## So, how does anything take colour?
 

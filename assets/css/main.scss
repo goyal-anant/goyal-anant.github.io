@@ -443,6 +443,8 @@ main {
 }
 .cg-feedback { min-height: 1.5rem; }
 .cg-next { margin-top: 0.25rem; }
+.colour-game { position: relative; }
+.colour-game .cg-reset { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 0.85rem; padding: 0.2rem 0.6rem; }
 .cg-play { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--muted); }
 .cg-lights { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .cg-slider { display: flex; align-items: center; gap: 0.75rem; margin: 0.75rem 0; }
