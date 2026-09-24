@@ -208,14 +208,14 @@ The figure below is a sketch of what this looks like as a spectrum.
   <polyline fill="none" stroke="#3a9d3a" stroke-width="3" stroke-linejoin="round"
     points="60,233 132,233 204,225 258,187 294,162 330,156 366,166 420,187 474,204 528,225 555,227 582,187 600,156"/>
   <polyline fill="none" stroke="#c0282d" stroke-width="3" stroke-linejoin="round"
-    points="60,237 204,240 276,242 330,244 384,240 420,229 456,198 492,166 528,156 564,145 600,135"/>
+    points="60,244 150,245.6 384,246.7 420,236.8 456,184 492,140 600,118"/>
   <line x1="400" y1="30" x2="400" y2="250" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4"/>
   <g font-size="13" fill="currentColor">
     <text x="406" y="44">sodium lamp, 589 nm</text>
   </g>
   <g font-size="14" font-weight="600">
     <text x="300" y="146" fill="#3a9d3a">green apple</text>
-    <text x="470" y="130" fill="#c0282d">red apple</text>
+    <text x="520" y="112" fill="#c0282d">red apple</text>
   </g>
 </svg>
 </figure>
