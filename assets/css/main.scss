@@ -232,6 +232,9 @@ main {
   text-align: center;
 }
 
+/* long URLs (e.g. in footnotes) must wrap instead of widening the page */
+.post { overflow-wrap: break-word; }
+
 .post-list {
   list-style: none;
   margin: 0;
