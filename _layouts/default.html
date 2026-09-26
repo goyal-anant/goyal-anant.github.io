@@ -15,6 +15,9 @@
   {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
   <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% if jekyll.environment == "production" %}
+  <script data-goatcounter="https://anantgo.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {% endif %}
 </head>
 <body class="layout-{{ page.layout }}">
   <header class="site-header">
