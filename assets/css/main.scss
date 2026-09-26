@@ -260,6 +260,7 @@ main {
 .post figure { margin: 1.5rem auto; }
 .post figure svg,
 .post figure img { display: block; margin: 0 auto; }
+.post img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
 
 .post-list {
   list-style: none;

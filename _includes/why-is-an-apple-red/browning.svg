@@ -1,0 +1,27 @@
+<figure>
+<svg viewBox="0 0 640 220" role="img" aria-labelledby="fig2title fig2desc" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="fig2title">Why a cut apple turns brown</title>
+  <desc id="fig2desc">Left: an intact cell where the phenolics in the vacuole and the PPO enzyme in a plastid are kept apart by membranes. Right: a damaged cell where they mix with oxygen and form brown pigments.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="30" y="40" width="250" height="140" rx="30"/>
+    <path d="M360 40 h70 l12 14 l14 -14 h124 a30 30 0 0 1 30 30 v30 l-14 10 l14 12 v38 a30 30 0 0 1 -30 30 h-190 l-10 -12 l-12 12 a30 30 0 0 1 -8 -2 a30 30 0 0 1 -30 -30 v-80 a30 30 0 0 1 30 -30 z"/>
+  </g>
+  <ellipse cx="120" cy="110" rx="70" ry="45" fill="#8fb3e0" fill-opacity="0.35" stroke="currentColor" stroke-width="1.5"/>
+  <ellipse cx="230" cy="110" rx="32" ry="20" fill="#7fbf7f" fill-opacity="0.45" stroke="currentColor" stroke-width="1.5"/>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="120" y="106">vacuole:</text>
+    <text x="120" y="123">phenolics</text>
+    <text x="230" y="106">plastid:</text>
+    <text x="230" y="123">PPO</text>
+    <text x="155" y="26" font-weight="600">healthy cell: kept apart</text>
+    <text x="485" y="26" font-weight="600">cut or bruised: they meet</text>
+    <text x="155" y="206">no browning</text>
+    <text x="485" y="206">phenolics + PPO + oxygen: brown pigment</text>
+  </g>
+  <g fill="#8b5a2b">
+    <circle cx="420" cy="90" r="7"/><circle cx="455" cy="120" r="9"/><circle cx="500" cy="85" r="6"/>
+    <circle cx="530" cy="135" r="8"/><circle cx="480" cy="150" r="6"/><circle cx="560" cy="95" r="7"/>
+    <circle cx="410" cy="140" r="6"/><circle cx="515" cy="110" r="5"/>
+  </g>
+</svg>
+</figure>

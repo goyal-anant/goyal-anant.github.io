@@ -1,0 +1,43 @@
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-labelledby="fig1title fig1desc" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="fig1title">Reflectance of green and red apple skin (schematic)</title>
+  <desc id="fig1desc">Schematic reflectance curves across the visible spectrum. Green apple skin reflects most around 550 nm and dips near 670 nm. Red apple skin reflects very little below 600 nm and a lot above 620 nm. A dashed line at 589 nm marks the sodium lamp, where the red apple reflects almost nothing.</desc>
+  <defs>
+    <linearGradient id="spectrum" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#8b00ff"/>
+      <stop offset="18.5%" stop-color="#0050ff"/>
+      <stop offset="33%" stop-color="#00c8ff"/>
+      <stop offset="44%" stop-color="#00d000"/>
+      <stop offset="63%" stop-color="#e0f000"/>
+      <stop offset="70%" stop-color="#ffb000"/>
+      <stop offset="81%" stop-color="#ff4000"/>
+      <stop offset="100%" stop-color="#b00000"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="60" y1="250" x2="600" y2="250"/>
+    <line x1="60" y1="30" x2="60" y2="250"/>
+  </g>
+  <rect x="60" y="256" width="540" height="10" fill="url(#spectrum)"/>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="60" y="284">400</text>
+    <text x="240" y="284">500</text>
+    <text x="420" y="284">600</text>
+    <text x="600" y="284">700</text>
+    <text x="330" y="306">wavelength (nm)</text>
+    <text x="22" y="140" transform="rotate(-90 22 140)">light reflected</text>
+  </g>
+  <polyline fill="none" stroke="#3a9d3a" stroke-width="3" stroke-linejoin="round"
+    points="60,233 132,233 204,225 258,187 294,162 330,156 366,166 420,187 474,204 528,225 555,227 582,187 600,156"/>
+  <polyline fill="none" stroke="#c0282d" stroke-width="3" stroke-linejoin="round"
+    points="60,244 150,245.6 384,246.7 420,236.8 456,184 492,140 600,118"/>
+  <line x1="400" y1="30" x2="400" y2="250" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g font-size="13" fill="currentColor">
+    <text x="406" y="44">sodium lamp, 589 nm</text>
+  </g>
+  <g font-size="14" font-weight="600">
+    <text x="300" y="146" fill="#3a9d3a">green apple</text>
+    <text x="520" y="112" fill="#c0282d">red apple</text>
+  </g>
+</svg>
+</figure>

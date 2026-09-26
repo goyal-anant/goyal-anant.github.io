@@ -1,0 +1,16 @@
+<figure>
+<svg viewBox="0 0 640 190" role="img" aria-labelledby="figfrt figfrd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figfrt">Fraction of light reflected at a single boundary</title>
+  <desc id="figfrd">cell wall | air: 3.07 percent; water | air: 2.01 percent; cell wall | water: 0.12 percent.</desc>
+  <text x="150" y="49" font-size="14" fill="currentColor" text-anchor="end">cell wall | air</text>
+  <rect x="160" y="30" width="380.0" height="28" fill="#c9a227"/>
+  <text x="546.0" y="49" font-size="14" font-weight="600" fill="currentColor">3.07%</text>
+  <text x="150" y="99" font-size="14" fill="currentColor" text-anchor="end">water | air</text>
+  <rect x="160" y="80" width="248.2" height="28" fill="#8aa9c9"/>
+  <text x="414.2" y="99" font-size="14" font-weight="600" fill="currentColor">2.01%</text>
+  <text x="150" y="149" font-size="14" fill="currentColor" text-anchor="end">cell wall | water</text>
+  <rect x="160" y="130" width="14.7" height="28" fill="#2f6fb0"/>
+  <text x="180.7" y="149" font-size="14" font-weight="600" fill="currentColor">0.12%</text>
+  <text x="160" y="182" font-size="13" fill="currentColor">light reflected at one boundary, at normal incidence</text>
+</svg>
+</figure>
