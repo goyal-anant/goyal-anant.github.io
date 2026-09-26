@@ -27,5 +27,12 @@ layout: default
       scrollTo({ top: 0, behavior: reduce.matches ? 'auto' : 'smooth' });
     });
   })();
+  // footnote references written back to back ([^a][^b]) get a comma between them: 22,24 not 2224
+  document.querySelectorAll('sup[role="doc-noteref"]').forEach(function (s) {
+    var p = s.previousSibling;
+    if (p && p.nodeName === 'SUP' && p.matches('[role="doc-noteref"]')) {
+      s.insertAdjacentHTML('beforebegin', '<sup>,</sup>');
+    }
+  });
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
