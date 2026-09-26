@@ -247,6 +247,8 @@ main {
 
 /* long URLs (e.g. in footnotes) must wrap instead of widening the page */
 .post { overflow-wrap: break-word; }
+/* a footnote cited several times gets one ↩, which returns to wherever the reader came from */
+.reversefootnote + .reversefootnote { display: none; }
 /* wide display equations scroll inside themselves on phones */
 .post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
 .post-readtime { color: var(--muted); }

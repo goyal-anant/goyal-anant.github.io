@@ -33,6 +33,25 @@
       var a = e.target.closest('a[href]');
       if (a && /^https?:$/.test(a.protocol) && a.origin !== location.origin) a.target = '_blank';
     });
+
+    // After jumping from a reference to its footnote, the footnote's ↩ link
+    // goes back in history, which restores the exact scroll position.
+    var footnoteHash = null;
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a.footnote, a.reversefootnote');
+      if (!a) return;
+      if (a.classList.contains('footnote')) {
+        footnoteHash = a.hash;
+      } else if (footnoteHash) {
+        e.preventDefault();
+        footnoteHash = null;
+        history.back();
+      }
+    });
+    // If the reader leaves that footnote with Back or Forward, there is no jump to undo.
+    addEventListener('popstate', function () {
+      if (location.hash !== footnoteHash) footnoteHash = null;
+    });
   </script>
 </body>
 </html>
