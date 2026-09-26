@@ -41,7 +41,7 @@ There is a second half to this story, which sits in our eyes. We have three type
 
 ## The electromagnetic view
 
-Everything above is chemistry language: electrons, bonds, energy levels. But light is an electromagnetic wave, and I can't help asking what my own field says about all this. It turns out it says quite a lot.
+Everything above is chemistry: electrons, bonds, energy levels. But light is an electromagnetic wave, and I can't help asking what my own field says about all this. As it turns out it says quite a lot.
 
 First, the energy. A photon of frequency $$\nu$$ carries energy $$E = h\nu = hc/\lambda$$, where $$h = 6.626\,070\,15 \times 10^{-34}$$ J/Hz is the Planck constant[^nist_h]. For green light at 550 nm,
 
@@ -193,6 +193,9 @@ If you don't have a sodium lamp lying around (I don't either), here is a small g
 An object's colour is the part of the light which it doesn't absorb, as decoded by three types of cells in our eyes. The absorbing is done by molecules which behave like tiny tuned receivers, and the reflecting is helped along by every boundary where the refractive index jumps. An apple is green when chlorophyll is taking out the red and blue, red when anthocyanin is taking out the green, brown when broken cells let an enzyme build a new brown pigment, and glassy when its air pockets fill with liquid. Change the light source and the colour changes with it.
 
 Until next time.
+
+
+PS: I didn't read as much chemistry in my high school as I read to write this article, but it was all worth it.
 
 ---
 
