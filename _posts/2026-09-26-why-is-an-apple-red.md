@@ -1,6 +1,7 @@
 ---
 title: "Why is an apple red?"
 subtitle: "And what happens when you take the red away?"
+image: /assets/images/why-is-an-apple-red/watercore.jpg
 ---
 A few questions have been bothering me for a while:
 

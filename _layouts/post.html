@@ -15,7 +15,20 @@ layout: default
   <p class="post-date">{{ page.date | date: "%d %b %Y" }} <span class="post-readtime">&middot; {{ minutes }} min read</span></p>
   <h1>{{ page.title }}</h1>
   {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
-  {{ content }}
+  {% comment %} share sits after the body, before the "---" + "## References" block if the post has one, else before the footnotes {% endcomment %}
+  {% capture tail %}<hr />
+
+<h2 id="references"{% endcapture %}
+  {% unless content contains tail %}{% assign tail = '<div class="footnotes"' %}{% endunless %}
+  {% assign main = content | split: tail %}
+  {{ main | first }}
+  <button id="share" type="button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M8 11H6a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-2"></path>
+    </svg>
+    <span aria-live="polite">Share</span>
+  </button>
+  {% if main.size > 1 %}{{ tail }}{{ main | last }}{% endif %}
 </article>
 <button id="to-top" type="button" aria-label="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -31,6 +44,19 @@ layout: default
     update();
     btn.addEventListener('click', function () {
       scrollTo({ top: 0, behavior: reduce.matches ? 'auto' : 'smooth' });
+    });
+  })();
+  // share sheet where the browser has one, otherwise copy the public link
+  (function () {
+    var btn = document.getElementById('share');
+    var label = btn.querySelector('span');
+    var data = { title: btn.dataset.title, url: btn.dataset.url };
+    btn.addEventListener('click', function () {
+      if (navigator.share) return navigator.share(data).catch(function () {});
+      navigator.clipboard.writeText(data.url).then(function () {
+        label.textContent = 'Link copied';
+        setTimeout(function () { label.textContent = 'Share'; }, 2000);
+      });
     });
   })();
   // footnote references written back to back ([^a][^b]) get a comma between them: 22,24 not 2224
