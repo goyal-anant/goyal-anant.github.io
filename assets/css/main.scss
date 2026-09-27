@@ -245,6 +245,16 @@ main {
   text-align: center;
 }
 
+/* phones: thin strip; home stacks into one centered column */
+@media (max-width: 600px) {
+  body { border-left-width: 15px; }
+  .layout-home .site-header { min-height: auto; padding-top: 25vh; }
+  .layout-home .nav-row { flex-wrap: wrap; justify-content: center; }
+  .layout-home .site-nav { flex-basis: 100%; }
+  .layout-home .site-nav ul { justify-content: center; }
+  .layout-home main { align-items: flex-start; padding-top: 1rem; }
+}
+
 /* long URLs (e.g. in footnotes) must wrap instead of widening the page */
 .post { overflow-wrap: break-word; }
 /* a footnote cited several times gets one ↩, which returns to wherever the reader came from */
