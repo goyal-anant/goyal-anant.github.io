@@ -5,6 +5,9 @@
     docs = {};
     items.forEach(function (item, i) { item.id = String(i); docs[item.id] = item; });
     return lunr(function () {
+      // Keep common words like "why" and "the": titles here are short, so they matter.
+      this.pipeline.remove(lunr.stopWordFilter);
+      this.searchPipeline.remove(lunr.stopWordFilter);
       this.ref('id');
       this.field('title', { boost: 10 });
       this.field('body');
@@ -14,7 +17,16 @@
 
   function render(query) {
     if (!query) { results.innerHTML = ''; return; }
-    var hits = idx.search(query + (query.length > 2 ? '*' : ''));
+    // Match each word as typed (stemmed, so "apple" finds "appl") and as a prefix
+    // of longer words. Building the query directly also means characters like
+    // ":" or "~" in the input can't break lunr's query parser.
+    var hits = idx.query(function (q) {
+      lunr.tokenizer(query).forEach(function (token) {
+        var term = token.toString();
+        q.term(term);
+        if (term.length > 2) q.term(term, { wildcard: lunr.Query.wildcard.TRAILING, usePipeline: false });
+      });
+    });
     if (hits.length === 0) {
       results.innerHTML = '<li class="search-empty">No results</li>';
       return;
