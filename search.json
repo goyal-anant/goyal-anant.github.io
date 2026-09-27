@@ -6,19 +6,19 @@ permalink: /search.json
 {% assign first = true %}
 {% for post in site.posts %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "section": "Blog", "body": {{ post.content | strip_html | normalize_whitespace | truncatewords: 60 | jsonify }}}
+  {"title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "section": "Blog", "body": {{ post.subtitle | append: ' ' | append: post.content | strip_html | normalize_whitespace | jsonify }}}
 {% endfor %}
 {% for rant in site.rants %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ rant.title | jsonify }}, "url": {{ rant.url | relative_url | jsonify }}, "section": "Rant", "body": {{ rant.content | strip_html | normalize_whitespace | truncatewords: 60 | jsonify }}}
+  {"title": {{ rant.title | jsonify }}, "url": {{ rant.url | relative_url | jsonify }}, "section": "Rant", "body": {{ rant.content | strip_html | normalize_whitespace | jsonify }}}
 {% endfor %}
 {% for item in site.research %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "section": "Research", "body": {{ item.content | strip_html | normalize_whitespace | truncatewords: 60 | jsonify }}}
+  {"title": {{ item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "section": "Research", "body": {{ item.summary | append: ' ' | append: item.content | strip_html | normalize_whitespace | jsonify }}}
 {% endfor %}
 {% for book in site.data.books %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ book.title | jsonify }}, "url": {{ '/bookshelf/' | relative_url | jsonify }}, "section": "Bookshelf", "body": {{ book.author | append: ' ' | append: book.genre | append: ' ' | append: book.summary | jsonify }}}
+  {"title": {{ book.title | jsonify }}, "url": {{ '/bookshelf/' | relative_url | jsonify }}, "section": "Bookshelf", "body": {{ book.author | append: ' ' | append: book.genre | append: ' ' | append: book.status | append: ' ' | append: book.summary | jsonify }}}
 {% endfor %}
 {% for track in site.data.music %}
   {% unless first %},{% endunless %}{% assign first = false %}
@@ -26,12 +26,15 @@ permalink: /search.json
 {% endfor %}
 {% for pick in site.data.picks %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ pick.title | jsonify }}, "url": {{ '/picks/' | relative_url | jsonify }}, "section": "Picks", "body": {{ pick.note | jsonify }}}
+  {"title": {{ pick.title | jsonify }}, "url": {{ '/picks/' | relative_url | jsonify }}, "section": "Picks", "body": {{ pick.type | append: ' ' | append: pick.note | jsonify }}}
 {% endfor %}
+{% comment %} Section pages only list items already indexed above, so index just their title. {% endcomment %}
+{% assign listing_pages = "/blog/,/bookshelf/,/music/,/picks/,/rant/,/research/" | split: "," %}
 {% for p in site.html_pages %}
   {% if p.title %}
     {% unless first %},{% endunless %}{% assign first = false %}
-    {"title": {{ p.title | jsonify }}, "url": {{ p.url | relative_url | jsonify }}, "section": "Page", "body": ""}
+    {% if listing_pages contains p.url %}{% assign body = "" %}{% else %}{% assign body = p.content | strip_html | normalize_whitespace %}{% endif %}
+    {"title": {{ p.title | jsonify }}, "url": {{ p.url | relative_url | jsonify }}, "section": "Page", "body": {{ body | jsonify }}}
   {% endif %}
 {% endfor %}
 ]

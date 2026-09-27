@@ -40,6 +40,9 @@ exclude:
   - .superpowers/
   - Gemfile
   - Gemfile.lock
+  - README.md
+  - CONTEXT.md
+  - "*.command"
   - node_modules
   - vendor/bundle/
   - vendor/cache/
