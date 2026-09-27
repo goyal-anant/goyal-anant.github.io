@@ -4,4 +4,5 @@ _site/
 vendor/
 .sass-cache/
 serve_drafts.command
+serve_drafts_over_wifi.command
 .DS_Store
