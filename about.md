@@ -3,6 +3,8 @@ layout: page
 title: About
 permalink: /about/
 ---
+<img class="profile-photo" src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Photo of Anant" width="140" height="140">
+
 It is difficult to detach *I* from existence, but to experiment, I will try to speak in the third person. It is important because only by doing that one may truly talk about themselves.
 
 Anant is a human, a friend, a brother, and a son who enjoys the company of his thoughts. At present, he is earning PhD at [NEMO](https://www.ee.iitm.ac.in/uday/nemo.html), Indian Institute of Technology Madras, India, where he works on intelligent wireless power transfer systems, inverse design of metasurfaces, and computational electromagnetics with Prof. Uday Khankhoje.

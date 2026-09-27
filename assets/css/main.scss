@@ -277,6 +277,17 @@ main {
 .post figure svg,
 .post figure img { display: block; margin: 0 auto; }
 .post img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.profile-photo {
+  float: right;
+  width: 140px;
+  height: 140px;
+  margin: 0.25rem 0 1rem 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+@media (max-width: 480px) {
+  .profile-photo { width: 100px; height: 100px; margin-left: 1rem; }
+}
 
 .post-list {
   list-style: none;
