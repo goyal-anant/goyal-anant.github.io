@@ -30,22 +30,7 @@ layout: default
   </button>
   {% if main.size > 1 %}{{ tail }}{{ main | last }}{% endif %}
 </article>
-<button id="to-top" type="button" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"></path>
-  </svg>
-</button>
 <script>
-  (function () {
-    var btn = document.getElementById('to-top');
-    var reduce = matchMedia('(prefers-reduced-motion: reduce)');
-    function update() { btn.classList.toggle('show', scrollY > innerHeight); }
-    addEventListener('scroll', update, { passive: true });
-    update();
-    btn.addEventListener('click', function () {
-      scrollTo({ top: 0, behavior: reduce.matches ? 'auto' : 'smooth' });
-    });
-  })();
   // share sheet where the browser has one, otherwise copy the public link
   (function () {
     var btn = document.getElementById('share');
