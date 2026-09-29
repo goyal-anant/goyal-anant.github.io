@@ -95,13 +95,14 @@ Books are data, not pages — they live in `_data/books.yml` as a flat list.
 - title: "Book Title"
   author: "Author Name"
   genre: fiction
-  link: "https://www.goodreads.com/book/show/..."
+  status: completed   # reading | completed | half-done | want-to-read
+  thumbnail: "/assets/images/books/book-title.jpg"
+  summary: "Your takeaway, shown over the cover on hover or tap."
 ```
 
-`genre` controls the spine color on the bookshelf page (CSS class
-`spine--<genre>`) — check `assets/css/main.scss` for which genre values
-already have a color defined. Using a new genre value works, it'll just
-render with the default/unstyled spine color until you add CSS for it.
+Drop the cover image (portrait, about 2:3) in `assets/images/books/` first.
+Leave `thumbnail` out and the card shows a plain block with the title instead.
+`genre` isn't displayed; it only feeds site search.
 
 **Edit:** change the relevant fields on that entry.
 

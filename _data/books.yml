@@ -1,17 +1,277 @@
-- title: "Norwegian Wood"
-  author: "Haruki Murakami"
+- title: "Animal Farm"
+  link: "https://www.goodreads.com/book/show/170448.Animal_Farm"
+  thumbnail: "/assets/images/books/animal-farm.jpg"
+  author: "George Orwell"
   genre: fiction
   status: completed
-  link: "https://www.goodreads.com/book/show/11297.Norwegian_Wood"
-  summary: ""
-- title: "Sapiens"
-  author: "Yuval Noah Harari"
+  summary: "The pigs didn't steal the revolution: the sheep bleated 'four legs good' and handed it over."
+- title: "1984"
+  link: "https://www.goodreads.com/book/show/61439040-1984"
+  thumbnail: "/assets/images/books/1984.jpg"
+  author: "George Orwell"
+  genre: sci-fi
+  status: completed
+  summary: "Orwell wrote it as a warning; some governments read it as a manual."
+- title: "The Communist Manifesto"
+  link: "https://www.goodreads.com/book/show/30474.The_Communist_Manifesto"
+  thumbnail: "/assets/images/books/the-communist-manifesto.jpg"
+  author: "Karl Marx"
   genre: nonfiction
   status: completed
-  link: "https://www.goodreads.com/book/show/23692271-sapiens"
-  summary: ""
-- title: "Project Hail Mary"
-  author: "Andy Weir"
+  summary: "Workers of the world, unite; you have nothing to lose but your EMIs."
+- title: "The Tao of Physics"
+  link: "https://www.goodreads.com/book/show/10238.The_Tao_of_Physics"
+  thumbnail: "/assets/images/books/the-tao-of-physics.jpg"
+  author: "Fritjof Capra"
+  genre: nonfiction
+  status: completed
+  summary: "Zoom into matter far enough and there's no 'thing' left, just vibrations. Literally vibes."
+- title: "Nationalism"
+  link: "https://www.goodreads.com/book/show/34311532-nationalism"
+  thumbnail: "/assets/images/books/nationalism.jpg"
+  author: "Rabindranath Tagore"
+  genre: nonfiction
+  status: completed
+  summary: "Tagore called the nation a machine that eats people, and then two nations made his songs their anthems lol."
+- title: "The Alchemist"
+  link: "https://www.goodreads.com/book/show/18144590-the-alchemist"
+  thumbnail: "/assets/images/books/the-alchemist.jpg"
+  author: "Paulo Coelho"
+  genre: fiction
+  status: completed
+  summary: "Follow your Personal Legend; Paulo followed his and sold 150 million copies :)"
+- title: "The Autobiography of Benjamin Franklin"
+  link: "https://www.goodreads.com/book/show/52309.The_Autobiography_of_Benjamin_Franklin"
+  thumbnail: "/assets/images/books/the-autobiography-of-benjamin-franklin.jpg"
+  author: "Benjamin Franklin"
+  genre: nonfiction
+  status: completed
+  summary: "Wake at 5, invent bifocals, fly a kite in a storm, found a country, and still write down your own mistakes."
+- title: "My Experiments with Truth"
+  link: "https://www.goodreads.com/book/show/23837258-my-experiments-with-truth"
+  thumbnail: "/assets/images/books/my-experiments-with-truth.jpg"
+  author: "Mahatma Gandhi"
+  genre: nonfiction
+  status: completed
+  summary: "Gandhi experimented with truth, diet and celibacy; the British Empire was apparently the easy one."
+- title: "Bhagavad Gita"
+  link: "https://www.goodreads.com/book/show/991544.Bhagavad_Gita_As_It_Is"
+  thumbnail: "/assets/images/books/bhagavad-gita.jpg"
+  author: "A. C. Bhaktivedanta Swami Prabhupada"
+  genre: nonfiction
+  status: completed
+  summary: "Arjuna asked for a quick pep talk before the war and got 700 verses of philosophy."
+- title: "The Monk Who Sold His Ferrari"
+  link: "https://www.goodreads.com/book/show/43877.The_Monk_Who_Sold_His_Ferrari"
+  thumbnail: "/assets/images/books/the-monk-who-sold-his-ferrari.jpg"
+  author: "Robin Sharma"
+  genre: fiction
+  status: completed
+  summary: "A lawyer has a heart attack, sells the Ferrari, and comes back from the Himalayas with a self-help franchise."
+- title: "How to Win Friends & Influence People"
+  link: "https://www.goodreads.com/book/show/4865.How_to_Win_Friends_Influence_People"
+  thumbnail: "/assets/images/books/how-to-win-friends-influence-people.jpg"
+  author: "Dale Carnegie"
+  genre: nonfiction
+  status: completed
+  summary: "The only way to win an argument is to avoid it, which is terrible news for Twitter lol."
+- title: "Rich Dad Poor Dad"
+  link: "https://www.goodreads.com/book/show/69571.Rich_Dad_Poor_Dad"
+  thumbnail: "/assets/images/books/rich-dad-poor-dad.jpg"
+  author: "Robert Kiyosaki"
+  genre: nonfiction
+  status: completed
+  summary: "Assets put money in your pocket, liabilities take it out; my phone is firmly on the second list."
+- title: "Ignited Minds"
+  link: "https://www.goodreads.com/book/show/693771.Ignited_Minds"
+  thumbnail: "/assets/images/books/ignited-minds.jpg"
+  author: "A. P. J. Abdul Kalam"
+  genre: nonfiction
+  status: completed
+  summary: "Dream, dream, dream, said Kalam; Indian parents added: but first finish engineering."
+- title: "The Power of Your Subconscious Mind"
+  link: "https://www.goodreads.com/book/show/29282480-the-power-of-your-subconscious-mind"
+  thumbnail: "/assets/images/books/the-power-of-your-subconscious-mind.jpg"
+  author: "Joseph Murphy"
+  genre: nonfiction
+  status: completed
+  summary: "Repeat 'I am wealthy' before sleeping and wake up still needing to go to work, but feeling great about it."
+- title: "Frankenstein"
+  link: "https://www.goodreads.com/book/show/35031085-frankenstein"
+  thumbnail: "/assets/images/books/frankenstein.jpg"
+  author: "Mary Shelley"
   genre: sci-fi
+  status: completed
+  summary: "The real monster is the scientist who ghosts his own creation."
+- title: "Autobiography of a Yogi"
+  link: "https://www.goodreads.com/book/show/639864.Autobiography_of_a_Yogi"
+  thumbnail: "/assets/images/books/autobiography-of-a-yogi.jpg"
+  author: "Paramahansa Yogananda"
+  genre: nonfiction
+  status: completed
+  summary: "Every chapter has a miracle, and by chapter 20 you stop being surprised."
+- title: "The God of Small Things"
+  link: "https://www.goodreads.com/book/show/9777.The_God_of_Small_Things"
+  thumbnail: "/assets/images/books/the-god-of-small-things.jpg"
+  author: "Arundhati Roy"
+  genre: fiction
+  status: completed
+  summary: "The Big Things stay unsaid, so the Small Things end up doing all the damage."
+- title: "Man's Search for Meaning"
+  link: "https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning"
+  thumbnail: "/assets/images/books/man-s-search-for-meaning.jpg"
+  author: "Viktor Frankl"
+  genre: nonfiction
+  status: completed
+  summary: "They can take everything from you except how you respond, and Frankl proved it in a concentration camp."
+- title: "Men Are from Mars, Women Are from Venus"
+  link: "https://www.goodreads.com/book/show/1274.Men_Are_from_Mars_Women_Are_from_Venus"
+  thumbnail: "/assets/images/books/men-are-from-mars-women-are-from-venus.jpg"
+  author: "John Gray"
+  genre: nonfiction
+  status: completed
+  summary: "Men listen without fixing, women ask without hinting; simple, and completely impossible."
+- title: "The Story of Birds"
+  link: "https://www.goodreads.com/book/show/239744739-the-story-of-birds"
+  thumbnail: "/assets/images/books/the-story-of-birds.jpg"
+  author: "Steve Brusatte"
+  genre: nonfiction
+  status: want-to-read
+- title: "Abandoning a Cat"
+  link: "https://www.goodreads.com/book/show/246927941-abandoning-a-cat"
+  thumbnail: "/assets/images/books/abandoning-a-cat.jpg"
+  author: "Haruki Murakami"
+  genre: nonfiction
+  status: want-to-read
+- title: "And I Am the Arrow"
+  link: "https://www.goodreads.com/book/show/248282262-and-i-am-the-arrow"
+  thumbnail: "/assets/images/books/and-i-am-the-arrow.jpg"
+  author: "Pia Ghosh-Roy"
+  genre: fiction
+  status: want-to-read
+- title: "Kin"
+  link: "https://www.goodreads.com/book/show/241126800-kin"
+  thumbnail: "/assets/images/books/kin.jpg"
+  author: "Tayari Jones"
+  genre: fiction
+  status: want-to-read
+- title: "The Almanack of Naval Ravikant"
+  link: "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant"
+  thumbnail: "/assets/images/books/the-almanack-of-naval-ravikant.jpg"
+  author: "Eric Jorgenson"
+  genre: nonfiction
   status: reading
-  link: "https://www.goodreads.com/book/show/54493401-project-hail-mary"
+- title: "The Argumentative Indian"
+  link: "https://www.goodreads.com/book/show/10310.The_Argumentative_Indian"
+  thumbnail: "/assets/images/books/the-argumentative-indian.jpg"
+  author: "Amartya Sen"
+  genre: nonfiction
+  status: reading
+- title: "I Am That"
+  link: "https://www.goodreads.com/book/show/299869.I_Am_That"
+  thumbnail: "/assets/images/books/i-am-that.jpg"
+  author: "Nisargadatta Maharaj"
+  genre: nonfiction
+  status: half-done
+  summary: "You are the witness of everything that changes, so you can't be any of the things that change."
+- title: "The Gospel of Sri Ramakrishna"
+  link: "https://www.goodreads.com/book/show/1513343.Gospel_of_Sri_Ramakrishna"
+  thumbnail: "/assets/images/books/the-gospel-of-sri-ramakrishna.jpg"
+  author: "Swami Nikhilananda"
+  genre: nonfiction
+  status: half-done
+  summary: "Ramakrishna tried Islam, Christianity and every Hindu path and found they reach the same roof; the rest of us are still fighting over the stairs."
+- title: "An Immense World"
+  link: "https://www.goodreads.com/book/show/59575939-an-immense-world"
+  thumbnail: "/assets/images/books/an-immense-world.jpg"
+  author: "Ed Yong"
+  genre: nonfiction
+  status: reading
+- title: "Stalking the Wild Pendulum"
+  link: "https://www.goodreads.com/book/show/376895.Stalking_the_Wild_Pendulum"
+  thumbnail: "/assets/images/books/stalking-the-wild-pendulum.jpg"
+  author: "Itzhak Bentov"
+  genre: nonfiction
+  status: half-done
+  summary: "The universe is one big vibration, and your body is just a very noisy oscillator."
+- title: "The Eleventh Hour"
+  link: "https://www.goodreads.com/book/show/230118837-the-eleventh-hour"
+  thumbnail: "/assets/images/books/the-eleventh-hour.jpg"
+  author: "Salman Rushdie"
+  genre: fiction
+  status: want-to-read
+- title: "Principles"
+  link: "https://www.goodreads.com/book/show/34536488-principles"
+  thumbnail: "/assets/images/books/principles.jpg"
+  author: "Ray Dalio"
+  genre: nonfiction
+  status: half-done
+  summary: "Ray Dalio turned his life into an algorithm and then published the source code in 600 pages."
+- title: "Algorithms to Live By"
+  link: "https://www.goodreads.com/book/show/25666050-algorithms-to-live-by"
+  thumbnail: "/assets/images/books/algorithms-to-live-by.jpg"
+  author: "Brian Christian"
+  genre: nonfiction
+  status: want-to-read
+- title: "Thinking, Fast and Slow"
+  link: "https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow"
+  thumbnail: "/assets/images/books/thinking-fast-and-slow.jpg"
+  author: "Daniel Kahneman"
+  genre: nonfiction
+  status: completed
+  summary: "We aren't rational; we're just very good at inventing the reasons afterwards."
+- title: "Glucose Revolution"
+  link: "https://www.goodreads.com/book/show/58438618-glucose-revolution"
+  thumbnail: "/assets/images/books/glucose-revolution.jpg"
+  author: "Jessie Inchauspé"
+  genre: nonfiction
+  status: completed
+  summary: "The villain of modern life is the glucose spike and the hero is a spoon of vinegar."
+- title: "Deep Work"
+  link: "https://www.goodreads.com/book/show/25744928-deep-work"
+  thumbnail: "/assets/images/books/deep-work.jpg"
+  author: "Cal Newport"
+  genre: nonfiction
+  status: completed
+  summary: "Shallow work keeps you busy; deep work keeps you employed."
+- title: "Critique of Pure Reason"
+  link: "https://www.goodreads.com/book/show/18288.Critique_of_Pure_Reason"
+  thumbnail: "/assets/images/books/critique-of-pure-reason.jpg"
+  author: "Immanuel Kant"
+  genre: nonfiction
+  status: half-done
+  summary: "I got halfway, which by Kant's standards means I know the book as it appears, not the book in itself lol."
+- title: "The Prophet"
+  link: "https://www.goodreads.com/book/show/2547.The_Prophet"
+  thumbnail: "/assets/images/books/the-prophet.jpg"
+  author: "Kahlil Gibran"
+  genre: fiction
+  status: completed
+  summary: "Gibran settles love, marriage, work and death in a hundred pages; I needed a PhD for just one of them."
+- title: "Vivekachudamani"
+  link: "https://www.goodreads.com/book/show/40919301-vivekachudamani"
+  thumbnail: "/assets/images/books/vivekachudamani.jpg"
+  author: "Swami Chinmayananda"
+  genre: nonfiction
+  status: half-done
+  summary: "Telling the real from the unreal is the whole path; everything else is commentary."
+- title: "The Tell-Tale Brain"
+  link: "https://www.goodreads.com/book/show/8574712-the-tell-tale-brain"
+  thumbnail: "/assets/images/books/the-tell-tale-brain.jpg"
+  author: "V. S. Ramachandran"
+  genre: nonfiction
+  status: half-done
+- title: "Surely You're Joking, Mr. Feynman!"
+  link: "https://www.goodreads.com/book/show/35167685-surely-you-re-joking-mr-feynman"
+  thumbnail: "/assets/images/books/surely-you-re-joking-mr-feynman.jpg"
+  author: "Richard Feynman"
+  genre: nonfiction
+  status: completed
+  summary: "Feynman cracked the safes holding atomic bomb secrets, just for fun."
+- title: "Siddhartha"
+  link: "https://www.goodreads.com/book/show/208533702-siddhartha"
+  thumbnail: "/assets/images/books/siddhartha.jpg"
+  author: "Hermann Hesse"
+  genre: fiction
+  status: completed
+  summary: "Merchant, gambler, lover, ferryman: Siddhartha tried every career before settling on listening to a river."

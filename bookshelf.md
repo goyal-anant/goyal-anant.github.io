@@ -4,55 +4,30 @@ title: Bookshelf
 permalink: /bookshelf/
 ---
 
-{% assign reading = site.data.books | where: "status", "reading" %}
-{% assign completed = site.data.books | where: "status", "completed" %}
-{% assign want = site.data.books | where: "status", "want-to-read" %}
+<p class="shelf-hint">Hover over a cover in the Completed or Half-Done, Kept shelves (or tap it, if you are on a phone) to read my one-line take on the book; the rest I haven't earned an opinion on yet. Most of them are jokes, so no offense to the authors, the saints, or Kant :)</p>
 
-{% if reading.size > 0 %}
-<h2 class="shelf-heading">Currently Reading</h2>
-<ul class="shelf">
-{% for book in reading %}
-  <li>
-    <a class="spine spine--{{ book.genre }}" href="{{ book.link | default: '#' }}"{% if book.link %} target="_blank" rel="noopener"{% endif %} style="--spine-w: {{ book.title | size | modulo: 5 | times: 4 | plus: 78 }}%; --spine-h: {{ book.author | size | modulo: 4 | times: 4 | plus: 44 }}px;">
-      <span class="spine-title">{{ book.title }} &mdash; {{ book.author }}</span>
-      <span class="genre-tag">{{ book.genre }}</span>
-    </a>
-  </li>
-{% endfor %}
-</ul>
-{% endif %}
-
-{% if completed.size > 0 %}
-<h2 class="shelf-heading">Completed</h2>
-<ul class="shelf">
-{% for book in completed %}
-  <li>
-    <details class="spine-details">
-      <summary class="spine spine--{{ book.genre }}" style="--spine-w: {{ book.title | size | modulo: 5 | times: 4 | plus: 78 }}%; --spine-h: {{ book.author | size | modulo: 4 | times: 4 | plus: 44 }}px;">
-        <span class="spine-title">{{ book.title }} &mdash; {{ book.author }}</span>
-        <span class="genre-tag">{{ book.genre }}</span>
-      </summary>
-      {% if book.summary and book.summary != "" %}
-      <p class="spine-summary">{{ book.summary }}</p>
+{% assign shelves = "reading:Currently Reading,want-to-read:Want to Read,half-done:Half-Done&#44; Kept,completed:Completed" | split: "," %}
+{% for shelf in shelves %}
+{% assign parts = shelf | split: ":" %}
+{% assign books = site.data.books | where: "status", parts[0] %}
+{% if books.size > 0 %}
+<h2 class="shelf-heading">{{ parts[1] }}</h2>
+<ul class="music-grid book-grid">
+{% for book in books %}
+  <li class="music-card">
+    <div class="music-thumb-wrap">
+      {% if book.thumbnail %}
+      <img class="music-thumb" src="{{ book.thumbnail | relative_url }}" alt="{{ book.title }} by {{ book.author }}" loading="lazy">
       {% else %}
-      <p class="spine-summary spine-summary--empty">No takeaway written yet.</p>
+      <div class="music-thumb book-cover-blank"><span>{{ book.title }}</span></div>
       {% endif %}
-    </details>
+      {% if book.summary and book.summary != "" %}<p class="music-note book-note">{{ book.summary }}</p>{% endif %}
+    </div>
+    {% if book.link %}<a class="book-link" href="{{ book.link }}" title="{{ book.title }}" target="_blank" rel="noopener">{{ book.title }}</a>{% endif %}
   </li>
 {% endfor %}
 </ul>
 {% endif %}
+{% endfor %}
 
-{% if want.size > 0 %}
-<h2 class="shelf-heading">Want to Read</h2>
-<ul class="shelf">
-{% for book in want %}
-  <li>
-    <a class="spine spine--{{ book.genre }}" href="{{ book.link | default: '#' }}"{% if book.link %} target="_blank" rel="noopener"{% endif %} style="--spine-w: {{ book.title | size | modulo: 5 | times: 4 | plus: 78 }}%; --spine-h: {{ book.author | size | modulo: 4 | times: 4 | plus: 44 }}px;">
-      <span class="spine-title">{{ book.title }} &mdash; {{ book.author }}</span>
-      <span class="genre-tag">{{ book.genre }}</span>
-    </a>
-  </li>
-{% endfor %}
-</ul>
-{% endif %}
+<p class="shelf-updated">Last updated: {{ site.time | date: "%-d %B %Y" }}</p>
