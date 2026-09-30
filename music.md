@@ -3,11 +3,20 @@ layout: page
 title: Music
 permalink: /music/
 ---
+
+<p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press play on a cover for a 30-second preview, or the note icon to hear the full song on Apple Music. If I have something to say about a song, hover over it (or tap, on a phone) to read it; for the rest, the music speaks for itself :)</p>
+
+{% assign genres = "sufi:Sufi &amp; Qawwali,ghazal:Ghazal,hindi-film:Hindi Film,rock:Rock,pop-folk:Pop &amp; Folk,punjabi:Punjabi,indie:Indie &amp; Indi-pop,soul-reggae-blues:Soul&#44; Reggae &amp; Blues" | split: "," %}
+{% for genre in genres %}
+{% assign parts = genre | split: ":" %}
+{% assign tracks = site.data.music | where: "genre", parts[0] %}
+{% if tracks.size > 0 %}
+<h2 class="shelf-heading">{{ parts[1] }}</h2>
 <ul class="music-grid">
-{% for track in site.data.music %}
+{% for track in tracks %}
   <li class="music-card">
     <div class="music-thumb-wrap">
-      <img class="music-thumb" src="{{ track.thumbnail | relative_url }}" alt="{{ track.title }} cover">
+      <img class="music-thumb" src="{{ track.thumbnail | relative_url }}" alt="{{ track.title }} cover" loading="lazy">
       {% if track.note %}<p class="music-note">{{ track.note }}</p>{% endif %}
     </div>
     <div class="music-info">
@@ -33,3 +42,7 @@ permalink: /music/
   </li>
 {% endfor %}
 </ul>
+{% endif %}
+{% endfor %}
+
+<p class="shelf-updated">Last updated: {{ site.time | date: "%-d %B %Y" }}</p>
