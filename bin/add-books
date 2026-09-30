@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+"""Sync the bookshelf with the Obsidian note.
+
+Usage: bin/add-books [--dry-run] [path/to/note.md]
+
+The note has one heading per shelf and one book per line:
+
+    ## Currently Reading
+    the tell-tale brain - v s ramachandran
+    ## Completed
+    animal farm - george orwell :: my one-line take
+
+Books already on the page are moved to the shelf they sit under in the note, and
+their takeaway is updated when the line has one. New books are looked up on
+Goodreads (link and cover, Open Library as a cover fallback), get a guessed
+genre, and are added. Books on the page but missing from the note are only
+reported, never deleted. Needs macOS (uses sips to resize covers).
+"""
+import difflib, html, json, os, re, shlex, subprocess, sys, time, unicodedata
+import urllib.parse, urllib.request
+import yaml
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+YML = os.path.join(ROOT, "_data", "books.yml")
+COVERS = os.path.join(ROOT, "assets", "images", "books")
+NOTE = os.path.expanduser("~/Documents/2B/2B/books on the bookshelf page.md")
+# Note headings -> status values, in the order bookshelf.md shows them.
+SHELVES = {"currently reading": "reading", "want to read": "want-to-read",
+           "half-done, kept": "half-done", "completed": "completed"}
+FIELDS = ["title", "link", "thumbnail", "author", "genre", "status", "summary"]
+QUOTED = {"title", "link", "thumbnail", "author", "summary"}
+UA = {"User-Agent": "Mozilla/5.0"}
+
+
+def norm(s):
+    s = unicodedata.normalize("NFKD", s).lower()
+    s = re.sub(r"\(.*?\)|:.*$", "", s)  # drop subtitles and series info
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
+def similar(a, b, cutoff=0.8):
+    a, b = norm(a), norm(b)
+    return bool(a and b) and difflib.SequenceMatcher(None, a, b).ratio() >= cutoff
+
+
+def author_matches(a, b):
+    # Surnames are the stable part: "v s ramachandran" vs "V.S. Ramachandran".
+    last = lambda s: norm(s.split()[-1]) if s.split() else ""
+    return similar(a, b, 0.7) or last(a) == last(b) != ""
+
+
+def read_note(path):
+    books, shelf = [], None
+    for line in open(path).read().splitlines():
+        heading = re.match(r"#+\s*(.+?)\s*$", line)
+        if heading:
+            shelf = SHELVES.get(heading.group(1).lower())
+            continue
+        line = line.strip()
+        if not line or shelf is None:
+            continue
+        entry, _, take = line.partition("::")
+        if " - " not in entry:
+            print(f"  SKIPPED (no ' - ' between title and author): {line}")
+            continue
+        title, author = (s.strip() for s in entry.rsplit(" - ", 1))
+        books.append({"line": line, "title": title, "author": author, "status": shelf, "summary": take.strip()})
+    return books
+
+
+def dump(books):
+    out = []
+    for b in books:
+        for i, k in enumerate(f for f in FIELDS if f in b and b[f] is not None):
+            v = json.dumps(b[k], ensure_ascii=False) if k in QUOTED else b[k]
+            out.append(f"{'- ' if i == 0 else '  '}{k}: {v}")
+    return "\n".join(out) + "\n"
+
+
+def get(url):
+    # curl, not urllib: Goodreads sends urllib into a redirect loop or a
+    # different page layout, but gives curl its plain search results table.
+    return subprocess.run(["curl", "-sfL", "--retry", "2", "--max-time", "30", "-A", UA["User-Agent"], url],
+                          capture_output=True, check=True, text=True).stdout
+
+
+def goodreads(title, author):
+    """Best Goodreads search hit by the right author, most ratings first.
+
+    Search by title alone first: adding the author pulls in "Summary of ..."
+    knock-offs that push the real book off the first page.
+    """
+    for q in (title, f"{title} {author}"):
+        hit = goodreads_search(q, title, author)
+        if hit:
+            return hit
+    return None
+
+
+def goodreads_search(q, title, author):
+    page = get("https://www.goodreads.com/search?" + urllib.parse.urlencode({"q": q}))
+    time.sleep(2)
+    hits = []
+    for row in re.findall(r'<tr itemscope itemtype="http://schema.org/Book">(.*?)</tr>', page, re.S):
+        href = re.search(r'class="bookTitle"[^>]*href="(/book/show/[^"?]+)', row)
+        name = re.search(r'class="bookTitle".*?<span[^>]*>(.*?)</span>', row, re.S)
+        by = re.search(r'<span itemprop="name">(.*?)</span>', row)
+        cover = re.search(r'class="bookCover"[^>]*src="([^"]+)"', row)
+        ratings = re.search(r"([\d,]+) ratings?", row)
+        if not (href and name and by):
+            continue
+        name, by = html.unescape(name.group(1)).strip(), html.unescape(by.group(1)).strip()
+        if author_matches(author, by) and similar(title, name, 0.6):
+            hits.append((int(ratings.group(1).replace(",", "")) if ratings else 0, {
+                "title": re.sub(r"\s*\(.*?#\d+\)$", "", name), "author": by,
+                "link": "https://www.goodreads.com" + href.group(1),
+                "cover": cover and re.sub(r"\._S[XY]\d+_", "", cover.group(1))}))
+    return max(hits, key=lambda h: h[0])[1] if hits else None
+
+
+def open_library(title, author):
+    q = urllib.parse.urlencode({"title": title, "author": author, "limit": 1, "fields": "cover_i,subject"})
+    docs = json.loads(get(f"https://openlibrary.org/search.json?{q}"))["docs"]
+    return docs[0] if docs else {}
+
+
+def guess_genre(subjects):
+    s = " ".join(subjects).lower()
+    if "science fiction" in s:
+        return "sci-fi"
+    if re.search(r"\bfiction\b", s) and "nonfiction" not in s and "non-fiction" not in s:
+        return "fiction"
+    return "nonfiction"
+
+
+def main():
+    args = sys.argv[1:]
+    dry = "--dry-run" in args
+    args = [a for a in args if a != "--dry-run"]
+    note = read_note(args[0] if args else NOTE)
+    books = yaml.safe_load(open(YML)) or []
+    changes, problems, matched = [], [], set()
+
+    for n in note:
+        i = next((i for i, b in enumerate(books)
+                  if similar(n["title"], b["title"]) and author_matches(n["author"], b["author"])), None)
+        if i is not None:
+            b = books[i]
+            matched.add(i)
+            if b.get("status") != n["status"]:
+                changes.append(f"  MOVED {b['title']}: {b.get('status')} -> {n['status']}")
+                b["status"] = n["status"]
+            if n["summary"] and b.get("summary") != n["summary"]:
+                changes.append(f"  TAKEAWAY {b['title']}: {n['summary']}")
+                b["summary"] = n["summary"]
+            continue
+
+        try:
+            gr = goodreads(n["title"], n["author"])
+        except subprocess.CalledProcessError:
+            problems.append(f"  GOODREADS DIDN'T RESPOND, run again later: {n['line']}")
+            continue
+        if not gr:
+            problems.append(f"  NOT FOUND on Goodreads: {n['line']}")
+            continue
+        ol = open_library(gr["title"], gr["author"])
+        genre = guess_genre(ol.get("subject", []))
+        slug = re.sub(r"[^a-z0-9]+", "-", gr["title"].lower()).strip("-")
+        cover_url = gr["cover"] or (ol.get("cover_i") and f"https://covers.openlibrary.org/b/id/{ol['cover_i']}-L.jpg")
+        book = {"title": gr["title"], "link": gr["link"],
+                "thumbnail": f"/assets/images/books/{slug}.jpg" if cover_url else None,
+                "author": gr["author"], "genre": genre, "status": n["status"],
+                "summary": n["summary"] or None}
+        changes.append(f"  NEW {gr['title']} | {gr['author']} | {n['status']} | genre: {genre} (guess)"
+                       f"{'' if cover_url else ' | no cover found'}\n      {gr['link']}")
+        if not dry and cover_url:
+            path = os.path.join(COVERS, f"{slug}.jpg")
+            urllib.request.urlretrieve(cover_url, path)
+            subprocess.run(["sips", "-Z", "500", path], capture_output=True, check=True)
+        books.append(book)
+        matched.add(len(books) - 1)
+
+    for i, b in enumerate(books):
+        if i not in matched:
+            problems.append(f"  ON THE PAGE BUT NOT IN THE NOTE (left as is): {b['title']} - {b['author']}")
+
+    print("\n".join(changes) if changes else "No changes: the page already matches the note.")
+    if changes and not dry:
+        open(YML, "w").write(dump(books))
+        print(f"Updated _data/books.yml ({len(changes)} change(s)).")
+    for p in problems:
+        print(p)
+    if dry and changes:
+        cmd = " ".join(["bin/add-books"] + [shlex.quote(a) for a in args])
+        print(f"\nDry run only, nothing was written. To add these to the website, run:\n  {cmd}")
+
+
+if __name__ == "__main__":
+    main()

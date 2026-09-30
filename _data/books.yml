@@ -275,3 +275,9 @@
   genre: fiction
   status: completed
   summary: "Merchant, gambler, lover, ferryman: Siddhartha tried every career before settling on listening to a river."
+- title: "Lolita"
+  link: "https://www.goodreads.com/book/show/9216051-lolita"
+  thumbnail: "/assets/images/books/lolita.jpg"
+  author: "Vladimir Nabokov"
+  genre: fiction
+  status: want-to-read

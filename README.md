@@ -23,6 +23,8 @@ a thin wrapper that sets that up via `RUBYOPT` before calling Jekyll.
 - `_posts/` — blog posts
 - `_rants/` — rants
 - `_research/` — research
-- `_data/books.yml` — bookshelf entries
-- `_data/music.yml` — music entries
+- `_data/books.yml` — bookshelf entries (`bin/add-books` syncs them with the
+  Obsidian note; run it with `--dry-run` first)
+- `_data/music.yml` — music entries (`bin/add-songs` adds new ones from the
+  Obsidian note; run it with `--dry-run` first)
 - `_data/picks.yml` — picks entries

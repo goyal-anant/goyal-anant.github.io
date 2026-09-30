@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
       stopPlayback();
       if (wasActive) return;
 
-      audio.src = button.dataset.previewSrc;
+      // The 90 s preview comes from music.apple.com, not a public API, so
+      // fall back to the 30 s one if its link ever stops working.
+      audio.src = button.dataset.extendedSrc || button.dataset.previewSrc;
       audio.play();
       button.classList.add('is-playing');
       button.setAttribute('aria-pressed', 'true');
@@ -32,4 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   audio.addEventListener('ended', stopPlayback);
+  audio.addEventListener('error', function () {
+    if (activeButton && audio.src !== activeButton.dataset.previewSrc) {
+      audio.src = activeButton.dataset.previewSrc;
+      audio.play();
+    }
+  });
 });

@@ -4,7 +4,7 @@ title: Music
 permalink: /music/
 ---
 
-<p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press play on a cover for a 30-second preview, or the note icon to hear the full song on Apple Music. If I have something to say about a song, hover over it (or tap, on a phone) to read it; for the rest, the music speaks for itself :)</p>
+<p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press play on a cover for a 90-second preview, or the note icon to hear the full song on Apple Music. If I have something to say about a song, hover over it (or tap, on a phone) to read it; for the rest, the music speaks for itself :)</p>
 
 {% assign genres = "sufi:Sufi &amp; Qawwali,ghazal:Ghazal,hindi-film:Hindi Film,rock:Rock,pop-folk:Pop &amp; Folk,punjabi:Punjabi,indie:Indie &amp; Indi-pop,soul-reggae-blues:Soul&#44; Reggae &amp; Blues" | split: "," %}
 {% for genre in genres %}
@@ -25,7 +25,7 @@ permalink: /music/
     </div>
     {% if track.previewUrl and track.appleMusicUrl %}
     <div class="music-controls">
-      <button class="music-play" type="button" data-preview-src="{{ track.previewUrl }}" aria-label="Play preview of {{ track.title }}" aria-pressed="false">
+      <button class="music-play" type="button" data-preview-src="{{ track.previewUrl }}"{% if track.extendedPreviewUrl %} data-extended-src="{{ track.extendedPreviewUrl }}"{% endif %} aria-label="Play preview of {{ track.title }}" aria-pressed="false">
         <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         <svg class="icon-vinyl" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="10"/>

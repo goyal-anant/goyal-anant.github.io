@@ -389,7 +389,7 @@ main {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 1rem;
+  gap: 1.75rem 1rem;
 }
 .music-card { display: flex; flex-direction: column; }
 .music-thumb-wrap { position: relative; }

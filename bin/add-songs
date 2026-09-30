@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""Add new songs from the Obsidian note to _data/music.yml.
+
+Usage: bin/add-songs [--dry-run] [path/to/note.md]
+
+The note has an abbreviation block ("nfak - Nusrat Fateh Ali Khan") followed by
+a "*Song list*" heading and one "title - artist" per line. Songs already in
+music.yml are skipped. For each new song this finds the track on Apple, saves a
+300px cover, stores the 30 s preview (public iTunes API) and the 90 s preview
+(from the song's music.apple.com page), and guesses a genre. Check the guesses
+it prints before committing. Needs macOS (uses sips to resize covers).
+"""
+import difflib, json, os, re, shlex, subprocess, sys, time, unicodedata
+import urllib.error, urllib.parse, urllib.request
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+YML = os.path.join(ROOT, "_data", "music.yml")
+COVERS = os.path.join(ROOT, "assets", "images", "music")
+NOTE = os.path.expanduser("~/Documents/2B/2B/songs to be added on the music page.md")
+GENRES = ["sufi", "ghazal", "hindi-film", "rock", "pop-folk", "punjabi", "indie", "soul-reggae-blues"]
+# Apple's primaryGenreName -> section on the page, used when the artist is new.
+APPLE_GENRES = {
+    "Sufi": "sufi", "Devotional & Spiritual": "sufi", "Qawwali": "sufi",
+    "Ghazals": "ghazal",
+    "Bollywood": "hindi-film", "Indian Classical": "hindi-film",
+    "Rock": "rock", "Alternative": "rock", "Hard Rock": "rock", "Metal": "rock",
+    "Pop": "pop-folk", "Singer/Songwriter": "pop-folk", "Folk": "pop-folk", "Country": "pop-folk",
+    "Punjabi Pop": "punjabi", "Punjabi": "punjabi",
+    "Indian Pop": "indie", "Indie Pop": "indie", "Indian": "indie",
+    "R&B/Soul": "soul-reggae-blues", "Soul": "soul-reggae-blues", "Reggae": "soul-reggae-blues",
+    "Blues": "soul-reggae-blues", "Jazz": "soul-reggae-blues", "Latin": "soul-reggae-blues",
+}
+UA = {"User-Agent": "Mozilla/5.0"}
+
+
+def norm(s):
+    s = unicodedata.normalize("NFKD", s).lower()
+    s = re.sub(r"\(.*?\)|\bfrom\b.*$", "", s)
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
+def similar(a, b, cutoff=0.75):
+    """Fuzzy match that tolerates spelling (pyaar/pyar) and one side being longer."""
+    a, b = norm(a), norm(b)
+    if not a or not b:
+        return False
+    n = min(len(a), len(b))
+    return (difflib.SequenceMatcher(None, a, b).ratio() >= cutoff
+            or difflib.SequenceMatcher(None, a[:n], b[:n]).ratio() >= 0.85 and n >= 6)
+
+
+def artist_matches(note_artist, apple_artist):
+    return any(similar(note_artist, part) for part in re.split(r",|&|\bfeat\.?", apple_artist))
+
+
+def read_note(path):
+    text = open(path).read()
+    head, _, songs = text.partition("*Song list*")
+    abbr = {}
+    for line in head.splitlines():
+        m = re.match(r"\s*(\S+)\s+-\s+(.+)", line)
+        if m:
+            abbr[m.group(1).lower()] = m.group(2).strip()
+    out = []
+    for line in songs.splitlines():
+        m = re.match(r"\s*(.+?)\s*-\s+(.+?)\s*$", line) or re.match(r"\s*(.+?)\s+-\s*(.+?)\s*$", line)
+        if m:
+            artist = m.group(2)
+            out.append((line.strip(), m.group(1), abbr.get(artist.lower(), artist)))
+    return out
+
+
+def read_tracks():
+    tracks = []
+    for block in open(YML).read().split("- title: ")[1:]:
+        title = json.loads(re.match(r'(".*")', block).group(1))
+        artist = json.loads(re.search(r'  artist: (".*")', block).group(1))
+        genre = re.search(r"  genre: (\S+)", block).group(1)
+        tracks.append((title, artist, genre))
+    return tracks
+
+
+def get(url):
+    return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20).read()
+
+
+def find_on_apple(title, artist):
+    term = re.sub(r"\bfrom\b.*$", "", title, flags=re.I).strip() + " " + artist
+    for country in ("us", "in"):
+        q = urllib.parse.urlencode({"term": term, "entity": "song", "limit": 15, "country": country})
+        results = json.loads(get(f"https://itunes.apple.com/search?{q}"))["results"]
+        time.sleep(3)  # the iTunes API allows about 20 calls a minute
+        for r in results:
+            if r.get("previewUrl") and artist_matches(artist, r["artistName"]) and similar(title, r["trackName"], 0.6):
+                return r
+    return None
+
+
+def extended_preview(apple_url):
+    sf = re.search(r"music\.apple\.com/(\w+)/", apple_url).group(1)
+    tid = re.search(r"[?&]i=(\d+)", apple_url).group(1)
+    try:
+        html = get(f"https://music.apple.com/{sf}/song/{tid}").decode()
+    except urllib.error.HTTPError:
+        return None
+    eps = set(re.findall(r'https://audio-ssl[^"\\]*\.ep\.m4a', html))
+    return eps.pop() if len(eps) == 1 else None
+
+
+def clean_title(t):
+    t = re.sub(r"\s*\((From|feat\.|Remastered|Full Length|Live|Raag)[^)]*\)", "", t)
+    return t.title() if t.isupper() else t
+
+
+def guess_genre(artist, apple_genre, tracks):
+    known = [g for _, a, g in tracks if artist_matches(artist, a)]
+    if known:
+        return max(set(known), key=known.count), "same artist"
+    if apple_genre in APPLE_GENRES:
+        return APPLE_GENRES[apple_genre], f"Apple says {apple_genre}"
+    return None, f"Apple says {apple_genre}"
+
+
+def main():
+    args = sys.argv[1:]
+    dry = "--dry-run" in args
+    args = [a for a in args if a != "--dry-run"]
+    note = args[0] if args else NOTE
+    tracks = read_tracks()
+    new = [s for s in read_note(note)
+           if not any(similar(s[1], t) and artist_matches(s[2], a) for t, a, _ in tracks)]
+    if not new:
+        print("Nothing new: every song in the note is already on the page.")
+        return
+    print(f"{len(new)} new song(s):")
+    entries, problems = [], []
+    for line, title, artist in new:
+        r = find_on_apple(title, artist)
+        if not r:
+            problems.append(f"  NOT FOUND on Apple: {line}")
+            continue
+        name = clean_title(r["trackName"])
+        genre, why = guess_genre(artist, r["primaryGenreName"], tracks)
+        ep = extended_preview(r["trackViewUrl"])
+        slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+        thumb = f"/assets/images/music/{slug}.jpg"
+        flag = "" if genre else "   <-- no genre, set it by hand or it won't show"
+        print(f"  {line}\n    => {name} | {r['artistName']} | genre: {genre or '?'} ({why})"
+              f" | {'90 s' if ep else '30 s only'} preview{flag}")
+        if dry:
+            continue
+        cover = os.path.join(COVERS, f"{slug}.jpg")
+        urllib.request.urlretrieve(r["artworkUrl100"].replace("100x100bb", "600x600bb"), cover)
+        subprocess.run(["sips", "-Z", "300", cover], capture_output=True, check=True)
+        q = lambda s: json.dumps(s, ensure_ascii=False)
+        entries.append(f"- title: {q(name)}\n  artist: {q(r['artistName'])}\n  genre: {genre or 'CHOOSE'}\n"
+                       f"  thumbnail: {q(thumb)}\n  previewUrl: {q(r['previewUrl'])}\n"
+                       + (f"  extendedPreviewUrl: {q(ep)}\n" if ep else "")
+                       + f"  appleMusicUrl: {q(r['trackViewUrl'])}\n")
+        tracks.append((name, r["artistName"], genre))
+    if entries:
+        with open(YML, "a") as f:
+            f.write("".join(entries))
+        print(f"Added {len(entries)} song(s) to _data/music.yml. Sections: {', '.join(GENRES)}.")
+    for p in problems:
+        print(p)
+    if dry and len(new) > len(problems):
+        cmd = " ".join(["bin/add-songs"] + [shlex.quote(a) for a in args])
+        print(f"\nDry run only, nothing was written. To add these to the website, run:\n  {cmd}")
+
+
+if __name__ == "__main__":
+    main()
