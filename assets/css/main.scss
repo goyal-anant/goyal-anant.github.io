@@ -568,6 +568,20 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 }
 .shelf-heading .music-queue { margin-left: 0.5rem; }
 .music-queue[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.music-shuffle {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.3rem;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
+  color: var(--fg);
+  vertical-align: middle;
+  cursor: pointer;
+}
+.music-shuffle svg { display: block; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.music-shuffle[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
 
 
 /* colour game in "Why is an apple red?" */

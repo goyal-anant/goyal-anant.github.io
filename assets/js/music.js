@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var audio = new Audio();
   var activeButton = null;
-  // A queue is "Play all" on one section or "Shuffle all" on the page.
+  // A queue is "Play all" on the page or "Play genre" on one section,
+  // in page order or shuffled.
   var queue = [];
   var queueButton = null;
 
@@ -146,8 +147,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!next) return stopPlayback();
     play(next);
     // Shuffle jumps anywhere on the page, so centre the card to make it easy
-    // to spot; "Play all" only moves to the next card, so scroll just enough.
-    var block = queueButton.dataset.queue === 'shuffle' ? 'center' : 'nearest';
+    // to spot; in page order the next card is close, so scroll just enough.
+    var block = shuffleOn() ? 'center' : 'nearest';
     next.closest('.music-card').scrollIntoView({ block: block, behavior: 'smooth' });
   }
 
@@ -169,21 +170,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  var allSongs = Array.from(document.querySelectorAll('.music-play'));
+  var shuffleButton = document.querySelector('.music-shuffle');
+  function shuffleOn() {
+    return shuffleButton.getAttribute('aria-pressed') === 'true';
+  }
+  function shuffle(list) {
+    for (var i = list.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = list[i]; list[i] = list[j]; list[j] = tmp;
+    }
+  }
+  // Flipping shuffle mid-queue reorders the songs still to come.
+  // (This script runs on every page; only the music page has the button.)
+  if (shuffleButton) shuffleButton.addEventListener('click', function () {
+    shuffleButton.setAttribute('aria-pressed', String(!shuffleOn()));
+    if (shuffleOn()) shuffle(queue);
+    else queue = allSongs.filter(function (song) { return queue.includes(song); });
+  });
+
   document.querySelectorAll('.music-queue').forEach(function (button) {
     button.addEventListener('click', function () {
       var wasActive = button === queueButton;
       stopPlayback();
       if (wasActive) return;
 
-      if (button.dataset.queue === 'shuffle') {
-        queue = Array.from(document.querySelectorAll('.music-play'));
-        for (var i = queue.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var tmp = queue[i]; queue[i] = queue[j]; queue[j] = tmp;
-        }
-      } else {
-        queue = Array.from(button.closest('h2').nextElementSibling.querySelectorAll('.music-play'));
-      }
+      queue = button.dataset.queue === 'all' ? allSongs.slice()
+        : Array.from(button.closest('h2').nextElementSibling.querySelectorAll('.music-play'));
+      if (shuffleOn()) shuffle(queue);
       queueButton = button;
       button.textContent = 'Stop';
       button.setAttribute('aria-pressed', 'true');

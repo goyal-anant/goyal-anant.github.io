@@ -6,9 +6,10 @@ permalink: /music/
 
 <p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press a record to hear a preview and press it again to pause; to hear the full song, press its title. The music speaks for itself :)</p>
 
-<p class="shelf-hint">If you don't know where to start, press 'Shuffle all' below and let the page pick for you, or press 'Play all' next to a genre to hear all of its songs, top to bottom. To skip ahead in a song, drag the bar under it.</p>
+<p class="shelf-hint">If you don't know where to start, press 'Play all' below to hear every song on the page, or 'Play genre' next to a genre to hear only that one. Turn on the shuffle button next to 'Play all' and the page picks the order for you. To skip ahead in a song, drag the bar under it.</p>
 
-<p><button class="music-queue" type="button" data-queue="shuffle" data-label="Shuffle all" aria-pressed="false">Shuffle all</button></p>
+<p><button class="music-queue" type="button" data-queue="all" data-label="Play all" aria-pressed="false">Play all</button>
+<button class="music-shuffle" type="button" aria-label="Shuffle" title="Shuffle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.7l2.4 4.6c1.1 1.7 2.3 2.7 4.3 2.7H21M3 17h3.5c2 0 3.2-1 4.3-2.7m2.4-4.6c1.1-1.7 2.3-2.7 4.3-2.7H21M18 4l3 3-3 3M18 14l3 3-3 3"/></svg></button></p>
 
 {% assign genres = "sufi:Sufi &amp; Qawwali,ghazal:Ghazal,classical:Classical &amp; Semi-classical,film:Film,rock:Rock,pop-folk:Pop &amp; Folk,punjabi:Punjabi,indie:Indie &amp; Indi-pop,soul-reggae-blues:Soul&#44; Reggae &amp; Blues" | split: "," %}
 {% for genre in genres %}
@@ -17,7 +18,7 @@ permalink: /music/
 {% assign keys = parts[0] | split: "-" | push: parts[0] %}
 {% assign tracks = site.data.music | where_exp: "t", "keys contains t.genre" | sort_natural: "title" %}
 {% if tracks.size > 0 %}
-<h2 class="shelf-heading"><span class="genre-name">{{ parts[1] }}</span> <button class="music-queue" type="button" data-queue="section" data-label="Play all" aria-pressed="false">Play all</button></h2>
+<h2 class="shelf-heading"><span class="genre-name">{{ parts[1] }}</span> <button class="music-queue" type="button" data-queue="section" data-label="Play genre" aria-pressed="false">Play genre</button></h2>
 <ul class="music-grid">
 {% for track in tracks %}
   <li class="music-card">
