@@ -58,8 +58,44 @@ document.addEventListener('DOMContentLoaded', function () {
       'rgb(' + Math.round(sum[0] / n) + ' ' + Math.round(sum[1] / n) + ' ' + Math.round(sum[2] / n) + ')');
   }
 
+  // Spin the playing song's cover like a record: ease up to speed on play,
+  // then slow to a halt on stop and stay at whatever angle it stopped.
+  var DEGREES_PER_SECOND = 60; // one turn in 6 s
+  var stillMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  var records = new Map(); // cover -> { angle, speed, target }
+  var lastFrame = null;
+  var turning = false;
+
+  function turn(now) {
+    // Cap the step so a cover doesn't jump after the tab was in the background.
+    var dt = lastFrame === null ? 0 : Math.min(0.1, (now - lastFrame) / 1000);
+    var moving = false;
+    records.forEach(function (r, cover) {
+      if (!r.target && !r.speed) return;
+      r.speed += (r.target - r.speed) * Math.min(1, dt * 2);
+      if (!r.target && r.speed < 1) r.speed = 0;
+      r.angle = (r.angle + r.speed * dt) % 360;
+      cover.style.transform = 'rotate(' + r.angle + 'deg)';
+      moving = true;
+    });
+    lastFrame = moving ? now : null;
+    turning = moving;
+    if (moving) requestAnimationFrame(turn);
+  }
+
+  function spin(button, on) {
+    if (stillMotion.matches) return;
+    var cover = button.closest('.music-card').querySelector('.vinyl .music-thumb');
+    if (!cover) return;
+    var r = records.get(cover) || { angle: 0, speed: 0 };
+    r.target = on ? DEGREES_PER_SECOND : 0;
+    records.set(cover, r);
+    if (!turning) { turning = true; requestAnimationFrame(turn); }
+  }
+
   function clearActive() {
     if (activeButton) {
+      spin(activeButton, false);
       activeButton.classList.remove('is-playing');
       activeButton.setAttribute('aria-pressed', 'false');
     }
@@ -89,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.classList.add('is-playing');
     button.setAttribute('aria-pressed', 'true');
     activeButton = button;
+    spin(button, true);
     showProgress();
     button.parentNode.appendChild(seek);
     tint(button);

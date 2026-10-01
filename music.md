@@ -21,7 +21,7 @@ permalink: /music/
 <ul class="music-grid">
 {% for track in tracks %}
   <li class="music-card">
-    <div class="music-thumb-wrap">
+    <div class="music-thumb-wrap vinyl">
       <img class="music-thumb" src="{{ track.thumbnail | relative_url }}" alt="{{ track.title | escape }} cover" loading="lazy">
     </div>
     <div class="music-info">
@@ -32,12 +32,7 @@ permalink: /music/
     <div class="music-controls">
       <button class="music-play" type="button" data-preview-src="{{ track.previewUrl | escape }}"{% if track.extendedPreviewUrl %} data-extended-src="{{ track.extendedPreviewUrl | escape }}"{% endif %} aria-label="Play preview of {{ track.title | escape }}" aria-pressed="false">
         <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="icon-vinyl" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/>
-          <circle class="vinyl-groove" cx="12" cy="12" r="6.5"/>
-          <circle class="vinyl-groove" cx="12" cy="12" r="4"/>
-          <circle class="vinyl-label" cx="12" cy="12" r="1.6"/>
-        </svg>
+        <svg class="icon-stop" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
       </button>
       <a class="music-apple-link" href="{{ track.appleMusicUrl | escape }}" target="_blank" rel="noopener" aria-label="Listen to {{ track.title | escape }} on Apple Music">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17V6.5l10-2v10.5M9 17a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm10-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
