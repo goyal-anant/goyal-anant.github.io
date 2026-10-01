@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var queue = [];
   var queueButton = null;
 
-  // One seek bar, moved into whichever card is playing.
+  // One seek bar and stop button, moved into whichever card is on.
+  var nowPlaying = document.createElement('div');
+  nowPlaying.className = 'music-now';
   var seek = document.createElement('input');
   seek.type = 'range';
   seek.className = 'music-seek';
@@ -19,6 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
   seek.max = 1;
   seek.step = 'any';
   seek.setAttribute('aria-label', 'Seek');
+  var stop = document.createElement('button');
+  stop.type = 'button';
+  stop.className = 'music-stop';
+  stop.setAttribute('aria-label', 'Stop');
+  stop.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>';
+  nowPlaying.append(seek, stop);
 
   function showProgress() {
     var progress = audio.duration ? audio.currentTime / audio.duration : 0;
@@ -100,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
       activeButton.setAttribute('aria-pressed', 'false');
     }
     activeButton = null;
-    seek.remove();
+    nowPlaying.remove();
   }
 
   function stopPlayback() {
@@ -127,9 +135,11 @@ document.addEventListener('DOMContentLoaded', function () {
     activeButton = button;
     spin(button, true);
     showProgress();
-    button.parentNode.appendChild(seek);
+    button.parentNode.appendChild(nowPlaying);
     tint(button);
   }
+
+  stop.addEventListener('click', stopPlayback);
 
   function playNext() {
     var next = queue.shift();
