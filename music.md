@@ -17,7 +17,7 @@ permalink: /music/
 {% assign keys = parts[0] | split: "-" | push: parts[0] %}
 {% assign tracks = site.data.music | where_exp: "t", "keys contains t.genre" | sort_natural: "title" %}
 {% if tracks.size > 0 %}
-<h2 class="shelf-heading">{{ parts[1] }} <button class="music-queue" type="button" data-queue="section" data-label="Play all" aria-pressed="false">Play all</button></h2>
+<h2 class="shelf-heading"><span class="genre-name">{{ parts[1] }}</span> <button class="music-queue" type="button" data-queue="section" data-label="Play all" aria-pressed="false">Play all</button></h2>
 <ul class="music-grid">
 {% for track in tracks %}
   <li class="music-card">
