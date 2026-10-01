@@ -6,6 +6,10 @@ permalink: /music/
 
 <p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press play on a cover for a preview, or the note icon to hear the full song. If I have something to say about a song, hover over it (or tap, on a phone) to read it; for the rest, the music speaks for itself :)</p>
 
+<p class="shelf-hint">If you don't know where to start, press 'Shuffle all' below and let the page pick for you, or press 'Play all' next to a genre to hear all of its songs, top to bottom. To skip ahead in a song, drag the bar under it.</p>
+
+<p><button class="music-queue" type="button" data-queue="shuffle" data-label="Shuffle all" aria-pressed="false">Shuffle all</button></p>
+
 {% assign genres = "sufi:Sufi &amp; Qawwali,ghazal:Ghazal,classical:Classical &amp; Semi-classical,film:Film,rock:Rock,pop-folk:Pop &amp; Folk,punjabi:Punjabi,indie:Indie &amp; Indi-pop,soul-reggae-blues:Soul&#44; Reggae &amp; Blues" | split: "," %}
 {% for genre in genres %}
 {% assign parts = genre | split: ":" %}
@@ -13,7 +17,7 @@ permalink: /music/
 {% assign keys = parts[0] | split: "-" | push: parts[0] %}
 {% assign tracks = site.data.music | where_exp: "t", "keys contains t.genre" | sort_natural: "title" %}
 {% if tracks.size > 0 %}
-<h2 class="shelf-heading">{{ parts[1] }}</h2>
+<h2 class="shelf-heading">{{ parts[1] }} <button class="music-queue" type="button" data-queue="section" data-label="Play all" aria-pressed="false">Play all</button></h2>
 <ul class="music-grid">
 {% for track in tracks %}
   <li class="music-card">

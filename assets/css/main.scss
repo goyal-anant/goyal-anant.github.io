@@ -36,7 +36,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--bg);
+  /* music.js sets --song-tint to the playing song's cover colour */
+  background: color-mix(in srgb, var(--song-tint, var(--bg)) 20%, var(--bg));
+  transition: background-color 1s;
   color: var(--fg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.6;
@@ -427,6 +429,7 @@ main {
 .music-controls {
   margin-top: auto; /* pin to the bottom so buttons line up across a row */
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
 }
@@ -463,6 +466,59 @@ main {
   display: block;
   animation: vinyl-spin 1.8s linear infinite;
 }
+
+.music-seek {
+  flex: 1 0 100%; /* its own row under the buttons, as wide as the card */
+  min-width: 0;
+  height: 1rem;
+  margin: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+/* Vendor pseudo-elements can't share a rule: one unknown selector drops it all. */
+.music-seek::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--accent) var(--progress, 0%), color-mix(in srgb, var(--fg) 15%, transparent) 0);
+}
+.music-seek::-moz-range-track {
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--accent) var(--progress, 0%), color-mix(in srgb, var(--fg) 15%, transparent) 0);
+}
+.music-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 9px;
+  height: 9px;
+  margin-top: -3px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.music-seek::-moz-range-thumb {
+  width: 9px;
+  height: 9px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.music-queue {
+  padding: 0.15rem 0.7rem;
+  border: none;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.shelf-heading .music-queue { margin-left: 0.5rem; }
+.music-queue[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
 
 @keyframes vinyl-spin {
   to { transform: rotate(360deg); }
