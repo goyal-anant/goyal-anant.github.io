@@ -8,8 +8,16 @@ permalink: /music/
 
 <p class="shelf-hint">If you don't know where to start, press 'Play all' below to hear every song on the page, or 'Play genre' next to a genre to hear only that one. Turn on the shuffle button next to 'Play all' and the page picks the order for you. To skip ahead in a song, drag the bar under it.</p>
 
-<p><button class="music-queue" type="button" data-queue="all" data-label="Play all" aria-pressed="false">Play all</button>
-<button class="music-shuffle" type="button" aria-label="Shuffle" title="Shuffle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.7l2.4 4.6c1.1 1.7 2.3 2.7 4.3 2.7H21M3 17h3.5c2 0 3.2-1 4.3-2.7m2.4-4.6c1.1-1.7 2.3-2.7 4.3-2.7H21M18 4l3 3-3 3M18 14l3 3-3 3"/></svg></button></p>
+<div class="music-bar">
+  <button class="music-queue" type="button" data-queue="all" data-label="Play all" aria-pressed="false">Play all</button>
+  <button class="music-bar-icon music-shuffle" type="button" aria-label="Shuffle" title="Shuffle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.7l2.4 4.6c1.1 1.7 2.3 2.7 4.3 2.7H21M3 17h3.5c2 0 3.2-1 4.3-2.7m2.4-4.6c1.1-1.7 2.3-2.7 4.3-2.7H21M18 4l3 3-3 3M18 14l3 3-3 3"/></svg></button>
+  <span class="music-bar-now" hidden>
+    <button class="music-bar-title" type="button" title="Show this song"></button>
+    <button class="music-bar-icon music-bar-pause" type="button" aria-label="Pause" title="Pause"><svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z"/></svg><svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="music-bar-icon music-bar-skip" type="button" aria-label="Next song" title="Next song"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14l10-7zM16 5h3v14h-3z"/></svg></button>
+    <button class="music-bar-icon music-bar-stop" type="button" aria-label="Stop" title="Stop"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/></svg></button>
+  </span>
+</div>
 
 {% assign genres = "sufi:Sufi &amp; Qawwali,ghazal:Ghazal,classical:Classical &amp; Semi-classical,film:Film,rock:Rock,pop-folk:Pop &amp; Folk,punjabi:Punjabi,indie:Indie &amp; Indi-pop,soul-reggae-blues:Soul&#44; Reggae &amp; Blues" | split: "," %}
 {% for genre in genres %}

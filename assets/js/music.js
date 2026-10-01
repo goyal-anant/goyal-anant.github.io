@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Everything below is for the music page; this script runs on every page.
+  var bar = document.querySelector('.music-bar');
+  if (!bar) return;
+  var barNow = bar.querySelector('.music-bar-now');
+  var barTitle = bar.querySelector('.music-bar-title');
+  var barPause = bar.querySelector('.music-bar-pause');
+  var barSkip = bar.querySelector('.music-bar-skip');
+
   var audio = new Audio();
   var activeButton = null;
   // A queue is "Play all" on the page or "Play genre" on one section,
@@ -13,9 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var queueSongs = []; // every song the queue covers, in page order
   var queueButton = null;
 
-  // One seek bar and stop button, moved into whichever card is on.
-  var nowPlaying = document.createElement('div');
-  nowPlaying.className = 'music-now';
+  // One seek bar, moved into whichever card is on.
   var seek = document.createElement('input');
   seek.type = 'range';
   seek.className = 'music-seek';
@@ -23,12 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
   seek.max = 1;
   seek.step = 'any';
   seek.setAttribute('aria-label', 'Seek');
-  var stop = document.createElement('button');
-  stop.type = 'button';
-  stop.className = 'music-stop';
-  stop.setAttribute('aria-label', 'Stop');
-  stop.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>';
-  nowPlaying.append(seek, stop);
 
   function showProgress() {
     var progress = audio.duration ? audio.currentTime / audio.duration : 0;
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
       activeButton.setAttribute('aria-pressed', 'false');
     }
     activeButton = null;
-    nowPlaying.remove();
+    seek.remove();
   }
 
   function stopPlayback() {
@@ -123,6 +123,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     queueButton = null;
     document.body.style.removeProperty('--song-tint');
+    updateBar();
+  }
+
+  // The bar shows the song that is on, whether it is paused, and a skip
+  // button while a queue runs.
+  function updateBar() {
+    barNow.hidden = !activeButton;
+    barSkip.hidden = !queueButton;
+    var paused = !!activeButton && activeButton.classList.contains('is-paused');
+    bar.classList.toggle('is-paused', paused);
+    barPause.setAttribute('aria-label', paused ? 'Resume' : 'Pause');
+    barPause.title = paused ? 'Resume' : 'Pause';
+    if (activeButton) {
+      barTitle.textContent = activeButton.closest('.music-card').querySelector('.music-title').textContent;
+    }
   }
 
   function play(button) {
@@ -137,11 +152,19 @@ document.addEventListener('DOMContentLoaded', function () {
     activeButton = button;
     spin(button, true);
     showProgress();
-    button.parentNode.appendChild(nowPlaying);
+    button.parentNode.appendChild(seek);
     tint(button);
+    updateBar();
   }
 
-  stop.addEventListener('click', stopPlayback);
+  bar.querySelector('.music-bar-stop').addEventListener('click', stopPlayback);
+  barSkip.addEventListener('click', function () { playNext(); });
+  barPause.addEventListener('click', function () {
+    if (activeButton) pauseOrResume(activeButton);
+  });
+  barTitle.addEventListener('click', function () {
+    if (activeButton) activeButton.closest('.music-card').scrollIntoView({ block: 'center', behavior: 'smooth' });
+  });
 
   function playNext() {
     var next = queue.shift();
@@ -161,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.classList.toggle('is-paused', !resume);
     button.setAttribute('aria-pressed', String(resume));
     spin(button, resume);
+    updateBar();
   }
 
   document.querySelectorAll('.music-play').forEach(function (button) {
@@ -184,8 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   // Turning shuffle on mixes up the songs still to come; turning it off
   // carries on from the song that is on, in page order.
-  // (This script runs on every page; only the music page has the button.)
-  if (shuffleButton) shuffleButton.addEventListener('click', function () {
+  shuffleButton.addEventListener('click', function () {
     shuffleButton.setAttribute('aria-pressed', String(!shuffleOn()));
     if (shuffleOn()) shuffle(queue);
     else if (queueButton) queue = queueSongs.slice(queueSongs.indexOf(activeButton) + 1);
@@ -193,16 +216,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.music-queue').forEach(function (button) {
     button.addEventListener('click', function () {
+      // 'Play genre' turns into 'Stop'; 'Play all' starts over, since the
+      // bar has its own stop.
       var wasActive = button === queueButton;
       stopPlayback();
-      if (wasActive) return;
+      if (wasActive && button.dataset.queue === 'section') return;
 
       queueSongs = button.dataset.queue === 'all' ? allSongs
         : Array.from(button.closest('h2').nextElementSibling.querySelectorAll('.music-play'));
       queue = queueSongs.slice();
       if (shuffleOn()) shuffle(queue);
       queueButton = button;
-      button.textContent = 'Stop';
+      if (button.dataset.queue === 'section') button.textContent = 'Stop';
       button.setAttribute('aria-pressed', 'true');
       playNext();
     });
