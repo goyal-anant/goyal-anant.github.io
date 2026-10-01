@@ -28,6 +28,13 @@
       {% include nav.html %}
       {% include search-toggle.html %}
       {% include theme-toggle.html %}
+      {% unless page.layout == 'home' %}
+      <button id="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+      {% endunless %}
     </div>
   </header>
   <main>
@@ -51,6 +58,48 @@
       });
     })();
   </script>
+  {% unless page.layout == 'home' %}
+  <script>
+    // Slim the pinned header once the page scrolls. The header is fixed, so the
+    // body keeps room for its full height (--header-full); --header-h is its
+    // current height, for the music bar and anchor jumps to sit just below it.
+    (function () {
+      var root = document.documentElement;
+      var header = document.querySelector('.site-header');
+      function measureFull() {
+        // an unscrolled copy, measured off screen, gives the full height even when slim
+        var copy = header.cloneNode(true);
+        copy.classList.remove('compact');
+        copy.style.visibility = 'hidden';
+        document.body.appendChild(copy);
+        root.style.setProperty('--header-full', copy.offsetHeight + 'px');
+        copy.remove();
+      }
+      function update() { header.classList.toggle('compact', scrollY > 0); }
+      addEventListener('scroll', update, { passive: true });
+      addEventListener('resize', measureFull);
+      document.fonts.ready.then(measureFull);
+      measureFull();
+      update();
+
+      // Phones fold the nav links into a dropdown under the menu button.
+      var menuBtn = document.getElementById('menu-toggle');
+      function setMenu(open) {
+        header.classList.toggle('menu-open', open);
+        menuBtn.setAttribute('aria-expanded', open);
+      }
+      menuBtn.addEventListener('click', function () { setMenu(!header.classList.contains('menu-open')); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+      document.addEventListener('click', function (e) {
+        if (!header.querySelector('.site-nav').contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
+      });
+
+      new ResizeObserver(function () {
+        root.style.setProperty('--header-h', header.offsetHeight + 'px');
+      }).observe(header, { box: 'border-box' });
+    })();
+  </script>
+  {% endunless %}
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/clock.js' | relative_url }}"></script>
   {% if page.layout == 'home' %}<script src="{{ '/assets/js/name-tones.js' | relative_url }}"></script>{% endif %}

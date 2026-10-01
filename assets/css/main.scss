@@ -8,6 +8,7 @@
   --accent: #2b5dd6;
   --strip: rgb(120, 0, 0);
   --brush: rgb(245, 190, 70);
+  --strip-w: 64px;
 }
 
 [data-theme="dark"] {
@@ -45,7 +46,7 @@ body {
   color: var(--fg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  border-left: 64px solid var(--strip);
+  border-left: var(--strip-w) solid var(--strip);
 }
 
 body.layout-home {
@@ -110,6 +111,42 @@ a:hover { text-decoration: underline; }
 body:not(.layout-home) .nav-row { flex: 1 1 auto; }
 body:not(.layout-home) .search-box { margin-left: auto; }
 
+/* Every page but home keeps the header pinned. It is fixed, so its shrinking never
+   moves the page; the body keeps room for its full height (--header-full, set by
+   the script in default.html). The bar spans from the strip to the right edge,
+   while the padding keeps its contents in the same 720px column as the page. */
+body:not(.layout-home) { padding-top: var(--header-full, 9rem); }
+body:not(.layout-home) .site-header {
+  position: fixed;
+  top: 0;
+  left: var(--strip-w);
+  right: 0;
+  z-index: 5;
+  width: auto;
+  max-width: none;
+  padding-inline: max(1.5rem, calc(50% - var(--strip-w) / 2 - 360px + 1.5rem));
+  background: color-mix(in srgb, var(--song-tint, var(--bg)) 20%, var(--bg)); /* same as body */
+  border-bottom: 1px solid transparent;
+  transition: padding 0.2s ease, row-gap 0.2s ease, border-color 0.2s ease, background-color 1s;
+}
+body:not(.layout-home) .site-header :is(.site-mark, .clock, .site-nav) { transition: font-size 0.2s ease; }
+/* Once scrolled, the header slims down: less padding, a tight gap, smaller text. */
+body:not(.layout-home) .site-header.compact {
+  padding-block: 0.5rem;
+  row-gap: 0.25rem;
+  border-bottom-color: color-mix(in srgb, var(--fg) 15%, transparent);
+}
+.site-header.compact .site-mark { font-size: 0.95rem; }
+/* the clock steps aside so the slim header fits on one line */
+.site-header.compact .clock { display: none; }
+.site-header.compact .site-nav { font-size: 0.85rem; }
+@media (prefers-reduced-motion: reduce) {
+  body:not(.layout-home) .site-header,
+  body:not(.layout-home) .site-header :is(.site-mark, .clock, .site-nav) { transition: none; }
+}
+/* footnote and #anchor jumps land below the pinned header */
+html:not(:has(.layout-home)) { scroll-padding-top: calc(var(--header-h, 0px) + 1rem); }
+
 #theme-toggle {
   display: flex;
   align-items: center;
@@ -150,7 +187,18 @@ body:not(.layout-home) .search-box { margin-left: auto; }
   line-height: 0;
   transition: color 0.15s ease;
 }
-#search-toggle:hover { color: var(--fg); }
+#search-toggle:hover, #menu-toggle:hover { color: var(--fg); }
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  line-height: 0;
+  transition: color 0.15s ease;
+}
+#menu-toggle svg { width: 1.15rem; height: 1.15rem; }
 #search-toggle svg { width: 1.05rem; height: 1.05rem; }
 /* opens as a dropdown under the icon, so the nav never reflows */
 .search-panel {
@@ -256,7 +304,23 @@ main {
 
 /* phones: thin strip; home stacks into one centered column */
 @media (max-width: 600px) {
-  body { border-left-width: 15px; }
+  :root { --strip-w: 15px; }
+  /* the nav links fold into a dropdown under the menu button */
+  #menu-toggle { display: flex; }
+  body:not(.layout-home) .site-header .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg);
+    border: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+  }
+  body:not(.layout-home) .site-header.menu-open .site-nav { display: block; }
+  body:not(.layout-home) .site-nav ul { flex-direction: column; gap: 0.4rem; }
   .layout-home .site-header { min-height: auto; padding-top: 25vh; }
   .layout-home .nav-row { flex-wrap: wrap; justify-content: center; }
   .layout-home .site-nav { flex-basis: 100%; }
@@ -552,7 +616,7 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 /* Play all, shuffle and the song that is on, stuck to the top of the screen. */
 .music-bar {
   position: sticky;
-  top: 0;
+  top: var(--header-h, 0px); /* just under the pinned site header */
   z-index: 2;
   display: flex;
   align-items: center;
