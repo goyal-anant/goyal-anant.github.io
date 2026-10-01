@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Spin the playing song's cover like a record: ease up to speed on play,
   // then slow to a halt on stop and stay at whatever angle it stopped.
-  var DEGREES_PER_SECOND = 30; // one turn in 12 s
+  var DEGREES_PER_SECOND = 10; // one turn in 36 s
   var stillMotion = matchMedia('(prefers-reduced-motion: reduce)');
   var records = new Map(); // cover -> { angle, speed, target }
   var lastFrame = null;
