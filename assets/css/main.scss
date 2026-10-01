@@ -426,21 +426,15 @@ main {
 }
 /* Song covers as records; music.js spins the playing one. */
 .vinyl .music-thumb { border-radius: 50%; }
-.vinyl::before,
-.vinyl::after {
+.vinyl::before { /* grooves, kept off the centre label; round, so they need not turn */
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
   pointer-events: none;
-}
-.vinyl::before { /* grooves, kept off the centre label; round, so they need not turn */
   background: repeating-radial-gradient(circle, transparent 0 3px, rgba(0, 0, 0, 0.12) 3px 4px);
   -webkit-mask: radial-gradient(circle, transparent 35%, #000 36%);
           mask: radial-gradient(circle, transparent 35%, #000 36%);
-}
-.vinyl::after { /* spindle hole */
-  background: radial-gradient(circle, var(--bg) 0 5%, rgba(0, 0, 0, 0.5) 6% 8%, transparent 9%);
 }
 .music-note {
   position: absolute;
