@@ -17,13 +17,13 @@ permalink: /bookshelf/
   <li class="music-card">
     <div class="music-thumb-wrap">
       {% if book.thumbnail %}
-      <img class="music-thumb" src="{{ book.thumbnail | relative_url }}" alt="{{ book.title }} by {{ book.author }}" loading="lazy">
+      <img class="music-thumb" src="{{ book.thumbnail | relative_url }}" alt="{{ book.title | escape }} by {{ book.author | escape }}" loading="lazy">
       {% else %}
-      <div class="music-thumb book-cover-blank"><span>{{ book.title }}</span></div>
+      <div class="music-thumb book-cover-blank"><span>{{ book.title | escape }}</span></div>
       {% endif %}
-      {% if book.summary and book.summary != "" %}<p class="music-note book-note">{{ book.summary }}</p>{% endif %}
+      {% if book.summary and book.summary != "" %}<p class="music-note book-note">{{ book.summary | escape }}</p>{% endif %}
     </div>
-    {% if book.link %}<a class="book-link" href="{{ book.link }}" title="{{ book.title }}" target="_blank" rel="noopener">{{ book.title }}</a>{% endif %}
+    {% if book.link %}<a class="book-link" href="{{ book.link | escape }}" title="{{ book.title | escape }}" target="_blank" rel="noopener">{{ book.title | escape }}</a>{% endif %}
   </li>
 {% endfor %}
 </ul>

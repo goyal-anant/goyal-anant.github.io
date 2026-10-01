@@ -9,6 +9,13 @@ finds the track on Apple, saves a 300px cover, stores the 30 s preview (public
 iTunes API) and the 90 s preview (from the song's music.apple.com page), and
 guesses a genre. Check the guesses it prints before committing.
 
+A line can also carry an Apple Music song link, bare or as [text](link):
+"Kun Faya Kun - Rahman https://music.apple.com/in/album/...?i=123". The script
+then uses that exact track instead of searching. A song already on the page whose
+link points at a different track is switched to it: title, artist, genre (guessed
+again), cover and links all come from the linked track; only its note stays. Other links (YouTube,
+Spotify) are reported and the song is searched by name as usual.
+
 --refresh also rechecks every song already on the page: it looks up the same
 Apple track (so hand-picked versions stay), updates its preview links, Apple
 Music link and cover if Apple changed them, searches again if the track is gone,
@@ -27,12 +34,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 YML = os.path.join(ROOT, "_data", "music.yml")
 COVERS = os.path.join(ROOT, "assets", "images", "music")
 NOTE = os.path.expanduser("~/Documents/2B/2B/songs to be added on the music page.md")
-GENRES = ["sufi", "ghazal", "hindi-film", "rock", "pop-folk", "punjabi", "indie", "soul-reggae-blues"]
-# Apple's primaryGenreName -> section on the page, used when the artist is new.
+GENRES = ["sufi", "ghazal", "classical", "film", "rock", "pop-folk", "punjabi", "indie", "soul-reggae-blues"]
+# Apple's primaryGenreName for the song -> section on the page. Genre goes by song, not artist.
 APPLE_GENRES = {
     "Sufi": "sufi", "Devotional & Spiritual": "sufi", "Qawwali": "sufi",
     "Ghazals": "ghazal",
-    "Bollywood": "hindi-film", "Indian Classical": "hindi-film",
+    "Bollywood": "film", "Soundtrack": "film", "Tamil": "film", "Telugu": "film", "Indian Classical": "classical",
     "Rock": "rock", "Alternative": "rock", "Hard Rock": "rock", "Metal": "rock",
     "Pop": "pop-folk", "Singer/Songwriter": "pop-folk", "Folk": "pop-folk", "Country": "pop-folk",
     "Punjabi Pop": "punjabi", "Punjabi": "punjabi",
@@ -64,6 +71,13 @@ def artist_matches(note_artist, apple_artist):
     return any(similar(note_artist, part) for part in re.split(r",|&|\bfeat\.?", apple_artist))
 
 
+URL = re.compile(r"\[([^\]]*)\]\((https?://[^)\s]+)\)|<?(https?://[^\s>)]+)>?")
+
+
+def parse(line):
+    return re.match(r"\s*(.+?)\s*-\s+(.+?)\s*$", line) or re.match(r"\s*(.+?)\s+-\s*(.+?)\s*$", line)
+
+
 def read_note(path):
     text = open(path).read()
     head, _, songs = text.partition("*Song list*")
@@ -74,10 +88,15 @@ def read_note(path):
             abbr[m.group(1).lower()] = m.group(2).strip()
     out = []
     for line in songs.splitlines():
-        m = re.match(r"\s*(.+?)\s*-\s+(.+?)\s*$", line) or re.match(r"\s*(.+?)\s+-\s*(.+?)\s*$", line)
+        u, link, tries = URL.search(line), None, [line]
+        if u:
+            # Drop the link; if that leaves no "title - artist", the link text was the song.
+            link = u.group(2) or u.group(3)
+            tries = [line[:u.start()] + line[u.end():], line[:u.start()] + (u.group(1) or "") + line[u.end():]]
+        m = next(filter(None, map(parse, tries)), None)
         if m:
             artist = m.group(2)
-            out.append((line.strip(), m.group(1), abbr.get(artist.lower(), artist)))
+            out.append((line.strip(), m.group(1), abbr.get(artist.lower(), artist), link))
     return out
 
 
@@ -106,18 +125,22 @@ def find_on_apple(title, artist):
     return None
 
 
+def track_ref(url):
+    """(storefront, track id) of an Apple Music song link, or None for any other link."""
+    m = re.search(r"music\.apple\.com/(\w+)/(?:.*?[?&]i=|song/(?:[^/?]+/)?)(\d+)", url)
+    return m and (m.group(1), m.group(2))
+
+
 def lookup(apple_url):
     """The same Apple track again, or None if Apple no longer has it."""
-    sf = re.search(r"music\.apple\.com/(\w+)/", apple_url).group(1)
-    tid = re.search(r"[?&]i=(\d+)", apple_url).group(1)
+    sf, tid = track_ref(apple_url)
     results = json.loads(get(f"https://itunes.apple.com/lookup?id={tid}&country={sf}"))["results"]
     time.sleep(3)
     return next((r for r in results if r.get("previewUrl")), None)
 
 
 def extended_preview(apple_url):
-    sf = re.search(r"music\.apple\.com/(\w+)/", apple_url).group(1)
-    tid = re.search(r"[?&]i=(\d+)", apple_url).group(1)
+    sf, tid = track_ref(apple_url)
     try:
         html = get(f"https://music.apple.com/{sf}/song/{tid}").decode()
     except urllib.error.HTTPError:
@@ -131,10 +154,14 @@ def clean_title(t):
     return t.title() if t.isupper() else t
 
 
-def guess_genre(artist, apple_genre, tracks):
-    known = [t["genre"] for t in tracks if artist_matches(artist, t["artist"])]
-    if known:
-        return max(set(known), key=known.count), "same artist"
+def section(genre):
+    """The section a hand-typed genre means: one word of it ("reggae", "Pop") or an Apple genre ("Jazz")."""
+    g = str(genre or "").strip().lower()
+    return (g if g in GENRES else next((s for s in GENRES if g in s.split("-")), None)
+            or {k.lower(): v for k, v in APPLE_GENRES.items()}.get(g))
+
+
+def guess_genre(apple_genre):
     if apple_genre in APPLE_GENRES:
         return APPLE_GENRES[apple_genre], f"Apple says {apple_genre}"
     return None, f"Apple says {apple_genre}"
@@ -152,6 +179,36 @@ def same_image(a, b):
     except OSError:
         return False
     return sum(ImageChops.difference(*im).getdata()) / 256 < 12
+
+
+def from_apple(r, dry):
+    """A music.yml entry for Apple track r, its cover saved, plus a line describing it."""
+    name = clean_title(r["trackName"])
+    genre, why = guess_genre(r["primaryGenreName"])
+    ep = extended_preview(r["trackViewUrl"])
+    slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    flag = "" if genre else "   <-- no genre, set it by hand or it won't show"
+    if not dry:
+        fetch_cover(r, os.path.join(COVERS, f"{slug}.jpg"))
+    return ({"title": name, "artist": r["artistName"], "genre": genre or "CHOOSE",
+             "thumbnail": f"/assets/images/music/{slug}.jpg", "previewUrl": r["previewUrl"],
+             "extendedPreviewUrl": ep, "appleMusicUrl": r["trackViewUrl"]},
+            f"{name} | {r['artistName']} | genre: {genre or '?'} ({why})"
+            f" | {'90 s' if ep else '30 s only'} preview{flag}")
+
+
+def relink(t, line, link, tracks, dry, changes, problems):
+    """Switch a song on the page to the track the note links to: every field but the note."""
+    r = lookup(link)
+    if not r:
+        problems.append(f"  LINK IN THE NOTE not found on Apple (left as is): {line}")
+        return
+    new, desc = from_apple(r, dry)
+    changes.append(f"  RELINKED {t['title']} - {t['artist']} (link in the note)\n    => {desc}")
+    old = t["thumbnail"]
+    t.update(new)
+    if not dry:
+        remove_covers([{"thumbnail": old}], tracks)
 
 
 def refresh(t, line, title, artist, dry, changes, problems):
@@ -198,33 +255,39 @@ def main():
     args = [a for a in args if a not in ("--dry-run", "--refresh")]
     tracks = yaml.safe_load(open(YML)) or []
     changes, problems, matched, new = [], [], set(), []
-    for line, title, artist in read_note(args[0] if args else NOTE):
-        i = next((i for i, t in enumerate(tracks)
-                  if similar(title, t["title"]) and artist_matches(artist, t["artist"])), None)
+    for t in tracks:
+        g = section(t.get("genre"))
+        if g and g != t["genre"]:
+            changes.append(f"  GENRE {t['title']}: {t['genre']} -> {g}")
+            t["genre"] = g
+    for line, title, artist, link in read_note(args[0] if args else NOTE):
+        if link and not track_ref(link):
+            problems.append(f"  NOT AN APPLE MUSIC SONG LINK, searched by name instead: {line}")
+            link = None
+        same = lambda t: link and track_ref(link)[1] == track_ref(t["appleMusicUrl"])[1]
+        i = next((i for i, t in enumerate(tracks) if same(t)), None)
+        if i is not None:
+            link = None  # already that track
+        else:
+            i = next((i for i, t in enumerate(tracks)
+                      if similar(title, t["title"]) and artist_matches(artist, t["artist"])), None)
         if i is None:
-            new.append((line, title, artist))
+            new.append((line, title, artist, link))
         elif i not in matched:
             matched.add(i)
-            if full:
+            if link:
+                relink(tracks[i], line, link, tracks, dry, changes, problems)
+            elif full:
                 refresh(tracks[i], line, title, artist, dry, changes, problems)
 
-    for line, title, artist in new:
-        r = find_on_apple(title, artist)
+    for line, title, artist, link in new:
+        r = lookup(link) if link else find_on_apple(title, artist)
         if not r:
-            problems.append(f"  NOT FOUND on Apple: {line}")
+            problems.append(f"  {'LINK IN THE NOTE not found' if link else 'NOT FOUND'} on Apple: {line}")
             continue
-        name = clean_title(r["trackName"])
-        genre, why = guess_genre(artist, r["primaryGenreName"], tracks)
-        ep = extended_preview(r["trackViewUrl"])
-        slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-        flag = "" if genre else "   <-- no genre, set it by hand or it won't show"
-        changes.append(f"  NEW {line}\n    => {name} | {r['artistName']} | genre: {genre or '?'} ({why})"
-                       f" | {'90 s' if ep else '30 s only'} preview{flag}")
-        if not dry:
-            fetch_cover(r, os.path.join(COVERS, f"{slug}.jpg"))
-        tracks.append({"title": name, "artist": r["artistName"], "genre": genre or "CHOOSE",
-                       "thumbnail": f"/assets/images/music/{slug}.jpg", "previewUrl": r["previewUrl"],
-                       "extendedPreviewUrl": ep, "appleMusicUrl": r["trackViewUrl"]})
+        track, desc = from_apple(r, dry)
+        changes.append(f"  NEW {line}\n    => {desc}")
+        tracks.append(track)
         matched.add(len(tracks) - 1)
 
     gone = [t for i, t in enumerate(tracks) if i not in matched]
