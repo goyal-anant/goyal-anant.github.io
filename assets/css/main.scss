@@ -465,44 +465,47 @@ main {
 .music-title { display: block; font-weight: 600; }
 .music-artist { display: block; color: var(--muted); font-size: 0.7rem; }
 
-.music-controls {
-  margin-top: auto; /* pin to the bottom so buttons line up across a row */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem;
-}
-.music-play,
-.music-apple-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
+a.music-title { color: inherit; }
+
+/* The record is the play/pause button: an icon on its label shows on hover,
+   and on touch screens only on the song that is on. */
+button.vinyl {
+  display: block;
+  width: 100%;
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--fg) 8%, transparent);
-  color: var(--fg);
+  background: none;
   cursor: pointer;
 }
-.music-apple-link { color: var(--muted); }
-.music-play svg,
-.music-apple-link svg {
-  width: 0.9rem;
-  height: 0.9rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
+button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.vinyl-icon {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  transform: translate(-50%, -50%);
+  padding: 4%;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  fill: #fff;
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
-.music-play .icon-play { fill: currentColor; stroke: none; }
-.music-play .icon-stop { display: none; fill: currentColor; stroke: none; }
-.music-play.is-playing .icon-play { display: none; }
-.music-play.is-playing .icon-stop { display: block; }
+.vinyl.is-playing .icon-play,
+.vinyl:not(.is-playing) .icon-pause { display: none; }
+.vinyl:hover .vinyl-icon,
+.vinyl:focus-visible .vinyl-icon { opacity: 1; }
+@media (hover: none) {
+  .vinyl.is-playing .vinyl-icon,
+  .vinyl.is-paused .vinyl-icon { opacity: 1; }
+}
 
 .music-seek {
-  flex: 1 0 100%; /* its own row under the buttons, as wide as the card */
-  min-width: 0;
+  width: 100%; /* under the title, as wide as the card */
   height: 1rem;
   margin: 0;
   background: transparent;

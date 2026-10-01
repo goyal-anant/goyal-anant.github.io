@@ -4,7 +4,7 @@ title: Music
 permalink: /music/
 ---
 
-<p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press play under a cover for a preview, or the note icon to hear the full song; the music speaks for itself :)</p>
+<p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press a record to hear a preview and press it again to pause; to hear the full song, press its title. The music speaks for itself :)</p>
 
 <p class="shelf-hint">If you don't know where to start, press 'Shuffle all' below and let the page pick for you, or press 'Play all' next to a genre to hear all of its songs, top to bottom. To skip ahead in a song, drag the bar under it.</p>
 
@@ -21,24 +21,15 @@ permalink: /music/
 <ul class="music-grid">
 {% for track in tracks %}
   <li class="music-card">
-    <div class="music-thumb-wrap vinyl">
-      <img class="music-thumb" src="{{ track.thumbnail | relative_url }}" alt="{{ track.title | escape }} cover" loading="lazy">
-    </div>
+    <button class="music-thumb-wrap vinyl music-play" type="button" data-preview-src="{{ track.previewUrl | escape }}"{% if track.extendedPreviewUrl %} data-extended-src="{{ track.extendedPreviewUrl | escape }}"{% endif %} aria-label="Play preview of {{ track.title | escape }}" aria-pressed="false">
+      <img class="music-thumb" src="{{ track.thumbnail | relative_url }}" alt="" loading="lazy">
+      <svg class="vinyl-icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7v10l8-5z"/></svg>
+      <svg class="vinyl-icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h3v10H8zm5 0h3v10h-3z"/></svg>
+    </button>
     <div class="music-info">
-      <span class="music-title">{{ track.title | escape }}</span>
+      <a class="music-title" href="{{ track.appleMusicUrl | escape }}" target="_blank" rel="noopener">{{ track.title | escape }}</a>
       <span class="music-artist">{{ track.artist | escape }}</span>
     </div>
-    {% if track.previewUrl and track.appleMusicUrl %}
-    <div class="music-controls">
-      <button class="music-play" type="button" data-preview-src="{{ track.previewUrl | escape }}"{% if track.extendedPreviewUrl %} data-extended-src="{{ track.extendedPreviewUrl | escape }}"{% endif %} aria-label="Play preview of {{ track.title | escape }}" aria-pressed="false">
-        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="icon-stop" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
-      </button>
-      <a class="music-apple-link" href="{{ track.appleMusicUrl | escape }}" target="_blank" rel="noopener" aria-label="Listen to {{ track.title | escape }} on Apple Music">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17V6.5l10-2v10.5M9 17a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm10-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
-      </a>
-    </div>
-    {% endif %}
   </li>
 {% endfor %}
 </ul>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.music-thumb-wrap').forEach(function (wrap) {
+  document.querySelectorAll('.book-grid .music-thumb-wrap').forEach(function (wrap) {
     wrap.addEventListener('click', function () {
       wrap.classList.toggle('is-open');
     });
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Spin the playing song's cover like a record: ease up to speed on play,
   // then slow to a halt on stop and stay at whatever angle it stopped.
-  var DEGREES_PER_SECOND = 60; // one turn in 6 s
+  var DEGREES_PER_SECOND = 30; // one turn in 12 s
   var stillMotion = matchMedia('(prefers-reduced-motion: reduce)');
   var records = new Map(); // cover -> { angle, speed, target }
   var lastFrame = null;
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function clearActive() {
     if (activeButton) {
       spin(activeButton, false);
-      activeButton.classList.remove('is-playing');
+      activeButton.classList.remove('is-playing', 'is-paused');
       activeButton.setAttribute('aria-pressed', 'false');
     }
     activeButton = null;
@@ -141,11 +141,21 @@ document.addEventListener('DOMContentLoaded', function () {
     next.closest('.music-card').scrollIntoView({ block: block, behavior: 'smooth' });
   }
 
+  // Pausing keeps the song, its place and any queue; the record winds down.
+  function pauseOrResume(button) {
+    var resume = audio.paused;
+    if (resume) audio.play(); else audio.pause();
+    button.classList.toggle('is-playing', resume);
+    button.classList.toggle('is-paused', !resume);
+    button.setAttribute('aria-pressed', String(resume));
+    spin(button, resume);
+  }
+
   document.querySelectorAll('.music-play').forEach(function (button) {
     button.addEventListener('click', function () {
-      var wasActive = button === activeButton;
+      if (button === activeButton) return pauseOrResume(button);
       stopPlayback();
-      if (!wasActive) play(button);
+      play(button);
     });
   });
 
