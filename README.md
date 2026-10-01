@@ -24,7 +24,9 @@ a thin wrapper that sets that up via `RUBYOPT` before calling Jekyll.
 - `_rants/` — rants
 - `_research/` — research
 - `_data/books.yml` — bookshelf entries (`bin/add-books` syncs them with the
-  Obsidian note; run it with `--dry-run` first)
+  Obsidian note; run it with `--dry-run` first, add `--refresh` to recheck
+  every link and remove books no longer in the note)
 - `_data/music.yml` — music entries (`bin/add-songs` adds new ones from the
-  Obsidian note; run it with `--dry-run` first)
+  Obsidian note; run it with `--dry-run` first, add `--refresh` to recheck
+  every link and cover and remove songs no longer in the note)
 - `_data/picks.yml` — picks entries

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sync the bookshelf with the Obsidian note.
 
-Usage: bin/add-books [--dry-run] [path/to/note.md]
+Usage: bin/add-books [--dry-run] [--refresh] [path/to/note.md]
 
 The note has one heading per shelf and one book per line:
 
@@ -14,7 +14,17 @@ Books already on the page are moved to the shelf they sit under in the note, and
 their takeaway is updated when the line has one. New books are looked up on
 Goodreads (link and cover, Open Library as a cover fallback), get a guessed
 genre, and are added. Books on the page but missing from the note are only
-reported, never deleted. Needs macOS (uses sips to resize covers).
+reported.
+
+--refresh also rechecks every book already on the page: it follows its Goodreads
+link and updates it if Goodreads moved it, searches again (new link and cover) if
+the page is gone, and removes books that are no longer in the note (after
+asking). Covers are otherwise left alone, because the current ones were picked
+by hand and a fresh download may show a different edition. Titles, authors,
+genres and takeaways are never changed by a refresh.
+
+--dry-run shows what would happen without writing anything.
+Needs macOS (uses sips to resize covers).
 """
 import difflib, html, json, os, re, shlex, subprocess, sys, time, unicodedata
 import urllib.parse, urllib.request
@@ -77,11 +87,31 @@ def dump(books):
     return "\n".join(out) + "\n"
 
 
-def get(url):
+class Busy(Exception):
+    """The site kept refusing us (Goodreads answers 202 when rate limiting)."""
+
+
+def fetch(url):
+    """(status, final URL without query, body). Backs off while Goodreads says 202."""
     # curl, not urllib: Goodreads sends urllib into a redirect loop or a
     # different page layout, but gives curl its plain search results table.
-    return subprocess.run(["curl", "-sfL", "--retry", "2", "--max-time", "30", "-A", UA["User-Agent"], url],
-                          capture_output=True, check=True, text=True).stdout
+    for wait in (0, 30, 90):
+        time.sleep(wait)
+        out = subprocess.run(["curl", "-sL", "--retry", "2", "--max-time", "30", "-A", UA["User-Agent"],
+                              "-w", "\n%{http_code} %{url_effective}", url], capture_output=True, text=True).stdout
+        body, _, tail = out.rpartition("\n")
+        code, _, final = tail.partition(" ")
+        if code != "202":
+            time.sleep(3)  # stay under Goodreads' rate limit
+            return int(code or 0), final.split("?")[0], body
+    raise Busy(url)
+
+
+def get(url):
+    code, _, body = fetch(url)
+    if code != 200:
+        raise Busy(f"{url} (HTTP {code})")
+    return body
 
 
 def goodreads(title, author):
@@ -99,7 +129,6 @@ def goodreads(title, author):
 
 def goodreads_search(q, title, author):
     page = get("https://www.goodreads.com/search?" + urllib.parse.urlencode({"q": q}))
-    time.sleep(2)
     hits = []
     for row in re.findall(r'<tr itemscope itemtype="http://schema.org/Book">(.*?)</tr>', page, re.S):
         href = re.search(r'class="bookTitle"[^>]*href="(/book/show/[^"?]+)', row)
@@ -116,6 +145,61 @@ def goodreads_search(q, title, author):
                 "link": "https://www.goodreads.com" + href.group(1),
                 "cover": cover and re.sub(r"\._S[XY]\d+_", "", cover.group(1))}))
     return max(hits, key=lambda h: h[0])[1] if hits else None
+
+
+def current_link(link):
+    """Where a Goodreads link leads now, or None if it no longer shows a book.
+
+    A dead link still answers 200 with a generic page, so check what the page is.
+    Follow redirects only; the page's own og:url can point at another edition.
+    """
+    code, final, page = fetch(link)
+    return final if code == 200 and 'og:type" content="books.book"' in page else None
+
+
+def save_cover(url, slug):
+    path = os.path.join(COVERS, f"{slug}.jpg")
+    urllib.request.urlretrieve(url, path)
+    subprocess.run(["sips", "-Z", "500", path], capture_output=True, check=True)
+
+
+def refresh(b, n, dry, changes, problems):
+    """Update the Goodreads link of a book already on the page, in place."""
+    final = current_link(b["link"])
+    if final:
+        if final != b["link"]:
+            changes.append(f"  UPDATED {b['title']}: link {b['link']} -> {final}")
+            b["link"] = final
+        if b.get("thumbnail") and os.path.exists(ROOT + b["thumbnail"]):
+            return
+    gr = goodreads(n["title"], n["author"])
+    if not gr:
+        problems.append(f"  LINK DEAD and no replacement found on Goodreads (left as is): {n['line']}")
+        return
+    changes.append(f"  REPLACED {b['title']}: now {gr['link']}")
+    b["link"] = gr["link"]
+    if gr["cover"]:
+        slug = os.path.splitext(os.path.basename(b.get("thumbnail") or ""))[0] or \
+            re.sub(r"[^a-z0-9]+", "-", b["title"].lower()).strip("-")
+        b["thumbnail"] = f"/assets/images/books/{slug}.jpg"
+        changes.append(f"  UPDATED {b['title']}: cover")
+        if not dry:
+            save_cover(gr["cover"], slug)
+
+
+def confirm(question):
+    try:
+        return input(f"{question} [y/N] ").strip().lower() == "y"
+    except EOFError:
+        return False
+
+
+def remove_covers(gone, kept):
+    used = {b.get("thumbnail") for b in kept}
+    for b in gone:
+        path = b.get("thumbnail") and ROOT + b["thumbnail"]
+        if path and b["thumbnail"] not in used and os.path.exists(path):
+            os.remove(path)
 
 
 def open_library(title, author):
@@ -135,8 +219,8 @@ def guess_genre(subjects):
 
 def main():
     args = sys.argv[1:]
-    dry = "--dry-run" in args
-    args = [a for a in args if a != "--dry-run"]
+    dry, full = "--dry-run" in args, "--refresh" in args
+    args = [a for a in args if a not in ("--dry-run", "--refresh")]
     note = read_note(args[0] if args else NOTE)
     books = yaml.safe_load(open(YML)) or []
     changes, problems, matched = [], [], set()
@@ -146,7 +230,14 @@ def main():
                   if similar(n["title"], b["title"]) and author_matches(n["author"], b["author"])), None)
         if i is not None:
             b = books[i]
+            if i in matched:
+                continue
             matched.add(i)
+            if full:
+                try:
+                    refresh(b, n, dry, changes, problems)
+                except Busy:
+                    problems.append(f"  GOODREADS DIDN'T RESPOND, run again later: {n['line']}")
             if b.get("status") != n["status"]:
                 changes.append(f"  MOVED {b['title']}: {b.get('status')} -> {n['status']}")
                 b["status"] = n["status"]
@@ -157,7 +248,7 @@ def main():
 
         try:
             gr = goodreads(n["title"], n["author"])
-        except subprocess.CalledProcessError:
+        except Busy:
             problems.append(f"  GOODREADS DIDN'T RESPOND, run again later: {n['line']}")
             continue
         if not gr:
@@ -174,15 +265,24 @@ def main():
         changes.append(f"  NEW {gr['title']} | {gr['author']} | {n['status']} | genre: {genre} (guess)"
                        f"{'' if cover_url else ' | no cover found'}\n      {gr['link']}")
         if not dry and cover_url:
-            path = os.path.join(COVERS, f"{slug}.jpg")
-            urllib.request.urlretrieve(cover_url, path)
-            subprocess.run(["sips", "-Z", "500", path], capture_output=True, check=True)
+            save_cover(cover_url, slug)
         books.append(book)
         matched.add(len(books) - 1)
 
-    for i, b in enumerate(books):
-        if i not in matched:
-            problems.append(f"  ON THE PAGE BUT NOT IN THE NOTE (left as is): {b['title']} - {b['author']}")
+    gone = [b for i, b in enumerate(books) if i not in matched]
+    if gone and not full:
+        problems += [f"  ON THE PAGE BUT NOT IN THE NOTE (left as is; --refresh removes it): "
+                     f"{b['title']} - {b['author']}" for b in gone]
+    if gone and full:
+        print("Not in the note any more, so these would be removed:")
+        print("\n".join(f"  {b['title']} - {b['author']}" for b in gone))
+        if dry or confirm(f"Remove these {len(gone)} book(s) and their covers?"):
+            changes += [f"  REMOVED {b['title']} - {b['author']}" for b in gone]
+            books = [b for b in books if b not in gone]
+            if not dry:
+                remove_covers(gone, books)
+        else:
+            problems.append("  Kept the books above; nothing removed.")
 
     print("\n".join(changes) if changes else "No changes: the page already matches the note.")
     if changes and not dry:
@@ -191,8 +291,8 @@ def main():
     for p in problems:
         print(p)
     if dry and changes:
-        cmd = " ".join(["bin/add-books"] + [shlex.quote(a) for a in args])
-        print(f"\nDry run only, nothing was written. To add these to the website, run:\n  {cmd}")
+        cmd = " ".join(["bin/add-books"] + (["--refresh"] if full else []) + [shlex.quote(a) for a in args])
+        print(f"\nDry run only, nothing was written. To make these changes on the website, run:\n  {cmd}")
 
 
 if __name__ == "__main__":
