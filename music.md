@@ -4,7 +4,7 @@ title: Music
 permalink: /music/
 ---
 
-<p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press play on a cover for a preview, or the note icon to hear the full song. If I have something to say about a song, hover over it (or tap, on a phone) to read it; for the rest, the music speaks for itself :)</p>
+<p class="shelf-hint">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press play under a cover for a preview, or the note icon to hear the full song; the music speaks for itself :)</p>
 
 <p class="shelf-hint">If you don't know where to start, press 'Shuffle all' below and let the page pick for you, or press 'Play all' next to a genre to hear all of its songs, top to bottom. To skip ahead in a song, drag the bar under it.</p>
 
@@ -23,7 +23,6 @@ permalink: /music/
   <li class="music-card">
     <div class="music-thumb-wrap">
       <img class="music-thumb" src="{{ track.thumbnail | relative_url }}" alt="{{ track.title | escape }} cover" loading="lazy">
-      {% if track.note %}<p class="music-note">{{ track.note | escape }}</p>{% endif %}
     </div>
     <div class="music-info">
       <span class="music-title">{{ track.title | escape }}</span>

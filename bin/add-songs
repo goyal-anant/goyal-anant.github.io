@@ -13,7 +13,7 @@ A line can also carry an Apple Music song link, bare or as [text](link):
 "Kun Faya Kun - Rahman https://music.apple.com/in/album/...?i=123". The script
 then uses that exact track instead of searching. A song already on the page whose
 link points at a different track is switched to it: title, artist, genre (guessed
-again), cover and links all come from the linked track; only its note stays. Other links (YouTube,
+again), cover and links all come from the linked track. Other links (YouTube,
 Spotify) are reported and the song is searched by name as usual.
 
 --refresh also rechecks every song already on the page: it looks up the same
@@ -47,7 +47,7 @@ APPLE_GENRES = {
     "R&B/Soul": "soul-reggae-blues", "Soul": "soul-reggae-blues", "Reggae": "soul-reggae-blues",
     "Blues": "soul-reggae-blues", "Jazz": "soul-reggae-blues", "Latin": "soul-reggae-blues",
 }
-FIELDS = ["title", "artist", "genre", "thumbnail", "note", "previewUrl", "extendedPreviewUrl", "appleMusicUrl"]
+FIELDS = ["title", "artist", "genre", "thumbnail", "previewUrl", "extendedPreviewUrl", "appleMusicUrl"]
 UA = {"User-Agent": "Mozilla/5.0"}
 
 
@@ -198,7 +198,7 @@ def from_apple(r, dry):
 
 
 def relink(t, line, link, tracks, dry, changes, problems):
-    """Switch a song on the page to the track the note links to: every field but the note."""
+    """Switch a song on the page to the track the note links to."""
     r = lookup(link)
     if not r:
         problems.append(f"  LINK IN THE NOTE not found on Apple (left as is): {line}")
