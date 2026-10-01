@@ -33,7 +33,7 @@
   }
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
   margin: 0;
@@ -320,6 +320,10 @@ main {
     font-size: 1rem;
   }
   body:not(.layout-home) .site-header.menu-open .site-nav { display: block; }
+  /* the clock drops to its own line under the name and buttons */
+  body:not(.layout-home) .site-header { row-gap: 0.5rem; }
+  /* min-height keeps the line's room before clock.js fills it, as the header is measured first */
+  body:not(.layout-home) .clock { order: 1; flex-basis: 100%; min-height: 1lh; }
   body:not(.layout-home) .site-nav ul { flex-direction: column; gap: 0.4rem; }
   .layout-home .site-header { min-height: auto; padding-top: 25vh; }
   .layout-home .nav-row { flex-wrap: wrap; justify-content: center; }
