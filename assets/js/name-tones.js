@@ -1,5 +1,5 @@
 // Hovering the letters of the name plays Für Elise, one note per letter,
-// and each letter wobbles as its note plays.
+// and each letter wobbles as its note plays. Loaded only on the home page.
 (function () {
   var mark = document.querySelector('.site-mark');
   var AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -73,16 +73,14 @@
   document.addEventListener('pointerdown', unlock);
   document.addEventListener('keydown', unlock);
 
-  // On the home page, a faint note beside the name hints that there is sound.
-  if (document.body.classList.contains('layout-home')) {
-    hint = document.createElement('button');
-    hint.type = 'button';
-    hint.className = 'sound-hint';
-    hint.textContent = '♪';
-    hint.title = 'Click to turn on sound, then hover over my name';
-    hint.setAttribute('aria-label', 'Turn on sound');
-    mark.appendChild(hint);
-  }
+  // A faint note beside the name hints that there is sound.
+  hint = document.createElement('button');
+  hint.type = 'button';
+  hint.className = 'sound-hint';
+  hint.textContent = '♪';
+  hint.title = 'Click to turn on sound, then hover over my name';
+  hint.setAttribute('aria-label', 'Turn on sound');
+  mark.appendChild(hint);
 
   mark.addEventListener('mouseover', function (e) {
     if (e.target.parentNode !== mark || e.target.tagName !== 'SPAN') return;
