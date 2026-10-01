@@ -11,7 +11,7 @@ permalink: /music/
 {% assign parts = genre | split: ":" %}
 {% comment %}A song tagged with one word of a section ("reggae", "pop") goes in that section.{% endcomment %}
 {% assign keys = parts[0] | split: "-" | push: parts[0] %}
-{% assign tracks = site.data.music | where_exp: "t", "keys contains t.genre" %}
+{% assign tracks = site.data.music | where_exp: "t", "keys contains t.genre" | sort_natural: "title" %}
 {% if tracks.size > 0 %}
 <h2 class="shelf-heading">{{ parts[1] }}</h2>
 <ul class="music-grid">
