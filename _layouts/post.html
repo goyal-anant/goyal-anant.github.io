@@ -28,6 +28,13 @@ layout: default
     </svg>
     <span aria-live="polite">Share</span>
   </button>
+  <a id="reply" href="mailto:anantnug@gmail.com?subject={{ 'Re: ' | append: page.title | url_encode | replace: '+', '%20' }}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="1"></rect>
+      <path d="m3 7 9 6 9-6"></path>
+    </svg>
+    <span>Reply by email</span>
+  </a>
   {% if main.size > 1 %}{{ tail }}{{ main | last }}{% endif %}
 </article>
 <script>

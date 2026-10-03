@@ -352,8 +352,18 @@ main {
   cursor: pointer;
   transition: color 0.15s ease;
 }
-#share:hover, #share:focus-visible { color: var(--fg); }
-#share svg { width: 1rem; height: 1rem; }
+#share:hover, #share:focus-visible, #reply:hover, #reply:focus-visible { color: var(--fg); }
+#share svg, #reply svg { width: 1rem; height: 1rem; }
+#reply {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
 .post-subtitle {
   margin-top: -0.5rem;
   color: var(--muted);
