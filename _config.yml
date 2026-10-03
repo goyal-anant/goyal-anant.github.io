@@ -7,7 +7,7 @@ private_url: "https://anantgo.pages.dev"
 
 collections:
   rants:
-    output: true
+    output: false # rants hidden for now; set true (and see rant.md, nav.html, search.json) to bring back
     permalink: /rant/:path/
   research:
     output: true

@@ -6,7 +6,9 @@
     <li><a href="{{ '/music/' | relative_url }}" {% if page.url contains '/music' %}class="active"{% endif %}>Music</a></li>
     <li><a href="{{ '/bookshelf/' | relative_url }}" {% if page.url contains '/bookshelf' %}class="active"{% endif %}>Bookshelf</a></li>
     <li><a href="{{ '/picks/' | relative_url }}" {% if page.url contains '/picks' %}class="active"{% endif %}>Picks</a></li>
+    {% comment %} Rant hidden for now.
     <li><a href="{{ '/rant/' | relative_url }}" {% if page.url contains '/rant' %}class="active"{% endif %}>Rant</a></li>
+    {% endcomment %}
     <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About</a></li>
   </ul>
 </nav>

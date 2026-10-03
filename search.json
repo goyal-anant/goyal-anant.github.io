@@ -8,10 +8,12 @@ permalink: /search.json
   {% unless first %},{% endunless %}{% assign first = false %}
   {"title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "section": "Blog", "body": {{ post.subtitle | append: ' ' | append: post.content | strip_html | normalize_whitespace | jsonify }}}
 {% endfor %}
+{% comment %} Rants hidden for now.
 {% for rant in site.rants %}
   {% unless first %},{% endunless %}{% assign first = false %}
   {"title": {{ rant.title | jsonify }}, "url": {{ rant.url | relative_url | jsonify }}, "section": "Rant", "body": {{ rant.content | strip_html | normalize_whitespace | jsonify }}}
 {% endfor %}
+{% endcomment %}
 {% for item in site.research %}
   {% unless first %},{% endunless %}{% assign first = false %}
   {"title": {{ item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "section": "Research", "body": {{ item.summary | append: ' ' | append: item.content | strip_html | normalize_whitespace | jsonify }}}

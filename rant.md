@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Rant
+published: false
 permalink: /rant/
 ---
 {% assign reversed_rants = site.rants | reverse %}
