@@ -37,5 +37,3 @@ permalink: /picks/
 {% endif %}
 {% endif %}
 {% endfor %}
-
-<p class="shelf-updated">Last updated: {{ site.time | date: "%-d %B %Y" }}</p>

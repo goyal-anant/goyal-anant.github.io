@@ -407,12 +407,7 @@ main {
   color: var(--muted);
   font-size: 0.85rem;
 }
-.shelf-updated {
-  margin: 2.5rem 0 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
+.last-updated { margin-top: -0.5rem; font-size: 0.8rem; }
 .shelf-heading {
   margin: 2rem 0 0.75rem;
   font-size: 1.1rem;
