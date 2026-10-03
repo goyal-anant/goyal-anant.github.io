@@ -1,0 +1,32 @@
+# Single source for papers, kept newest first: /research/ lists them, and orders projects, in this order.
+# Optional per paper: pdf (path under /assets/research/), code (URL).
+- id: goyal2025coupling
+  title: "On the Role of Mutual Coupling in Enhancing Antenna Array Gain"
+  authors: [Anant Goyal, Aggraj Gupta, Riddhibrata Bhaumik, Uday K. Khankhoje]
+  venue: "2025 IEEE Microwaves, Antennas, and Propagation Conference (MAPCON)"
+  year: 2025
+  doi: 10.1109/MAPCON65020.2025.11425915
+- id: gupta2025penn
+  title: "Solving Antenna Cavity Models via Differentiable Physics-Embedded PDE Solver"
+  authors: [Aggraj Gupta, Anant Goyal, Uday K. Khankhoje]
+  venue: "2025 IEEE Microwaves, Antennas, and Propagation Conference (MAPCON)"
+  year: 2025
+  doi: 10.1109/MAPCON65020.2025.11426271
+- id: goyal2024metasurface
+  title: "A Metasurface Approach to Mitigate Misalignment Challenges in Wireless Power Transfer Systems"
+  authors: [Anant Goyal, Uday K. Khankhoje]
+  venue: "2024 IEEE International Symposium on Antennas and Propagation (AP-S/INC-USNC-URSI)"
+  year: 2024
+  doi: 10.1109/AP-S/INC-USNC-URSI52054.2024.10686127
+- id: bhat2024oam
+  title: "Design Approaches for Identical Transmitter and Receivers for Long Distance OAM Communication"
+  authors: [Chandan Bhat, Karthik P. Billichod, Anant Goyal, Uday K. Khankhoje]
+  venue: "2024 IEEE International Symposium on Antennas and Propagation (AP-S/INC-USNC-URSI)"
+  year: 2024
+  doi: 10.1109/AP-S/INC-USNC-URSI52054.2024.10686611
+- id: khanduri2020ipmc
+  title: "Sensing Performance of Ionic Polymer Metal Nanocomposite Sensors with Pressure and Metal Electrolytes for Energy Harvesting Applications"
+  authors: [Priya Khanduri, Alankrita Joshi, Lokesh Singh Panwar, Anant Goyal, Varij Panwar]
+  venue: "Advances in Communication and Computational Technology, Lecture Notes in Electrical Engineering"
+  year: 2020
+  doi: 10.1007/978-981-15-5341-7_63

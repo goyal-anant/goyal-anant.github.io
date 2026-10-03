@@ -1,0 +1,79 @@
+<figure class="project-hero">
+<svg class="hero-mutual-coupling" viewBox="58.0 13.0 585.0 280.0" role="img" aria-labelledby="mutual-couplingt mutual-couplingd" style="width:100%;height:auto;max-width:585px;font-family:inherit">
+  <title id="mutual-couplingt">Eight dipoles inside a metal cage</title>
+  <desc id="mutual-couplingd">A row of eight half-wave dipoles with spacing d inside a metal cage. Neighbouring dipoles couple directly; the cage reflects fields so distant dipoles couple too. At d = 0.2 wavelengths the gain goes from 7.99 dBi with progressive phase shift to 10.61 dBi with the cage and optimised excitations.</desc>
+  <style>
+    .hero-mutual-coupling .flow { animation: mcflow 1.2s linear infinite; }
+    .hero-mutual-coupling .pulse { animation: mcpulse 2.4s ease-in-out infinite; }
+    .hero-mutual-coupling .grow { transform-box: fill-box; transform-origin: bottom; animation: mcgrow 1.1s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes mcflow { to { stroke-dashoffset: -18; } }
+    @keyframes mcpulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes mcgrow { from { transform: scaleY(0); } }
+    @media (prefers-reduced-motion: reduce) { .hero-mutual-coupling * { animation: none !important; } }
+  </style>
+  <defs>
+    <marker id="mutual-couplingarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <path d="M110,202 L510,202 L510,42 L110,42 Z" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" stroke-dasharray="4 4"/>
+  <line x1="70.0" y1="230.0" x2="110.0" y2="202.0" stroke="currentColor" stroke-width="1.2" opacity="0.55" stroke-dasharray="4 4"/>
+  <line x1="470.0" y1="230.0" x2="510.0" y2="202.0" stroke="currentColor" stroke-width="1.2" opacity="0.55" stroke-dasharray="4 4"/>
+  <line x1="470.0" y1="70.0" x2="510.0" y2="42.0" stroke="currentColor" stroke-width="1.2" opacity="0.55" stroke-dasharray="4 4"/>
+  <line x1="70.0" y1="70.0" x2="110.0" y2="42.0" stroke="currentColor" stroke-width="1.2" opacity="0.55" stroke-dasharray="4 4"/>
+  <path d="M110,150 L230.0,76 L350,150" stroke="#c9a227" stroke-width="1.6" fill="none" opacity="1" stroke-dasharray="5 4" marker-end="url(#mcarr)" class="flow"/>
+  <path d="M110,150 L278.0,224 L446,150" stroke="#c9a227" stroke-width="1.6" fill="none" opacity="1" stroke-dasharray="5 4" marker-end="url(#mcarr)" class="flow"/>
+  <path d="M116,112 Q134.0,92 152,112" stroke="#2f6fb0" stroke-width="1.8" fill="none" opacity="1" class="pulse" style="animation-delay:0.00s"/>
+  <path d="M164,112 Q182.0,92 200,112" stroke="#2f6fb0" stroke-width="1.8" fill="none" opacity="1" class="pulse" style="animation-delay:0.18s"/>
+  <path d="M212,112 Q230.0,92 248,112" stroke="#2f6fb0" stroke-width="1.8" fill="none" opacity="1" class="pulse" style="animation-delay:0.36s"/>
+  <path d="M260,112 Q278.0,92 296,112" stroke="#2f6fb0" stroke-width="1.8" fill="none" opacity="1" class="pulse" style="animation-delay:0.54s"/>
+  <path d="M308,112 Q326.0,92 344,112" stroke="#2f6fb0" stroke-width="1.8" fill="none" opacity="1" class="pulse" style="animation-delay:0.72s"/>
+  <path d="M356,112 Q374.0,92 392,112" stroke="#2f6fb0" stroke-width="1.8" fill="none" opacity="1" class="pulse" style="animation-delay:0.90s"/>
+  <path d="M404,112 Q422.0,92 440,112" stroke="#2f6fb0" stroke-width="1.8" fill="none" opacity="1" class="pulse" style="animation-delay:1.08s"/>
+  <line x1="110.0" y1="110.0" x2="110.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="110.0" y1="155.0" x2="110.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="105,155 115,155 110,145" fill="#c0503a"/>
+  <line x1="158.0" y1="110.0" x2="158.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="158.0" y1="155.0" x2="158.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="153,155 163,155 158,145" fill="#c0503a"/>
+  <line x1="206.0" y1="110.0" x2="206.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="206.0" y1="155.0" x2="206.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="201,155 211,155 206,145" fill="#c0503a"/>
+  <line x1="254.0" y1="110.0" x2="254.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="254.0" y1="155.0" x2="254.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="249,155 259,155 254,145" fill="#c0503a"/>
+  <line x1="302.0" y1="110.0" x2="302.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="302.0" y1="155.0" x2="302.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="297,155 307,155 302,145" fill="#c0503a"/>
+  <line x1="350.0" y1="110.0" x2="350.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="350.0" y1="155.0" x2="350.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="345,155 355,155 350,145" fill="#c0503a"/>
+  <line x1="398.0" y1="110.0" x2="398.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="398.0" y1="155.0" x2="398.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="393,155 403,155 398,145" fill="#c0503a"/>
+  <line x1="446.0" y1="110.0" x2="446.0" y2="145.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <line x1="446.0" y1="155.0" x2="446.0" y2="190.0" stroke="currentColor" stroke-width="3" opacity="1"/>
+  <polygon points="441,155 451,155 446,145" fill="#c0503a"/>
+  <path d="M70,230 L470,230 L470,70 L70,70 Z" stroke="currentColor" stroke-width="1.4" fill="none" opacity="1"/>
+  <line x1="254.0" y1="205.0" x2="302.0" y2="205.0" stroke="currentColor" stroke-width="1.2" opacity="1" marker-end="url(#mcarr)"/>
+  <line x1="302.0" y1="205.0" x2="254.0" y2="205.0" stroke="currentColor" stroke-width="1.2" opacity="1" marker-end="url(#mcarr)"/>
+  <text x="278.0" y="222.0" font-size="13" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">d</text>
+  <text x="514.0" y="36.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="end">metal cage, size k</text>
+  <line x1="70.0" y1="270.0" x2="96.0" y2="270.0" stroke="#2f6fb0" stroke-width="2" opacity="1"/>
+  <text x="102.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start">local coupling</text>
+  <line x1="220.0" y1="270.0" x2="246.0" y2="270.0" stroke="#c9a227" stroke-width="2" opacity="1" stroke-dasharray="5 4"/>
+  <text x="252.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start">non-local, via the cage</text>
+  <rect x="545" y="138.1" width="34" height="111.9" fill="#2f6fb0" class="grow" style="animation-delay:0.3s"/>
+  <text x="562.0" y="132.1" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle">7.99</text>
+  <rect x="591" y="101.5" width="34" height="148.5" fill="#3f9a6b" class="grow" style="animation-delay:0.8s"/>
+  <text x="608.0" y="95.5" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle">10.61</text>
+  <line x1="539.0" y1="250.0" x2="631.0" y2="250.0" stroke="currentColor" stroke-width="1.2" opacity="1"/>
+  <text x="562.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">phase</text>
+  <text x="562.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">shift</text>
+  <text x="608.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">caged,</text>
+  <text x="608.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">optimised</text>
+  <text x="585.0" y="52.0" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle">gain at d = 0.2λ</text>
+  <text x="585.0" y="67.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">(dBi)</text>
+
+</svg>
+</figure>

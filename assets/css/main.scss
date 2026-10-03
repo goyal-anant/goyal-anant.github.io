@@ -127,9 +127,9 @@ body:not(.layout-home) .site-header {
   padding-inline: max(1.5rem, calc(50% - var(--strip-w) / 2 - 360px + 1.5rem));
   background: color-mix(in srgb, var(--song-tint, var(--bg)) 20%, var(--bg)); /* same as body */
   border-bottom: 1px solid transparent;
-  transition: padding 0.2s ease, row-gap 0.2s ease, border-color 0.2s ease, background-color 1s;
+  /* no size transitions: the slim header has to be its final height the moment it pins */
+  transition: border-color 0.2s ease, background-color 1s;
 }
-body:not(.layout-home) .site-header :is(.site-mark, .clock, .site-nav) { transition: font-size 0.2s ease; }
 /* Once scrolled, the header slims down: less padding, a tight gap, smaller text. */
 body:not(.layout-home) .site-header.compact {
   padding-block: 0.5rem;
@@ -141,8 +141,7 @@ body:not(.layout-home) .site-header.compact {
 .site-header.compact .clock { display: none; }
 .site-header.compact .site-nav { font-size: 0.85rem; }
 @media (prefers-reduced-motion: reduce) {
-  body:not(.layout-home) .site-header,
-  body:not(.layout-home) .site-header :is(.site-mark, .clock, .site-nav) { transition: none; }
+  body:not(.layout-home) .site-header { transition: none; }
 }
 /* footnote and #anchor jumps land below the pinned header */
 html:not(:has(.layout-home)) { scroll-padding-top: calc(var(--header-h, 0px) + 1rem); }
@@ -750,3 +749,17 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
   transition: opacity 0.15s ease;
 }
 .sound-hint:hover, .sound-hint:focus-visible { opacity: 1; }
+
+.paper-list {
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+.paper-list li { margin: 0 0 0.6rem; }
+.project-text .project-summary { display: block; }
+.project-hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1.5rem;
+  border-radius: 6px;
+}

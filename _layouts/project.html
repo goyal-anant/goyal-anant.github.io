@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  {% if page.summary %}<p class="post-subtitle">{{ page.summary }}</p>{% endif %}
+  {% if page.hero %}{% include {{ page.hero }} %}{% elsif page.image %}<img class="project-hero" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}
+  {{ content }}
+  <h2>Papers</h2>
+  <ul class="paper-list">
+  {% for id in page.papers %}{% assign paper = site.data.publications | where: "id", id | first %}{% include paper.html paper=paper %}{% endfor %}
+  </ul>
+</article>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

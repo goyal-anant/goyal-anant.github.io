@@ -3,4 +3,4 @@ layout: home
 title: Home
 permalink: /
 ---
-writing, music, books, research, and opinions.
+research, writing, music, books, and opinions.

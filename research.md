@@ -3,11 +3,22 @@ layout: page
 title: Research
 permalink: /research/
 ---
+{% comment %} _data/publications.yml is kept newest first; projects follow the order of their newest paper there {% endcomment %}
 <ul class="post-list">
-{% for project in site.research %}
+{% assign seen = "" %}
+{% for paper in site.data.publications %}{% for project in site.research %}{% if project.papers contains paper.id %}{% unless seen contains project.url %}{% assign seen = seen | append: project.url %}{% assign years = "" | split: "" %}{% for id in project.papers %}{% assign p = site.data.publications | where: "id", id | first %}{% assign years = years | push: p.year %}{% endfor %}{% assign years = years | sort %}{% assign k = "" | split: "" | push: years.last | push: years.first %}
   <li>
-    <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-    {% if project.summary %}<span class="project-summary">{{ project.summary }}</span>{% endif %}
+    <span class="post-date">{% if k[0] == k[1] %}{{ k[0] }}{% else %}{{ k[1] }}–{{ k[0] }}{% endif %}</span>
+    <div class="project-text">
+      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+      {% if project.summary %}<span class="project-summary">{{ project.summary }}</span>{% endif %}
+    </div>
   </li>
-{% endfor %}
+{% endunless %}{% endif %}{% endfor %}{% endfor %}
+</ul>
+
+## Publications
+
+<ul class="paper-list">
+{% for paper in site.data.publications %}{% include paper.html paper=paper %}{% endfor %}
 </ul>
