@@ -61,26 +61,44 @@
   {% unless page.layout == 'home' %}
   <script>
     // Slim the pinned header once the page scrolls. The header is fixed, so the
-    // body keeps room for its full height (--header-full); --header-h is its
-    // current height, for the music bar and anchor jumps to sit just below it.
+    // body keeps room for its full height (--header-full). Until the page has
+    // scrolled by the height the header loses when slim (shrinkAt), the full
+    // header rides up with the page, so nothing hides under it and no gap opens;
+    // from there on the slim header stays put. --header-h is where its bottom
+    // edge is now, for the music bar and anchor jumps to sit just below it.
     (function () {
       var root = document.documentElement;
       var header = document.querySelector('.site-header');
-      function measureFull() {
-        // an unscrolled copy, measured off screen, gives the full height even when slim
+      var full = 0, shrinkAt = 0;
+      function heightAs(compact) {
+        // a copy, measured off screen, gives either height whatever the header shows now
         var copy = header.cloneNode(true);
-        copy.classList.remove('compact');
+        copy.classList.toggle('compact', compact);
         copy.style.visibility = 'hidden';
+        copy.style.transform = 'none';
         document.body.appendChild(copy);
-        root.style.setProperty('--header-full', copy.offsetHeight + 'px');
+        var h = copy.offsetHeight;
         copy.remove();
+        return h;
       }
-      function update() { header.classList.toggle('compact', scrollY > 0); }
+      function measureFull() {
+        full = heightAs(false);
+        shrinkAt = Math.max(0, full - heightAs(true));
+        root.style.setProperty('--header-full', full + 'px');
+        update();
+      }
+      function update() {
+        var y = Math.max(0, scrollY);
+        var compact = y > shrinkAt;
+        header.classList.toggle('compact', compact);
+        header.style.transform = compact ? '' : 'translateY(' + -y + 'px)';
+        root.style.setProperty('--header-h', (compact ? header.offsetHeight : full - y) + 'px');
+      }
       addEventListener('scroll', update, { passive: true });
       addEventListener('resize', measureFull);
       document.fonts.ready.then(measureFull);
+      new ResizeObserver(update).observe(header, { box: 'border-box' }); // e.g. the phone menu opening
       measureFull();
-      update();
 
       // Phones fold the nav links into a dropdown under the menu button.
       var menuBtn = document.getElementById('menu-toggle');
@@ -93,10 +111,6 @@
       document.addEventListener('click', function (e) {
         if (!header.querySelector('.site-nav').contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
       });
-
-      new ResizeObserver(function () {
-        root.style.setProperty('--header-h', header.offsetHeight + 'px');
-      }).observe(header, { box: 'border-box' });
     })();
   </script>
   {% endunless %}
