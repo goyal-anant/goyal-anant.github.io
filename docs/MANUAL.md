@@ -130,17 +130,24 @@ Drop the cover image file in `assets/images/music/` first, then point
 
 ## 6c. Add / edit / remove a pick
 
-Picks are data, in `_data/picks.yml` as a flat list, grouped by `type`
-on the page (any string works — video, article, how-to, etc.).
+Picks are data, in `_data/picks.yml` as a flat list. Each entry has a
+`section`: `watch`, `research`, `apps`, `gadgets` or `ditched`. The page shows
+sections in that fixed order (set in `picks.md`), and entries within a section
+in the order they appear in the file, so put favourites first. A section with no
+entries is hidden.
 
-**Add:** append an entry:
+**Add:** append an entry under its section:
 
 ```yaml
 - title: "Title of the thing"
-  type: article
-  link: "https://example.com"
+  section: apps
+  link: "https://example.com"    # optional
   note: "Why you picked it."
 ```
+
+Watch entries also need a poster: save a ~500 px tall JPEG to
+`assets/images/picks/<slug>.jpg` and add `thumbnail: "/assets/images/picks/<slug>.jpg"`.
+Ditched entries are written as `title: "Old → New"` with the reason as `note`.
 
 **Edit:** change the relevant fields on that entry.
 

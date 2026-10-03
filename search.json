@@ -26,7 +26,7 @@ permalink: /search.json
 {% endfor %}
 {% for pick in site.data.picks %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ pick.title | jsonify }}, "url": {{ '/picks/' | relative_url | jsonify }}, "section": "Picks", "body": {{ pick.type | append: ' ' | append: pick.note | jsonify }}}
+  {"title": {{ pick.title | jsonify }}, "url": {{ '/picks/' | relative_url | jsonify }}, "section": "Picks", "body": {{ pick.section | append: ' ' | append: pick.note | jsonify }}}
 {% endfor %}
 {% comment %} Section pages only list items already indexed above, so index just their title. {% endcomment %}
 {% assign listing_pages = "/blog/,/bookshelf/,/music/,/picks/,/rant/,/research/" | split: "," %}

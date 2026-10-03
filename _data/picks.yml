@@ -1,4 +1,139 @@
-- title: "Sample Pick"
-  type: article
-  link: "https://example.com"
-  note: "Placeholder entry. Replace with a real pick and why you like it."
+# section: watch | research | apps | gadgets | ditched (page order is fixed in picks.md).
+# Within a section, entries show in the order written here: favourite first.
+# link is optional; thumbnail is for watch only.
+
+- title: "Better Call Saul"
+  section: watch
+  link: "https://www.imdb.com/title/tt3032476/"
+  thumbnail: "/assets/images/picks/better-call-saul.jpg"
+  note: "Chuck was right about Jimmy, and that is the saddest part of the show."
+- title: "Breaking Bad"
+  section: watch
+  link: "https://www.imdb.com/title/tt0903747/"
+  thumbnail: "/assets/images/picks/breaking-bad.jpg"
+  note: "That's what you do when you have a chemistry degree and a cancer diagnosis."
+- title: "Modern Family"
+  section: watch
+  link: "https://www.imdb.com/title/tt1442437/"
+  thumbnail: "/assets/images/picks/modern-family.jpg"
+  note: "Phil's-osophy should be taught in schools; it is more practical than most of what is."
+- title: "The Office"
+  section: watch
+  link: "https://www.imdb.com/title/tt0386676/"
+  thumbnail: "/assets/images/picks/the-office.jpg"
+  note: "Every office has a Michael Scott; if you can't find yours, it is you."
+- title: "Friends"
+  section: watch
+  link: "https://www.imdb.com/title/tt0108778/"
+  thumbnail: "/assets/images/picks/friends.jpg"
+  note: "Six people with huge New York apartments and no visible work."
+- title: "After Life"
+  section: watch
+  link: "https://www.imdb.com/title/tt8398600/"
+  thumbnail: "/assets/images/picks/after-life.jpg"
+  note: "Tony wants to die, his dog wants breakfast; the dog wins every morning, and that is the whole show."
+
+- title: "Alfred"
+  section: apps
+  link: "https://www.alfredapp.com/"
+  note: "Spotlight, but it listens; I open everything from the keyboard."
+- title: "Itsycal"
+  section: apps
+  link: "https://www.mowglii.com/itsycal/"
+  note: "A tiny calendar in the menu bar, nothing more."
+- title: "Dozer"
+  section: apps
+  link: "https://github.com/Mortennn/Dozer"
+  note: "Hides the menu bar icons I don't want to see, which is most of them."
+- title: "Amphetamine"
+  section: apps
+  link: "https://apps.apple.com/app/amphetamine/id937984704"
+  note: "Keeps the Mac awake while MATLAB runs overnight; better named than most drugs."
+- title: "IINA"
+  section: apps
+  link: "https://iina.io/"
+  note: "The video player that plays everything, and looks good doing it."
+- title: "Keka"
+  section: apps
+  link: "https://www.keka.io/"
+  note: "Opens every archive anyone has sent me, rar included."
+- title: "AppCleaner"
+  section: apps
+  link: "https://freemacsoft.net/appcleaner/"
+  note: "Dragging an app to the Trash leaves its junk behind; this clears the junk too."
+- title: "DaisyDisk"
+  section: apps
+  link: "https://daisydiskapp.com/"
+  note: "Shows where the disk space went; usually it is old simulation results."
+- title: "BetterDisplay"
+  section: apps
+  link: "https://github.com/waydabber/BetterDisplay"
+  note: "Makes a 1080p monitor look sharp on a Mac with HiDPI scaling."
+- title: "Brave"
+  section: apps
+  link: "https://brave.com/"
+  note: "Chrome without Google watching, ad blocker built in."
+
+- title: "Obsidian"
+  section: research
+  link: "https://obsidian.md/"
+  note: "Plain markdown files on my own disk; notes, journal, everything."
+- title: "MATLAB"
+  section: research
+  link: "https://www.mathworks.com/products/matlab.html"
+  note: "Expensive and ugly, and still the fastest way to plot a radiation pattern. Necessary evil."
+- title: "VS Code"
+  section: research
+  link: "https://code.visualstudio.com/"
+  note: "One editor for programming, LaTeX and this website."
+- title: "LaTeX (LaTeX Workshop)"
+  section: research
+  link: "https://github.com/James-Yu/LaTeX-Workshop"
+  note: "Write in VS Code, watch the PDF update next to it."
+- title: "A4 sheets, Uni Shalaku, Uni-ball Eye"
+  section: research
+  link: "https://www.uniballfrance.eu/mechanical-pencils/123-174-mechanical-pencil-shalakus.html#/1-colour-black/8-tip-05"
+  note: "For things that need a pen, not a keyboard."
+- title: "Keynote"
+  section: research
+  link: "https://www.apple.com/keynote/"
+  note: "For slides, posters, and figures; the only software I use that is not cross-platform."
+- title: "Claude Code"
+  section: research
+  link: "https://claude.com/claude-code"
+  note: "Builds what I describe, including most of this website."
+
+- title: "MacBook Air M1"
+  section: gadgets
+  link: "https://en.wikipedia.org/wiki/MacBook_Air_(Apple_silicon)"
+  note: "No fan, no noise, still fast in 2026. Period."
+- title: "Logitech MX Master 3S"
+  section: gadgets
+  link: "https://www.logitech.com/en-us/products/mice/mx-master-3s.910-006557.html"
+  note: "The best mouse I have ever used; the scroll wheel is a joy."
+- title: "Casio DB-36"
+  section: gadgets
+  link: "https://www.casio.com/in/watches/casio/product.DB-36-1AV/"
+  note: "A retro databank watch that tells the time and never asks to be charged."
+- title: "BLON BL-03"
+  section: gadgets
+  link: "https://www.headphonezone.in/products/blon-bl-03"
+  note: "The best inexpensive IEMs I have ever used; the bass is deep, the treble is clear, and the mids are perfect."
+- title: "Kindle Paperwhite"
+  section: gadgets
+  link: "https://www.aboutamazon.in/news/devices/amazon-launches-the-all-new-kindle-paperwhite-in-india"
+  note: "Reading without notifications; most of the bookshelf went through it."
+- title: "Uni-ball Eye"
+  section: gadgets
+  link: "https://www.uniball.in/eye/"
+  note: "Smooth on any paper; most of my things are written in it."
+
+- title: "Chrome → Brave"
+  section: ditched
+  note: "No more Google watching me, no more ads, no more tracking."
+- title: "Windows → MacOS"
+  section: ditched
+  note: "No more Windows updates, no more blue screens, no more viruses."
+- title: "Microsoft Word → LaTeX"
+  section: ditched
+  note: "No more formatting, no more broken references, no more ugly equations."

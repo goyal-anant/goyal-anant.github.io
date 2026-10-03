@@ -394,6 +394,9 @@ main {
   white-space: nowrap;
 }
 .post-list .post-sep { color: var(--muted); }
+/* picks: a note wraps under its title instead of squeezing it */
+.pick-list li { display: block; }
+.pick-list li > :first-child { margin-right: 0.5rem; white-space: nowrap; }
 .project-summary {
   color: var(--muted);
   font-size: 0.9rem;
@@ -435,6 +438,8 @@ main {
 }
 .music-grid.book-grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 1rem; }
 .book-grid .music-thumb { aspect-ratio: 2 / 3; }
+/* picks: smaller posters, so all the shows sit in one row */
+.music-grid.watch-grid { grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); }
 .music-note.book-note {
   flex-direction: column;
   justify-content: safe center;
