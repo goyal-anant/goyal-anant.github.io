@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
     clearActive();
     queue = [];
     if (queueButton) {
-      queueButton.textContent = queueButton.dataset.label;
       queueButton.setAttribute('aria-pressed', 'false');
     }
     queueButton = null;
@@ -227,7 +226,6 @@ document.addEventListener('DOMContentLoaded', function () {
       queue = queueSongs.slice();
       if (shuffleOn()) shuffle(queue);
       queueButton = button;
-      if (button.dataset.queue === 'section') button.textContent = 'Stop';
       button.setAttribute('aria-pressed', 'true');
       playNext();
     });

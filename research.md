@@ -18,7 +18,7 @@ permalink: /research/
 {% endunless %}{% endif %}{% endfor %}{% endfor %}
 </ul>
 
-## Publications
+## {% include t.html en="Publications" hi="पब्लिकेशन्स" %}
 
 <ul class="paper-list">
 {% for paper in site.data.publications %}{% include paper.html paper=paper %}{% endfor %}

@@ -1,14 +1,14 @@
 <nav class="site-nav">
   <ul>
-    <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
-    <li><a href="{{ '/research/' | relative_url }}" {% if page.url contains '/research' %}class="active"{% endif %}>Research</a></li>
-    <li><a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>Blog</a></li>
-    <li><a href="{{ '/music/' | relative_url }}" {% if page.url contains '/music' %}class="active"{% endif %}>Music</a></li>
-    <li><a href="{{ '/bookshelf/' | relative_url }}" {% if page.url contains '/bookshelf' %}class="active"{% endif %}>Bookshelf</a></li>
-    <li><a href="{{ '/picks/' | relative_url }}" {% if page.url contains '/picks' %}class="active"{% endif %}>Picks</a></li>
+    <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>{% include t.html en="Home" hi="होम" %}</a></li>
+    <li><a href="{{ '/research/' | relative_url }}" {% if page.url contains '/research' %}class="active"{% endif %}>{% include t.html en="Research" hi="रिसर्च" %}</a></li>
+    <li><a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>{% include t.html en="Blog" hi="ब्लॉग" %}</a></li>
+    <li><a href="{{ '/music/' | relative_url }}" {% if page.url contains '/music' %}class="active"{% endif %}>{% include t.html en="Music" hi="म्यूज़िक" %}</a></li>
+    <li><a href="{{ '/bookshelf/' | relative_url }}" {% if page.url contains '/bookshelf' %}class="active"{% endif %}>{% include t.html en="Bookshelf" hi="किताबें" %}</a></li>
+    <li><a href="{{ '/picks/' | relative_url }}" {% if page.url contains '/picks' %}class="active"{% endif %}>{% include t.html en="Picks" hi="पसंद" %}</a></li>
     {% comment %} Rant hidden for now.
     <li><a href="{{ '/rant/' | relative_url }}" {% if page.url contains '/rant' %}class="active"{% endif %}>Rant</a></li>
     {% endcomment %}
-    <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About</a></li>
+    <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>{% include t.html en="About" hi="परिचय" %}</a></li>
   </ul>
 </nav>

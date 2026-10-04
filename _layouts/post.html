@@ -12,7 +12,7 @@ layout: default
   {% for part in parts offset: 1 %}{% assign cap = part | split: '</p>' | first %}{% assign rest = part | remove_first: cap %}{% assign body = body | append: rest %}{% endfor %}
   {% assign words = body | strip_html | number_of_words %}
   {% assign minutes = words | divided_by: 200.0 | ceil %}
-  <p class="post-date">{{ page.date | date: "%d %b %Y" }} <span class="post-readtime">&middot; {{ minutes }} min read</span></p>
+  <p class="post-date">{{ page.date | date: "%d %b %Y" }} <span class="post-readtime">&middot; {{ minutes }} {% include t.html en="min read" hi="मिनट" %}</span></p>
   <h1>{{ page.title }}</h1>
   {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
   {% comment %} share sits after the body, before the "---" + "## References" block if the post has one, else before the footnotes {% endcomment %}
@@ -34,14 +34,14 @@ layout: default
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M8 11H6a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-2"></path>
     </svg>
-    <span aria-live="polite">Share</span>
+    <span aria-live="polite">{% include t.html en="Share" hi="शेयर करें" %}</span>
   </button>
   <a id="reply" href="mailto:anantnug@gmail.com?subject={{ 'Re: ' | append: page.title | url_encode | replace: '+', '%20' }}">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <rect x="3" y="5" width="18" height="14" rx="1"></rect>
       <path d="m3 7 9 6 9-6"></path>
     </svg>
-    <span>Reply by email</span>
+    <span>{% include t.html en="Reply by email" hi="ईमेल से जवाब दें" %}</span>
   </a>
   {% if main.size > 1 %}{{ tail }}{{ main | last }}{% endif %}
 </article>
@@ -54,8 +54,9 @@ layout: default
     btn.addEventListener('click', function () {
       if (navigator.share) return navigator.share(data).catch(function () {});
       navigator.clipboard.writeText(data.url).then(function () {
-        label.textContent = 'Link copied';
-        setTimeout(function () { label.textContent = 'Share'; }, 2000);
+        var idle = label.innerHTML;
+        label.textContent = document.documentElement.getAttribute('data-lang') === 'hi' ? 'लिंक कॉपी हो गया' : 'Link copied';
+        setTimeout(function () { label.innerHTML = idle; }, 2000);
       });
     });
   })();
