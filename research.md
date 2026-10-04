@@ -12,6 +12,7 @@ permalink: /research/
     <div class="project-text">
       <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
       {% if project.summary %}<span class="project-summary">{{ project.summary }}</span>{% endif %}
+      {% if project.hero %}<a class="project-hero-link" href="{{ project.url | relative_url }}" tabindex="-1" aria-hidden="true">{% include {{ project.hero }} %}</a>{% endif %}
     </div>
   </li>
 {% endunless %}{% endif %}{% endfor %}{% endfor %}

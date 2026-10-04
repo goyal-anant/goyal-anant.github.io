@@ -766,6 +766,10 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 }
 .paper-list li { margin: 0 0 0.6rem; }
 .project-text .project-summary { display: block; }
+/* research list: hero sits under the summary; keep text colour so currentColor strokes don't turn link-blue */
+.project-text { min-width: 0; }
+.project-hero-link { display: block; margin-top: 0.75rem; color: inherit; }
+.post-list li:has(.project-hero-link) { padding-bottom: 1.5rem; }
 .project-hero {
   display: block;
   width: 100%;
