@@ -1,8 +1,9 @@
 // Reaction counts for blog posts: GET returns a post's counts, POST adds one reaction.
 const KINDS = ["like", "heart", "insightful"];
 const ORIGINS = ["https://goyal-anant.github.io", "https://anantgo.pages.dev"];
-// post and rant paths only, e.g. /blog/2026/09/26/why-is-an-apple-red/
-const POST_PATH = /^\/(blog\/\d{4}\/\d{2}\/\d{2}|rant)\/[a-z0-9-]{1,100}\/$/;
+// post and rant paths only, e.g. /blog/2026/09/26/why-is-an-apple-red/; the last part is whatever Jekyll
+// makes of the filename, which can keep capitals, underscores, dots and percent-encoded characters
+const POST_PATH = /^\/(blog\/\d{4}\/\d{2}\/\d{2}|rant)\/[^\/?#\s]{1,100}\/$/;
 
 export default {
   async fetch(req, env) {
