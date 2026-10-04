@@ -7,11 +7,8 @@ const POST_PATH = /^\/(blog\/\d{4}\/\d{2}\/\d{2}|rant)\/[a-z0-9-]{1,100}\/$/;
 export default {
   async fetch(req, env) {
     const origin = req.headers.get("Origin");
-    const cors = {
-      "Access-Control-Allow-Origin": ORIGINS.includes(origin) ? origin : ORIGINS[0],
-      "Access-Control-Allow-Methods": "GET, POST",
-      Vary: "Origin",
-    };
+    // counts are public, so any page (localhost previews included) may read them; only writes check the origin
+    const cors = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST" };
     const reply = (body, status = 200) =>
       typeof body === "string"
         ? new Response(body, { status, headers: cors })
@@ -25,7 +22,7 @@ export default {
 
     if (req.method === "POST") {
       // CORS alone doesn't stop a plain POST from running, so writes check the origin here.
-      // This also keeps localhost and draft previews from adding to the real counts.
+      // This also keeps localhost and draft previews from adding to the real counts (they can still read them).
       if (!ORIGINS.includes(origin)) return reply("forbidden", 403);
       const kind = url.searchParams.get("kind");
       if (!KINDS.includes(kind)) return reply("bad kind", 400);
