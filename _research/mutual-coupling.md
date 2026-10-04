@@ -1,6 +1,9 @@
 ---
 title: "Mutual Coupling, a Friend"
 summary: "Using the coupling between antenna elements to get more gain out of a compact array."
+title_hi: "म्यूचुअल कपलिंग, एक दोस्त"
+summary_hi: "एंटीना एलिमेंट्स के बीच की कपलिंग से छोटे ऐरे का गेन बढ़ाना।"
+hindi: true
 papers: [goyal2025coupling]
 hero: research/mutual-coupling.svg
 ---

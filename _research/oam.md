@@ -1,6 +1,9 @@
 ---
 title: "OAM"
 summary: "Orbital angular momentum links over long distances, with identical transmitter and receiver arrays."
+title_hi: "OAM"
+summary_hi: "लंबी दूरी के ऑर्बिटल एंगुलर मोमेंटम लिंक, जिनमें ट्रांसमीटर और रिसीवर ऐरे एक जैसे हैं।"
+hindi: true
 papers: [bhat2024oam]
 hero: research/oam.svg
 ---

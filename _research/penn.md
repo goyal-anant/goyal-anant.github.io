@@ -1,6 +1,9 @@
 ---
 title: "PENN"
 summary: "A physics-embedded neural network that solves the cavity model of a patch antenna, fast and differentiable."
+title_hi: "PENN"
+summary_hi: "एक फ़िज़िक्स-एम्बेडेड न्यूरल नेटवर्क जो पैच एंटीना का कैविटी मॉडल हल करता है, तेज़ भी और डिफ़रेंशिएबल भी।"
+hindi: true
 papers: [gupta2025penn]
 hero: research/penn.svg
 ---

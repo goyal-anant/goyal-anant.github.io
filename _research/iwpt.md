@@ -1,6 +1,9 @@
 ---
 title: "Intelligent Wireless Power Transfer"
 summary: "Metasurfaces that keep wireless power transfer efficient when the coils are not aligned."
+title_hi: "इंटेलिजेंट वायरलेस पावर ट्रांसफ़र"
+summary_hi: "ऐसे मेटासरफ़ेस जो कॉइल्स के सीध में न होने पर भी वायरलेस पावर ट्रांसफ़र को एफ़िशिएंट रखते हैं।"
+hindi: true
 papers: [goyal2024metasurface]
 hero: research/iwpt.svg
 ---

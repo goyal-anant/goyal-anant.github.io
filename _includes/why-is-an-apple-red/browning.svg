@@ -1,7 +1,9 @@
 <figure>
-<svg viewBox="0 0 640 220" role="img" aria-labelledby="fig2title fig2desc" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+<svg viewBox="0 0 640 220" role="img" aria-labelledby="fig2title fig2desc" data-hi-aria-labelledby="hi-fig2title-hi hi-fig2desc-hi" style="width:100%;height:auto;max-width:640px;font-family:inherit">
   <title id="fig2title">Why a cut apple turns brown</title>
   <desc id="fig2desc">Left: an intact cell where the phenolics in the vacuole and the PPO enzyme in a plastid are kept apart by membranes. Right: a damaged cell where they mix with oxygen and form brown pigments.</desc>
+  <title id="fig2title-hi" lang="hi">कटा हुआ सेब भूरा क्यों होता है</title>
+  <desc id="fig2desc-hi" lang="hi">बाएँ: एक साबुत सेल, जिसमें वैक्यूओल के फ़ीनॉलिक्स और प्लास्टिड का PPO एंज़ाइम मेम्ब्रेन से अलग रखे गए हैं। दाएँ: एक टूटा सेल, जिसमें ये ऑक्सीजन के साथ मिलकर भूरे पिगमेंट बनाते हैं।</desc>
   <g fill="none" stroke="currentColor" stroke-width="2">
     <rect x="30" y="40" width="250" height="140" rx="30"/>
     <path d="M360 40 h70 l12 14 l14 -14 h124 a30 30 0 0 1 30 30 v30 l-14 10 l14 12 v38 a30 30 0 0 1 -30 30 h-190 l-10 -12 l-12 12 a30 30 0 0 1 -8 -2 a30 30 0 0 1 -30 -30 v-80 a30 30 0 0 1 30 -30 z"/>
@@ -9,14 +11,14 @@
   <ellipse cx="120" cy="110" rx="70" ry="45" fill="#8fb3e0" fill-opacity="0.35" stroke="currentColor" stroke-width="1.5"/>
   <ellipse cx="230" cy="110" rx="32" ry="20" fill="#7fbf7f" fill-opacity="0.45" stroke="currentColor" stroke-width="1.5"/>
   <g fill="currentColor" font-size="13" text-anchor="middle">
-    <text x="120" y="106">vacuole:</text>
-    <text x="120" y="123">phenolics</text>
-    <text x="230" y="106">plastid:</text>
+    <text x="120" y="106" lang="en">vacuole:</text><text x="120" y="106" lang="hi">वैक्यूओल:</text>
+    <text x="120" y="123" lang="en">phenolics</text><text x="120" y="123" lang="hi">फ़ीनॉलिक्स</text>
+    <text x="230" y="106" lang="en">plastid:</text><text x="230" y="106" lang="hi">प्लास्टिड:</text>
     <text x="230" y="123">PPO</text>
-    <text x="155" y="26" font-weight="600">healthy cell: kept apart</text>
-    <text x="485" y="26" font-weight="600">cut or bruised: they meet</text>
-    <text x="155" y="206">no browning</text>
-    <text x="485" y="206">phenolics + PPO + oxygen: brown pigment</text>
+    <text x="155" y="26" font-weight="600" lang="en">healthy cell: kept apart</text><text x="155" y="26" font-weight="600" lang="hi">स्वस्थ सेल: दोनों अलग</text>
+    <text x="485" y="26" font-weight="600" lang="en">cut or bruised: they meet</text><text x="485" y="26" font-weight="600" lang="hi">कटा या दबा: दोनों मिलते हैं</text>
+    <text x="155" y="206" lang="en">no browning</text><text x="155" y="206" lang="hi">भूरापन नहीं</text>
+    <text x="485" y="206" lang="en">phenolics + PPO + oxygen: brown pigment</text><text x="485" y="206" lang="hi">फ़ीनॉलिक्स + PPO + ऑक्सीजन: भूरा पिगमेंट</text>
   </g>
   <g fill="#8b5a2b">
     <circle cx="420" cy="90" r="7"/><circle cx="455" cy="120" r="9"/><circle cx="500" cy="85" r="6"/>

@@ -1,7 +1,9 @@
 <figure class="project-hero">
-<svg class="hero-oam" viewBox="55.3 16.0 529.0 281.0" role="img" aria-labelledby="oamt oamd" style="width:100%;height:auto;max-width:529px;font-family:inherit">
+<svg class="hero-oam" viewBox="55.3 16.0 529.0 281.0" role="img" aria-labelledby="oamt oamd" data-hi-aria-labelledby="oamt-hi oamd-hi" style="width:100%;height:auto;max-width:529px;font-family:inherit">
   <title id="oamt">An OAM link with identical transmit and receive arrays</title>
   <desc id="oamd">A uniform circular array of eight elements, fed with a phase that steps around the ring, launches a beam whose phase front twists like a corkscrew. The transmitter radius a is chosen so that the main lobe at the receiver, 50 or 100 m away at 26 GHz, lands on a ring of the same radius b = a.</desc>
+  <title id="oamt-hi" lang="hi">एक OAM लिंक जिसमें ट्रांसमिट और रिसीव ऐरे एक जैसे हैं</title>
+  <desc id="oamd-hi" lang="hi">आठ एलिमेंट वाला एक यूनिफ़ॉर्म सर्कुलर ऐरे, जिसे रिंग के चारों ओर क़दम-दर-क़दम बढ़ते फ़ेज़ से फ़ीड किया जाता है, ऐसा बीम भेजता है जिसका फ़ेज़ फ़्रंट कॉर्कस्क्रू की तरह मुड़ता है। ट्रांसमीटर का रेडियस a इस तरह चुना गया है कि 26 GHz पर 50 या 100 m दूर रिसीवर पर मेन लोब उसी रेडियस b = a वाली रिंग पर पड़े।</desc>
   <style>
     .hero-oam .slide { animation: oslide 1.6s linear infinite; }
     .hero-oam .el { animation: oel 1.6s linear infinite; }
@@ -44,7 +46,7 @@
   <circle cx="97.7" cy="106.2" r="6" fill="#c9a227" stroke="currentColor" stroke-width="1" class="el" style="animation-delay:-1.00s"/>
   <circle cx="92.6" cy="150.0" r="6" fill="#c9a227" stroke="currentColor" stroke-width="1" class="el" style="animation-delay:-1.20s"/>
   <circle cx="97.7" cy="193.8" r="6" fill="#c9a227" stroke="currentColor" stroke-width="1" class="el" style="animation-delay:-1.40s"/>
-  <text x="110.0" y="246.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">Tx UCA, radius a</text>
+  <text x="110.0" y="246.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">Tx UCA, radius a</text><text x="110.0" y="246.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">Tx UCA, रेडियस a</text>
   <text x="78.0" y="155.0" font-size="15" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">a</text>
   <text x="552.0" y="155.0" font-size="15" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">b</text>
   <ellipse cx="520.0" cy="150.0" rx="17.4" ry="62.0" stroke="currentColor" stroke-width="1.8" fill="none" opacity="1"/>
@@ -56,13 +58,13 @@
   <circle cx="507.7" cy="106.2" r="6" fill="#c9a227" stroke="currentColor" stroke-width="1" class="el" style="animation-delay:-1.00s"/>
   <circle cx="502.6" cy="150.0" r="6" fill="#c9a227" stroke="currentColor" stroke-width="1" class="el" style="animation-delay:-1.20s"/>
   <circle cx="507.7" cy="193.8" r="6" fill="#c9a227" stroke="currentColor" stroke-width="1" class="el" style="animation-delay:-1.40s"/>
-  <text x="520.0" y="246.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">Rx UCA, radius b = a</text>
+  <text x="520.0" y="246.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">Rx UCA, radius b = a</text><text x="520.0" y="246.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">Rx UCA, रेडियस b = a</text>
   <text x="78.0" y="155.0" font-size="15" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">a</text>
   <text x="552.0" y="155.0" font-size="15" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">b</text>
   <line x1="150.0" y1="262.0" x2="480.0" y2="262.0" stroke="currentColor" stroke-width="1.2" opacity="1" marker-end="url(#oaarr)"/>
   <line x1="480.0" y1="262.0" x2="150.0" y2="262.0" stroke="currentColor" stroke-width="1.2" opacity="1" marker-end="url(#oaarr)"/>
-  <text x="315.0" y="282.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">d = 50 m or 100 m, 26 GHz</text>
-  <text x="315.0" y="40.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">twisted phase front, mode l = 1</text>
+  <text x="315.0" y="282.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">d = 50 m or 100 m, 26 GHz</text><text x="315.0" y="282.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">d = 50 m या 100 m, 26 GHz</text>
+  <text x="315.0" y="40.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="en">twisted phase front, mode l = 1</text><text x="315.0" y="40.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="hi">मुड़ा हुआ फ़ेज़ फ़्रंट, मोड l = 1</text>
 
 </svg>
 </figure>

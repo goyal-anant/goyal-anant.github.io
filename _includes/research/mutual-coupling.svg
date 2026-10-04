@@ -1,7 +1,9 @@
 <figure class="project-hero">
-<svg class="hero-mutual-coupling" viewBox="58.0 13.0 585.0 280.0" role="img" aria-labelledby="mutual-couplingt mutual-couplingd" style="width:100%;height:auto;max-width:585px;font-family:inherit">
+<svg class="hero-mutual-coupling" viewBox="58.0 13.0 585.0 280.0" role="img" aria-labelledby="mutual-couplingt mutual-couplingd" data-hi-aria-labelledby="mutual-couplingt-hi mutual-couplingd-hi" style="width:100%;height:auto;max-width:585px;font-family:inherit">
   <title id="mutual-couplingt">Eight dipoles inside a metal cage</title>
   <desc id="mutual-couplingd">A row of eight half-wave dipoles with spacing d inside a metal cage. Neighbouring dipoles couple directly; the cage reflects fields so distant dipoles couple too. At d = 0.2 wavelengths the gain goes from 7.99 dBi with progressive phase shift to 10.61 dBi with the cage and optimised excitations.</desc>
+  <title id="mutual-couplingt-hi" lang="hi">धातु के पिंजरे में आठ डाइपोल</title>
+  <desc id="mutual-couplingd-hi" lang="hi">धातु के पिंजरे के अंदर आठ हाफ़-वेव डाइपोल की एक कतार, जिनके बीच की दूरी d है। पड़ोसी डाइपोल सीधे कपल होते हैं; पिंजरा फ़ील्ड को वापस भेजता है, तो दूर वाले डाइपोल भी कपल हो जाते हैं। d = 0.2 वेवलेंथ पर गेन प्रोग्रेसिव फ़ेज़ शिफ़्ट वाले 7.99 dBi से बढ़कर, पिंजरे और ऑप्टिमाइज़ की हुई एक्साइटेशन के साथ 10.61 dBi हो जाता है।</desc>
   <style>
     .hero-mutual-coupling .flow { animation: mcflow 1.2s linear infinite; }
     .hero-mutual-coupling .pulse { animation: mcpulse 2.4s ease-in-out infinite; }
@@ -58,21 +60,21 @@
   <line x1="254.0" y1="205.0" x2="302.0" y2="205.0" stroke="currentColor" stroke-width="1.2" opacity="1" marker-end="url(#mcarr)"/>
   <line x1="302.0" y1="205.0" x2="254.0" y2="205.0" stroke="currentColor" stroke-width="1.2" opacity="1" marker-end="url(#mcarr)"/>
   <text x="278.0" y="222.0" font-size="13" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">d</text>
-  <text x="514.0" y="36.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="end">metal cage, size k</text>
+  <text x="514.0" y="36.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="end" lang="en">metal cage, size k</text><text x="514.0" y="36.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="end" lang="hi">धातु का पिंजरा, साइज़ k</text>
   <line x1="70.0" y1="270.0" x2="96.0" y2="270.0" stroke="#2f6fb0" stroke-width="2" opacity="1"/>
-  <text x="102.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start">local coupling</text>
+  <text x="102.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start" lang="en">local coupling</text><text x="102.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start" lang="hi">पास की कपलिंग</text>
   <line x1="220.0" y1="270.0" x2="246.0" y2="270.0" stroke="#c9a227" stroke-width="2" opacity="1" stroke-dasharray="5 4"/>
-  <text x="252.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start">non-local, via the cage</text>
+  <text x="252.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start" lang="en">non-local, via the cage</text><text x="252.0" y="274.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="start" lang="hi">दूर की, पिंजरे के रास्ते</text>
   <rect x="545" y="138.1" width="34" height="111.9" fill="#2f6fb0" class="grow" style="animation-delay:0.3s"/>
   <text x="562.0" y="132.1" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle">7.99</text>
   <rect x="591" y="101.5" width="34" height="148.5" fill="#3f9a6b" class="grow" style="animation-delay:0.8s"/>
   <text x="608.0" y="95.5" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle">10.61</text>
   <line x1="539.0" y1="250.0" x2="631.0" y2="250.0" stroke="currentColor" stroke-width="1.2" opacity="1"/>
-  <text x="562.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">phase</text>
-  <text x="562.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">shift</text>
-  <text x="608.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">caged,</text>
-  <text x="608.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle">optimised</text>
-  <text x="585.0" y="52.0" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle">gain at d = 0.2λ</text>
+  <text x="562.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">phase</text><text x="562.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">फ़ेज़</text>
+  <text x="562.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">shift</text><text x="562.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">शिफ़्ट</text>
+  <text x="608.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">caged,</text><text x="608.0" y="265.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">पिंजरा +</text>
+  <text x="608.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">optimised</text><text x="608.0" y="278.0" font-size="11" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">ऑप्टिमाइज़्ड</text>
+  <text x="585.0" y="52.0" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle" lang="en">gain at d = 0.2λ</text><text x="585.0" y="52.0" font-size="12" font-weight="600" fill="currentColor" text-anchor="middle" lang="hi">d = 0.2λ पर गेन</text>
   <text x="585.0" y="67.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">(dBi)</text>
 
 </svg>

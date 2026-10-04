@@ -1,6 +1,9 @@
 ---
 title: "Why is an apple red?"
 subtitle: "And what happens when you take the red away?"
+title_hi: "सेब लाल क्यों होता है?"
+subtitle_hi: "और अगर उससे लाल छीन लें, तो क्या होता है?"
+hindi: true
 image: /assets/images/why-is-an-apple-red/watercore.jpg
 ---
 A few questions have been bothering me for a while:

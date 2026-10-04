@@ -1,7 +1,9 @@
 <figure class="project-hero">
-<svg class="hero-penn" viewBox="14.8 46.0 619.3 219.0" role="img" aria-labelledby="pennt pennd" style="width:100%;height:auto;max-width:619px;font-family:inherit">
+<svg class="hero-penn" viewBox="14.8 46.0 619.3 219.0" role="img" aria-labelledby="pennt pennd" data-hi-aria-labelledby="pennt-hi pennd-hi" style="width:100%;height:auto;max-width:619px;font-family:inherit">
   <title id="pennt">A physics-embedded neural network for the patch cavity</title>
   <desc id="pennd">The patch antenna is modelled as a cavity with PEC top and bottom and PMC side walls. Its coordinates and dimensions L, W, h go into a neural network trained only on the Helmholtz equation, which predicts the vector potential A_z, shown here for the TM121 mode.</desc>
+  <title id="pennt-hi" lang="hi">पैच कैविटी के लिए फ़िज़िक्स-एम्बेडेड न्यूरल नेटवर्क</title>
+  <desc id="pennd-hi" lang="hi">पैच एंटीना को एक कैविटी माना गया है जिसका ऊपर और नीचे PEC और साइड की दीवारें PMC हैं। इसके कोऑर्डिनेट और डाइमेंशन L, W, h एक न्यूरल नेटवर्क में जाते हैं जिसे सिर्फ़ हेल्महोल्ट्ज़ इक्वेशन से ट्रेन किया गया है, और वो वेक्टर पोटेंशियल A_z प्रेडिक्ट करता है, जो यहाँ TM121 मोड के लिए दिखाया गया है।</desc>
   <style>
     .hero-penn .node { animation: pnode 1.8s ease-in-out infinite; }
     .hero-penn .fb { opacity: 0; }
@@ -26,8 +28,8 @@
   <text x="135.0" y="218.0" font-size="13" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">L</text>
   <text x="227.0" y="184.0" font-size="13" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">W</text>
   <text x="30.0" y="188.0" font-size="13" font-weight="400" fill="currentColor" text-anchor="middle" font-style="italic">h</text>
-  <text x="140.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">patch as a cavity</text>
-  <text x="140.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">inputs: x, y, z, L, W, h</text>
+  <text x="140.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="en">patch as a cavity</text><text x="140.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="hi">कैविटी के रूप में पैच</text>
+  <text x="140.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">inputs: x, y, z, L, W, h</text><text x="140.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">इनपुट: x, y, z, L, W, h</text>
   <line x1="255.0" y1="160.0" x2="290.0" y2="160.0" stroke="currentColor" stroke-width="1.5" opacity="1" marker-end="url(#pnarr)"/>
   <line x1="305.0" y1="130.0" x2="345.0" y2="115.0" stroke="currentColor" stroke-width="0.6" opacity="0.35"/>
   <line x1="305.0" y1="130.0" x2="345.0" y2="140.0" stroke="currentColor" stroke-width="0.6" opacity="0.35"/>
@@ -88,9 +90,9 @@
   <circle cx="385" cy="190" r="7" fill="#2f6fb0" class="node" style="animation-delay:0.6s"/>
   <circle cx="385" cy="215" r="7" fill="#2f6fb0" class="node" style="animation-delay:0.6s"/>
   <circle cx="425" cy="160" r="7" fill="#c0503a" class="node" style="animation-delay:0.9s"/>
-  <text x="365.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">physics-embedded net</text>
-  <text x="365.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">loss = Helmholtz residual</text>
-  <text x="365.0" y="250.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">∇²A + k²A = 0, no training data</text>
+  <text x="365.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="en">physics-embedded net</text><text x="365.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="hi">फ़िज़िक्स-एम्बेडेड नेट</text>
+  <text x="365.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">loss = Helmholtz residual</text><text x="365.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">लॉस = हेल्महोल्ट्ज़ रेज़िडुअल</text>
+  <text x="365.0" y="250.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">∇²A + k²A = 0, no training data</text><text x="365.0" y="250.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">∇²A + k²A = 0, कोई ट्रेनिंग डेटा नहीं</text>
   <line x1="437.0" y1="160.0" x2="470.0" y2="160.0" stroke="currentColor" stroke-width="1.5" opacity="1" marker-end="url(#pnarr)"/>
   <g class="fa"><rect x="482" y="100" width="10" height="10" fill="#c9a227" opacity="0.91"/></g>
   <g class="fb"><rect x="482" y="100" width="10" height="10" fill="#2f6fb0" opacity="0.91"/></g>
@@ -429,9 +431,9 @@
   <g class="fa"><rect x="612" y="210" width="10" height="10" fill="#2f6fb0" opacity="0.91"/></g>
   <g class="fb"><rect x="612" y="210" width="10" height="10" fill="#c9a227" opacity="0.91"/></g>
   <rect x="482" y="100" width="140" height="120" fill="none" stroke="currentColor" stroke-width="1.2"/>
-  <text x="552.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">predicted field A<tspan baseline-shift="sub" font-size="10">z</tspan></text>
-  <text x="552.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">TM₁₂₁ mode</text>
-  <text x="552.0" y="250.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle">far field + ∂/∂L by autodiff</text>
+  <text x="552.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="en">predicted field A<tspan baseline-shift="sub" font-size="10">z</tspan></text><text x="552.0" y="70.0" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle" lang="hi">प्रेडिक्टेड फ़ील्ड A<tspan baseline-shift="sub" font-size="10">z</tspan></text>
+  <text x="552.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">TM₁₂₁ mode</text><text x="552.0" y="88.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">TM₁₂₁ मोड</text>
+  <text x="552.0" y="250.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="en">far field + ∂/∂L by autodiff</text><text x="552.0" y="250.0" font-size="12" font-weight="400" fill="currentColor" text-anchor="middle" lang="hi">फ़ार फ़ील्ड + ∂/∂L, ऑटोडिफ़ से</text>
 
 </svg>
 </figure>

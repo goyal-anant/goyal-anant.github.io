@@ -1,7 +1,9 @@
 <figure>
-<svg viewBox="0 0 640 320" role="img" aria-labelledby="figconet figconed" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+<svg viewBox="0 0 640 320" role="img" aria-labelledby="figconet figconed" data-hi-aria-labelledby="hi-figconet-hi hi-figconed-hi" style="width:100%;height:auto;max-width:640px;font-family:inherit">
   <title id="figconet">Sensitivity of the three human cone types</title>
   <desc id="figconed">S-cones peak near 445 nm, M-cones near 545 nm and L-cones near 570 nm. At the sodium wavelength of 589 nm the L- and M-cones both respond, the L-cones more strongly, and the S-cones not at all.</desc>
+  <title id="figconet-hi" lang="hi">इंसानी आँख के तीन तरह के कोन की संवेदनशीलता</title>
+  <desc id="figconed-hi" lang="hi">S-कोन 445 nm के पास, M-कोन 545 nm के पास और L-कोन 570 nm के पास पीक करते हैं। सोडियम की 589 nm वेवलेंथ पर L- और M-कोन दोनों रिस्पॉन्ड करते हैं, L-कोन ज़्यादा, और S-कोन बिल्कुल नहीं।</desc>
   <defs>
     <linearGradient id="figconeg" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0%" stop-color="#6a00c8"/><stop offset="22%" stop-color="#0050ff"/>
@@ -17,15 +19,15 @@
     <text x="262" y="284">500</text>
     <text x="431" y="284">600</text>
     <text x="600" y="284">700</text>
-    <text x="330" y="306">wavelength (nm)</text>
-    <text x="22" y="140" transform="rotate(-90 22 140)">sensitivity (normalised)</text>
+    <text x="330" y="306" lang="en">wavelength (nm)</text><text x="330" y="306" lang="hi">वेवलेंथ (nm)</text>
+    <text x="22" y="140" transform="rotate(-90 22 140)" lang="en">sensitivity (normalised)</text><text x="22" y="140" transform="rotate(-90 22 140)" lang="hi">संवेदनशीलता (नॉर्मलाइज़्ड)</text>
   </g>
   <line x1="412.7" y1="26" x2="412.7" y2="250" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="412.7" y="20" font-size="13" fill="currentColor" text-anchor="middle">sodium, 589 nm</text>
+  <text x="412.7" y="20" font-size="13" fill="currentColor" text-anchor="middle" lang="en">sodium, 589 nm</text><text x="412.7" y="20" font-size="13" fill="currentColor" text-anchor="middle" lang="hi">सोडियम, 589 nm</text>
   <g font-size="13" font-weight="600">
-    <line x1="452" y1="44" x2="474" y2="44" stroke="#3b6fd8" stroke-width="3"/><text x="480" y="48" fill="#3b6fd8">S-cones</text>
-    <line x1="452" y1="62" x2="474" y2="62" stroke="#2e9e4f" stroke-width="3"/><text x="480" y="66" fill="#2e9e4f">M-cones</text>
-    <line x1="452" y1="80" x2="474" y2="80" stroke="#d0403b" stroke-width="3"/><text x="480" y="84" fill="#d0403b">L-cones</text>
+    <line x1="452" y1="44" x2="474" y2="44" stroke="#3b6fd8" stroke-width="3"/><text x="480" y="48" fill="#3b6fd8" lang="en">S-cones</text><text x="480" y="48" fill="#3b6fd8" lang="hi">S-कोन</text>
+    <line x1="452" y1="62" x2="474" y2="62" stroke="#2e9e4f" stroke-width="3"/><text x="480" y="66" fill="#2e9e4f" lang="en">M-cones</text><text x="480" y="66" fill="#2e9e4f" lang="hi">M-कोन</text>
+    <line x1="452" y1="80" x2="474" y2="80" stroke="#d0403b" stroke-width="3"/><text x="480" y="84" fill="#d0403b" lang="en">L-cones</text><text x="480" y="84" fill="#d0403b" lang="hi">L-कोन</text>
   </g>
   <polyline fill="none" stroke="#3b6fd8" stroke-width="2.5" stroke-linejoin="round" points="76.9,247.9 85.3,244.8 93.8,237.5 102.2,223.1 110.6,198.7 119.1,166.1 127.5,130.4 135.9,101.6 144.4,73.4 152.8,51.2 161.2,32.0 169.7,31.9 178.1,39.8 186.6,60.7 195.0,76.9 203.4,87.6 211.9,107.8 220.3,136.4 228.8,164.1 237.2,186.1 245.6,203.4 254.1,214.7 262.5,223.0 270.9,230.4 279.4,236.6 287.8,240.6 296.2,243.6 304.7,245.7 313.1,247.2 321.6,248.2 330.0,248.9 338.4,249.3 346.9,249.6 355.3,249.7 363.8,249.8 372.2,249.9 380.6,249.9 389.1,250.0 397.5,250.0 405.9,250.0 414.4,250.0 422.8,250.0 431.2,250.0 439.7,250.0 448.1,250.0 456.6,250.0"/>
   <polyline fill="none" stroke="#2e9e4f" stroke-width="2.5" stroke-linejoin="round" points="76.9,249.9 85.3,249.8 93.8,249.5 102.2,249.0 110.6,248.1 119.1,246.8 127.5,245.2 135.9,243.5 144.4,241.3 152.8,238.6 161.2,235.7 169.7,233.3 178.1,230.8 186.6,228.4 195.0,224.4 203.4,218.2 211.9,211.3 220.3,204.8 228.8,198.1 237.2,191.0 245.6,183.2 254.1,171.4 262.5,155.9 270.9,136.6 279.4,114.6 287.8,91.8 296.2,70.3 304.7,55.2 313.1,44.1 321.6,36.9 330.0,31.1 338.4,30.6 346.9,35.0 355.3,39.6 363.8,48.1 372.2,57.9 380.6,71.0 389.1,87.1 397.5,106.3 405.9,124.0 414.4,141.6 422.8,159.5 431.2,176.4 439.7,191.7 448.1,204.8 456.6,215.6 465.0,224.3 473.4,231.2 481.9,236.3 490.3,240.2 498.8,243.1 507.2,245.2 515.6,246.6 524.1,247.6 532.5,248.4 540.9,248.9 549.4,249.2 557.8,249.5 566.2,249.6 574.7,249.8 583.1,249.8 591.6,249.9 600.0,249.9"/>

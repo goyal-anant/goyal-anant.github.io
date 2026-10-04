@@ -1,12 +1,12 @@
 // Runs in <head> so the page paints in the stored language straight away.
 // Both languages sit in the HTML as lang="en" / lang="hi"; CSS hides the one
 // that is off, keyed on data-lang. Attributes CSS can't reach (aria-label,
-// title, placeholder, alt, the tab title) carry their Hindi in data-hi-* and
+// aria-labelledby, title, placeholder, alt, the tab title) carry their Hindi in data-hi-* and
 // are swapped here. Scripts that build text use window.t(en, hi) and listen
 // for 'langchange' on document.
 (function () {
   var root = document.documentElement;
-  var ATTRS = ['aria-label', 'title', 'placeholder', 'alt'];
+  var ATTRS = ['aria-label', 'aria-labelledby', 'title', 'placeholder', 'alt'];
   var hi = function () { return root.getAttribute('data-lang') === 'hi'; };
   window.t = function (en, hiText) { return hi() && hiText ? hiText : en; };
 

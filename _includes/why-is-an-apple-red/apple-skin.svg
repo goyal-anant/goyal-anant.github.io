@@ -1,7 +1,9 @@
 <figure>
-<svg viewBox="0 0 640 320" role="img" aria-labelledby="fig1title fig1desc" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+<svg viewBox="0 0 640 320" role="img" aria-labelledby="fig1title fig1desc" data-hi-aria-labelledby="hi-fig1title-hi hi-fig1desc-hi" style="width:100%;height:auto;max-width:640px;font-family:inherit">
   <title id="fig1title">Reflectance of green and red apple skin (schematic)</title>
   <desc id="fig1desc">Schematic reflectance curves across the visible spectrum. Green apple skin reflects most around 550 nm and dips near 670 nm. Red apple skin reflects very little below 600 nm and a lot above 620 nm. A dashed line at 589 nm marks the sodium lamp, where the red apple reflects almost nothing.</desc>
+  <title id="fig1title-hi" lang="hi">हरे और लाल सेब के छिलके की रिफ़्लेक्टेंस (सांकेतिक)</title>
+  <desc id="fig1desc-hi" lang="hi">दिखने वाले स्पेक्ट्रम पर सांकेतिक रिफ़्लेक्टेंस कर्व। हरे सेब का छिलका 550 nm के आस-पास सबसे ज़्यादा लौटाता है और 670 nm के पास नीचे जाता है। लाल सेब का छिलका 600 nm से नीचे बहुत कम और 620 nm से ऊपर बहुत ज़्यादा लौटाता है। 589 nm पर डैश वाली लाइन सोडियम लैंप दिखाती है, जहाँ लाल सेब लगभग कुछ नहीं लौटाता।</desc>
   <defs>
     <linearGradient id="spectrum" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0%" stop-color="#8b00ff"/>
@@ -24,8 +26,8 @@
     <text x="240" y="284">500</text>
     <text x="420" y="284">600</text>
     <text x="600" y="284">700</text>
-    <text x="330" y="306">wavelength (nm)</text>
-    <text x="22" y="140" transform="rotate(-90 22 140)">light reflected</text>
+    <text x="330" y="306" lang="en">wavelength (nm)</text><text x="330" y="306" lang="hi">वेवलेंथ (nm)</text>
+    <text x="22" y="140" transform="rotate(-90 22 140)" lang="en">light reflected</text><text x="22" y="140" transform="rotate(-90 22 140)" lang="hi">लौटी रोशनी</text>
   </g>
   <polyline fill="none" stroke="#3a9d3a" stroke-width="3" stroke-linejoin="round"
     points="60,233 132,233 204,225 258,187 294,162 330,156 366,166 420,187 474,204 528,225 555,227 582,187 600,156"/>
@@ -33,11 +35,11 @@
     points="60,244 150,245.6 384,246.7 420,236.8 456,184 492,140 600,118"/>
   <line x1="400" y1="30" x2="400" y2="250" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4"/>
   <g font-size="13" fill="currentColor">
-    <text x="406" y="44">sodium lamp, 589 nm</text>
+    <text x="406" y="44" lang="en">sodium lamp, 589 nm</text><text x="406" y="44" lang="hi">सोडियम लैंप, 589 nm</text>
   </g>
   <g font-size="14" font-weight="600">
-    <text x="300" y="146" fill="#3a9d3a">green apple</text>
-    <text x="520" y="112" fill="#c0282d">red apple</text>
+    <text x="300" y="146" fill="#3a9d3a" lang="en">green apple</text><text x="300" y="146" fill="#3a9d3a" lang="hi">हरा सेब</text>
+    <text x="520" y="112" fill="#c0282d" lang="en">red apple</text><text x="520" y="112" fill="#c0282d" lang="hi">लाल सेब</text>
   </g>
 </svg>
 </figure>
