@@ -1,9 +1,10 @@
 ---
 layout: page
 title: About
+title_hi: परिचय
 permalink: /about/
 ---
-<img class="profile-photo" src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Photo of Anant" width="140" height="140">
+<img class="profile-photo" src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Photo of Anant" data-hi-alt="अनंत की फ़ोटो" width="140" height="140">
 <div lang="en" markdown="1">
 
 It is difficult to detach *I* from existence, but to experiment, I will try to speak in the third person. It is important because only by doing that one may truly talk about themselves.

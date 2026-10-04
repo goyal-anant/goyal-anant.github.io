@@ -171,7 +171,9 @@ html:not(:has(.layout-home)) { scroll-padding-top: calc(var(--header-h, 0px) + 1
 [data-theme="dark"] #theme-toggle .icon-moon { display: block; }
 /* both languages sit in the HTML; data-lang on <html> picks which one shows */
 html:not([data-lang="hi"]) [lang="hi"],
-html[data-lang="hi"] [lang="en"] { display: none; }
+html[data-lang="hi"] [lang="en"]:not([data-keep]) { display: none; }
+/* "no Hindi yet" note above a post or page still in English */
+.hi-missing { color: var(--muted); font-size: 0.9rem; font-style: italic; }
 #lang-toggle {
   background: none;
   border: none;

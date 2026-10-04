@@ -2,11 +2,17 @@
 layout: default
 ---
 <article class="post">
-  <h1>{{ page.title }}</h1>
-  {% if page.summary %}<p class="post-subtitle">{{ page.summary }}</p>{% endif %}
+  <h1>{% include t.html en=page.title hi=page.title_hi %}</h1>
+  {% if page.summary %}<p class="post-subtitle">{% include t.html en=page.summary hi=page.summary_hi %}</p>{% endif %}
   {% if page.hero %}{% include {{ page.hero }} %}{% elsif page.image %}<img class="project-hero" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}
-  {{ content }}
-  <h2>Papers</h2>
+  {% if page.hindi %}
+  <div lang="en">{{ content }}</div>
+  <div lang="hi">{% include hindi.html doc=page %}</div>
+  {% else %}
+  <p lang="hi" class="hi-missing">इस पेज का हिंदी वर्शन अभी नहीं बना है, तब तक अंग्रेज़ी में पढ़ लीजिए।</p>
+  <div lang="en" data-keep>{{ content }}</div>
+  {% endif %}
+  <h2>{% include t.html en="Papers" hi="पेपर्स" %}</h2>
   <ul class="paper-list">
   {% for id in page.papers %}{% assign paper = site.data.publications | where: "id", id | first %}{% include paper.html paper=paper %}{% endfor %}
   </ul>

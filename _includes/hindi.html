@@ -1,0 +1,5 @@
+{% comment %}
+  The Hindi body of include.doc, from _includes/hi/<collection>/<slug>.md, as HTML.
+  Its ids and #links get a hi- prefix so they never clash with the English copy
+  on the same page. Only for docs with hindi: true in front matter.
+{% endcomment %}{% assign hi_path = 'hi/' | append: include.doc.collection | append: '/' | append: include.doc.slug | append: '.md' %}{% capture hi_md %}{% include {{ hi_path }} %}{% endcapture %}{{ hi_md | markdownify | replace: 'id="', 'id="hi-' | replace: 'href="#', 'href="#hi-' | replace: 'url(#', 'url(#hi-' }}

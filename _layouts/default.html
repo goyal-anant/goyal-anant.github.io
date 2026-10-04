@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
+  <title data-hi="{% if page.title %}{{ page.title_hi | default: page.title }} &middot; {% endif %}{{ site.title }}">{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
   {% assign description = page.subtitle | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | default: site.description %}
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta name="description" content="{{ description | escape }}">
@@ -31,7 +31,7 @@
       {% include theme-toggle.html %}
       {% include lang-toggle.html %}
       {% unless page.layout == 'home' %}
-      <button id="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+      <button id="menu-toggle" type="button" aria-label="Menu" data-hi-aria-label="मेन्यू" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
@@ -43,7 +43,7 @@
     {{ content }}
   </main>
   {% include footer.html %}
-  <button id="to-top" type="button" aria-label="Back to top">
+  <button id="to-top" type="button" aria-label="Back to top" data-hi-aria-label="ऊपर जाएँ">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"></path>
     </svg>

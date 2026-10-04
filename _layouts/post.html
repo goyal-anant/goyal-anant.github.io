@@ -2,35 +2,41 @@
 layout: default
 ---
 <article class="post">
-  {% comment %} read time: body text only (footnote references, <figure> charts and "*Figure N. ...*" captions excluded), at 200 words a minute {% endcomment %}
-  {% assign body = content | split: '<div class="footnotes"' | first %}
-  {% assign parts = body | split: '<figure' %}
-  {% assign body = parts | first %}
-  {% for part in parts offset: 1 %}{% assign fig = part | split: '</figure>' | first %}{% assign rest = part | remove_first: fig %}{% assign body = body | append: rest %}{% endfor %}
-  {% assign parts = body | split: '<p><em>Figure ' %}
-  {% assign body = parts | first %}
-  {% for part in parts offset: 1 %}{% assign cap = part | split: '</p>' | first %}{% assign rest = part | remove_first: cap %}{% assign body = body | append: rest %}{% endfor %}
-  {% assign words = body | strip_html | number_of_words %}
-  {% assign minutes = words | divided_by: 200.0 | ceil %}
-  <p class="post-date">{{ page.date | date: "%d %b %Y" }} <span class="post-readtime">&middot; {{ minutes }} {% include t.html en="min read" hi="मिनट" %}</span></p>
-  <h1>{{ page.title }}</h1>
-  {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
-  {% comment %} share sits after the body, before the "---" + "## References" block if the post has one, else before the footnotes {% endcomment %}
+  {% capture minutes %}{% include readtime.html html=content %}{% endcapture %}
   {% capture tail %}<hr />
 
 <h2 id="references"{% endcapture %}
   {% unless content contains tail %}{% assign tail = '<div class="footnotes"' %}{% endunless %}
   {% assign main = content | split: tail %}
-  {{ main | first }}
+  {% if page.hindi %}
+  {% capture hi_html %}{% include hindi.html doc=page %}{% endcapture %}
+  {% capture minutes_hi %}{% include readtime.html html=hi_html %}{% endcapture %}
+  {% capture hi_tail %}<hr />
+
+<h2 id="hi-references"{% endcapture %}
+  {% unless hi_html contains hi_tail %}{% assign hi_tail = '<div class="footnotes"' %}{% endunless %}
+  {% assign hi_main = hi_html | split: hi_tail %}
+  {% endif %}
+  <p class="post-date">{% include date.html date=page.date %} <span class="post-readtime">&middot; <span lang="en">{{ minutes | strip }} min read</span><span lang="hi">{{ minutes_hi | default: minutes | strip }} मिनट</span></span></p>
+  <h1>{% include t.html en=page.title hi=page.title_hi %}</h1>
+  {% if page.subtitle %}<p class="post-subtitle">{% include t.html en=page.subtitle hi=page.subtitle_hi %}</p>{% endif %}
+  {% comment %} share sits after the body, before the "---" + "## References" block if the post has one, else before the footnotes {% endcomment %}
+  {% if page.hindi %}
+  <div lang="en">{{ main | first }}</div>
+  <div lang="hi">{{ hi_main | first }}</div>
+  {% else %}
+  <p lang="hi" class="hi-missing">इस पोस्ट का हिंदी वर्शन अभी नहीं बना है, तब तक अंग्रेज़ी में पढ़ लीजिए।</p>
+  <div lang="en" data-keep>{{ main | first }}</div>
+  {% endif %}
   {% if site.reactions_url and site.reactions_url != "" %}
   {% comment %} stays hidden until the counts load, so readers never see dead buttons if the Worker is down {% endcomment %}
   <div id="reactions" data-api="{{ site.reactions_url }}" data-post="{{ page.url }}" hidden>
-    <button type="button" data-kind="like" aria-pressed="false" aria-label="Like"><span aria-hidden="true">👍</span><span class="count"></span></button>
-    <button type="button" data-kind="heart" aria-pressed="false" aria-label="Love"><span aria-hidden="true">❤️</span><span class="count"></span></button>
-    <button type="button" data-kind="insightful" aria-pressed="false" aria-label="Insightful"><span aria-hidden="true">💡</span><span class="count"></span></button>
+    <button type="button" data-kind="like" aria-pressed="false" aria-label="Like" data-label="Like" data-label-hi="पसंद आया"><span aria-hidden="true">👍</span><span class="count"></span></button>
+    <button type="button" data-kind="heart" aria-pressed="false" aria-label="Love" data-label="Love" data-label-hi="बहुत अच्छा"><span aria-hidden="true">❤️</span><span class="count"></span></button>
+    <button type="button" data-kind="insightful" aria-pressed="false" aria-label="Insightful" data-label="Insightful" data-label-hi="कुछ नया सीखा"><span aria-hidden="true">💡</span><span class="count"></span></button>
   </div>
   {% endif %}
-  <button id="share" type="button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}">
+  <button id="share" type="button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}" data-title-hi="{{ page.title_hi | default: page.title | escape }}">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M8 11H6a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-2"></path>
     </svg>
@@ -43,19 +49,22 @@ layout: default
     </svg>
     <span>{% include t.html en="Reply by email" hi="ईमेल से जवाब दें" %}</span>
   </a>
-  {% if main.size > 1 %}{{ tail }}{{ main | last }}{% endif %}
+  {% if page.hindi %}
+  {% if main.size > 1 %}<div lang="en">{{ tail }}{{ main | last }}</div>{% endif %}
+  {% if hi_main.size > 1 %}<div lang="hi">{{ hi_tail }}{{ hi_main | last }}</div>{% endif %}
+  {% elsif main.size > 1 %}<div lang="en" data-keep>{{ tail }}{{ main | last }}</div>{% endif %}
 </article>
 <script>
   // share sheet where the browser has one, otherwise copy the public link
   (function () {
     var btn = document.getElementById('share');
     var label = btn.querySelector('span');
-    var data = { title: btn.dataset.title, url: btn.dataset.url };
     btn.addEventListener('click', function () {
+      var data = { title: t(btn.dataset.title, btn.dataset.titleHi), url: btn.dataset.url };
       if (navigator.share) return navigator.share(data).catch(function () {});
       navigator.clipboard.writeText(data.url).then(function () {
         var idle = label.innerHTML;
-        label.textContent = document.documentElement.getAttribute('data-lang') === 'hi' ? 'लिंक कॉपी हो गया' : 'Link copied';
+        label.textContent = t('Link copied', 'लिंक कॉपी हो गया');
         setTimeout(function () { label.innerHTML = idle; }, 2000);
       });
     });
@@ -66,16 +75,18 @@ layout: default
     if (!box) return;
     var endpoint = box.dataset.api + '?post=' + encodeURIComponent(box.dataset.post);
     var key = 'reacted:' + box.dataset.post;
-    var mine;
+    var mine, last = {};
     try { mine = JSON.parse(localStorage.getItem(key)) || []; } catch (e) { mine = []; }
     function show(counts) {
+      last = counts;
       box.querySelectorAll('button').forEach(function (b) {
         var n = counts[b.dataset.kind] || 0;
         b.querySelector('.count').textContent = n > 0 ? n : '';
         b.setAttribute('aria-pressed', mine.indexOf(b.dataset.kind) >= 0);
-        b.setAttribute('aria-label', b.getAttribute('aria-label').replace(/ \(\d+\)$/, '') + (n > 0 ? ' (' + n + ')' : ''));
+        b.setAttribute('aria-label', t(b.dataset.label, b.dataset.labelHi) + (n > 0 ? ' (' + n + ')' : ''));
       });
     }
+    document.addEventListener('langchange', function () { show(last); });
     fetch(endpoint).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (counts) {
       show(counts);
       box.hidden = false;

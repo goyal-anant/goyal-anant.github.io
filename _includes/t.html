@@ -1,1 +1,1 @@
-<span lang="en">{{ include.en }}</span><span lang="hi">{{ include.hi }}</span>
+<span lang="en">{{ include.en }}</span><span lang="hi">{{ include.hi | default: include.en }}</span>

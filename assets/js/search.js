@@ -1,18 +1,31 @@
 (function () {
-  var idx, docs, box, btn, input, results, debounceTimer;
+  var items, idx = {}, docs, box, btn, input, results, debounceTimer;
 
-  function buildIndex(items) {
+  var lang = function () { return document.documentElement.getAttribute('data-lang') === 'hi' ? 'hi' : 'en'; };
+
+  // One index per language, built the first time it is needed.
+  function index() {
+    var l = lang();
+    if (idx[l]) return idx[l];
     docs = {};
     items.forEach(function (item, i) { item.id = String(i); docs[item.id] = item; });
-    return lunr(function () {
-      // Keep common words like "why" and "the": titles here are short, so they matter.
-      this.pipeline.remove(lunr.stopWordFilter);
-      this.searchPipeline.remove(lunr.stopWordFilter);
+    idx[l] = lunr(function () {
+      if (l === 'hi') {
+        // lunr's trimmer treats Devanagari as punctuation and its stemmer is
+        // English, so Hindi words go in as typed.
+        this.pipeline.reset();
+        this.searchPipeline.reset();
+      } else {
+        // Keep common words like "why" and "the": titles here are short, so they matter.
+        this.pipeline.remove(lunr.stopWordFilter);
+        this.searchPipeline.remove(lunr.stopWordFilter);
+      }
       this.ref('id');
-      this.field('title', { boost: 10 });
-      this.field('body');
+      this.field('title', { boost: 10, extractor: function (d) { return l === 'hi' ? d.title_hi : d.title; } });
+      this.field('body', { extractor: function (d) { return l === 'hi' ? d.body_hi : d.body; } });
       items.forEach(function (item) { this.add(item); }, this);
     });
+    return idx[l];
   }
 
   function render(query) {
@@ -20,7 +33,7 @@
     // Match each word as typed (stemmed, so "apple" finds "appl") and as a prefix
     // of longer words. Building the query directly also means characters like
     // ":" or "~" in the input can't break lunr's query parser.
-    var hits = idx.query(function (q) {
+    var hits = index().query(function (q) {
       lunr.tokenizer(query).forEach(function (token) {
         var term = token.toString();
         q.term(term);
@@ -28,13 +41,13 @@
       });
     });
     if (hits.length === 0) {
-      results.innerHTML = '<li class="search-empty">No results</li>';
+      results.innerHTML = '<li class="search-empty">' + t('No results', 'कुछ नहीं मिला') + '</li>';
       return;
     }
     results.innerHTML = hits.slice(0, 8).map(function (hit) {
       var doc = docs[hit.ref];
-      return '<li><a href="' + doc.url + '"><span class="search-result-title">' + doc.title +
-        '</span><span class="search-result-section">' + doc.section + '</span></a></li>';
+      return '<li><a href="' + doc.url + '"><span class="search-result-title">' + t(doc.title, doc.title_hi) +
+        '</span><span class="search-result-section">' + t(doc.section, doc.section_hi) + '</span></a></li>';
     }).join('');
   }
 
@@ -59,17 +72,17 @@
     btn.addEventListener('click', function () {
       if (box.classList.contains('is-open')) { close(); return; }
       open();
-      if (!idx) {
+      if (!items) {
         fetch('/search.json')
           .then(function (r) { return r.json(); })
-          .then(function (items) { idx = buildIndex(items); });
+          .then(function (data) { items = data; });
       }
     });
 
     input.addEventListener('input', function () {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(function () {
-        if (idx) render(input.value.trim());
+        if (items) render(input.value.trim());
       }, 150);
     });
 

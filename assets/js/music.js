@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
   seek.min = 0;
   seek.max = 1;
   seek.step = 'any';
-  seek.setAttribute('aria-label', 'Seek');
+  seek.setAttribute('aria-label', t('Seek', 'गाने में आगे-पीछे जाओ'));
 
   function showProgress() {
     var progress = audio.duration ? audio.currentTime / audio.duration : 0;
@@ -125,6 +125,11 @@ document.addEventListener('DOMContentLoaded', function () {
     updateBar();
   }
 
+  document.addEventListener('langchange', function () {
+    seek.setAttribute('aria-label', t('Seek', 'गाने में आगे-पीछे जाओ'));
+    updateBar();
+  });
+
   // The bar shows the song that is on, whether it is paused, and a skip
   // button while a queue runs.
   function updateBar() {
@@ -132,8 +137,9 @@ document.addEventListener('DOMContentLoaded', function () {
     barSkip.hidden = !queueButton;
     var paused = !!activeButton && activeButton.classList.contains('is-paused');
     bar.classList.toggle('is-paused', paused);
-    barPause.setAttribute('aria-label', paused ? 'Resume' : 'Pause');
-    barPause.title = paused ? 'Resume' : 'Pause';
+    var label = paused ? t('Resume', 'फिर चलाओ') : t('Pause', 'पॉज़');
+    barPause.setAttribute('aria-label', label);
+    barPause.title = label;
     if (activeButton) {
       barTitle.textContent = activeButton.closest('.music-card').querySelector('.music-title').textContent;
     }

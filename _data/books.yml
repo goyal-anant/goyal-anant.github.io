@@ -5,6 +5,7 @@
   genre: fiction
   status: completed
   summary: "The pigs didn't steal the revolution: the sheep bleated 'four legs good' and handed it over."
+  summary_hi: "सूअरों ने क्रांति नहीं चुराई: भेड़ों ने 'चार टांगें अच्छी' मिमियाते हुए ख़ुद थमा दी।"
 - title: "1984"
   link: "https://www.goodreads.com/book/show/61439040-1984"
   thumbnail: "/assets/images/books/1984.jpg"
@@ -12,6 +13,7 @@
   genre: sci-fi
   status: completed
   summary: "Orwell wrote it as a warning; some governments read it as a manual."
+  summary_hi: "ऑरवेल ने इसे चेतावनी के तौर पर लिखा था; कुछ सरकारों ने इसे मैनुअल समझकर पढ़ा।"
 - title: "The Communist Manifesto"
   link: "https://www.goodreads.com/book/show/30474.The_Communist_Manifesto"
   thumbnail: "/assets/images/books/the-communist-manifesto.jpg"
@@ -19,6 +21,7 @@
   genre: nonfiction
   status: completed
   summary: "Workers of the world, unite; you have nothing to lose but your EMIs."
+  summary_hi: "दुनिया के मज़दूरो, एक हो जाओ; तुम्हारे पास खोने को EMI के सिवा कुछ नहीं है।"
 - title: "The Tao of Physics"
   link: "https://www.goodreads.com/book/show/10238.The_Tao_of_Physics"
   thumbnail: "/assets/images/books/the-tao-of-physics.jpg"
@@ -26,6 +29,7 @@
   genre: nonfiction
   status: completed
   summary: "Zoom into matter far enough and there's no 'thing' left, just vibrations. Literally vibes."
+  summary_hi: "मैटर को काफ़ी ज़ूम करके देखो तो कोई 'चीज़' बचती ही नहीं, बस वाइब्रेशन्स। सचमुच, वाइब्स।"
 - title: "Nationalism"
   link: "https://www.goodreads.com/book/show/34311532-nationalism"
   thumbnail: "/assets/images/books/nationalism.jpg"
@@ -33,6 +37,7 @@
   genre: nonfiction
   status: completed
   summary: "Tagore called the nation a machine that eats people, and then two nations made his songs their anthems lol."
+  summary_hi: "टैगोर ने राष्ट्र को ऐसी मशीन कहा जो इंसानों को खा जाती है, और फिर दो राष्ट्रों ने उनके गानों को अपना राष्ट्रगान बना लिया lol"
 - title: "The Alchemist"
   link: "https://www.goodreads.com/book/show/18144590-the-alchemist"
   thumbnail: "/assets/images/books/the-alchemist.jpg"
@@ -40,6 +45,7 @@
   genre: fiction
   status: completed
   summary: "Follow your Personal Legend; Paulo followed his and sold 150 million copies :)"
+  summary_hi: "अपने पर्सनल लेजेंड के पीछे चलो; पाउलो अपने के पीछे चले और 15 करोड़ कॉपियाँ बेच दीं :)"
 - title: "The Autobiography of Benjamin Franklin"
   link: "https://www.goodreads.com/book/show/52309.The_Autobiography_of_Benjamin_Franklin"
   thumbnail: "/assets/images/books/the-autobiography-of-benjamin-franklin.jpg"
@@ -47,6 +53,7 @@
   genre: nonfiction
   status: completed
   summary: "Wake at 5, invent bifocals, fly a kite in a storm, found a country, and still write down your own mistakes."
+  summary_hi: "सुबह 5 बजे उठो, बाइफ़ोकल चश्मा बनाओ, तूफ़ान में पतंग उड़ाओ, एक देश खड़ा करो, और फिर भी अपनी ग़लतियाँ ख़ुद लिखो।"
 - title: "My Experiments with Truth"
   link: "https://www.goodreads.com/book/show/23837258-my-experiments-with-truth"
   thumbnail: "/assets/images/books/my-experiments-with-truth.jpg"
@@ -54,6 +61,7 @@
   genre: nonfiction
   status: completed
   summary: "Gandhi experimented with truth, diet and celibacy; the British Empire was apparently the easy one."
+  summary_hi: "गांधी ने सत्य, खाने और ब्रह्मचर्य पर प्रयोग किए; ब्रिटिश साम्राज्य तो शायद सबसे आसान वाला था।"
 - title: "Bhagavad Gita"
   link: "https://www.goodreads.com/book/show/991544.Bhagavad_Gita_As_It_Is"
   thumbnail: "/assets/images/books/bhagavad-gita.jpg"
@@ -61,6 +69,7 @@
   genre: nonfiction
   status: completed
   summary: "Arjuna asked for a quick pep talk before the war and got 700 verses of philosophy."
+  summary_hi: "अर्जुन ने युद्ध से पहले बस थोड़ी हिम्मत माँगी थी और उन्हें 700 श्लोकों का दर्शन मिल गया।"
 - title: "The Monk Who Sold His Ferrari"
   link: "https://www.goodreads.com/book/show/43877.The_Monk_Who_Sold_His_Ferrari"
   thumbnail: "/assets/images/books/the-monk-who-sold-his-ferrari.jpg"
@@ -68,6 +77,7 @@
   genre: fiction
   status: completed
   summary: "A lawyer has a heart attack, sells the Ferrari, and comes back from the Himalayas with a self-help franchise."
+  summary_hi: "एक वकील को हार्ट अटैक आता है, वो फ़रारी बेचता है, और हिमालय से सेल्फ़-हेल्प की फ़्रैंचाइज़ी लेकर लौटता है।"
 - title: "How to Win Friends & Influence People"
   link: "https://www.goodreads.com/book/show/4865.How_to_Win_Friends_Influence_People"
   thumbnail: "/assets/images/books/how-to-win-friends-influence-people.jpg"
@@ -75,6 +85,7 @@
   genre: nonfiction
   status: completed
   summary: "The only way to win an argument is to avoid it, which is terrible news for Twitter lol."
+  summary_hi: "बहस जीतने का इकलौता तरीक़ा है उससे बचना, जो Twitter के लिए बहुत बुरी ख़बर है lol"
 - title: "Rich Dad Poor Dad"
   link: "https://www.goodreads.com/book/show/69571.Rich_Dad_Poor_Dad"
   thumbnail: "/assets/images/books/rich-dad-poor-dad.jpg"
@@ -82,6 +93,7 @@
   genre: nonfiction
   status: completed
   summary: "Assets put money in your pocket, liabilities take it out; my phone is firmly on the second list."
+  summary_hi: "एसेट जेब में पैसा डालते हैं, लायबिलिटी निकालते हैं; मेरा फ़ोन पक्का दूसरी लिस्ट में है।"
 - title: "Ignited Minds"
   link: "https://www.goodreads.com/book/show/693771.Ignited_Minds"
   thumbnail: "/assets/images/books/ignited-minds.jpg"
@@ -89,6 +101,7 @@
   genre: nonfiction
   status: completed
   summary: "Dream, dream, dream, said Kalam; Indian parents added: but first finish engineering."
+  summary_hi: "सपने देखो, सपने देखो, सपने देखो, कलाम ने कहा; भारतीय माँ-बाप ने जोड़ा: पर पहले इंजीनियरिंग पूरी करो।"
 - title: "The Power of Your Subconscious Mind"
   link: "https://www.goodreads.com/book/show/29282480-the-power-of-your-subconscious-mind"
   thumbnail: "/assets/images/books/the-power-of-your-subconscious-mind.jpg"
@@ -96,6 +109,7 @@
   genre: nonfiction
   status: completed
   summary: "Repeat 'I am wealthy' before sleeping and wake up still needing to go to work, but feeling great about it."
+  summary_hi: "सोने से पहले 'मैं अमीर हूँ' दोहराओ, सुबह उठकर फिर भी काम पर जाना पड़ता है, बस मूड बढ़िया रहता है।"
 - title: "Frankenstein"
   link: "https://www.goodreads.com/book/show/35031085-frankenstein"
   thumbnail: "/assets/images/books/frankenstein.jpg"
@@ -103,6 +117,7 @@
   genre: sci-fi
   status: completed
   summary: "The real monster is the scientist who ghosts his own creation."
+  summary_hi: "असली राक्षस तो वो साइंटिस्ट है जो अपनी ही बनाई चीज़ को घोस्ट कर देता है।"
 - title: "Autobiography of a Yogi"
   link: "https://www.goodreads.com/book/show/639864.Autobiography_of_a_Yogi"
   thumbnail: "/assets/images/books/autobiography-of-a-yogi.jpg"
@@ -110,6 +125,7 @@
   genre: nonfiction
   status: completed
   summary: "Every chapter has a miracle, and by chapter 20 you stop being surprised."
+  summary_hi: "हर चैप्टर में एक चमत्कार है, और 20वें चैप्टर तक आते-आते हैरान होना बंद हो जाता है।"
 - title: "The God of Small Things"
   link: "https://www.goodreads.com/book/show/9777.The_God_of_Small_Things"
   thumbnail: "/assets/images/books/the-god-of-small-things.jpg"
@@ -117,6 +133,7 @@
   genre: fiction
   status: completed
   summary: "The Big Things stay unsaid, so the Small Things end up doing all the damage."
+  summary_hi: "बड़ी बातें अनकही रह जाती हैं, तो सारा नुक़सान छोटी बातें कर जाती हैं।"
 - title: "Man's Search for Meaning"
   link: "https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning"
   thumbnail: "/assets/images/books/man-s-search-for-meaning.jpg"
@@ -124,6 +141,7 @@
   genre: nonfiction
   status: completed
   summary: "They can take everything from you except how you respond, and Frankl proved it in a concentration camp."
+  summary_hi: "वो तुमसे सब कुछ छीन सकते हैं, सिवाय इसके कि तुम कैसे जवाब देते हो, और फ़्रैंकल ने ये एक कंसन्ट्रेशन कैंप में साबित किया।"
 - title: "Men Are from Mars, Women Are from Venus"
   link: "https://www.goodreads.com/book/show/1274.Men_Are_from_Mars_Women_Are_from_Venus"
   thumbnail: "/assets/images/books/men-are-from-mars-women-are-from-venus.jpg"
@@ -131,6 +149,7 @@
   genre: nonfiction
   status: completed
   summary: "Men listen without fixing, women ask without hinting; simple, and completely impossible."
+  summary_hi: "आदमी बिना सलाह दिए सुनें, औरतें बिना इशारों के माँगें; आसान है, और बिल्कुल नामुमकिन।"
 - title: "The Story of Birds"
   link: "https://www.goodreads.com/book/show/239744739-the-story-of-birds"
   thumbnail: "/assets/images/books/the-story-of-birds.jpg"
@@ -174,6 +193,7 @@
   genre: nonfiction
   status: half-done
   summary: "You are the witness of everything that changes, so you can't be any of the things that change."
+  summary_hi: "जो कुछ भी बदलता है, तुम उसके साक्षी हो, इसलिए तुम बदलने वाली कोई चीज़ नहीं हो सकते।"
 - title: "The Gospel of Sri Ramakrishna"
   link: "https://www.goodreads.com/book/show/1513343.Gospel_of_Sri_Ramakrishna"
   thumbnail: "/assets/images/books/the-gospel-of-sri-ramakrishna.jpg"
@@ -181,6 +201,7 @@
   genre: nonfiction
   status: half-done
   summary: "Ramakrishna tried Islam, Christianity and every Hindu path and found they reach the same roof; the rest of us are still fighting over the stairs."
+  summary_hi: "रामकृष्ण ने इस्लाम, ईसाई धर्म और हर हिंदू मार्ग आज़माया और पाया कि सब एक ही छत तक पहुँचते हैं; बाक़ी हम अब भी सीढ़ियों पर लड़ रहे हैं।"
 - title: "An Immense World"
   link: "https://www.goodreads.com/book/show/59575939-an-immense-world"
   thumbnail: "/assets/images/books/an-immense-world.jpg"
@@ -194,6 +215,7 @@
   genre: nonfiction
   status: half-done
   summary: "The universe is one big vibration, and your body is just a very noisy oscillator."
+  summary_hi: "पूरा ब्रह्मांड एक बड़ा वाइब्रेशन है, और तुम्हारा शरीर बस एक बहुत शोर करने वाला ऑसिलेटर।"
 - title: "The Eleventh Hour"
   link: "https://www.goodreads.com/book/show/230118837-the-eleventh-hour"
   thumbnail: "/assets/images/books/the-eleventh-hour.jpg"
@@ -207,6 +229,7 @@
   genre: nonfiction
   status: half-done
   summary: "Ray Dalio turned his life into an algorithm and then published the source code in 600 pages."
+  summary_hi: "रे डालियो ने अपनी ज़िंदगी को एक एल्गोरिदम बना दिया और फिर 600 पन्नों में उसका सोर्स कोड छाप दिया।"
 - title: "Algorithms to Live By"
   link: "https://www.goodreads.com/book/show/25666050-algorithms-to-live-by"
   thumbnail: "/assets/images/books/algorithms-to-live-by.jpg"
@@ -220,6 +243,7 @@
   genre: nonfiction
   status: completed
   summary: "We aren't rational; we're just very good at inventing the reasons afterwards."
+  summary_hi: "हम तर्कसंगत नहीं हैं; बस बाद में वजहें गढ़ने में बहुत माहिर हैं।"
 - title: "Glucose Revolution"
   link: "https://www.goodreads.com/book/show/58438618-glucose-revolution"
   thumbnail: "/assets/images/books/glucose-revolution.jpg"
@@ -227,6 +251,7 @@
   genre: nonfiction
   status: completed
   summary: "The villain of modern life is the glucose spike and the hero is a spoon of vinegar."
+  summary_hi: "आज की ज़िंदगी का विलेन ग्लूकोज़ स्पाइक है और हीरो एक चम्मच सिरका।"
 - title: "Deep Work"
   link: "https://www.goodreads.com/book/show/25744928-deep-work"
   thumbnail: "/assets/images/books/deep-work.jpg"
@@ -234,6 +259,7 @@
   genre: nonfiction
   status: completed
   summary: "Shallow work keeps you busy; deep work keeps you employed."
+  summary_hi: "शैलो वर्क तुम्हें बिज़ी रखता है; डीप वर्क तुम्हारी नौकरी बचाए रखता है।"
 - title: "Critique of Pure Reason"
   link: "https://www.goodreads.com/book/show/18288.Critique_of_Pure_Reason"
   thumbnail: "/assets/images/books/critique-of-pure-reason.jpg"
@@ -241,6 +267,7 @@
   genre: nonfiction
   status: half-done
   summary: "I got halfway, which by Kant's standards means I know the book as it appears, not the book in itself lol."
+  summary_hi: "मैं आधी तक पहुँचा, यानी कांट के हिसाब से मैं किताब को वैसे जानता हूँ जैसी वो दिखती है, किताब को अपने-आप में नहीं lol"
 - title: "The Prophet"
   link: "https://www.goodreads.com/book/show/2547.The_Prophet"
   thumbnail: "/assets/images/books/the-prophet.jpg"
@@ -248,6 +275,7 @@
   genre: fiction
   status: completed
   summary: "Gibran settles love, marriage, work and death in a hundred pages; I needed a PhD for just one of them."
+  summary_hi: "जिब्रान सौ पन्नों में प्रेम, शादी, काम और मौत सब सुलझा देते हैं; मुझे इनमें से बस एक के लिए PhD करनी पड़ रही है।"
 - title: "Vivekachudamani"
   link: "https://www.goodreads.com/book/show/40919301-vivekachudamani"
   thumbnail: "/assets/images/books/vivekachudamani.jpg"
@@ -255,6 +283,7 @@
   genre: nonfiction
   status: half-done
   summary: "Telling the real from the unreal is the whole path; everything else is commentary."
+  summary_hi: "सत्य और असत्य में भेद करना ही पूरा मार्ग है; बाक़ी सब टीका है।"
 - title: "The Tell-Tale Brain"
   link: "https://www.goodreads.com/book/show/8574712-the-tell-tale-brain"
   thumbnail: "/assets/images/books/the-tell-tale-brain.jpg"
@@ -268,6 +297,7 @@
   genre: nonfiction
   status: completed
   summary: "Feynman cracked the safes holding atomic bomb secrets, just for fun."
+  summary_hi: "फ़ाइनमैन ने एटम बम के राज़ रखने वाली तिजोरियाँ तोड़ दीं, बस मज़े के लिए।"
 - title: "Siddhartha"
   link: "https://www.goodreads.com/book/show/208533702-siddhartha"
   thumbnail: "/assets/images/books/siddhartha.jpg"
@@ -275,6 +305,7 @@
   genre: fiction
   status: completed
   summary: "Merchant, gambler, lover, ferryman: Siddhartha tried every career before settling on listening to a river."
+  summary_hi: "व्यापारी, जुआरी, प्रेमी, मल्लाह: सिद्धार्थ ने हर करियर आज़माया और आख़िर में नदी को सुनना चुना।"
 - title: "Lolita"
   link: "https://www.goodreads.com/book/show/9216051-lolita"
   thumbnail: "/assets/images/books/lolita.jpg"

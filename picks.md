@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Picks
+title_hi: पसंद
 permalink: /picks/
 ---
 
@@ -20,8 +21,8 @@ permalink: /picks/
 {% for pick in picks %}
   <li class="music-card">
     <div class="music-thumb-wrap">
-      <img class="music-thumb" src="{{ pick.thumbnail | relative_url }}" alt="{{ pick.title | escape }} poster" loading="lazy">
-      <p class="music-note book-note">{{ pick.note | escape }}</p>
+      <img class="music-thumb" src="{{ pick.thumbnail | relative_url }}" alt="{{ pick.title | escape }} poster" data-hi-alt="{{ pick.title | escape }} का पोस्टर" loading="lazy">
+      <p class="music-note book-note">{% assign note_en = pick.note | escape %}{% assign note_hi = pick.note_hi | escape %}{% include t.html en=note_en hi=note_hi %}</p>
     </div>
     <a class="book-link" href="{{ pick.link | escape }}" title="{{ pick.title | escape }}" target="_blank" rel="noopener">{{ pick.title | escape }}</a>
   </li>
@@ -32,7 +33,7 @@ permalink: /picks/
 {% for pick in picks %}
   <li>
     {% if pick.link %}<a href="{{ pick.link | escape }}" target="_blank" rel="noopener">{{ pick.title | escape }}</a>{% else %}<span>{{ pick.title | escape }}</span>{% endif %}
-    <span class="project-summary">{{ pick.note | escape }}</span>
+    <span class="project-summary">{% assign note_en = pick.note | escape %}{% assign note_hi = pick.note_hi | escape %}{% include t.html en=note_en hi=note_hi %}</span>
   </li>
 {% endfor %}
 </ul>

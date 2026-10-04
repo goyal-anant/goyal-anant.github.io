@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Bookshelf
+title_hi: किताबें
 permalink: /bookshelf/
 ---
 
@@ -18,11 +19,11 @@ permalink: /bookshelf/
   <li class="music-card">
     <div class="music-thumb-wrap">
       {% if book.thumbnail %}
-      <img class="music-thumb" src="{{ book.thumbnail | relative_url }}" alt="{{ book.title | escape }} by {{ book.author | escape }}" loading="lazy">
+      <img class="music-thumb" src="{{ book.thumbnail | relative_url }}" alt="{{ book.title | escape }} by {{ book.author | escape }}" data-hi-alt="{{ book.title | escape }}, लेखक: {{ book.author | escape }}" loading="lazy">
       {% else %}
       <div class="music-thumb book-cover-blank"><span>{{ book.title | escape }}</span></div>
       {% endif %}
-      {% if book.summary and book.summary != "" %}<p class="music-note book-note">{{ book.summary | escape }}</p>{% endif %}
+      {% if book.summary and book.summary != "" %}{% assign note_en = book.summary | escape %}{% assign note_hi = book.summary_hi | escape %}<p class="music-note book-note">{% include t.html en=note_en hi=note_hi %}</p>{% endif %}
     </div>
     {% if book.link %}<a class="book-link" href="{{ book.link | escape }}" title="{{ book.title | escape }}" target="_blank" rel="noopener">{{ book.title | escape }}</a>{% endif %}
   </li>

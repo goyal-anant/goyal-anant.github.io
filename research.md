@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Research
+title_hi: रिसर्च
 permalink: /research/
 ---
 {% comment %} _data/publications.yml is kept newest first; projects follow the order of their newest paper there {% endcomment %}
@@ -10,8 +11,8 @@ permalink: /research/
   <li>
     <span class="post-date">{% if k[0] == k[1] %}{{ k[0] }}{% else %}{{ k[1] }}–{{ k[0] }}{% endif %}</span>
     <div class="project-text">
-      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-      {% if project.summary %}<span class="project-summary">{{ project.summary }}</span>{% endif %}
+      <a href="{{ project.url | relative_url }}">{% include t.html en=project.title hi=project.title_hi %}</a>
+      {% if project.summary %}<span class="project-summary">{% include t.html en=project.summary hi=project.summary_hi %}</span>{% endif %}
       {% if project.hero %}<a class="project-hero-link" href="{{ project.url | relative_url }}" tabindex="-1" aria-hidden="true">{% include {{ project.hero }} %}</a>{% endif %}
     </div>
   </li>

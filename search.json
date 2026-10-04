@@ -6,7 +6,8 @@ permalink: /search.json
 {% assign first = true %}
 {% for post in site.posts %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "section": "Blog", "body": {{ post.subtitle | append: ' ' | append: post.content | strip_html | normalize_whitespace | jsonify }}}
+  {% capture hi_body %}{% if post.hindi %}{% include hindi.html doc=post %}{% else %}{{ post.content }}{% endif %}{% endcapture %}
+  {"title": {{ post.title | jsonify }}, "title_hi": {{ post.title_hi | default: post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "section": "Blog", "section_hi": "ब्लॉग", "body": {{ post.subtitle | append: ' ' | append: post.content | strip_html | normalize_whitespace | jsonify }}, "body_hi": {{ post.subtitle_hi | default: post.subtitle | append: ' ' | append: hi_body | strip_html | normalize_whitespace | jsonify }}}
 {% endfor %}
 {% comment %} Rants hidden for now.
 {% for rant in site.rants %}
@@ -16,7 +17,8 @@ permalink: /search.json
 {% endcomment %}
 {% for item in site.research %}
   {% unless first %},{% endunless %}{% assign first = false %}
-  {"title": {{ item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "section": "Research", "body": {{ item.summary | append: ' ' | append: item.content | strip_html | normalize_whitespace | jsonify }}}
+  {% capture hi_body %}{% if item.hindi %}{% include hindi.html doc=item %}{% else %}{{ item.content }}{% endif %}{% endcapture %}
+  {"title": {{ item.title | jsonify }}, "title_hi": {{ item.title_hi | default: item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "section": "Research", "section_hi": "रिसर्च", "body": {{ item.summary | append: ' ' | append: item.content | strip_html | normalize_whitespace | jsonify }}, "body_hi": {{ item.summary_hi | default: item.summary | append: ' ' | append: hi_body | strip_html | normalize_whitespace | jsonify }}}
 {% endfor %}
 {% for book in site.data.books %}
   {% unless first %},{% endunless %}{% assign first = false %}
