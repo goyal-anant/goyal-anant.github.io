@@ -778,3 +778,13 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
   margin: 0 0 1.5rem;
   border-radius: 6px;
 }
+/* music page: jump links to each genre, under the intro */
+.genre-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+}
+/* a genre jump lands below the sticky music bar too */
+.shelf-heading[id] { scroll-margin-top: 3.5rem; }

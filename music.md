@@ -8,6 +8,16 @@ permalink: /music/
 
 <p class="shelf-hint">If you don't know where to start, press 'Play all' below to hear every song on the page, or 'Play genre' next to a genre to hear only that one. Turn on the shuffle button next to 'Play all' and the page picks the order for you. To skip ahead in a song, drag the bar under it.</p>
 
+{% assign genres = "sufi:Sufi &amp; Qawwali,ghazal:Ghazal,classical:Classical &amp; Semi-classical,film:Film,rock:Rock,pop-folk:Pop &amp; Folk,punjabi:Punjabi,indie:Indie &amp; Indi-pop,soul-reggae-blues:Soul&#44; Reggae &amp; Blues" | split: "," %}
+<nav class="genre-nav" aria-label="Genres">
+{% for genre in genres %}
+{% assign parts = genre | split: ":" %}
+{% assign keys = parts[0] | split: "-" | push: parts[0] %}
+{% assign tracks = site.data.music | where_exp: "t", "keys contains t.genre" %}
+{% if tracks.size > 0 %}<a href="#{{ parts[0] }}">{{ parts[1] }}</a>{% endif %}
+{% endfor %}
+</nav>
+
 <div class="music-bar">
   <button class="music-queue" type="button" data-queue="all" data-label="Play all" aria-pressed="false">Play all</button>
   <button class="music-bar-icon music-shuffle" type="button" aria-label="Shuffle" title="Shuffle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.7l2.4 4.6c1.1 1.7 2.3 2.7 4.3 2.7H21M3 17h3.5c2 0 3.2-1 4.3-2.7m2.4-4.6c1.1-1.7 2.3-2.7 4.3-2.7H21M18 4l3 3-3 3M18 14l3 3-3 3"/></svg></button>
@@ -19,14 +29,13 @@ permalink: /music/
   </span>
 </div>
 
-{% assign genres = "sufi:Sufi &amp; Qawwali,ghazal:Ghazal,classical:Classical &amp; Semi-classical,film:Film,rock:Rock,pop-folk:Pop &amp; Folk,punjabi:Punjabi,indie:Indie &amp; Indi-pop,soul-reggae-blues:Soul&#44; Reggae &amp; Blues" | split: "," %}
 {% for genre in genres %}
 {% assign parts = genre | split: ":" %}
 {% comment %}A song tagged with one word of a section ("reggae", "pop") goes in that section.{% endcomment %}
 {% assign keys = parts[0] | split: "-" | push: parts[0] %}
 {% assign tracks = site.data.music | where_exp: "t", "keys contains t.genre" | sort_natural: "title" %}
 {% if tracks.size > 0 %}
-<h2 class="shelf-heading"><span class="genre-name">{{ parts[1] }}</span> <button class="music-queue" type="button" data-queue="section" data-label="Play genre" aria-pressed="false">Play genre</button></h2>
+<h2 class="shelf-heading" id="{{ parts[0] }}"><span class="genre-name">{{ parts[1] }}</span> <button class="music-queue" type="button" data-queue="section" data-label="Play genre" aria-pressed="false">Play genre</button></h2>
 <ul class="music-grid">
 {% for track in tracks %}
   <li class="music-card">
