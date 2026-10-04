@@ -769,7 +769,7 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 /* research list: hero sits under the summary; keep text colour so currentColor strokes don't turn link-blue */
 .project-text { min-width: 0; }
 .project-hero-link { display: block; margin-top: 0.75rem; color: inherit; }
-.project-hero-link .project-hero { max-width: 360px; margin-bottom: 0; }
+.project-hero-link .project-hero { max-width: 360px; margin: 0 auto; }
 .post-list li:has(.project-hero-link) { padding-bottom: 1.5rem; }
 .project-hero {
   display: block;
