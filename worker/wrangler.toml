@@ -1,0 +1,14 @@
+name = "reactions"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "reactions"
+database_id = "453d5701-b3fb-4d47-8100-94d14e380817"
+
+# 10 reactions a minute per IP; the IP is only used as the limiter key, never stored
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "1001"
+simple = { limit = 10, period = 60 }

@@ -22,6 +22,14 @@ layout: default
   {% unless content contains tail %}{% assign tail = '<div class="footnotes"' %}{% endunless %}
   {% assign main = content | split: tail %}
   {{ main | first }}
+  {% if site.reactions_url and site.reactions_url != "" %}
+  {% comment %} stays hidden until the counts load, so readers never see dead buttons if the Worker is down {% endcomment %}
+  <div id="reactions" data-api="{{ site.reactions_url }}" data-post="{{ page.url }}" hidden>
+    <button type="button" data-kind="like" aria-pressed="false" aria-label="Like"><span aria-hidden="true">👍</span><span class="count"></span></button>
+    <button type="button" data-kind="heart" aria-pressed="false" aria-label="Love"><span aria-hidden="true">❤️</span><span class="count"></span></button>
+    <button type="button" data-kind="insightful" aria-pressed="false" aria-label="Insightful"><span aria-hidden="true">💡</span><span class="count"></span></button>
+  </div>
+  {% endif %}
   <button id="share" type="button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M8 11H6a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-2"></path>
@@ -49,6 +57,38 @@ layout: default
         label.textContent = 'Link copied';
         setTimeout(function () { label.textContent = 'Share'; }, 2000);
       });
+    });
+  })();
+  // reactions: one per kind per browser (remembered in localStorage), counts shown only above zero
+  (function () {
+    var box = document.getElementById('reactions');
+    if (!box) return;
+    var endpoint = box.dataset.api + '?post=' + encodeURIComponent(box.dataset.post);
+    var key = 'reacted:' + box.dataset.post;
+    var mine;
+    try { mine = JSON.parse(localStorage.getItem(key)) || []; } catch (e) { mine = []; }
+    function show(counts) {
+      box.querySelectorAll('button').forEach(function (b) {
+        var n = counts[b.dataset.kind] || 0;
+        b.querySelector('.count').textContent = n > 0 ? n : '';
+        b.setAttribute('aria-pressed', mine.indexOf(b.dataset.kind) >= 0);
+        b.setAttribute('aria-label', b.getAttribute('aria-label').replace(/ \(\d+\)$/, '') + (n > 0 ? ' (' + n + ')' : ''));
+      });
+    }
+    fetch(endpoint).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (counts) {
+      show(counts);
+      box.hidden = false;
+    }).catch(function () {});
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b || mine.indexOf(b.dataset.kind) >= 0) return;
+      mine.push(b.dataset.kind);
+      try { localStorage.setItem(key, JSON.stringify(mine)); } catch (e) {}
+      b.setAttribute('aria-pressed', 'true');
+      fetch(endpoint + '&kind=' + b.dataset.kind, { method: 'POST' })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(show)
+        .catch(function () {});
     });
   })();
   // footnote references written back to back ([^a][^b]) get a comma between them: 22,24 not 2224

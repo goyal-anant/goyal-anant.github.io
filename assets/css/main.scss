@@ -338,6 +338,28 @@ main {
 /* wide display equations scroll inside themselves on phones */
 .post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
 .post-readtime { color: var(--muted); }
+#reactions:not([hidden]) {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+#reactions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding: 0.2rem 0.7rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+#reactions button:hover, #reactions button:focus-visible { color: var(--fg); border-color: color-mix(in srgb, var(--fg) 35%, transparent); }
+#reactions button[aria-pressed="true"] { color: var(--fg); border-color: var(--accent); cursor: default; }
 #share {
   display: inline-flex;
   align-items: center;

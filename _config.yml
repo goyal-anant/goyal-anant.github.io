@@ -4,6 +4,8 @@ url: "https://goyal-anant.github.io"
 baseurl: ""
 theme: null
 private_url: "https://anantgo.pages.dev"
+# Cloudflare Worker for post reactions (source in worker/); leave empty to hide the buttons
+reactions_url: "https://reactions.anantnug.workers.dev"
 
 collections:
   rants:
@@ -36,6 +38,7 @@ markdown: kramdown
 exclude:
   - docs/
   - lib/
+  - worker/
   - bin/
   - .superpowers/
   - Gemfile
