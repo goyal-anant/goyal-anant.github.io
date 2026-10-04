@@ -83,7 +83,8 @@
   mark.appendChild(hint);
 
   mark.addEventListener('mouseover', function (e) {
-    if (e.target.parentNode !== mark || e.target.tagName !== 'SPAN') return;
+    // the Hindi name's gap is a span too (a bare space would show in English), so skip blanks
+    if (e.target.parentNode !== mark || e.target.tagName !== 'SPAN' || !e.target.textContent.trim()) return;
     if (ctx && ctx.state === 'running') {
       play();
       // Restart the wobble even if the letter is still mid-wobble.

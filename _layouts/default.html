@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-hi="{% if page.title %}{{ page.title_hi | default: page.title }} &middot; {% endif %}{{ site.title }}">{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
+  <title data-hi="{% if page.title %}{{ page.title_hi | default: page.title }} &middot; {% endif %}{{ site.title_hi }}">{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
   {% assign description = page.subtitle | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | default: site.description %}
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta name="description" content="{{ description | escape }}">
@@ -22,7 +22,7 @@
 </head>
 <body class="layout-{{ page.layout }}">
   <header class="site-header">
-    {% capture name %}{% assign letters = site.title | split: '' %}{% for c in letters %}{% if c == ' ' %} {% else %}<span>{{ c }}</span>{% endif %}{% endfor %}{% endcapture %}
+    {% capture name %}{% assign letters = site.title | split: '' %}{% for c in letters %}{% if c == ' ' %} {% else %}<span lang="en">{{ c }}</span>{% endif %}{% endfor %}{% assign letters = site.title_hi_letters | split: '|' %}{% for c in letters %}{% if c == ' ' %}<span lang="hi">&nbsp;</span>{% else %}<span lang="hi">{{ c }}</span>{% endif %}{% endfor %}{% endcapture %}
     {% if page.layout == 'home' %}<span class="site-mark">{{ name }}</span>{% else %}<a class="site-mark" href="{{ '/' | relative_url }}">{{ name }}</a>{% endif %}
     {% include clock.html %}
     <div class="nav-row">

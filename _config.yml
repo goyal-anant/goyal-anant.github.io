@@ -1,4 +1,10 @@
 title: Anant Goyal
+# Hindi name for the toggle. The header gives each letter its own span, and
+# Liquid's split: '' would tear the vowel signs off the consonants, so the
+# letters are listed here already split, one visible letter per item.
+# The gap between the two words is a span of its own, hidden in English.
+title_hi: अनंत गोयल
+title_hi_letters: "अ|नं|त| |गो|य|ल"
 description: "Writing, research, and books."
 url: "https://goyal-anant.github.io"
 baseurl: ""
