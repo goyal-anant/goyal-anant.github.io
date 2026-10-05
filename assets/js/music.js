@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var barSkip = bar.querySelector('.music-bar-skip');
 
   var audio = new Audio();
+  audio.crossOrigin = 'anonymous'; // for the Web Audio fade below
   var activeButton = null;
   // A queue is "Play all" on the page or "Play genre" on one section,
   // in page order or shuffled.
@@ -150,7 +151,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // The 90 s preview comes from music.apple.com, not a public API, so
     // fall back to the 30 s one if its link ever stops working.
     audio.src = button.dataset.extendedSrc || button.dataset.previewSrc;
-    audio.volume = 0; // fade() brings it up
+    startAudio();
+    scheduleFade(); // silent until the song starts and fades in
     audio.play();
     button.classList.add('is-playing');
     button.setAttribute('aria-pressed', 'true');
@@ -184,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Pausing keeps the song, its place and any queue; the record winds down.
   function pauseOrResume(button) {
     var resume = audio.paused;
-    if (resume) audio.play(); else audio.pause();
+    if (resume) { startAudio(); audio.play(); } else audio.pause();
     button.classList.toggle('is-playing', resume);
     button.classList.toggle('is-paused', !resume);
     button.setAttribute('aria-pressed', String(resume));
@@ -237,18 +239,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Fade each song in and out, so one hands over gently to the next.
+  // Fade each song in and out, so one hands over gently to the next. The
+  // fade runs on a Web Audio gain node, which the browser plays on its audio
+  // thread, so it stays smooth in a background tab where animation frames
+  // stop. Apple's preview files allow this through CORS.
   var FADE_SECONDS = 2;
-  var fading = false;
-  function fade() {
-    if (audio.paused) { fading = false; return; }
-    var fadeIn = audio.currentTime / FADE_SECONDS;
-    var fadeOut = audio.duration ? (audio.duration - audio.currentTime) / FADE_SECONDS : 1;
-    audio.volume = Math.max(0, Math.min(1, fadeIn, fadeOut));
-    requestAnimationFrame(fade);
+  var audioContext = null;
+  var gain = null;
+
+  // Browsers only let audio start from a click, and the first play is one.
+  function startAudio() {
+    if (!audioContext) {
+      audioContext = new AudioContext();
+      gain = audioContext.createGain();
+      audioContext.createMediaElementSource(audio).connect(gain).connect(audioContext.destination);
+    }
+    if (audioContext.state !== 'running') audioContext.resume();
   }
-  audio.addEventListener('playing', function () {
-    if (!fading) { fading = true; fade(); }
+
+  function level(time, duration) {
+    return Math.max(0, Math.min(1, time / FADE_SECONDS, (duration - time) / FADE_SECONDS));
+  }
+
+  // Set the volume for where the song is now, and while it plays, line up
+  // the ramps for the rest of the fade in and the whole fade out.
+  function scheduleFade() {
+    if (!gain) return;
+    var t = audio.currentTime;
+    var duration = audio.duration || Infinity;
+    var now = audioContext.currentTime;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueAtTime(level(t, duration), now);
+    if (audio.paused) return;
+    [FADE_SECONDS, duration - FADE_SECONDS, duration].forEach(function (point) {
+      if (point > t && isFinite(point)) {
+        gain.gain.linearRampToValueAtTime(level(point, duration), now + point - t);
+      }
+    });
+  }
+  ['playing', 'pause', 'seeked'].forEach(function (event) {
+    audio.addEventListener(event, scheduleFade);
   });
 
   audio.addEventListener('ended', playNext);
