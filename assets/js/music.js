@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // The 90 s preview comes from music.apple.com, not a public API, so
     // fall back to the 30 s one if its link ever stops working.
     audio.src = button.dataset.extendedSrc || button.dataset.previewSrc;
-    audio.volume = 0; // the timeupdate fade brings it up
+    audio.volume = 0; // fade() brings it up
     audio.play();
     button.classList.add('is-playing');
     button.setAttribute('aria-pressed', 'true');
@@ -238,16 +238,17 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Fade each song in and out, so one hands over gently to the next.
-  // timeupdate keeps firing in a background tab, unlike requestAnimationFrame,
-  // but only about every 0.25 s, so the fade out ends that much early to
-  // reach silence before the song does.
   var FADE_SECONDS = 2;
-  var LAST_UPDATE_SECONDS = 0.25;
-  audio.addEventListener('timeupdate', function () {
+  var fading = false;
+  function fade() {
+    if (audio.paused) { fading = false; return; }
     var fadeIn = audio.currentTime / FADE_SECONDS;
-    var fadeOut = audio.duration
-      ? (audio.duration - audio.currentTime - LAST_UPDATE_SECONDS) / FADE_SECONDS : 1;
+    var fadeOut = audio.duration ? (audio.duration - audio.currentTime) / FADE_SECONDS : 1;
     audio.volume = Math.max(0, Math.min(1, fadeIn, fadeOut));
+    requestAnimationFrame(fade);
+  }
+  audio.addEventListener('playing', function () {
+    if (!fading) { fading = true; fade(); }
   });
 
   audio.addEventListener('ended', playNext);
