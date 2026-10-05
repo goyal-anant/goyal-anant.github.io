@@ -57,3 +57,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+
+# Generates /sitemap.xml so search engines can find every page
+plugins:
+  - jekyll-sitemap
