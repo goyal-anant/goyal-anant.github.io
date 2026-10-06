@@ -1,7 +1,7 @@
 # Site manual (no-Claude edition)
 
 How to edit this site by hand — no AI assistant needed. This is a Jekyll
-site, hosted at `goyal-anant.github.io`. GitHub Pages builds and deploys it
+site, hosted at `anantnug.com` (GitHub Pages repo `goyal-anant.github.io`). GitHub Pages builds and deploys it
 automatically on every push to `main`; there's no build step to run yourself.
 
 ## 1. Prerequisites
@@ -248,7 +248,7 @@ automatically whenever `main` is pushed.
 
 1. Go to the repo on GitHub → **Actions** tab (or **Settings → Pages**) and
    check the latest Pages build succeeded (usually takes under a minute).
-2. Visit `https://goyal-anant.github.io` and hard-refresh
+2. Visit `https://anantnug.com` and hard-refresh
    (`Cmd+Shift+R` / `Ctrl+Shift+R`) to bypass any cached version.
 
 If the build fails, the Actions tab shows the error log — check for YAML
