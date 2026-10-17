@@ -6,3 +6,4 @@ vendor/
 serve_drafts.command
 serve_drafts_over_wifi.command
 .DS_Store
+.claude/worktrees/
