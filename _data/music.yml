@@ -1756,3 +1756,17 @@
   previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/62/c5/a9/62c5a96f-a3cc-ecb9-b9d9-c634650a2604/mzaf_5194303388906460337.plus.aac.p.m4a"
   extendedPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/62/c5/a9/62c5a96f-a3cc-ecb9-b9d9-c634650a2604/mzaf_5690854522087077793.plus.aac.ep.m4a"
   appleMusicUrl: "https://music.apple.com/us/album/yaaro-ivan-yaaro/1765893806?i=1765893990&uo=4"
+- title: "Two Bottles of Wine"
+  artist: "Dead Bachelors"
+  genre: pop-folk
+  thumbnail: "/assets/images/music/two-bottles-of-wine.jpg"
+  previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f4/49/97/f4499780-0ed9-7edd-b0b2-dc04666b29c0/mzaf_12877467671260660752.plus.aac.p.m4a"
+  extendedPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f4/49/97/f4499780-0ed9-7edd-b0b2-dc04666b29c0/mzaf_15009701760760656958.plus.aac.ep.m4a"
+  appleMusicUrl: "https://music.apple.com/in/album/two-bottles-of-wine-feat-pamungkas/6817666090?i=6817666098&uo=4"
+- title: "Just the Two of Us"
+  artist: "Grover Washington, Jr. with Bill Withers"
+  genre: soul-reggae-blues
+  thumbnail: "/assets/images/music/just-the-two-of-us.jpg"
+  previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/63/3f/48633f0c-22f6-d6a6-4a35-7696e1c2b741/mzaf_3327433230453726952.plus.aac.p.m4a"
+  extendedPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/63/3f/48633f0c-22f6-d6a6-4a35-7696e1c2b741/mzaf_3522544865893813067.plus.aac.ep.m4a"
+  appleMusicUrl: "https://music.apple.com/us/album/just-the-two-of-us/391725408?i=391725517&uo=4"
