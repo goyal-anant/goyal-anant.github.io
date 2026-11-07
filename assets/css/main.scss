@@ -87,7 +87,7 @@ a:hover { text-decoration: underline; }
   margin: 0 auto;
 }
 
-.site-mark { font-weight: 400; font-size: 1.1rem; color: var(--fg); }
+.site-mark { font-weight: 400; font-size: 1.1rem; color: var(--fg); -webkit-text-stroke: 0.4px currentColor; } /* a touch thicker; faked bold won't draw over small caps */
 .site-mark span { display: inline-block; transition: color 0.6s ease; }
 .site-mark span.wobble { animation: wobble 0.5s ease; }
 @keyframes wobble {
@@ -121,7 +121,7 @@ a:hover { text-decoration: underline; }
 }
 
 .site-nav a { color: var(--muted); }
-.site-nav a.active { color: var(--fg); font-weight: 600; }
+.site-nav a.active { color: var(--fg); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.3em; }
 
 .nav-row {
   display: flex;
