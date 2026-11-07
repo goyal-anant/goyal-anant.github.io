@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- Source for contact-card-ag.png (1200x627, 1.91:1 link-card size).
-     Render: Brave/Chrome --headless=new --window-size=1200,627 --force-device-scale-factor=2 --virtual-time-budget=8000 --screenshot -->
+     Render: Brave/Chrome --headless=new --window-size=1200,627 --force-device-scale-factor=2 --virtual-time-budget=8000 --screenshot
+     Share preview: same, with #share on the URL, then sips to a 1200x627 JPEG (contact-card-ag.jpg) -->
 <html>
 <head>
 <meta charset="UTF-8">
@@ -19,7 +20,17 @@
                  background:var(--brush); opacity:.75;
                  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z'/%3E%3C/svg%3E") no-repeat center / 100% 100%; mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z'/%3E%3C/svg%3E") no-repeat center / 100% 100%; }
   #fig { width:544px; height:627px; flex:none; }
+  /* #share: the link-preview version (contact-card-ag.jpg). WhatsApp crops previews to
+     about 1.43:1 from the centre, so everything sits inside the middle ~810 px. */
+  .share body { border-left:none; justify-content:center; gap:30px; }
+  .share .text { padding-left:0; width:400px; }
+  .share h1 { font-size:56px; margin-bottom:14px; }
+  .share .role { font-size:21px; margin-bottom:20px; }
+  .share .tag { font-size:19px; margin-bottom:30px; }
+  .share .url { font-size:23px; }
+  .share #fig { width:380px; height:438px; }
 </style>
+<script>if (location.hash === '#share') document.documentElement.classList.add('share');</script>
 </head>
 <body>
   <div class="text">
