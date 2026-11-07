@@ -43,9 +43,10 @@
 }
 
 :lang(hi), :lang(hi) * { font-family: var(--font-hindi); }
-h1, h2, h3 { font-weight: 400; }
-/* small caps with a little spacing, like a book's running head */
-.site-mark, .site-nav, h2, h3 { font-variant: small-caps; letter-spacing: 0.06em; }
+/* small caps with a little spacing, like a book's running head.
+   Goudy has no bold, so headings use the browser's faked bold, which it won't
+   draw over faked small caps; that is why headings stay out of this rule. */
+.site-mark, .site-nav { font-variant: small-caps; letter-spacing: 0.06em; }
 /* Goudy gets hard to read at figure-label sizes, so figures keep a sans */
 svg text { font-family: var(--font-figure); font-variant-numeric: normal; }
 
