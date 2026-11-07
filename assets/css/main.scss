@@ -1,5 +1,14 @@
 ---
 ---
+/* Fonts: change a font here and it changes across the site.
+   The maths font is set in the MathJax config in _layouts/post.html and _layouts/project.html. */
+:root {
+  --font-text: "Sorts Mill Goudy", Georgia, serif;        /* posts, pages, menu */
+  --font-hindi: "Tiro Devanagari Hindi", serif;           /* Hindi toggle */
+  --font-figure: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; /* figure labels */
+  --font-code: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 :root {
   --bg: #fffff3;
   --fg: #1a1a1a;
@@ -33,6 +42,13 @@
   }
 }
 
+:lang(hi), :lang(hi) * { font-family: var(--font-hindi); }
+h1, h2, h3 { font-weight: 400; }
+/* small caps with a little spacing, like a book's running head */
+.site-mark, .site-nav, h2, h3 { font-variant: small-caps; letter-spacing: 0.06em; }
+/* Goudy gets hard to read at figure-label sizes, so figures keep a sans */
+svg text { font-family: var(--font-figure); font-variant-numeric: normal; }
+
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
@@ -44,8 +60,11 @@ body {
   background: color-mix(in srgb, var(--song-tint, var(--bg)) 20%, var(--bg));
   transition: background-color 1s;
   color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  font-family: var(--font-text), var(--font-hindi);
+  font-size: 1.12rem;
+  line-height: 1.55;
+  /* full-height digits, so numbers in the text match the ones in inline maths */
+  font-variant-numeric: lining-nums;
   border-left: var(--strip-w) solid var(--strip);
 }
 
@@ -67,7 +86,7 @@ a:hover { text-decoration: underline; }
   margin: 0 auto;
 }
 
-.site-mark { font-weight: 600; font-size: 1.1rem; color: var(--fg); }
+.site-mark { font-weight: 400; font-size: 1.1rem; color: var(--fg); }
 .site-mark span { display: inline-block; transition: color 0.6s ease; }
 .site-mark span.wobble { animation: wobble 0.5s ease; }
 @keyframes wobble {
@@ -450,7 +469,7 @@ main {
 }
 .post-list .post-date {
   color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-code);
   font-size: 0.85rem;
   white-space: nowrap;
 }
