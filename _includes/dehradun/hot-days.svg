@@ -1,0 +1,68 @@
+<figure>
+<svg viewBox="0 0 640 310" role="img" aria-labelledby="fighott fighotd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="fighott">Hot days in Dehradun</title>
+  <desc id="fighotd">Days a year with a maximum at or above 35 °C at the Dehradun station (NOAA GSOD 42111), 1993 to 2024, years with at least 330 days of data. 2024 had 76 such days.</desc>
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <line x1="60" y1="290" x2="620" y2="290" opacity="0.7"/>
+    <line x1="60" y1="290.0" x2="620" y2="290.0" opacity="0.12"/>
+    <line x1="60" y1="225.0" x2="620" y2="225.0" opacity="0.12"/>
+    <line x1="60" y1="160.0" x2="620" y2="160.0" opacity="0.12"/>
+    <line x1="60" y1="95.0" x2="620" y2="95.0" opacity="0.12"/>
+    <line x1="60" y1="30.0" x2="620" y2="30.0" opacity="0.12"/>
+    <line x1="103.8" y1="290" x2="103.8" y2="295" opacity="0.7"/>
+    <line x1="191.2" y1="290" x2="191.2" y2="295" opacity="0.7"/>
+    <line x1="278.8" y1="290" x2="278.8" y2="295" opacity="0.7"/>
+    <line x1="366.2" y1="290" x2="366.2" y2="295" opacity="0.7"/>
+    <line x1="453.8" y1="290" x2="453.8" y2="295" opacity="0.7"/>
+    <line x1="541.2" y1="290" x2="541.2" y2="295" opacity="0.7"/>
+  </g>
+  <g fill="currentColor" font-size="13">
+    <text x="103.8" y="310" text-anchor="middle">1995</text>
+    <text x="191.2" y="310" text-anchor="middle">2000</text>
+    <text x="278.8" y="310" text-anchor="middle">2005</text>
+    <text x="366.2" y="310" text-anchor="middle">2010</text>
+    <text x="453.8" y="310" text-anchor="middle">2015</text>
+    <text x="541.2" y="310" text-anchor="middle">2020</text>
+    <text x="52" y="294.0" text-anchor="end" opacity="0.8">0</text>
+    <text x="52" y="229.0" text-anchor="end" opacity="0.8">25</text>
+    <text x="52" y="164.0" text-anchor="end" opacity="0.8">50</text>
+    <text x="52" y="99.0" text-anchor="end" opacity="0.8">75</text>
+    <text x="52" y="34.0" text-anchor="end" opacity="0.8">100</text>
+    <text x="8" y="16" opacity="0.8">days a year at or above 35 °C</text>
+  </g>
+  <path d="M61.5,290 V182.2 q0,-4 4,-4 H72.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>1993: 43 days at or above 35 °C (hottest 42.4 °C)</title></path>
+  <path d="M79.0,290 V169.2 q0,-4 4,-4 H89.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>1994: 48 days at or above 35 °C (hottest 41.1 °C)</title></path>
+  <path d="M96.5,290 V156.2 q0,-4 4,-4 H107.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>1995: 53 days at or above 35 °C (hottest 43.7 °C)</title></path>
+  <path d="M114.0,290 V197.8 q0,-4 4,-4 H124.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>1996: 37 days at or above 35 °C (hottest 39.8 °C)</title></path>
+  <path d="M131.5,290 V244.6 q0,-4 4,-4 H142.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>1997: 19 days at or above 35 °C (hottest 38.3 °C)</title></path>
+  <path d="M149.0,290 V210.8 q0,-4 4,-4 H159.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>1998: 32 days at or above 35 °C (hottest 39.8 °C)</title></path>
+  <path d="M184.0,290 V242.0 q0,-4 4,-4 H194.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2000: 20 days at or above 35 °C (hottest 41.7 °C)</title></path>
+  <path d="M201.5,290 V231.6 q0,-4 4,-4 H212.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2001: 24 days at or above 35 °C (hottest 40.1 °C)</title></path>
+  <path d="M219.0,290 V190.0 q0,-4 4,-4 H229.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2002: 40 days at or above 35 °C (hottest 38.7 °C)</title></path>
+  <path d="M236.5,290 V169.2 q0,-4 4,-4 H247.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2003: 48 days at or above 35 °C (hottest 40.1 °C)</title></path>
+  <path d="M254.0,290 V203.0 q0,-4 4,-4 H264.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2004: 35 days at or above 35 °C (hottest 41.5 °C)</title></path>
+  <path d="M271.5,290 V179.6 q0,-4 4,-4 H282.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2005: 44 days at or above 35 °C (hottest 41.1 °C)</title></path>
+  <path d="M289.0,290 V205.6 q0,-4 4,-4 H299.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2006: 34 days at or above 35 °C (hottest 37.6 °C)</title></path>
+  <path d="M306.5,290 V203.0 q0,-4 4,-4 H317.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2007: 35 days at or above 35 °C (hottest 40.3 °C)</title></path>
+  <path d="M324.0,290 V213.4 q0,-4 4,-4 H334.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2008: 31 days at or above 35 °C (hottest 38.7 °C)</title></path>
+  <path d="M341.5,290 V109.4 q0,-4 4,-4 H352.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2009: 71 days at or above 35 °C (hottest 41.9 °C)</title></path>
+  <path d="M359.0,290 V65.2 q0,-4 4,-4 H369.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2010: 88 days at or above 35 °C (hottest 41.2 °C)</title></path>
+  <path d="M376.5,290 V216.0 q0,-4 4,-4 H387.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2011: 30 days at or above 35 °C (hottest 37.9 °C)</title></path>
+  <path d="M394.0,290 V127.6 q0,-4 4,-4 H404.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2012: 64 days at or above 35 °C (hottest 43.1 °C)</title></path>
+  <path d="M411.5,290 V182.2 q0,-4 4,-4 H422.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2013: 43 days at or above 35 °C (hottest 40.7 °C)</title></path>
+  <path d="M429.0,290 V166.6 q0,-4 4,-4 H439.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2014: 49 days at or above 35 °C (hottest 40.4 °C)</title></path>
+  <path d="M446.5,290 V184.8 q0,-4 4,-4 H457.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2015: 42 days at or above 35 °C (hottest 40.8 °C)</title></path>
+  <path d="M464.0,290 V143.2 q0,-4 4,-4 H474.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2016: 58 days at or above 35 °C (hottest 40.2 °C)</title></path>
+  <path d="M481.5,290 V130.2 q0,-4 4,-4 H492.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2017: 63 days at or above 35 °C (hottest 39.8 °C)</title></path>
+  <path d="M499.0,290 V164.0 q0,-4 4,-4 H509.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2018: 50 days at or above 35 °C (hottest 40.7 °C)</title></path>
+  <path d="M516.5,290 V104.2 q0,-4 4,-4 H527.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2019: 73 days at or above 35 °C (hottest 40.6 °C)</title></path>
+  <path d="M534.0,290 V213.4 q0,-4 4,-4 H544.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2020: 31 days at or above 35 °C (hottest 40.1 °C)</title></path>
+  <path d="M551.5,290 V174.4 q0,-4 4,-4 H562.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2021: 46 days at or above 35 °C (hottest 38.8 °C)</title></path>
+  <path d="M569.0,290 V65.2 q0,-4 4,-4 H579.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2022: 88 days at or above 35 °C (hottest 41.6 °C)</title></path>
+  <path d="M586.5,290 V169.2 q0,-4 4,-4 H597.0 q4,0 4,4 V290 Z" fill="#d0403b"><title>2023: 48 days at or above 35 °C (hottest 39.5 °C)</title></path>
+  <path d="M604.0,290 V96.4 q0,-4 4,-4 H614.5 q4,0 4,4 V290 Z" fill="#d0403b"><title>2024: 76 days at or above 35 °C (hottest 43.2 °C)</title></path>
+  <line x1="61.5" y1="198.7" x2="233.5" y2="198.7" stroke="currentColor" stroke-width="2" stroke-dasharray="6 3"/>
+  <line x1="446.5" y1="140.5" x2="618.5" y2="140.5" stroke="currentColor" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="620" y="16" font-size="12" fill="currentColor" text-anchor="end">dashed: average, 1993-2002: 35 days; 2015-2024: 58 days</text>
+</svg>
+</figure>

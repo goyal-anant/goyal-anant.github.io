@@ -1,0 +1,28 @@
+<figure>
+<svg viewBox="0 0 640 234" role="img" aria-labelledby="figcanalt figcanald" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figcanalt">Canals put underground in Dehradun by 2008</title>
+  <desc id="figcanald">Five canal stretches already covered by November 2008: Kanwali 8.667 km; Dharampur 6.29 km; Rajpur feeder 2.756 km; Kargi 1.55 km; Kaulagarh 0.58 km. Total 19.8 km of 52 km.</desc>
+  <text x="300" y="30" font-size="13" fill="currentColor" text-anchor="end">Kanwali</text>
+  <text x="300" y="45" font-size="11" fill="currentColor" text-anchor="end" opacity="0.7">Garhi Cantonment thana to Transport Nagar</text>
+  <path d="M310,22 H540.0 q4,0 4,4 V38 q0,4 -4,4 H310 Z" fill="#0d958e"><title>Kanwali: 8.667 km underground, Rs 426.98 lakh</title></path>
+  <text x="550.0" y="37" font-size="12" fill="currentColor">8.667 km</text>
+  <text x="300" y="66" font-size="13" fill="currentColor" text-anchor="end">Dharampur</text>
+  <text x="300" y="81" font-size="11" fill="currentColor" text-anchor="end" opacity="0.7">Nany's Bakery to Bengali Kothi</text>
+  <path d="M310,58 H475.8 q4,0 4,4 V74 q0,4 -4,4 H310 Z" fill="#0d958e"><title>Dharampur: 6.29 km underground, Rs 366.18 lakh</title></path>
+  <text x="485.8" y="73" font-size="12" fill="currentColor">6.29 km</text>
+  <text x="300" y="102" font-size="13" fill="currentColor" text-anchor="end">Rajpur feeder</text>
+  <text x="300" y="117" font-size="11" fill="currentColor" text-anchor="end" opacity="0.7">Haridwar Road to Jogiwala Mussoorie bypass</text>
+  <path d="M310,94 H380.4 q4,0 4,4 V110 q0,4 -4,4 H310 Z" fill="#0d958e"><title>Rajpur feeder: 2.756 km underground, Rs 186.76 lakh</title></path>
+  <text x="390.4" y="109" font-size="12" fill="currentColor">2.756 km</text>
+  <text x="300" y="138" font-size="13" fill="currentColor" text-anchor="end">Kargi</text>
+  <text x="300" y="153" font-size="11" fill="currentColor" text-anchor="end" opacity="0.7">Haridwar Road to Tyagi Road</text>
+  <path d="M310,130 H347.9 q4,0 4,4 V146 q0,4 -4,4 H310 Z" fill="#0d958e"><title>Kargi: 1.55 km underground, Rs 70 lakh</title></path>
+  <text x="357.9" y="145" font-size="12" fill="currentColor">1.55 km</text>
+  <text x="300" y="174" font-size="13" fill="currentColor" text-anchor="end">Kaulagarh</text>
+  <text x="300" y="189" font-size="11" fill="currentColor" text-anchor="end" opacity="0.7">Garhi Cantonment police station to ONGC Helipad</text>
+  <path d="M310,166 H321.7 q4,0 4,4 V182 q0,4 -4,4 H310 Z" fill="#0d958e"><title>Kaulagarh: 0.58 km underground, Rs 36.7 lakh</title></path>
+  <text x="331.7" y="181" font-size="12" fill="currentColor">0.58 km</text>
+  <line x1="310" y1="10" x2="310" y2="204" stroke="currentColor" opacity="0.7"/>
+  <text x="580" y="222" font-size="13" fill="currentColor" text-anchor="end">19.8 km of a 52 km network underground by November 2008</text>
+</svg>
+</figure>

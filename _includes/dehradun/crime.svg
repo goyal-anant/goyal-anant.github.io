@@ -1,0 +1,43 @@
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-labelledby="figcrimet figcrimed" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figcrimet">Dehradun's share of Uttarakhand's registered crime</title>
+  <desc id="figcrimed">Share of the state's registered IPC crime that was in Dehradun district: 2016 21.0%, 2017 18.9%, 2018 19.3%, 2019 21.6%, 2020 21.1%, 2021 22.5%, 2022 26.9%, 2024 26.5%. Dehradun had 16.8% of the state's people in 2011. No data for 2023; 2016 and 2024 come from differently laid out tables.</desc>
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <line x1="60" y1="260" x2="600" y2="260" opacity="0.7"/>
+    <line x1="60" y1="260.0" x2="600" y2="260.0" opacity="0.12"/>
+    <line x1="60" y1="183.3" x2="600" y2="183.3" opacity="0.12"/>
+    <line x1="60" y1="106.7" x2="600" y2="106.7" opacity="0.12"/>
+    <line x1="60" y1="30.0" x2="600" y2="30.0" opacity="0.12"/>
+    <line x1="90.0" y1="260" x2="90.0" y2="265" opacity="0.7"/>
+    <line x1="210.0" y1="260" x2="210.0" y2="265" opacity="0.7"/>
+    <line x1="330.0" y1="260" x2="330.0" y2="265" opacity="0.7"/>
+    <line x1="450.0" y1="260" x2="450.0" y2="265" opacity="0.7"/>
+    <line x1="570.0" y1="260" x2="570.0" y2="265" opacity="0.7"/>
+  </g>
+  <g fill="currentColor" font-size="13">
+    <text x="90.0" y="280" text-anchor="middle">2016</text>
+    <text x="210.0" y="280" text-anchor="middle">2018</text>
+    <text x="330.0" y="280" text-anchor="middle">2020</text>
+    <text x="450.0" y="280" text-anchor="middle">2022</text>
+    <text x="570.0" y="280" text-anchor="middle">2024</text>
+    <text x="52" y="264.0" text-anchor="end" opacity="0.8">0%</text>
+    <text x="52" y="187.3" text-anchor="end" opacity="0.8">10%</text>
+    <text x="52" y="110.7" text-anchor="end" opacity="0.8">20%</text>
+    <text x="52" y="34.0" text-anchor="end" opacity="0.8">30%</text>
+    <text x="8" y="16" opacity="0.8">% of the state</text>
+  </g>
+  <line x1="60" y1="131.0" x2="600" y2="131.0" stroke="currentColor" stroke-dasharray="4 4" opacity="0.7"/>
+  <text x="600" y="149.0" font-size="12" fill="currentColor" text-anchor="end">share of the state's people, 16.8% (2011)</text>
+  <polyline fill="none" stroke="#d0403b" stroke-width="2" points="90.0,98.9 150.0,114.9 210.0,112.3 270.0,94.4 330.0,98.2 390.0,87.7 450.0,53.8"/>
+  <polyline fill="none" stroke="#d0403b" stroke-width="2" stroke-dasharray="2 4" points="450.0,53.8 570.0,57.1"/>
+  <circle cx="90.0" cy="98.9" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2016: Dehradun 2,284 of 10,867 IPC cases in the state (21.0%); different table schema, unvalidated</title></circle>
+  <circle cx="150.0" cy="114.9" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2017: Dehradun 2,440 of 12,889 IPC cases in the state (18.9%)</title></circle>
+  <circle cx="210.0" cy="112.3" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2018: Dehradun 2,840 of 14,739 IPC cases in the state (19.3%)</title></circle>
+  <circle cx="270.0" cy="94.4" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2019: Dehradun 2,609 of 12,081 IPC cases in the state (21.6%)</title></circle>
+  <circle cx="330.0" cy="98.2" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2020: Dehradun 2,915 of 13,812 IPC cases in the state (21.1%)</title></circle>
+  <circle cx="390.0" cy="87.7" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2021: Dehradun 3,530 of 15,704 IPC cases in the state (22.5%)</title></circle>
+  <circle cx="450.0" cy="53.8" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2022: Dehradun 4,564 of 16,967 IPC cases in the state (26.9%)</title></circle>
+  <circle cx="570.0" cy="57.1" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>2024: Dehradun 4,195 of 15,853 IPC cases in the state (26.5%); different table schema, unvalidated</title></circle>
+  <text x="450.0" y="41.8" font-size="12" fill="currentColor" text-anchor="middle">27% in 2022</text>
+</svg>
+</figure>

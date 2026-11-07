@@ -1,0 +1,18 @@
+<figure>
+<svg viewBox="0 0 640 234" role="img" aria-labelledby="figtreet figtreed" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figtreet">Trees cut or approved for cutting around Dehradun</title>
+  <desc id="figtreed">Delhi-Dehradun expressway, 16 km near Dehradun: 7,575 trees, felled (NHAI, RTI reply). Bhaniyawala-Rishikesh road (Saat Mod): 4,369 trees, to be cut or moved, 2026. Sahastradhara Road widening: 2,057 trees, proposed; court allowed 1,006. Khalanga forest, water plant: 2,000 trees, about, sal; plan moved after protests.</desc>
+  <text x="20" y="22" font-size="13" fill="currentColor">Delhi-Dehradun expressway, 16 km near Dehradun</text>
+  <path d="M20,30 H565.2 q4,0 4,4 V46 q0,4 -4,4 H20 Z" fill="#0d958e"><title>Delhi-Dehradun expressway, 16 km near Dehradun: 7,575 trees, felled (NHAI, RTI reply)</title></path>
+  <text x="561.2" y="45" font-size="12" fill="#fff" text-anchor="end">7,575 (felled (NHAI, RTI reply))</text>
+  <text x="20" y="78" font-size="13" fill="currentColor">Bhaniyawala-Rishikesh road (Saat Mod)</text>
+  <path d="M20,86 H332.8 q4,0 4,4 V102 q0,4 -4,4 H20 Z" fill="#0d958e"><title>Bhaniyawala-Rishikesh road (Saat Mod): 4,369 trees, to be cut or moved, 2026</title></path>
+  <text x="342.8" y="101" font-size="12" fill="currentColor">4,369 (to be cut or moved, 2026)</text>
+  <text x="20" y="134" font-size="13" fill="currentColor">Sahastradhara Road widening</text>
+  <path d="M20,142 H165.1 q4,0 4,4 V158 q0,4 -4,4 H20 Z" fill="#0d958e"><title>Sahastradhara Road widening: 2,057 trees, proposed; court allowed 1,006</title></path>
+  <text x="175.1" y="157" font-size="12" fill="currentColor">2,057 (proposed; court allowed 1,006)</text>
+  <text x="20" y="190" font-size="13" fill="currentColor">Khalanga forest, water plant</text>
+  <path d="M20,198 H161.0 q4,0 4,4 V214 q0,4 -4,4 H20 Z" fill="#0d958e"><title>Khalanga forest, water plant: 2,000 trees, about, sal; plan moved after protests</title></path>
+  <text x="171.0" y="213" font-size="12" fill="currentColor">2,000 (about, sal; plan moved after protests)</text>
+</svg>
+</figure>

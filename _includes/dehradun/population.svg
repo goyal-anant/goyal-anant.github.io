@@ -1,0 +1,80 @@
+<figure>
+<svg viewBox="0 0 640 345" role="img" aria-labelledby="figpopt figpopd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figpopt">Dehradun district grew almost twice as fast as India</title>
+  <desc id="figpopd">Dehradun district: 9.6 times its 1901 population by 2011. Uttarakhand: 5.1 times its 1901 population by 2011. India: 5.1 times its 1901 population by 2011.</desc>
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <line x1="70" y1="300" x2="470" y2="300" opacity="0.7"/>
+    <line x1="70" y1="300.0" x2="470" y2="300.0" opacity="0.12"/>
+    <line x1="70" y1="248.0" x2="470" y2="248.0" opacity="0.12"/>
+    <line x1="70" y1="196.0" x2="470" y2="196.0" opacity="0.12"/>
+    <line x1="70" y1="144.0" x2="470" y2="144.0" opacity="0.12"/>
+    <line x1="70" y1="92.0" x2="470" y2="92.0" opacity="0.12"/>
+    <line x1="70" y1="40.0" x2="470" y2="40.0" opacity="0.12"/>
+    <line x1="70.0" y1="300" x2="70.0" y2="305" opacity="0.7"/>
+    <line x1="142.7" y1="300" x2="142.7" y2="305" opacity="0.7"/>
+    <line x1="215.5" y1="300" x2="215.5" y2="305" opacity="0.7"/>
+    <line x1="288.2" y1="300" x2="288.2" y2="305" opacity="0.7"/>
+    <line x1="360.9" y1="300" x2="360.9" y2="305" opacity="0.7"/>
+    <line x1="433.6" y1="300" x2="433.6" y2="305" opacity="0.7"/>
+  </g>
+  <g fill="currentColor" font-size="13">
+    <text x="70.0" y="320" text-anchor="middle">1901</text>
+    <text x="142.7" y="320" text-anchor="middle">1921</text>
+    <text x="215.5" y="320" text-anchor="middle">1941</text>
+    <text x="288.2" y="320" text-anchor="middle">1961</text>
+    <text x="360.9" y="320" text-anchor="middle">1981</text>
+    <text x="433.6" y="320" text-anchor="middle">2001</text>
+    <text x="62" y="304.0" text-anchor="end" opacity="0.8">0x</text>
+    <text x="62" y="252.0" text-anchor="end" opacity="0.8">2x</text>
+    <text x="62" y="200.0" text-anchor="end" opacity="0.8">4x</text>
+    <text x="62" y="148.0" text-anchor="end" opacity="0.8">6x</text>
+    <text x="62" y="96.0" text-anchor="end" opacity="0.8">8x</text>
+    <text x="62" y="44.0" text-anchor="end" opacity="0.8">10x</text>
+    <text x="270" y="340" text-anchor="middle" opacity="0.8">census year</text>
+    <text x="8" y="26" opacity="0.8">times the 1901 population</text>
+  </g>
+  <polyline fill="none" stroke="#d0403b" stroke-width="2" points="70.0,274.0 106.4,270.0 142.7,269.0 179.1,266.3 215.5,261.1 251.8,247.0 288.2,237.1 324.5,215.4 360.9,188.4 397.3,149.7 433.6,112.2 470.0,51.4"/>
+  <circle cx="70.0" cy="274.0" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1901: 177,465 people (1.0x 1901)</title></circle>
+  <circle cx="106.4" cy="270.0" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1911: 204,534 people (1.2x 1901)</title></circle>
+  <circle cx="142.7" cy="269.0" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1921: 211,877 people (1.2x 1901)</title></circle>
+  <circle cx="179.1" cy="266.3" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1931: 229,850 people (1.3x 1901)</title></circle>
+  <circle cx="215.5" cy="261.1" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1941: 265,786 people (1.5x 1901)</title></circle>
+  <circle cx="251.8" cy="247.0" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1951: 361,689 people (2.0x 1901)</title></circle>
+  <circle cx="288.2" cy="237.1" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1961: 429,014 people (2.4x 1901)</title></circle>
+  <circle cx="324.5" cy="215.4" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1971: 577,306 people (3.3x 1901)</title></circle>
+  <circle cx="360.9" cy="188.4" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1981: 761,668 people (4.3x 1901)</title></circle>
+  <circle cx="397.3" cy="149.7" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 1991: 1,025,679 people (5.8x 1901)</title></circle>
+  <circle cx="433.6" cy="112.2" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 2001: 1,282,143 people (7.2x 1901)</title></circle>
+  <circle cx="470.0" cy="51.4" r="4" fill="#d0403b" stroke="var(--bg,#fff)" stroke-width="2"><title>Dehradun district, 2011: 1,696,694 people (9.6x 1901)</title></circle>
+  <text x="480" y="55.4" font-size="13" fill="currentColor">Dehradun district 9.6x</text>
+  <polyline fill="none" stroke="#0d958e" stroke-width="2" points="70.0,274.0 106.4,271.9 142.7,272.2 179.1,269.8 215.5,265.7 251.8,261.3 288.2,252.6 324.5,241.0 360.9,224.8 397.3,207.4 433.6,188.5 470.0,167.5"/>
+  <circle cx="70.0" cy="274.0" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1901: 1,979,866 people (1.0x 1901)</title></circle>
+  <circle cx="106.4" cy="271.9" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1911: 2,142,258 people (1.1x 1901)</title></circle>
+  <circle cx="142.7" cy="272.2" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1921: 2,115,984 people (1.1x 1901)</title></circle>
+  <circle cx="179.1" cy="269.8" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1931: 2,301,019 people (1.2x 1901)</title></circle>
+  <circle cx="215.5" cy="265.7" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1941: 2,614,540 people (1.3x 1901)</title></circle>
+  <circle cx="251.8" cy="261.3" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1951: 2,945,929 people (1.5x 1901)</title></circle>
+  <circle cx="288.2" cy="252.6" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1961: 3,610,938 people (1.8x 1901)</title></circle>
+  <circle cx="324.5" cy="241.0" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1971: 4,492,724 people (2.3x 1901)</title></circle>
+  <circle cx="360.9" cy="224.8" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1981: 5,725,972 people (2.9x 1901)</title></circle>
+  <circle cx="397.3" cy="207.4" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 1991: 7,050,634 people (3.6x 1901)</title></circle>
+  <circle cx="433.6" cy="188.5" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 2001: 8,489,349 people (4.3x 1901)</title></circle>
+  <circle cx="470.0" cy="167.5" r="4" fill="#0d958e" stroke="var(--bg,#fff)" stroke-width="2"><title>Uttarakhand, 2011: 10,086,292 people (5.1x 1901)</title></circle>
+  <polyline fill="none" stroke="#3b6fd8" stroke-width="2" points="70.0,274.0 106.4,272.5 142.7,272.6 179.1,269.6 215.5,265.2 251.8,260.6 288.2,252.1 324.5,240.2 360.9,225.5 397.3,207.7 433.6,187.8 470.0,167.9"/>
+  <circle cx="70.0" cy="274.0" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1901: 238,396,327 people (1.0x 1901)</title></circle>
+  <circle cx="106.4" cy="272.5" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1911: 252,093,390 people (1.1x 1901)</title></circle>
+  <circle cx="142.7" cy="272.6" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1921: 251,321,213 people (1.1x 1901)</title></circle>
+  <circle cx="179.1" cy="269.6" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1931: 278,977,238 people (1.2x 1901)</title></circle>
+  <circle cx="215.5" cy="265.2" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1941: 318,660,580 people (1.3x 1901)</title></circle>
+  <circle cx="251.8" cy="260.6" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1951: 361,088,090 people (1.5x 1901)</title></circle>
+  <circle cx="288.2" cy="252.1" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1961: 439,234,771 people (1.8x 1901)</title></circle>
+  <circle cx="324.5" cy="240.2" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1971: 548,159,652 people (2.3x 1901)</title></circle>
+  <circle cx="360.9" cy="225.5" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1981: 683,329,097 people (2.9x 1901)</title></circle>
+  <circle cx="397.3" cy="207.7" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 1991: 846,421,039 people (3.6x 1901)</title></circle>
+  <circle cx="433.6" cy="187.8" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 2001: 1,028,737,436 people (4.3x 1901)</title></circle>
+  <circle cx="470.0" cy="167.9" r="4" fill="#3b6fd8" stroke="var(--bg,#fff)" stroke-width="2"><title>India, 2011: 1,210,854,977 people (5.1x 1901)</title></circle>
+  <text x="480" y="171.9" font-size="13" fill="currentColor">India and Uttarakhand 5.1x</text>
+  <line x1="433.3" y1="40" x2="433.3" y2="300" stroke="currentColor" stroke-dasharray="3 4" opacity="0.5"/>
+  <text x="427.3" y="50" font-size="12" fill="currentColor" opacity="0.8" text-anchor="end">capital, Nov 2000</text>
+</svg>
+</figure>

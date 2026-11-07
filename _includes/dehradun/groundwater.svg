@@ -1,0 +1,42 @@
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-labelledby="figgwt figgwd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figgwt">The water under Dehradun is going down</title>
+  <desc id="figgwd">Pre-monsoon depth to groundwater at the Central Ground Water Board monitoring well at its own office in Dehradun: 49.5 m in 2010, 63.3 m in 2016, 61.1 m in 2022. The 2021 value of 50.3 m is shown as printed but breaks the pattern.</desc>
+  <g stroke="currentColor" fill="none">
+    <line x1="70" y1="40" x2="600" y2="40" opacity="0.7"/>
+    <line x1="70" y1="40.0" x2="600" y2="40.0" opacity="0.12"/>
+    <line x1="70" y1="116.7" x2="600" y2="116.7" opacity="0.12"/>
+    <line x1="70" y1="193.3" x2="600" y2="193.3" opacity="0.12"/>
+    <line x1="70" y1="270.0" x2="600" y2="270.0" opacity="0.12"/>
+  </g>
+  <g fill="currentColor" font-size="13">
+    <text x="90.4" y="30" text-anchor="middle">2010</text>
+    <text x="171.9" y="30" text-anchor="middle">2012</text>
+    <text x="253.5" y="30" text-anchor="middle">2014</text>
+    <text x="335.0" y="30" text-anchor="middle">2016</text>
+    <text x="416.5" y="30" text-anchor="middle">2018</text>
+    <text x="498.1" y="30" text-anchor="middle">2020</text>
+    <text x="579.6" y="30" text-anchor="middle">2022</text>
+    <text x="62" y="44.0" text-anchor="end" opacity="0.8">40 m</text>
+    <text x="62" y="120.7" text-anchor="end" opacity="0.8">50 m</text>
+    <text x="62" y="197.3" text-anchor="end" opacity="0.8">60 m</text>
+    <text x="62" y="274.0" text-anchor="end" opacity="0.8">70 m</text>
+    <text x="70" y="294" opacity="0.8">depth to water below ground, every May</text>
+  </g>
+  <polyline fill="none" stroke="#3b6fd8" stroke-width="2" points="90.4,113.0 131.2,152.4 171.9,175.4 212.7,167.0 253.5,174.2 294.2,199.0 335.0,218.5 375.8,202.6 416.5,203.8 457.3,193.0 498.1,197.8 579.6,201.5"/>
+  <circle cx="90.4" cy="113.0" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2010: 49.52 m below ground</title></circle>
+  <circle cx="131.2" cy="152.4" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2011: 54.66 m below ground</title></circle>
+  <circle cx="171.9" cy="175.4" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2012: 57.66 m below ground</title></circle>
+  <circle cx="212.7" cy="167.0" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2013: 56.56 m below ground</title></circle>
+  <circle cx="253.5" cy="174.2" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2014: 57.5 m below ground</title></circle>
+  <circle cx="294.2" cy="199.0" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2015: 60.74 m below ground</title></circle>
+  <circle cx="335.0" cy="218.5" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2016: 63.28 m below ground</title></circle>
+  <circle cx="375.8" cy="202.6" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2017: 61.21 m below ground</title></circle>
+  <circle cx="416.5" cy="203.8" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2018: 61.36 m below ground</title></circle>
+  <circle cx="457.3" cy="193.0" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2019: 59.96 m below ground</title></circle>
+  <circle cx="498.1" cy="197.8" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2020: 60.58 m below ground</title></circle>
+  <circle cx="538.8" cy="119.0" r="4" fill="none" stroke="#3b6fd8" stroke-width="2"><title>May 2021: 50.3 m below ground (as printed; breaks the pattern)</title></circle>
+  <circle cx="579.6" cy="201.5" r="4" fill="#3b6fd8" stroke="#3b6fd8" stroke-width="2"><title>May 2022: 61.06 m below ground</title></circle>
+  <text x="538.8" y="109.0" font-size="12" fill="currentColor" text-anchor="middle">2021, as printed</text>
+</svg>
+</figure>

@@ -1,0 +1,34 @@
+<figure>
+<svg viewBox="0 0 640 304" role="img" aria-labelledby="figlut figlud" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figlut">What the Doon valley floor was used for, 1989 and 2020</title>
+  <desc id="figlud">Pachhwa Dun, 931 km², from Landsat: built-up land 44.4 to 154.4 km² (+248%); open and scrub land 72.9 to 9.8 km²; water bodies 30.3 to 7.1 km²; farmland 256.8 to 248.7 km²; forest 526.9 to 511.3 km².</desc>
+  <rect x="170" y="6" width="12" height="12" fill="#c27a2c"/><text x="188" y="17" font-size="12" fill="currentColor">1989</text>
+  <rect x="240" y="6" width="12" height="12" fill="#3b6fd8"/><text x="258" y="17" font-size="12" fill="currentColor">2020</text>
+  <text x="160" y="56" font-size="13" fill="currentColor" text-anchor="end">farmland</text>
+  <path d="M170,34 H321.1 q3,0 3,3 V49 q0,3 -3,3 H170 Z" fill="#c27a2c"><title>farmland, 1989: 256.8 km²</title></path>
+  <text x="330.1" y="48" font-size="12" fill="currentColor">256.8 km²</text>
+  <path d="M170,54 H316.2 q3,0 3,3 V69 q0,3 -3,3 H170 Z" fill="#3b6fd8"><title>farmland, 2020: 248.7 km²</title></path>
+  <text x="325.2" y="68" font-size="12" fill="currentColor">248.7 km²  (-3%)</text>
+  <text x="160" y="110" font-size="13" fill="currentColor" text-anchor="end">built-up</text>
+  <path d="M170,88 H193.6 q3,0 3,3 V103 q0,3 -3,3 H170 Z" fill="#c27a2c"><title>built-up, 1989: 44.4 km²</title></path>
+  <text x="202.6" y="102" font-size="12" fill="currentColor">44.4 km²</text>
+  <path d="M170,108 H259.6 q3,0 3,3 V123 q0,3 -3,3 H170 Z" fill="#3b6fd8"><title>built-up, 2020: 154.4 km²</title></path>
+  <text x="268.6" y="122" font-size="12" fill="currentColor">154.4 km²  (+248%)</text>
+  <text x="160" y="164" font-size="13" fill="currentColor" text-anchor="end">open and scrub land</text>
+  <path d="M170,142 H210.7 q3,0 3,3 V157 q0,3 -3,3 H170 Z" fill="#c27a2c"><title>open and scrub land, 1989: 72.9 km²</title></path>
+  <text x="219.7" y="156" font-size="12" fill="currentColor">72.9 km²</text>
+  <path d="M170,162 H172.9 q3,0 3,3 V177 q0,3 -3,3 H170 Z" fill="#3b6fd8"><title>open and scrub land, 2020: 9.8 km²</title></path>
+  <text x="181.9" y="176" font-size="12" fill="currentColor">9.8 km²  (-87%)</text>
+  <text x="160" y="218" font-size="13" fill="currentColor" text-anchor="end">forest and trees</text>
+  <path d="M170,196 H483.1 q3,0 3,3 V211 q0,3 -3,3 H170 Z" fill="#c27a2c"><title>forest and trees, 1989: 526.9 km²</title></path>
+  <text x="492.1" y="210" font-size="12" fill="currentColor">526.9 km²</text>
+  <path d="M170,216 H473.8 q3,0 3,3 V231 q0,3 -3,3 H170 Z" fill="#3b6fd8"><title>forest and trees, 2020: 511.3 km²</title></path>
+  <text x="482.8" y="230" font-size="12" fill="currentColor">511.3 km²  (-3%)</text>
+  <text x="160" y="272" font-size="13" fill="currentColor" text-anchor="end">water bodies</text>
+  <path d="M170,250 H185.2 q3,0 3,3 V265 q0,3 -3,3 H170 Z" fill="#c27a2c"><title>water bodies, 1989: 30.3 km²</title></path>
+  <text x="194.2" y="264" font-size="12" fill="currentColor">30.3 km²</text>
+  <path d="M170,270 H171.3 q3,0 3,3 V285 q0,3 -3,3 H170 Z" fill="#3b6fd8"><title>water bodies, 2020: 7.1 km²</title></path>
+  <text x="180.3" y="284" font-size="12" fill="currentColor">7.1 km²  (-77%)</text>
+  <line x1="170" y1="28" x2="170" y2="292" stroke="currentColor" opacity="0.7"/>
+</svg>
+</figure>
