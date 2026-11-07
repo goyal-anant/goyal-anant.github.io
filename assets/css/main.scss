@@ -18,6 +18,12 @@
   --strip: rgb(120, 0, 0);
   --brush: rgb(245, 190, 70);
   --strip-w: 64px;
+  /* abstract art on the home page and the contact card */
+  --art-ink: #1f1b18;
+  --art-maroon: rgb(120, 0, 0);
+  --art-turmeric: rgb(226, 158, 38);
+  --art-indigo: rgb(36, 52, 104);
+  --art-blend: multiply;
 }
 
 [data-theme="dark"] {
@@ -28,6 +34,11 @@
   --accent: #7aa6ff;
   --strip: #6b1d24;
   --brush: rgb(190, 130, 40);
+  --art-ink: #e8e8e8;
+  --art-maroon: #8e2a2f;
+  --art-turmeric: rgb(200, 140, 40);
+  --art-indigo: rgb(88, 112, 186);
+  --art-blend: normal;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,6 +50,11 @@
     --accent: #7aa6ff;
     --strip: #6b1d24;
   --brush: rgb(190, 130, 40);
+    --art-ink: #e8e8e8;
+    --art-maroon: #8e2a2f;
+    --art-turmeric: rgb(200, 140, 40);
+    --art-indigo: rgb(88, 112, 186);
+    --art-blend: normal;
   }
 }
 
@@ -263,8 +279,9 @@ html[data-lang="hi"] [lang="en"]:not([data-keep]) { display: none; }
   text-align: left;
   z-index: 10;
 }
-/* home centres the icons, so centre the panel on the icon to keep it on screen */
-.layout-home .search-panel { right: auto; left: 50%; transform: translateX(-50%); }
+/* home: open the panel rightwards from the icon (left-aligned column);
+   phones centre the icons, so centre the panel there */
+.layout-home .search-panel { right: auto; left: 0; }
 .search-box.is-open .search-panel { display: block; }
 #search-input {
   display: block;
@@ -334,21 +351,47 @@ main {
 .social-links a:hover { color: var(--fg); }
 .social-links svg { width: 1.15rem; height: 1.15rem; display: block; }
 
-.layout-home .site-header {
-  min-height: 70vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 0.75rem;
+/* home fits one screen: name, nav and tagline on the left, the art on the right,
+   footer along the bottom. main is display: contents so the tagline and the art
+   become grid cells next to the header. */
+body.layout-home {
+  display: grid;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 1fr auto auto 1fr auto;
+  grid-template-areas: ". art" "head art" "tag art" ". art" "foot foot";
+  column-gap: 4vw;
+  padding: 0 max(1.5rem, calc(50vw - 600px));
 }
-.layout-home .site-mark { font-size: 2rem; }
-.layout-home main {
+.layout-home main { display: contents; }
+.layout-home .site-header {
+  grid-area: head;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.layout-home .site-mark { font-size: 2.6rem; }
+/* nav on one line, the search, theme and language icons on the line below */
+.layout-home .nav-row { flex-wrap: wrap; row-gap: 0.75rem; }
+.layout-home .site-nav { flex-basis: 100%; }
+.layout-home .site-nav ul { flex-wrap: nowrap; }
+.layout-home main > p { grid-area: tag; margin: 1.75rem 0 0; font-style: italic; color: var(--muted); }
+.home-art {
+  grid-area: art;
+  margin: 0;
+  min-height: 0;
+  padding: 5vh 0 2vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
+.home-art svg { display: block; height: 100%; max-height: 640px; width: auto; max-width: 100%; }
+.layout-home .site-footer { grid-area: foot; padding: 0.75rem 0 1rem; max-width: none; }
 
 /* phones: thin strip; home stacks into one centered column */
 @media (max-width: 600px) {
@@ -373,11 +416,19 @@ main {
   /* min-height keeps the line's room before clock.js fills it, as the header is measured first */
   body:not(.layout-home) .clock { order: 1; flex-basis: 100%; min-height: 1lh; }
   body:not(.layout-home) .site-nav ul { flex-direction: column; gap: 0.4rem; }
-  .layout-home .site-header { min-height: auto; padding-top: 25vh; }
+  body.layout-home {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas: "head" "tag" "art" "foot";
+    padding: 7vh 1rem 0;
+  }
+  .layout-home .site-header { align-items: center; text-align: center; }
+  .layout-home .site-mark { font-size: 2rem; }
+  .layout-home main > p { text-align: center; margin-top: 1rem; }
   .layout-home .nav-row { flex-wrap: wrap; justify-content: center; }
   .layout-home .site-nav { flex-basis: 100%; }
-  .layout-home .site-nav ul { justify-content: center; }
-  .layout-home main { align-items: flex-start; padding-top: 1rem; }
+  .layout-home .site-nav ul { justify-content: center; flex-wrap: wrap; }
+  .layout-home .search-panel { left: 50%; transform: translateX(-50%); }
 }
 
 /* long URLs (e.g. in footnotes) must wrap instead of widening the page */
