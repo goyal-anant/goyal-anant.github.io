@@ -1,8 +1,8 @@
 ---
-title: The canal goes underground here
+title: "The canal goes underground here"
+subtitle: "And how much of the valley is left?"
+image: /assets/images/dehradun/winterline-2010.jpg
 ---
-
-<!-- Draft. Outline and sources: ~/development/content/dehradun/outline.md. Full draft, sections 0-10, approved by Anant 2026-11-09. -->
 
 I was born and brought up in Dehradun, back when it was a district of Uttar Pradesh. On 9 November 2000 it became the capital of a new state, the 27th state of India, named Uttaranchal.[^act00][^ukportal] So, I was born in one state, but my conscious birth was in Uttaranchal, and that is why Uttaranchal is always close to my heart. Its name was changed to Uttarakhand from 1 January 2007,[^act06] but I still like the old name more for what it means: *anchal* is the end of a mother's sari, the bit which shelters a child, so Uttaranchal is the lap of the north.
 
