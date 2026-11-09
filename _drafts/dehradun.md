@@ -4,7 +4,7 @@ title: The canal goes underground here
 
 <!-- Draft. Outline and sources: ~/development/content/dehradun/outline.md. Sections 0-2 drafted (session 2, 2026-11-09); 3-10 to come. -->
 
-I was born and brought up in Dehradun, back when it was a district of Uttar Pradesh. On 9 November 2000 it became the capital of a new state, the 27th state of India, named Uttaranchal.[^act00][^ukportal] The name was changed to Uttarakhand from 1 January 2007,[^act06] but I still like the old name more for what it means: *anchal* is the end of a mother's sari, the bit which shelters a child, so Uttaranchal is the lap of the north.
+I was born and brought up in Dehradun, back when it was a district of Uttar Pradesh. On 9 November 2000 it became the capital of a new state, the 27th state of India, named Uttaranchal.[^act00][^ukportal] So, I was born in UP, but my conscious birth was in Uttaranchal and not in UP, and that is why Uttaranchal is always close to my heart. The name was changed to Uttarakhand from 1 January 2007,[^act06] but I still like the old name more for what it means: *anchal* is the end of a mother's sari, the bit which shelters a child, so Uttaranchal is the lap of the north.
 
 I also grew up reading Ruskin Bond, and the story which made me fall in love with him is "The Night Train at Deoli". A college boy goes up to his grandmother's place in Dehra every summer. On the way, at dawn, the train stops for ten minutes at Deoli, a small station with one platform, about thirty miles before Dehra, where the heavy jungle begins. A girl sells baskets on the platform, and that's the whole story, more or less.[^nighttrain]
 
