@@ -1,0 +1,46 @@
+<figure>
+<svg viewBox="0 0 640 326" role="img" aria-labelledby="figdevt figdevd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figdevt">Land in Dehradun developed against the 1982-2001 Master Plan, by what it was meant for</title>
+  <desc id="figdevd">Hectares developed against the Master Plan 2001 by 2003-04, by planned use: farmland 860.4 ha (740.5 ha of it became housing); housing (to other uses) 590.8 ha (0.0 ha of it became housing); industry 333.1 ha (116.6 ha of it became housing); gardens and orchards 109.0 ha (41.5 ha of it became housing); green belt and drains 98.8 ha (93.5 ha of it became housing); forest 43.5 ha (43.5 ha of it became housing); commercial 39.7 ha (21.9 ha of it became housing); parks 38.0 ha (6.0 ha of it became housing); offices 37.7 ha (37.7 ha of it became housing); other 58.8 ha (55.8 ha of it became housing). Total 2209.78 ha.</desc>
+  <g font-size="12" fill="currentColor"><rect x="190" y="8" width="12" height="12" fill="#d0403b"/><text x="208" y="18">became housing</text><rect x="340" y="8" width="12" height="12" fill="#c27a2c"/><text x="358" y="18">became something else</text></g>
+  <text x="180" y="47" font-size="13" fill="currentColor" text-anchor="end">farmland</text>
+  <rect x="190" y="34" width="304.4" height="18" fill="#d0403b"><title>planned as farmland: 740.50 ha became housing</title></rect>
+  <rect x="494.4" y="34" width="49.3" height="18" fill="#c27a2c"><title>planned as farmland: 119.85 ha became other uses</title></rect>
+  <text x="549.7" y="47" font-size="12" fill="currentColor">860 ha</text>
+  <text x="180" y="73" font-size="13" fill="currentColor" text-anchor="end">housing (to other uses)</text>
+  <rect x="190.0" y="60" width="242.9" height="18" fill="#c27a2c"><title>planned as housing (to other uses): 590.75 ha became other uses</title></rect>
+  <text x="438.9" y="73" font-size="12" fill="currentColor">591 ha</text>
+  <text x="180" y="99" font-size="13" fill="currentColor" text-anchor="end">industry</text>
+  <rect x="190" y="86" width="47.9" height="18" fill="#d0403b"><title>planned as industry: 116.61 ha became housing</title></rect>
+  <rect x="237.9" y="86" width="89.0" height="18" fill="#c27a2c"><title>planned as industry: 216.50 ha became other uses</title></rect>
+  <text x="332.9" y="99" font-size="12" fill="currentColor">333 ha</text>
+  <text x="180" y="125" font-size="13" fill="currentColor" text-anchor="end">gardens and orchards</text>
+  <rect x="190" y="112" width="17.1" height="18" fill="#d0403b"><title>planned as gardens and orchards: 41.50 ha became housing</title></rect>
+  <rect x="207.1" y="112" width="27.7" height="18" fill="#c27a2c"><title>planned as gardens and orchards: 67.48 ha became other uses</title></rect>
+  <text x="240.8" y="125" font-size="12" fill="currentColor">109 ha</text>
+  <text x="180" y="151" font-size="13" fill="currentColor" text-anchor="end">green belt and drains</text>
+  <rect x="190" y="138" width="38.4" height="18" fill="#d0403b"><title>planned as green belt and drains: 93.48 ha became housing</title></rect>
+  <rect x="228.4" y="138" width="2.2" height="18" fill="#c27a2c"><title>planned as green belt and drains: 5.35 ha became other uses</title></rect>
+  <text x="236.6" y="151" font-size="12" fill="currentColor">99 ha</text>
+  <text x="180" y="177" font-size="13" fill="currentColor" text-anchor="end">forest</text>
+  <rect x="190" y="164" width="17.9" height="18" fill="#d0403b"><title>planned as forest: 43.50 ha became housing</title></rect>
+  <text x="213.9" y="177" font-size="12" fill="currentColor">44 ha</text>
+  <text x="180" y="203" font-size="13" fill="currentColor" text-anchor="end">commercial</text>
+  <rect x="190" y="190" width="9.0" height="18" fill="#d0403b"><title>planned as commercial: 21.89 ha became housing</title></rect>
+  <rect x="199.0" y="190" width="7.3" height="18" fill="#c27a2c"><title>planned as commercial: 17.79 ha became other uses</title></rect>
+  <text x="212.3" y="203" font-size="12" fill="currentColor">40 ha</text>
+  <text x="180" y="229" font-size="13" fill="currentColor" text-anchor="end">parks</text>
+  <rect x="190" y="216" width="2.5" height="18" fill="#d0403b"><title>planned as parks: 6.00 ha became housing</title></rect>
+  <rect x="192.5" y="216" width="13.2" height="18" fill="#c27a2c"><title>planned as parks: 32.00 ha became other uses</title></rect>
+  <text x="211.6" y="229" font-size="12" fill="currentColor">38 ha</text>
+  <text x="180" y="255" font-size="13" fill="currentColor" text-anchor="end">offices</text>
+  <rect x="190" y="242" width="15.5" height="18" fill="#d0403b"><title>planned as offices: 37.74 ha became housing</title></rect>
+  <text x="211.5" y="255" font-size="12" fill="currentColor">38 ha</text>
+  <text x="180" y="281" font-size="13" fill="currentColor" text-anchor="end">other</text>
+  <rect x="190" y="268" width="23.0" height="18" fill="#d0403b"><title>planned as other: 55.84 ha became housing</title></rect>
+  <rect x="213.0" y="268" width="1.2" height="18" fill="#c27a2c"><title>planned as other: 3.00 ha became other uses</title></rect>
+  <text x="220.2" y="281" font-size="12" fill="currentColor">59 ha</text>
+  <line x1="190" y1="30" x2="190" y2="294" stroke="currentColor" opacity="0.7"/>
+  <text x="630" y="314" font-size="13" fill="currentColor" text-anchor="end">2,210 ha built against the plan, 1,157 ha of it as housing</text>
+</svg>
+</figure>

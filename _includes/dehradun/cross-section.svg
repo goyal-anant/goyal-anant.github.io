@@ -1,0 +1,29 @@
+<figure>
+<svg viewBox="0 0 640 330" role="img" aria-labelledby="figxst figxsd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figxst">Schematic cross-section of the Doon valley at Dehra</title>
+  <desc id="figxsd">Schematic, not measured data. From north to south: the Mussoorie hills, the Main Boundary Thrust at their foot, porous gravel fans on which Dehra sits at about 701 m, streams from the hills sinking into the gravel, groundwater deep below, the low line of the Suswa, then the young Siwalik ridge with the Himalayan Frontal Thrust under it, and the plains beyond.</desc>
+  <defs><marker id="xsarr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b6fd8"/></marker></defs>
+  <polygon points="30.0,300 30.0,55.4 88.0,122.7 146.0,193.6 175.0,217.3 218.5,233.8 262.0,240.8 334.5,250.4 392.5,257.5 436.0,248.0 479.5,217.3 508.5,226.7 552.0,276.4 610.0,288.2 610.0,300" fill="currentColor" opacity="0.12"/>
+  <polygon points="175.0,217.3 218.5,233.8 262.0,240.8 334.5,250.4 392.5,257.5 392.5,272.8 262.0,268.1 175.0,257.5" fill="#c27a2c" opacity="0.55"><title>Doon gravels: fans of boulders, pebbles and sand, very porous</title></polygon>
+  <polyline points="30.0,55.4 88.0,122.7 146.0,193.6 175.0,217.3 218.5,233.8 262.0,240.8 334.5,250.4 392.5,257.5 436.0,248.0 479.5,217.3 508.5,226.7 552.0,276.4 610.0,288.2" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polyline points="175.0,248.0 262.0,248.0 334.5,257.5 392.5,259.2" fill="none" stroke="#3b6fd8" stroke-width="2" stroke-dasharray="6 4"><title>Groundwater lies deep under the fans</title></polyline>
+  <line x1="167.8" y1="219.6" x2="204.0" y2="300" stroke="#d0403b" stroke-width="2"><title>Main Boundary Thrust</title></line>
+  <line x1="501.2" y1="219.6" x2="537.5" y2="300" stroke="#d0403b" stroke-width="2"><title>Himalayan Frontal Thrust</title></line>
+  <path d="M102.5,139.3 Q160.5,203.1 182.2,222.0 Q204.0,238.5 225.8,252.7" fill="none" stroke="#3b6fd8" stroke-width="2.5" marker-end="url(#xsarr)"/>
+  <g fill="currentColor" font-size="13">
+    <text x="44.5" y="47.1" text-anchor="start">Mussoorie hills</text>
+    <text x="262.0" y="233.8" text-anchor="middle">Dehra, 701 m</text>
+    <text x="392.5" y="240.9" text-anchor="middle">Suswa (lowest line)</text>
+    <text x="479.5" y="210.2" text-anchor="middle">Siwaliks</text>
+    <text x="602.8" y="270.5" text-anchor="end">plains</text>
+    <circle cx="262.0" cy="240.8" r="4"/>
+    <text x="124.2" y="132.2" font-size="12" fill="#3b6fd8">streams sink into the gravel</text>
+    <text x="276.5" y="264.5" font-size="12" text-anchor="middle">gravel fans</text>
+    <text x="407.0" y="268.1" font-size="12" fill="#3b6fd8">groundwater</text>
+    <text x="88.0" y="284.6" font-size="12" fill="#d0403b">faults</text>
+    <text x="30" y="322" font-size="12" opacity="0.8">north</text>
+    <text x="610" y="322" font-size="12" opacity="0.8" text-anchor="end">south</text>
+    <text x="320" y="322" font-size="12" opacity="0.8" text-anchor="middle">schematic, not measured data</text>
+  </g>
+</svg>
+</figure>
