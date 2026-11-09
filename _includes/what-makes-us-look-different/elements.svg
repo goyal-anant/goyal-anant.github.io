@@ -1,0 +1,49 @@
+<figure>
+<svg viewBox="0 0 640 270" role="img" aria-labelledby="figelt figeld" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figelt">What a human body is made of, by mass</title>
+  <desc id="figeld">Share of body mass of a 70 kg reference adult: oxygen 61%; carbon 23%; hydrogen 10%; nitrogen 2.6%; calcium 1.4%; phosphorus 1.1%; all the other 30 elements 0.9%.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="210" y1="220" x2="600" y2="220"/>
+    <line x1="210.0" y1="220" x2="210.0" y2="225"/>
+    <line x1="265.7" y1="220" x2="265.7" y2="225"/>
+    <line x1="321.4" y1="220" x2="321.4" y2="225"/>
+    <line x1="377.1" y1="220" x2="377.1" y2="225"/>
+    <line x1="432.9" y1="220" x2="432.9" y2="225"/>
+    <line x1="488.6" y1="220" x2="488.6" y2="225"/>
+    <line x1="544.3" y1="220" x2="544.3" y2="225"/>
+    <line x1="600.0" y1="220" x2="600.0" y2="225"/>
+  </g>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="210.0" y="241">0%</text>
+    <text x="265.7" y="241">10%</text>
+    <text x="321.4" y="241">20%</text>
+    <text x="377.1" y="241">30%</text>
+    <text x="432.9" y="241">40%</text>
+    <text x="488.6" y="241">50%</text>
+    <text x="544.3" y="241">60%</text>
+    <text x="600.0" y="241">70%</text>
+    <text x="405" y="264">share of body mass</text>
+  </g>
+  <text x="200" y="32" font-size="13" fill="currentColor" text-anchor="end">oxygen</text>
+  <rect x="210" y="18" width="339.9" height="18" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="555.9" y="32" font-size="12" fill="currentColor">61%</text>
+  <text x="200" y="60" font-size="13" fill="currentColor" text-anchor="end">carbon</text>
+  <rect x="210" y="46" width="128.1" height="18" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="344.1" y="60" font-size="12" fill="currentColor">23%</text>
+  <text x="200" y="88" font-size="13" fill="currentColor" text-anchor="end">hydrogen</text>
+  <rect x="210" y="74" width="55.7" height="18" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="271.7" y="88" font-size="12" fill="currentColor">10%</text>
+  <text x="200" y="116" font-size="13" fill="currentColor" text-anchor="end">nitrogen</text>
+  <rect x="210" y="102" width="14.5" height="18" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="230.5" y="116" font-size="12" fill="currentColor">2.6%</text>
+  <text x="200" y="144" font-size="13" fill="currentColor" text-anchor="end">calcium</text>
+  <rect x="210" y="130" width="7.8" height="18" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="223.8" y="144" font-size="12" fill="currentColor">1.4%</text>
+  <text x="200" y="172" font-size="13" fill="currentColor" text-anchor="end">phosphorus</text>
+  <rect x="210" y="158" width="6.1" height="18" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="222.1" y="172" font-size="12" fill="currentColor">1.1%</text>
+  <text x="200" y="200" font-size="13" fill="currentColor" text-anchor="end">all the other 30 elements</text>
+  <rect x="210" y="186" width="5.0" height="18" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="221.0" y="200" font-size="12" fill="currentColor">0.9%</text>
+</svg>
+</figure>

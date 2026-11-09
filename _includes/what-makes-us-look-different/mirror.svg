@@ -1,0 +1,29 @@
+<figure>
+<svg viewBox="0 0 640 170" role="img" aria-labelledby="figmrt figmrd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figmrt">People prefer the version of a face they see most often</title>
+  <desc id="figmrd">Of 28 women choosing their own photo, 20 (71%) preferred the mirror image. Of 28 partners, 19 (68%) preferred the true image.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="230" y1="110" x2="600" y2="110"/>
+    <line x1="230.0" y1="110" x2="230.0" y2="115"/>
+    <line x1="322.5" y1="110" x2="322.5" y2="115"/>
+    <line x1="415.0" y1="110" x2="415.0" y2="115"/>
+    <line x1="507.5" y1="110" x2="507.5" y2="115"/>
+    <line x1="600.0" y1="110" x2="600.0" y2="115"/>
+  </g>
+  <line x1="415.0" y1="10" x2="415.0" y2="110" stroke="currentColor" stroke-dasharray="4 4" opacity="0.6"/>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="230.0" y="131">0%</text>
+    <text x="322.5" y="131">25%</text>
+    <text x="415.0" y="131">50%</text>
+    <text x="507.5" y="131">75%</text>
+    <text x="600.0" y="131">100%</text>
+    <text x="415" y="156">share of people</text>
+  </g>
+  <text x="220" y="40" font-size="13" fill="currentColor" text-anchor="end">women choosing their own photo</text>
+  <rect x="230" y="26" width="264.3" height="20" fill="#c27a2c" fill-opacity="0.6" stroke="#c27a2c"/>
+  <text x="238" y="41" font-size="12" fill="currentColor">20 of 28 preferred the mirror image</text>
+  <text x="220" y="80" font-size="13" fill="currentColor" text-anchor="end">their partners choosing</text>
+  <rect x="230" y="66" width="251.1" height="20" fill="#2c8a86" fill-opacity="0.6" stroke="#2c8a86"/>
+  <text x="238" y="81" font-size="12" fill="currentColor">19 of 28 preferred the true image</text>
+</svg>
+</figure>

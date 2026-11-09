@@ -1,0 +1,51 @@
+<figure>
+<svg viewBox="0 0 640 252" role="img" aria-labelledby="fighct fighcd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="fighct">Carbon-13 in human hair, USA and India</title>
+  <desc id="fighcd">delta carbon-13 of scalp hair in per mil. USA, 65 communities: mean -17.3, 96% of people -20.0 to -16.0; India, 13 cities: mean -19.8, lowest to highest -22.6 to -17.2; IISER Kolkata campus: mean -21.1, lowest to highest -22.3 to -19.7. Model end points for American hair: no corn-fed animal protein -24.8; all animal protein corn-fed -11.4.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="200" y1="202" x2="610" y2="202"/>
+    <line x1="200.0" y1="202" x2="200.0" y2="207"/>
+    <line x1="251.2" y1="202" x2="251.2" y2="207"/>
+    <line x1="302.5" y1="202" x2="302.5" y2="207"/>
+    <line x1="353.8" y1="202" x2="353.8" y2="207"/>
+    <line x1="405.0" y1="202" x2="405.0" y2="207"/>
+    <line x1="456.2" y1="202" x2="456.2" y2="207"/>
+    <line x1="507.5" y1="202" x2="507.5" y2="207"/>
+    <line x1="558.8" y1="202" x2="558.8" y2="207"/>
+    <line x1="610.0" y1="202" x2="610.0" y2="207"/>
+  </g>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="200.0" y="223">&#8722;26</text>
+    <text x="251.2" y="223">&#8722;24</text>
+    <text x="302.5" y="223">&#8722;22</text>
+    <text x="353.8" y="223">&#8722;20</text>
+    <text x="405.0" y="223">&#8722;18</text>
+    <text x="456.2" y="223">&#8722;16</text>
+    <text x="507.5" y="223">&#8722;14</text>
+    <text x="558.8" y="223">&#8722;12</text>
+    <text x="610.0" y="223">&#8722;10</text>
+    <text x="405" y="246">carbon-13 in hair, &#948;<tspan baseline-shift="super" font-size="9">13</tspan>C (&#8240;)</text>
+  </g>
+  <line x1="230.7" y1="52" x2="230.7" y2="202" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+  <text x="230.7" y="24" font-size="12" fill="currentColor" text-anchor="middle">no corn-fed</text>
+  <text x="230.7" y="39" font-size="12" fill="currentColor" text-anchor="middle">animal protein</text>
+  <line x1="574.1" y1="52" x2="574.1" y2="202" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+  <text x="574.1" y="24" font-size="12" fill="currentColor" text-anchor="middle">all animal protein</text>
+  <text x="574.1" y="39" font-size="12" fill="currentColor" text-anchor="middle">corn-fed</text>
+  <text x="188" y="72" font-size="13" fill="currentColor" text-anchor="end">USA, 65 communities</text>
+  <text x="188" y="88" font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">bar: 96% of people</text>
+  <rect x="353.8" y="66" width="102.5" height="16" rx="3" fill="#3b6fd8" fill-opacity="0.3" stroke="#3b6fd8"/>
+  <circle cx="422.9" cy="74" r="5" fill="#3b6fd8" stroke="currentColor" stroke-width="1"/>
+  <text x="464.2" y="78" font-size="12" fill="currentColor">average &#8722;17.3</text>
+  <text x="188" y="118" font-size="13" fill="currentColor" text-anchor="end">India, 13 cities</text>
+  <text x="188" y="134" font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">bar: lowest to highest</text>
+  <rect x="287.1" y="112" width="138.4" height="16" rx="3" fill="#2c8a86" fill-opacity="0.3" stroke="#2c8a86"/>
+  <circle cx="358.9" cy="120" r="5" fill="#2c8a86" stroke="currentColor" stroke-width="1"/>
+  <text x="433.5" y="124" font-size="12" fill="currentColor">average &#8722;19.8</text>
+  <text x="188" y="164" font-size="13" fill="currentColor" text-anchor="end">IISER Kolkata campus</text>
+  <text x="188" y="180" font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">bar: lowest to highest</text>
+  <rect x="294.8" y="158" width="66.6" height="16" rx="3" fill="#c27a2c" fill-opacity="0.3" stroke="#c27a2c"/>
+  <circle cx="325.6" cy="166" r="5" fill="#c27a2c" stroke="currentColor" stroke-width="1"/>
+  <text x="369.4" y="170" font-size="12" fill="currentColor">average &#8722;21.1</text>
+</svg>
+</figure>

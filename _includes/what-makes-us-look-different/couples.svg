@@ -1,0 +1,37 @@
+<figure>
+<svg viewBox="0 0 640 250" role="img" aria-labelledby="figcpt figcpd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figcpt">Do married couples grow to look alike?</title>
+  <desc id="figcpd">Average rank of the real spouse among six faces, judged by strangers; lower means more alike, 3.5 is chance. Zajonc et al. 1987, 12 couples: 3.43 at marriage, 3.11 ~25 years later. Tea-makorn & Kosinski 2020, 517 couples: 2.75 at marriage, 2.90 20 to 69 years later.</desc>
+  <defs><marker id="cparr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d0403b"/></marker><marker id="cparr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3b6fd8"/></marker></defs>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="60" y1="190" x2="600" y2="190"/>
+    <line x1="60.0" y1="190" x2="60.0" y2="195"/>
+    <line x1="168.0" y1="190" x2="168.0" y2="195"/>
+    <line x1="276.0" y1="190" x2="276.0" y2="195"/>
+    <line x1="384.0" y1="190" x2="384.0" y2="195"/>
+    <line x1="492.0" y1="190" x2="492.0" y2="195"/>
+    <line x1="600.0" y1="190" x2="600.0" y2="195"/>
+  </g>
+  <line x1="492.0" y1="20" x2="492.0" y2="190" stroke="currentColor" stroke-dasharray="4 4" opacity="0.6"/>
+  <text x="486.0" y="30" font-size="12" fill="currentColor" opacity="0.8" text-anchor="end">3.5 = chance</text>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="60.0" y="211">2.5</text>
+    <text x="168.0" y="211">2.75</text>
+    <text x="276.0" y="211">3</text>
+    <text x="384.0" y="211">3.25</text>
+    <text x="492.0" y="211">3.5</text>
+    <text x="600.0" y="211">3.75</text>
+    <text x="330" y="236">rank of the real spouse among 6 faces (lower = more alike)</text>
+  </g>
+  <text x="60" y="54" font-size="13" font-weight="600" fill="currentColor">Zajonc et al. 1987, 12 couples</text>
+  <circle cx="461.8" cy="70" r="5" fill="none" stroke="#d0403b" stroke-width="2"/>
+  <line x1="461.8" y1="70" x2="323.5" y2="70" stroke="#d0403b" stroke-width="2" marker-end="url(#cparr0)"/>
+  <circle cx="323.5" cy="70" r="5" fill="#d0403b"/>
+  <text x="60" y="94" font-size="12" fill="#d0403b">open dot: at marriage, 3.43; filled dot: ~25 years later, 3.11</text>
+  <text x="60" y="124" font-size="13" font-weight="600" fill="currentColor">Tea-makorn & Kosinski 2020, 517 couples</text>
+  <circle cx="168.0" cy="140" r="5" fill="none" stroke="#3b6fd8" stroke-width="2"/>
+  <line x1="168.0" y1="140" x2="232.8" y2="140" stroke="#3b6fd8" stroke-width="2" marker-end="url(#cparr1)"/>
+  <circle cx="232.8" cy="140" r="5" fill="#3b6fd8"/>
+  <text x="60" y="164" font-size="12" fill="#3b6fd8">open dot: at marriage, 2.75; filled dot: 20 to 69 years later, 2.90</text>
+</svg>
+</figure>

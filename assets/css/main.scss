@@ -914,3 +914,52 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 }
 /* a genre jump lands below the sticky music bar too */
 .shelf-heading[id] { scroll-margin-top: 3.5rem; }
+
+/* bits calculator in "What makes us all look different?" */
+.bits-calc { margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--muted); border-radius: 8px; }
+.bc-title { font-weight: 600; margin: 0.25rem 0 0.75rem; }
+.bc-slider { display: flex; align-items: center; gap: 0.75rem; margin: 0.5rem 0; flex-wrap: wrap; }
+.bc-slider input { flex: 1; min-width: 8rem; }
+.bc-slider output { min-width: 1.5rem; font-weight: 600; }
+.bc-bar { position: relative; height: 0.9rem; margin: 1rem 0 0.5rem; border: 1px solid var(--muted); border-radius: 4px; }
+.bc-fill { height: 100%; background: var(--muted); border-radius: 3px; }
+.bc-fill.bc-enough { background: var(--accent); }
+.bc-need { position: absolute; top: -0.35rem; bottom: -0.35rem; width: 2px; background: var(--fg); }
+.bc-result { margin: 0.5rem 0 0; min-height: 3rem; }
+
+/* Sibling shuffler ("What makes us all look different?") */
+.sib-shuffler { margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--muted); border-radius: 8px; }
+.ss-title { font-weight: 600; margin: 0.25rem 0 0.5rem; }
+.ss-legend { font-size: 0.85em; margin: 0 0 0.75rem; }
+.ss-mum { color: #d0403b; }
+.ss-dad { color: #3b6fd8; }
+.ss-canvas { display: block; width: 100%; }
+.ss-buttons { margin: 0.75rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.ss-buttons button { font: inherit; padding: 0.3rem 0.8rem; border: 1px solid var(--muted); border-radius: 6px; background: none; color: inherit; cursor: pointer; }
+.ss-result { font-size: 0.9em; margin: 0.5rem 0 0; }
+.ef-svg { display: block; width: 100%; max-width: 280px; margin: 0 auto 0.5rem; }
+/* Face layers figure: layers other than the one being looked at fade back. */
+.fl-dim .iso-edge, .fl-dim .iso-crease { stroke: var(--anatomy-lo); }
+.fl-dim .iso-line:not(.iso-edge):not(.iso-crease) { stroke: var(--anatomy-faint); }
+.fl-dim .iso-shade[data-shade] { fill: var(--anatomy-shade-3); }
+/* Chromosome shuffler figure: the two copies, tinted over the kit's own tones. */
+.ms-a { --ms: #c27a2c; }
+.ms-b { --ms: #2c8a86; }
+[data-theme="dark"] .ms-a { --ms: #e0a060; }
+[data-theme="dark"] .ms-b { --ms: #5cc0b8; }
+.ms-a, .ms-b { --ms-top: color-mix(in srgb, var(--ms) 45%, var(--anatomy-top)); --ms-3: color-mix(in srgb, var(--ms) 50%, var(--anatomy-shade-3)); --ms-2: color-mix(in srgb, var(--ms) 58%, var(--anatomy-shade-2)); --ms-1: color-mix(in srgb, var(--ms) 66%, var(--anatomy-shade-1)); --ms-0: color-mix(in srgb, var(--ms) 74%, var(--anatomy-shade-0)); }
+/* Each tone sheet is stroked in its own colour so neighbouring sheets show no paper seam. */
+.iso-stage .ms-a .iso-solid .iso-fill, .iso-stage .ms-b .iso-solid .iso-fill, .iso-stage .ms-a .iso-solid .iso-top, .iso-stage .ms-b .iso-solid .iso-top { fill: var(--ms-top); stroke: var(--ms-top); stroke-width: .4; }
+.iso-stage .ms-a .iso-solid .iso-shade[data-shade="3"], .iso-stage .ms-b .iso-solid .iso-shade[data-shade="3"] { fill: var(--ms-3); stroke: var(--ms-3); stroke-width: .4; }
+.iso-stage .ms-a .iso-solid .iso-shade[data-shade="2"], .iso-stage .ms-b .iso-solid .iso-shade[data-shade="2"] { fill: var(--ms-2); stroke: var(--ms-2); stroke-width: .4; }
+.iso-stage .ms-a .iso-solid .iso-shade[data-shade="1"], .iso-stage .ms-b .iso-solid .iso-shade[data-shade="1"] { fill: var(--ms-1); stroke: var(--ms-1); stroke-width: .4; }
+.iso-stage .ms-a .iso-solid .iso-shade[data-shade="0"], .iso-stage .ms-b .iso-solid .iso-shade[data-shade="0"] { fill: var(--ms-0); stroke: var(--ms-0); stroke-width: .4; }
+/* Face layers: the selected part takes a tint, its name and action print under the drawing. */
+.iso-stage .fl-on .iso-solid .iso-top, .iso-stage .fl-on .iso-solid .iso-fill { fill: color-mix(in srgb, #d0403b 30%, var(--anatomy-top)); }
+.iso-stage .fl-on .iso-solid .iso-shade { fill: color-mix(in srgb, #d0403b 40%, var(--anatomy-shade-2)); }
+.iso-stage .fl-on .iso-solid > .iso-edge { stroke: #d0403b; }
+.iso-stage .fl-on > .iso-solid.fl-body .iso-top { fill: color-mix(in srgb, #d0403b 12%, var(--anatomy-top)); }
+.fl-pick { cursor: pointer; }
+.fl-info { margin: 0.5rem 1rem 0.75rem; min-height: 3em; font-size: 0.9rem; line-height: 1.4; color: var(--anatomy-text); }
+.fl-hit { fill: transparent; }
+.iso-stage .fl-on .fl-hit { fill: color-mix(in srgb, #d0403b 22%, transparent); }

@@ -1,0 +1,49 @@
+<figure>
+<svg viewBox="0 0 640 328" role="img" aria-labelledby="figh2t figh2d" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figh2t">Heritability of nine facial distances in adult female twins</title>
+  <desc id="figh2d">Share of the variation between people explained by genes, from 476 pairs of twins: forehead to base of nose 0.75; cheekbone width 0.73; nose width 0.72; inner eye corners 0.71; outer eye corners 0.71; jaw width 0.68; lower face height 0.63; mouth width 0.62; nose protrusion 0.55.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="200" y1="278" x2="600" y2="278"/>
+    <line x1="200.0" y1="278" x2="200.0" y2="283"/>
+    <line x1="300.0" y1="278" x2="300.0" y2="283"/>
+    <line x1="400.0" y1="278" x2="400.0" y2="283"/>
+    <line x1="500.0" y1="278" x2="500.0" y2="283"/>
+    <line x1="600.0" y1="278" x2="600.0" y2="283"/>
+  </g>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="200.0" y="299">0.00</text>
+    <text x="300.0" y="299">0.25</text>
+    <text x="400.0" y="299">0.50</text>
+    <text x="500.0" y="299">0.75</text>
+    <text x="600.0" y="299">1.00</text>
+    <text x="400" y="322">heritability, h²</text>
+  </g>
+  <text x="190" y="34" font-size="13" fill="currentColor" text-anchor="end">forehead to base of nose</text>
+  <rect x="200" y="20" width="300.0" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="506.0" y="34" font-size="12" fill="#d0403b">0.75</text>
+  <text x="190" y="62" font-size="13" fill="currentColor" text-anchor="end">cheekbone width</text>
+  <rect x="200" y="48" width="293.6" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="499.6" y="62" font-size="12" fill="#d0403b">0.73</text>
+  <text x="190" y="90" font-size="13" fill="currentColor" text-anchor="end">nose width</text>
+  <rect x="200" y="76" width="287.2" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="493.2" y="90" font-size="12" fill="#d0403b">0.72</text>
+  <text x="190" y="118" font-size="13" fill="currentColor" text-anchor="end">inner eye corners</text>
+  <rect x="200" y="104" width="282.8" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="488.8" y="118" font-size="12" fill="#d0403b">0.71</text>
+  <text x="190" y="146" font-size="13" fill="currentColor" text-anchor="end">outer eye corners</text>
+  <rect x="200" y="132" width="282.4" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="488.4" y="146" font-size="12" fill="#d0403b">0.71</text>
+  <text x="190" y="174" font-size="13" fill="currentColor" text-anchor="end">jaw width</text>
+  <rect x="200" y="160" width="270.8" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="476.8" y="174" font-size="12" fill="#d0403b">0.68</text>
+  <text x="190" y="202" font-size="13" fill="currentColor" text-anchor="end">lower face height</text>
+  <rect x="200" y="188" width="253.6" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="459.6" y="202" font-size="12" fill="#d0403b">0.63</text>
+  <text x="190" y="230" font-size="13" fill="currentColor" text-anchor="end">mouth width</text>
+  <rect x="200" y="216" width="248.0" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="454.0" y="230" font-size="12" fill="#d0403b">0.62</text>
+  <text x="190" y="258" font-size="13" fill="currentColor" text-anchor="end">nose protrusion</text>
+  <rect x="200" y="244" width="218.0" height="18" fill="#d0403b" fill-opacity="0.6" stroke="#d0403b"/>
+  <text x="424.0" y="258" font-size="12" fill="#d0403b">0.55</text>
+</svg>
+</figure>

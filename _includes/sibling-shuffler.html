@@ -1,0 +1,9 @@
+<div id="sib-shuffler" class="sib-shuffler">
+  <p class="ss-title">Make two children from the same two parents</p>
+  <p class="ss-legend">Each row is one chromosome, from 1 (longest) to 22. <span class="ss-mum">Top strip: the half from the mother</span>, <span class="ss-dad">bottom strip: the half from the father</span>. Dark where the two children got the same grandparent's copy, faint where they got different ones.</p>
+  <canvas id="ss-chr" class="ss-canvas" role="img" aria-label="Chromosome by chromosome map of which stretches the two simulated children share"></canvas>
+  <div class="ss-buttons"><button type="button" id="ss-one">Make another pair</button> <button type="button" id="ss-many">Make 1,000 pairs</button></div>
+  <canvas id="ss-hist" class="ss-canvas" role="img" aria-label="Histogram of the share of genome shared by all simulated sibling pairs, with the mean and spread of real siblings marked"></canvas>
+  <p id="ss-result" class="ss-result" aria-live="polite"><noscript>This simulation needs JavaScript.</noscript></p>
+</div>
+<script src="/assets/js/sibling-shuffler.js" defer></script>

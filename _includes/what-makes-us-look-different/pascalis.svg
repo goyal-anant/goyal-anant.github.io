@@ -1,0 +1,37 @@
+<figure>
+<svg viewBox="0 0 640 330" role="img" aria-labelledby="figpst figpsd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figpst">Babies lose the ability to tell monkey faces apart between 6 and 9 months</title>
+  <desc id="figpsd">Share of looking time spent on a new face rather than one already seen. Six-month-olds: human faces 56.0%, monkey faces 63.6%. Nine-month-olds: human 55.4%, monkey 50.8%. Adults: human 63.1%, monkey 51.2%. 50% means no preference, i.e. the two faces were not told apart.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="110" y1="270" x2="610" y2="270"/>
+    <line x1="110.0" y1="270" x2="110.0" y2="275"/>
+    <line x1="276.7" y1="270" x2="276.7" y2="275"/>
+    <line x1="443.3" y1="270" x2="443.3" y2="275"/>
+    <line x1="610.0" y1="270" x2="610.0" y2="275"/>
+  </g>
+  <line x1="276.7" y1="20" x2="276.7" y2="270" stroke="currentColor" stroke-dasharray="4 4" opacity="0.6"/>
+  <text x="282.7" y="30" font-size="12" fill="currentColor" opacity="0.8">50% = cannot tell apart</text>
+  <g fill="currentColor" font-size="13" text-anchor="middle">
+    <text x="110.0" y="291">40%</text>
+    <text x="276.7" y="291">50%</text>
+    <text x="443.3" y="291">60%</text>
+    <text x="610.0" y="291">70%</text>
+    <text x="360" y="316">share of looking time on the new face</text>
+  </g>
+  <text x="98" y="72" font-size="14" font-weight="600" fill="currentColor" text-anchor="end">6 months</text>
+  <rect x="276.7" y="55" width="100.6" height="18" fill="#d0403b" fill-opacity="0.75" stroke="#d0403b"/>
+  <text x="383.2" y="69" font-size="12" fill="#d0403b">human faces 56.0%</text>
+  <rect x="276.7" y="79" width="227.0" height="18" fill="#3b6fd8" fill-opacity="0.75" stroke="#3b6fd8"/>
+  <text x="509.7" y="93" font-size="12" fill="#3b6fd8">monkey faces 63.6%</text>
+  <text x="98" y="147" font-size="14" font-weight="600" fill="currentColor" text-anchor="end">9 months</text>
+  <rect x="276.7" y="130" width="89.2" height="18" fill="#d0403b" fill-opacity="0.75" stroke="#d0403b"/>
+  <text x="371.8" y="144" font-size="12" fill="#d0403b">human faces 55.4%</text>
+  <rect x="276.7" y="154" width="13.2" height="18" fill="#3b6fd8" fill-opacity="0.3" stroke="#3b6fd8"/>
+  <text x="295.8" y="168" font-size="12" fill="#3b6fd8">monkey faces 50.8% (not significant)</text>
+  <text x="98" y="222" font-size="14" font-weight="600" fill="currentColor" text-anchor="end">adults</text>
+  <rect x="276.7" y="205" width="218.7" height="18" fill="#d0403b" fill-opacity="0.75" stroke="#d0403b"/>
+  <text x="501.4" y="219" font-size="12" fill="#d0403b">human faces 63.1%</text>
+  <rect x="276.7" y="229" width="19.4" height="18" fill="#3b6fd8" fill-opacity="0.3" stroke="#3b6fd8"/>
+  <text x="302.0" y="243" font-size="12" fill="#3b6fd8">monkey faces 51.2% (not significant)</text>
+</svg>
+</figure>
