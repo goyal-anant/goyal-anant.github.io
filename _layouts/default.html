@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap">
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <script src="{{ '/assets/js/lang.js' | relative_url }}"></script>
   {% if jekyll.environment == "production" %}
   <script data-goatcounter="https://anantgo.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
