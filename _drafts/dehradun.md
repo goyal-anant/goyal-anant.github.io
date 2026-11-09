@@ -206,11 +206,6 @@ There is still a lot left to save: the sal forests on the hills around the valle
 
 Bond himself, in a journal of 2002, wrote: "Dehra is a bit seedy now", though familiar corners still brought back memories.[^bond-landour] Seedy is a kind word for what I have described.
 
-<!-- ENDING: Anant to pick one closing question (or write his own).
-A. If you grew up in Dehradun, what is the one thing you remember which is gone now?
-B. What would you uncover first: the canals, the river beds, or the playgrounds?
-C. Who should decide what Dehradun becomes: the people who live in it, or the people who govern from it?
--->
 So, I will ask you instead: if you grew up in Dehradun, what is the one thing you remember which is gone now?
 
 Until next time.
