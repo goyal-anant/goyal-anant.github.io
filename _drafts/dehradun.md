@@ -78,6 +78,10 @@ So, what did a summer in this valley feel like? The gazetteer of 1911 says "only
 
 The town also collected institutions. The computing office of the Great Trigonometrical Survey moved here in 1861, the Forest School opened in 1878 and became the Imperial Forest Research Institute in 1906,[^walton-inst] the railway from Hardwar arrived in 1900,[^walton-rail] the Indian Military Academy opened in 1932,[^ima] and the Doon School opened in 1935 on the site of the old forest institute.[^doonschool] They came with big green campuses; the forest institute alone sits on about 450 ha.[^fri]
 
+![A 1922 aerial photograph of the old forest institute estate in Dehra: two large playing fields, bungalows among thick trees, and a wide dry stream bed at the top right](/assets/images/dehradun/fri-estate-aerial-1922.jpg)
+
+*Figure 6. The old Forest Research Institute estate from the air on 7 March 1922; after the institute moved to its new building in 1929, this estate became the Doon School. Look at the open ground, the trees around every house, and the wide, dry stream bed at the top right. Unknown photographer, Doon School archives; public domain, via Wikimedia Commons.*
+
 This is the Dehra Bond grew up in during the 1940s. In his stories the boys cycle to a canal full of snow water from the hills, the bungalows are surrounded by mango, litchi and jackfruit trees, and a ten-minute tonga ride takes you to the bazaar.[^bond-roof][^bond-tonga]
 
 ## The rot is older than we think
@@ -86,19 +90,19 @@ It is easy to blame everything on the capital. But the first official complaint 
 
 The first property boom is from the same years. After the railway came in 1900, pensioners flocked to Dehra, and for a while two or three families shared one house. In 1904 the Nashville estate, a single house on 85 bighas, was sold for Rs 20,000 and cut into plots; by 1911 it had seven more bungalows, and one of them, "built of the cheapest possible materials", was sold with a small plot for Rs 20,000, i.e. the price of the whole original estate. "Small cramped modern houses" came up along the Eastern Canal Road and Lytton Road, and the old bungalows with hedges of wild roses were already "in a rapidly decreasing minority". By 1911 more houses had been built than were needed, and there was "a distinct slump in the building trade".[^walton-boom] Speculation, cutting big plots into small ones, building along the canal roads: none of this is new. Only the scale is.
 
-Then came Partition. The 1951 census counted 48,080 refugees in the district, about 13% of its people, most of them in Dehra Dun city, and the city grew 84% in that one decade.[^census51] The census itself calls the growth of the district "phenomenal" and puts it down chiefly to people moving in.[^census51] Figure 6 shows how this adds up over a century: from 1901 to 2011 the district grew 9.6 times, while Uttarakhand and India each grew about 5.1 times.
+Then came Partition. The 1951 census counted 48,080 refugees in the district, about 13% of its people, most of them in Dehra Dun city, and the city grew 84% in that one decade.[^census51] The census itself calls the growth of the district "phenomenal" and puts it down chiefly to people moving in.[^census51] Figure 7 shows how this adds up over a century: from 1901 to 2011 the district grew 9.6 times, while Uttarakhand and India each grew about 5.1 times.
 
 {% include dehradun/population.svg %}
 
-*Figure 6. Population of Dehradun district, Uttarakhand and India from 1901 to 2011, each divided by its own 1901 population, so 2x means double. The dashed line marks November 2000, when Dehradun became the capital. Data: Census of India 2011, Table A-02.[^censusA02]*
+*Figure 7. Population of Dehradun district, Uttarakhand and India from 1901 to 2011, each divided by its own 1901 population, so 2x means double. The dashed line marks November 2000, when Dehradun became the capital. Data: Census of India 2011, Table A-02.[^censusA02]*
 
 In the 1980s the hills around the valley were being quarried for limestone, and the case went all the way to the Supreme Court. In 1985 the court called it "the first case of its kind in the country involving issues relating to environment and ecological balance", and started closing the quarries.[^rlek85] Its final judgment in 1988 explains why it mattered for the water: the limestone had acted as aquifers, i.e. rock which holds water and feeds the springs, and after the forest was cut and the hills were quarried, "the aquifers ceased to exist" and the streams got blocked by stones and scree.[^rlek88] On 1 February 1989 the central government declared the Doon valley a protected area under the Environment Protection Act: industry, mining, tourism and grazing were restricted, and land in the valley could be used only according to a Master Plan approved by the Ministry of Environment.[^doonnotif] Remember this notification; it is still law.
 
-And the planning was failing well before 2000. The first Master Plan for Dehradun covered 1982 to 2001 and planned for about 6 lakh people; in 2001 the urban area had about 5.6 lakh.[^mp2025] So, the planners got the population about right. What they could not hold was the land. By 2003-04, 2,210 ha, i.e. 31% of all the land the plan had marked for urban use, had been developed against the plan, through permissions from the development authority and 23 separate government notifications between 1986 and 2005.[^mp2025] The biggest loser was farmland: 860 ha, of which 740 ha became housing (Figure 7). Forest, green belt, drains and even a sewage farm were built over.
+And the planning was failing well before 2000. The first Master Plan for Dehradun covered 1982 to 2001 and planned for about 6 lakh people; in 2001 the urban area had about 5.6 lakh.[^mp2025] So, the planners got the population about right. What they could not hold was the land. By 2003-04, 2,210 ha, i.e. 31% of all the land the plan had marked for urban use, had been developed against the plan, through permissions from the development authority and 23 separate government notifications between 1986 and 2005.[^mp2025] The biggest loser was farmland: 860 ha, of which 740 ha became housing (Figure 8). Forest, green belt, drains and even a sewage farm were built over.
 
 {% include dehradun/deviation.svg %}
 
-*Figure 7. Land in Dehradun developed against the 1982-2001 Master Plan by 2003-04, by what the plan had marked it for, in hectares (1 ha is 100 m by 100 m). Red is the part which became housing. "Other" is community facilities, transport, a sewage farm and unmarked land. Data: Dehradun Master Plan 2005-2025, Table 2.3.[^mp2025]*
+*Figure 8. Land in Dehradun developed against the 1982-2001 Master Plan by 2003-04, by what the plan had marked it for, in hectares (1 ha is 100 m by 100 m). Red is the part which became housing. "Other" is community facilities, transport, a sewage farm and unmarked land. Data: Dehradun Master Plan 2005-2025, Table 2.3.[^mp2025]*
 
 ## Capital
 
@@ -106,27 +110,110 @@ Then came 9 November 2000. A town which was already growing too fast became the 
 
 The planners themselves wrote down what happened next. The Master Plan for 2005-2025 says that after Dehradun was made the interim capital, land prices rose very steeply, land changed hands fast, and the town spread without a plan; it lists the results as loss of green areas, encroachment on rivers and drains, roads and services which no longer match the housing, and loss of farmland.[^mp2025-ch1] That plan was notified in 2008 without the Ministry of Environment's approval which the 1989 notification requires, and in 2018 the High Court quashed it.[^livelaw] By 2021, out of the 1,008 ha which the plan had reserved for parks and recreation, only 138 ha existed.[^mp2041] When I was growing up we had playgrounds; today you hardly see any.
 
-In April 2018 the government added 72 villages to the municipal corporation, about 132 sq km with 1.95 lakh people, and the city's legal area went from 64.6 sq km to 196.5 sq km, with 100 wards.[^villages][^nagarnigam] Figure 1 at the top shows what all this growth looks like from above. A satellite study of the western Doon puts numbers on it: between 1989 and 2020 the built-up area went from 44.4 sq km to 154.4 sq km, i.e. it grew about 3.5 times, open and scrub land fell from 72.9 to 9.8 sq km, and water bodies fell from 30.3 to 7.1 sq km (Figure 8).[^thapa2021]
+In April 2018 the government added 72 villages to the municipal corporation, about 132 sq km with 1.95 lakh people, and the city's legal area went from 64.6 sq km to 196.5 sq km, with 100 wards.[^villages][^nagarnigam] Figure 1 at the top shows what all this growth looks like from above. A satellite study of the western Doon puts numbers on it: between 1989 and 2020 the built-up area went from 44.4 sq km to 154.4 sq km, i.e. it grew about 3.5 times, open and scrub land fell from 72.9 to 9.8 sq km, and water bodies fell from 30.3 to 7.1 sq km (Figure 9).[^thapa2021]
 
 {% include dehradun/landuse.svg %}
 
-*Figure 8. Land use on the floor of the western Doon (931 sq km around Dehradun and Mussoorie) in 1989 and 2020, in sq km, read from Landsat images. Data: Thapa and Bahuguna, 2021.[^thapa2021]*
+*Figure 9. Land use on the floor of the western Doon (931 sq km around Dehradun and Mussoorie) in 1989 and 2020, in sq km, read from Landsat images. Data: Thapa and Bahuguna, 2021.[^thapa2021]*
 
 Not everyone who came got a house. In 2009 the city listed 129 slums with about 1.65 lakh people, i.e. 28.6% of the town,[^dchb] and many of them sit on the beds of the Rispana and the Bindal, which is where the next part of this story goes.
 
-And then the cars. Around 2003 Dehradun had about 1.8 lakh registered vehicles, and the city had only 30 km of road wider than 10 m.[^mp2025-traffic] New registrations went from 16,178 in 2000 to 56,121 in 2011-12.[^pioneer2013] By April 2025 more than 10.5 lakh vehicles were registered in the city, and buses, autos and cabs together were only 2.3% of them.[^dte-vehicles] So, where did the space for all these vehicles come from? Partly from the canals.
+And then the cars. Around 2003 Dehradun had about 1.8 lakh registered vehicles, and the city had only 30 km of road wider than 10 m.[^mp2025-traffic] New registrations went from 16,178 in 2000 to 56,121 in 2011-12.[^pioneer2013] By April 2025 more than 10.5 lakh vehicles were registered in the city, and buses, autos and cabs together were only 2.3% of them.[^dte-vehicles]
 
-<!-- Sections 6-10 to be drafted. Charts built, not yet placed; move each into its section when drafting. Sources in each SVG's desc and in content/dehradun/scripts/figs.py. -->
+![Scooters, motorcycles and cars packed on a road in front of shops, with the clock tower behind](/assets/images/dehradun/clock-tower-traffic-2019.jpg)
+
+*Figure 10. Traffic on Chakrata Road near the Clock Tower, December 2019. Photo: ArmouredCyborg, CC BY-SA 4.0, via Wikimedia Commons.*
+
+So, where did the space for all these vehicles come from? Partly from the canals.
+
+## Burying the canals, filling the rivers, emptying the ground
+
+After Dehradun became the capital, the state government decided to put the city's canals underground, "mainly to ease city traffic". By November 2008 about 20 km of a 52 km network was already under the road, for about Rs 10.9 crore, and the irrigation department proposed more.[^tribune2008] The roads built over them, the East Canal Road and GMS Road, were by then among the widest in the city.[^tribune2008] The department had its own reasons too: covered canals lose less water, and the open ones had become garbage dumps.[^tribune2008] In 2014 work started on covering about 5 km of the Kalanga canal between Maldevta and Raipur.[^pioneer2014]
 
 {% include dehradun/canals.svg %}
 
+*Figure 11. Stretches of Dehradun's canals already put underground by November 2008, with the roads they run under, in km. Data: The Tribune, 27 November 2008.[^tribune2008]*
+
+There was a canal along Mata Mandir Road when I was growing up, a branch of the old Rajpur canal; by the late 2000s it was gone. In Bond's Dehra, the canal went under the town and came out again: "The canal comes down from Rajpur and goes underground here", he wrote, and it came out about a mile further on.[^bond-trees] In today's Dehradun it mostly does not come out at all. And I think this is the single worst decision in this whole story. The garbage problem was real, but a garbage problem in a canal is solved by cleaning the canal; what the city did was to give away the one thing which had made it green for two hundred years, and it did that to make space for cars.
+
+The two seasonal rivers fared no better. Remember that the Rispana and the Bindal were always dry for most of the year. To the 1911 gazetteer, the dry bed was part of the river: in the rains a torrent spreads over the whole bed, eats into its banks, and the next year picks a new channel somewhere else in it.[^walton-rivers] So, a dry river bed is not empty land; it is where the next flood goes. Today houses stand in those beds. A survey for the High Court counted about 106 ha of river bed encroached in the district, 37.9 ha of it in the Dehradun tehsil,[^hc2022] and about 56% of the city's slum population lives along the Rispana and its streams.[^chauniyal2024] In the night of 15-16 September 2025, cloudbursts and heavy rain killed 13 people in Dehradun district; Sahastradhara got 192 mm of rain that night, and Dalanwala, on the bank of the Rispana, was among the worst hit areas.[^tribune2025]
+
+![A shallow clear stream running between white boulders, with wooded hills behind](/assets/images/dehradun/rispana-raipur-2026.jpg)
+
+*Figure 12. The Rispana at Raipur village, upstream of the city, in April 2026. Further down, in the city, the same bed carries sewage. Photo: Nagarpedian, CC BY-SA 4.0, via Wikimedia Commons.*
+
+What does flow in the beds outside the monsoon is sewage. Around 2000 only 40% of the city had sewer lines, and the Master Plan says plainly, "There is no sewage treatment arrangement in the city."[^mp2025-sewage] By 2025 the city made about 118 MLD (million litres a day) of sewage and treated about 70 MLD of it, so about 48 MLD, i.e. 41%, still went out untreated.[^ngt606] Below the city, the Suswa, which the Rispana and the Bindal flow into, is in the worst class of polluted rivers in the country, with a BOD of up to 37 mg/L.[^cpcb2018] BOD is the amount of oxygen which bacteria use up to eat the dirt in the water, so a higher number means dirtier water; for a river to be fit for bathing it should be at most 3 mg/L.[^cpcb2018] So the Suswa below Dehradun is about 12 times over that. I have watched the Rispana's monsoon flow shrink over the years; what has grown in its bed is houses and sewage.
+
+The third water was the one underground, the one the officers of the 1820s could not reach. In 1969-70 the whole district had 4 tube wells.[^upgaz1979] By 2009 about 200 tube wells were working in the valley, the city's water supply was running 84 schemes based on tube wells, and the groundwater board listed "heavy exploitation of ground water from deeper aquifer in Doon Valley" as the main problem.[^cgwb2011-gw] The board's latest report on the district says water levels are "rising". But the board's own monitoring well at its own office in Dehradun tells another story: the water there was 49.5 m below the ground in 2010 and 61.1 m below in 2022 (Figure 13).[^naquim-gw][^gwyb] The same report explains why: building and concreting the open ground has cut how much rain soaks into the ground.[^naquim-gw]
+
 {% include dehradun/groundwater.svg %}
+
+*Figure 13. Depth to groundwater before the monsoon at the Central Ground Water Board's monitoring well at its office in Dehradun, in metres below the ground; the line goes down as the water goes deeper. The 2021 value is shown as printed, though it breaks the pattern. Data: CGWB aquifer mapping report for Dehradun (2021-22) and Ground Water Year Book 2022-23.[^naquim-gw][^gwyb]*
+
+And after all this pumping, the city's water system produces about 178 MLD, but because of leaks only about 71 MLD reaches people's taps; each person gets about 114 litres a day,[^naquim-supply] i.e. a little less than the 118 litres a day of 1969-70.[^upgaz1979]
+
+## The bowl heats up
+
+In 1911 the bowl kept the hot winds of the plains out. Now look at what the weather station at Dehradun has recorded. In 1993-2002 the station had on average about 35 days a year with a maximum of 35 °C or more; in 2015-2024 it had about 58.[^gsod] The average daily maximum went up by about 0.77 °C every ten years.[^gsod] 2024 was the worst so far: 76 days at or above 35 °C, a peak of 43.2 °C, 39 nights which did not cool below 25 °C (the most in the record), and 7 of the 12 hottest days the station has ever recorded.[^gsod] When I was growing up a fan was enough in summer.
 
 {% include dehradun/hot-days.svg %}
 
+*Figure 14. Days in each year when the maximum temperature at the Dehradun weather station reached 35 °C or more, 1993 to 2024, for years with at least 330 days of records. The dashed lines are the averages for 1993-2002 and 2015-2024. Data: NOAA Global Summary of the Day, station 42111.[^gsod]*
+
+Two things in fairness. The all-time record at Dehradun is still 43.9 °C, on 4 June 1902, so 2024 did not break it.[^imd2012] And the station data and a weather-model reconstruction of the same place do not agree on whether the days or the nights have warmed more; the safe thing to say is that Dehradun is clearly warmer than it was in the 1990s.[^gsod] The India Meteorological Department itself, in its 2012 booklet on the climate of Dehra Dun, wrote that the basmati, the litchi, the tea gardens, the sal forests and the canals for which the town was famous were "disappearing at a very fast pace and thereby also changing its microclimate".[^imd2012] That is the weather office saying it, not an activist.
+
+The bowl also holds smoke and dust. Dehradun is one of the three cities in Uttarakhand which do not meet the national air standard.[^crea2026] Between 2015 and 2021 the yearly average of PM10, the dust particles smaller than 10 micrometres which get into our lungs, was between 2 and 4 times the national limit of 60 micrograms per cubic metre every single year (Figure 15).[^kansal2023] The official numbers since then show improvement: from 250 in 2017-18 to 109 in 2023-24, still about 1.8 times the limit.[^pib2024]
+
+{% include dehradun/pm10.svg %}
+
+*Figure 15. Yearly average of PM10 (dust particles smaller than 10 micrometres) in Dehradun's air, 2015 to 2021, from the three monitoring stations at the Clock Tower, ISBT and Raipur Chowk, in micrograms per cubic metre. The dashed line is the national annual limit of 60. 2020 is the lockdown year. Data: Kansal et al., 2023.[^kansal2023]*
+
+![The sun setting over a flat band of grey haze which fills the Doon valley below the hills of Mussoorie](/assets/images/dehradun/winterline-2010.jpg)
+
+*Figure 16. The 'winterline' over the Doon valley, seen from Mussoorie in November 2010: a flat band of haze lying over the valley floor. Photo: Paul Hamilton, CC BY-SA 2.0, via Wikimedia Commons.*
+
+## Trees
+
+If you look up the official forest cover of Dehradun district, you will find that it has not changed: about 1,607 sq km, i.e. 52%, in 2011, and about 1,640 sq km, i.e. 53%, in 2023.[^isfr] So, where is the loss? It turns out that the Forest Survey counts as 'forest' any patch bigger than 1 ha where tree crowns cover at least 10% of the ground, whoever owns it, so plantations, orchards and tea gardens with shade trees all count.[^isfr] A district which includes the Chakrata hills can keep its number steady while the valley floor loses its trees. The satellite study of the western Doon from Figure 9 finds 15.6 sq km of forest and trees lost between 1989 and 2020.[^thapa2021]
+
+And the felling goes on, one project at a time. The 16 km of the Delhi-Dehradun expressway near the city took 7,575 trees, 4,983 of them in Uttarakhand.[^expressway] About 2,057 trees were proposed for the widening of the Sahastradhara road.[^sahastradhara] Around 2,000 sal trees in the Khalanga forest were marked for a water treatment plant, which was moved elsewhere after protests in 2024,[^khalanga] and in July 2026 the widening of the road to Rishikesh at Saat Mod was cutting or moving 4,369 trees, mostly sal.[^saatmod]
+
 {% include dehradun/trees.svg %}
 
+*Figure 17. Trees cut, or approved or proposed for cutting, for four projects around Dehradun; each bar says which. Data: NHAI reply to an RTI request (expressway), court and news reports (others); see the footnotes.*
+
+"Our trees still grow in Dehra," Bond wrote about the trees his father had planted.[^bond-trees] That essay was in print by 1971. By the early 1990s he was writing a poem about the parts of old Dehra which remain: a peepul tree he knew, flying foxes in a mango grove.[^bond-rain] Only parts.
+
+The forest at the edge of the valley, the one Bond's night train runs into, is under pressure too. On the 18 km of railway between Motichur and Kansrao, through the Rajaji forest, trains killed 25 elephants between 1987 and 2018, most of them between 7:30 in the evening and 2:30 at night.[^joshi2019] So the night trains on Bond's line are a real danger to the jungle they pass through. The western part of Rajaji, on the Dehradun side, lost its forest corridor to the eastern part, and in the 2018 count it had only two tigresses, "isolated since 2008";[^ntca2018] and in 2020 tigers had to be brought in from outside; in 2022 Rajaji had 54 tigers, 51 in the eastern part and 3 reintroduced ones in the west.[^ntca2022] The valley is still extraordinary for birds, though: 551 species have been recorded in the district, about 40% of all the species of the Indian subcontinent.[^forktail]
+
+## Crime and waste
+
+So, has crime gone up? The registered numbers say yes, with a caveat. In 2022 the district had about 17% of the state's people but 27% of its registered crime under the Indian Penal Code, and the cases went up 87% between 2017 and 2022, against 32% for the state (Figure 18).[^ncrb] But the rise is mostly in theft, fraud and crimes against women, which are exactly the kinds of crime where more cases can also mean that more people go to the police and more police stations register them. Murders, which are hard to hide, stayed between 21 and 36 a year.[^ncrb] The crime bureau itself warns that states should not be compared on these figures alone.[^ncrb-note] So, the numbers say the city has more registered crime, and only partly how much more crime.
+
 {% include dehradun/crime.svg %}
+
+*Figure 18. Dehradun district's share of all crime registered under the Indian Penal Code in Uttarakhand, 2016 to 2024 (no data for 2023). The 2016 and 2024 values come from tables laid out differently. Dehradun had 16.8% of the state's people in 2011. Data: National Crime Records Bureau district tables, via the India Data Portal.[^ncrb]*
+
+Waste is simpler, and worse. After the High Court scolded the city in 2013 for having no proper waste facility, a plant was built at Sheeshambada, about 200 m from the Asan river. From 2018 to 2022 its private operator did not process the waste at all: 250 to 275 tonnes a day arrived and were dumped, leaving about 4.2 lakh tonnes of old waste on about 6 acres. In 2024 an inspection for the green tribunal found the leachate ponds overflowing in the rain and dirty water draining through gaps in the back wall towards the Asan.[^ngt477] And the Smart City money: the government's auditor found a Rs 4.55 crore waste-tracking system lying unused until 2025, and smart-classroom equipment which did not work because the schools could not pay the electricity bills.[^cag2025]
+
+## What can still be saved
+
+So, is it all gone? No.
+
+The 1989 Doon valley notification is still law, and it still says that land in the valley can be used only according to a Master Plan approved by the Ministry of Environment.[^doonnotif] That is exactly why the High Court threw out the 2005-2025 plan.[^livelaw] A new plan for 2041 is now in draft;[^mp2041] whether it goes through that approval, and whether anyone follows it this time, is the biggest single decision ahead for the valley. The same plan admits that only 138 of the 1,008 ha reserved for parks exist; that is the gap it has to close.[^mp2041]
+
+There is still a lot left to save: the sal forests on the hills around the valley, Rajaji, the 551 birds, the big green campuses of the forest institute and the schools, and the canals which still water about 13,000 ha of farmland in the district.[^naquim-canal] The river beds can still be kept free, and the sewage can still be treated; neither needs a new technology, only a decision.
+
+Bond himself, in a journal of 2002, wrote: "Dehra is a bit seedy now", though familiar corners still brought back memories.[^bond-landour] Seedy is a kind word for what I have described.
+
+<!-- ENDING: Anant to pick one closing question (or write his own).
+A. If you grew up in Dehradun, what is the one thing you remember which is gone now?
+B. What would you uncover first: the canals, the river beds, or the playgrounds?
+C. Who should decide what Dehradun becomes: the people who live in it, or the people who govern from it?
+-->
+So, I will ask you instead: if you grew up in Dehradun, what is the one thing you remember which is gone now?
+
+Until next time.
 
 ---
 
@@ -231,3 +318,74 @@ And then the cars. Around 2003 Dehradun had about 1.8 lakh registered vehicles, 
 [^pioneer2013]: Manoj Kumar, "Festive season sees rise in vehicle sales, traffic woes", *The Pioneer*, 23 October 2013. [link](https://dailypioneer.com/dehradun/festive-season-sees-rise-in-vehicle-sales-traffic-woes)
 
 [^dte-vehicles]: Varsha Singh, *Down To Earth*, 20 May 2025, citing Uttarakhand transport department data.
+
+[^tribune2008]: J. Thapliyal, "Doon's water bodies vanishing", *The Tribune*, Dehradun Plus, 27 November 2008. [link](https://www.tribuneindia.com/2008/20081127/dplus1.htm)
+
+[^pioneer2014]: Paritosh Kimothi, "Work in progress to cover British-laid Kalanga canal", *The Pioneer*, 14 May 2014. [link](https://web.archive.org/web/20220716063214/https://www.dailypioneer.com/2014/state-editions/work-in-progress-to-cover-british-laid-kalanga-canal.html)
+
+[^bond-trees]: Ruskin Bond, "My Father's Trees in Dehra", in *The Night Train at Deoli and Other Stories* (as above), from p. 137; also in *A Town Called Dehra*, Penguin, 2008, pp. 185-187.
+
+[^hc2022]: Uttarakhand High Court, *Urmila Thapa v. State of Uttarakhand*, WPPIL 58 of 2019, judgment of 31 August 2022, para 3, citing the District Magistrate's survey. [link](https://hindi.livelaw.in/pdf_upload/uttrakahand-hc-river-beds-433437-433490.pdf)
+
+[^chauniyal2024]: Chauniyal and Chauniyal, *Himalayan Journal of Social Sciences and Humanities* 19, 2024. [doi](https://doi.org/10.51220/hjssh.v19i1.8)
+
+[^tribune2025]: "13 dead, 16 missing in Dehradun cloudbursts", *The Tribune*, 17 September 2025. [link](https://www.tribuneindia.com/news/india/13-dead-16-missing-in-dehradun-cloudbursts)
+
+[^mp2025-sewage]: *Dehradun Master Plan 2005-2025* (as above), section 6.8, pp. 57-59 (in Hindi; translated).
+
+[^ngt606]: Government of Uttarakhand, tabulated information filed in NGT OA 606 of 2018, 11 February 2026, Annex-B. [link](https://www.greentribunal.gov.in/sites/default/files/news_updates/TABULATED%20INFORMATION%20CUM%20ANNEXURES%20BY%20GOVT.%20OF%20UTTARAKHAND%20IN%20OA%20NO.%20606%20of%202018%20(COMPLIANCE%20OF%20MSW%20MGT%20RULES,%202016%20AND%20OTHER%20ENVIRONMENTAL%20ISSUES).pdf)
+
+[^cpcb2018]: Central Pollution Control Board, *Polluted River Stretches for Restoration of Water Quality*, September 2018, Table 3 (Suswa, Mothrowala to Raiwala, Priority I). [link](https://cpcb.nic.in/NGTMC/Polluted-River-Stretches-September-2018.pdf)
+
+[^upgaz1979]: D. P. Varun (ed.), *Uttar Pradesh District Gazetteers: Dehra Dun*, Government of Uttar Pradesh, 1979, pp. 111 and 247-248. [link](https://archive.org/details/dli.csl.3014)
+
+[^cgwb2011-gw]: CGWB, *Ground Water Brochure, District Dehradun* (as above), at-a-glance table and section 5.
+
+[^naquim-gw]: CGWB, *Aquifer Mapping, Dehradun District* (as above), summary p. 2, hydrographs pp. 54-56, and p. 81.
+
+[^gwyb]: CGWB, *Ground Water Year Book Uttarakhand 2022-2023*, p. 26. [link](https://cgwb.gov.in/cgwbpnm/download/1199)
+
+[^naquim-supply]: CGWB, *Aquifer Mapping, Dehradun District* (as above), p. 71.
+
+[^naquim-canal]: CGWB, *Aquifer Mapping, Dehradun District* (as above), summary p. 2.
+
+[^gsod]: NOAA National Centers for Environmental Information, Global Summary of the Day, station 42111 (Dehradun), 1993-2024; yearly counts computed from the daily records. [link](https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/)
+
+[^imd2012]: India Meteorological Department, Meteorological Centre Dehradun, *Climate of Dehra Dun*, 2012, p. 1 and Table 1, p. 67. [link](https://mausam.imd.gov.in/dehradun/mcdata/DEHRADUN_CLIMATE.pdf)
+
+[^crea2026]: Centre for Research on Energy and Clean Air, *Tracing the Hazy Air 2026*, NCAP progress report, state table and pp. 15-16.
+
+[^kansal2023]: Kansal et al., "Investigating the impression of National Clean Air Programme in enhancement of air quality characteristics for non-attainment cities of Uttarakhand", *Aerosol Science and Engineering* 7, 415-425, 2023, Tables 2 and 4. [doi](https://doi.org/10.1007/s41810-023-00181-w)
+
+[^pib2024]: Press Information Bureau, annexure "Improvement in PM10 concentrations of 130 cities in FY 2023-24 w.r.t. FY 2017-18", November 2024. [link](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2024/nov/doc20241128458601.pdf)
+
+[^isfr]: Forest Survey of India, *India State of Forest Report 2023*, vol. II, Table 10.28.3, and *ISFR 2011*, Uttarakhand, Table 9.28.2. [link](http://fsi.nic.in/uploads/isfr2023/isfr_book_eng-vol-2_2023.pdf)
+
+[^expressway]: "Nearly 7,600 trees cut for 16 km section of Delhi-Dehradun expressway", *News Arena India*, 4 April 2024, reporting NHAI's reply to an RTI request. [link](https://newsarenaindia.com/states/nearly-7-600-trees-cut-for-16-km-section-delhi-dehradun-expressway/7450)
+
+[^sahastradhara]: Uttarakhand High Court, *Ashish Kumar Garg v. State of Uttarakhand*, WP(PIL) 68 of 2022, order of 16 September 2022, as reported by *LiveLaw*.
+
+[^khalanga]: News reports of the Khalanga protests, May-June 2024.
+
+[^saatmod]: *Down To Earth*, 17 July 2026.
+
+[^bond-rain]: Ruskin Bond, *Rain in the Mountains*, Penguin/Viking India, 1993. [link](https://archive.org/details/byruskinbondrain0000unse)
+
+[^joshi2019]: Joshi and Puri, "Train-elephant collisions in a biodiversity-rich landscape: a case study from Rajaji National Park, north India", *Human-Wildlife Interactions* 13(3), 370-381, 2019, p. 370 and Table 1. [doi](https://doi.org/10.26077/88bc-qm70)
+
+[^ntca2018]: Jhala, Qureshi and Nayak (eds), *Status of Tigers, Co-predators and Prey in India, 2018*, NTCA and WII, 2020, p. 53. [link](https://ntca.gov.in/assets/uploads/Reports/AITM/Tiger_Status_Report_2018.pdf)
+
+[^ntca2022]: Qureshi, Jhala, Yadav and Mallick (eds), *Status of Tigers, Co-predators and Prey in India, 2022*, NTCA and WII, 2023, Rajaji chapter, p. 210, and section II.1. [link](https://ntca.gov.in/assets/uploads/Reports/AITM/status_of_tiger-copredators-2022.pdf)
+
+[^forktail]: A. P. Singh, "New and significant records from Dehra Dun valley and adjacent hills", *Forktail* 22, 2006.
+
+[^ncrb]: National Crime Records Bureau, district-wise IPC crime tables 2016-2024, via the India Data Portal; totals for 2020-2022 match *Crime in India 2022*, Table 1A.1. [link](https://ckandev.indiadataportal.com/dataset/crime-statistics)
+
+[^ncrb-note]: National Crime Records Bureau, *Crime in India 2022*, Book 1, chapter 1A notes. [link](https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1701607577CrimeinIndia2022Book1.pdf)
+
+[^ngt477]: Report of the Amicus Curiae in NGT OA 477 of 2022, *Rajender Gangsari v. State of Uttarakhand*, 22 July 2024. [link](https://www.greentribunal.gov.in/sites/default/files/news_updates/REPORT%20BY%20AMICUS%20CURIE%20IN%20OA%20NO.%20477%20of%202022%20RAJENDER%20GANGSARI%20VS%20STATE%20OF%20UTTARAKHAND.pdf)
+
+[^cag2025]: Comptroller and Auditor General of India, Report No. 5 of 2025, *Performance Audit of Implementation of Smart Cities Mission in Dehradun*. [link](https://cag.gov.in/webroot/uploads/download_audit_report/2025/Report-No.-05-Smart-Cities-UK---19-11-2025-signed-069b02aa24e1a16.54541284.pdf)
+
+[^bond-landour]: Ruskin Bond, *Landour Days: A Writer's Journal*, Penguin, 2002; also in *A Town Called Dehra*, Penguin, 2008, p. 163.
+

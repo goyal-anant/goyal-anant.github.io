@@ -1,0 +1,54 @@
+<figure>
+<svg viewBox="0 0 640 310" role="img" aria-labelledby="figpmt figpmd" style="width:100%;height:auto;max-width:640px;font-family:inherit">
+  <title id="figpmt">Dust in the air of Dehradun, 2015 to 2021</title>
+  <desc id="figpmd">Yearly average PM10 at three Dehradun monitoring stations, in micrograms per cubic metre: 2015 184, 2016 238, 2017 239, 2018 201, 2019 167, 2020 120, 2021 147. The national annual limit is 60.</desc>
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <line x1="60" y1="280" x2="540" y2="280" opacity="0.7"/>
+    <line x1="60" y1="280.0" x2="540" y2="280.0" opacity="0.12"/>
+    <line x1="60" y1="230.0" x2="540" y2="230.0" opacity="0.12"/>
+    <line x1="60" y1="180.0" x2="540" y2="180.0" opacity="0.12"/>
+    <line x1="60" y1="130.0" x2="540" y2="130.0" opacity="0.12"/>
+    <line x1="60" y1="80.0" x2="540" y2="80.0" opacity="0.12"/>
+    <line x1="60" y1="30.0" x2="540" y2="30.0" opacity="0.12"/>
+    <line x1="100.0" y1="280" x2="100.0" y2="285" opacity="0.7"/>
+    <line x1="166.7" y1="280" x2="166.7" y2="285" opacity="0.7"/>
+    <line x1="233.3" y1="280" x2="233.3" y2="285" opacity="0.7"/>
+    <line x1="300.0" y1="280" x2="300.0" y2="285" opacity="0.7"/>
+    <line x1="366.7" y1="280" x2="366.7" y2="285" opacity="0.7"/>
+    <line x1="433.3" y1="280" x2="433.3" y2="285" opacity="0.7"/>
+    <line x1="500.0" y1="280" x2="500.0" y2="285" opacity="0.7"/>
+  </g>
+  <g fill="currentColor" font-size="13">
+    <text x="100.0" y="300" text-anchor="middle">2015</text>
+    <text x="166.7" y="300" text-anchor="middle">2016</text>
+    <text x="233.3" y="300" text-anchor="middle">2017</text>
+    <text x="300.0" y="300" text-anchor="middle">2018</text>
+    <text x="366.7" y="300" text-anchor="middle">2019</text>
+    <text x="433.3" y="300" text-anchor="middle">2020</text>
+    <text x="500.0" y="300" text-anchor="middle">2021</text>
+    <text x="52" y="284.0" text-anchor="end" opacity="0.8">0</text>
+    <text x="52" y="234.0" text-anchor="end" opacity="0.8">50</text>
+    <text x="52" y="184.0" text-anchor="end" opacity="0.8">100</text>
+    <text x="52" y="134.0" text-anchor="end" opacity="0.8">150</text>
+    <text x="52" y="84.0" text-anchor="end" opacity="0.8">200</text>
+    <text x="52" y="34.0" text-anchor="end" opacity="0.8">250</text>
+    <text x="8" y="16" opacity="0.8">PM10, micrograms per cubic metre, yearly average</text>
+  </g>
+  <path d="M75.7,280 V99.8 q0,-4 4,-4 H120.3 q4,0 4,4 V280 Z" fill="#c27a2c"><title>2015: 184.2 micrograms per cubic metre, 3.1 times the limit</title></path>
+  <text x="100.0" y="89.8" font-size="12" fill="currentColor" text-anchor="middle">184</text>
+  <path d="M142.3,280 V46.2 q0,-4 4,-4 H187.0 q4,0 4,4 V280 Z" fill="#c27a2c"><title>2016: 237.8 micrograms per cubic metre, 4.0 times the limit</title></path>
+  <text x="166.7" y="36.2" font-size="12" fill="currentColor" text-anchor="middle">238</text>
+  <path d="M209.0,280 V45.2 q0,-4 4,-4 H253.7 q4,0 4,4 V280 Z" fill="#c27a2c"><title>2017: 238.8 micrograms per cubic metre, 4.0 times the limit</title></path>
+  <text x="233.3" y="35.2" font-size="12" fill="currentColor" text-anchor="middle">239</text>
+  <path d="M275.7,280 V83.3 q0,-4 4,-4 H320.3 q4,0 4,4 V280 Z" fill="#c27a2c"><title>2018: 200.7 micrograms per cubic metre, 3.3 times the limit</title></path>
+  <text x="300.0" y="73.3" font-size="12" fill="currentColor" text-anchor="middle">201</text>
+  <path d="M342.3,280 V117.3 q0,-4 4,-4 H387.0 q4,0 4,4 V280 Z" fill="#c27a2c"><title>2019: 166.7 micrograms per cubic metre, 2.8 times the limit</title></path>
+  <text x="366.7" y="107.3" font-size="12" fill="currentColor" text-anchor="middle">167</text>
+  <path d="M409.0,280 V163.7 q0,-4 4,-4 H453.7 q4,0 4,4 V280 Z" fill="#c27a2c"><title>2020: 120.3 micrograms per cubic metre, 2.0 times the limit</title></path>
+  <text x="433.3" y="153.7" font-size="12" fill="currentColor" text-anchor="middle">120</text>
+  <path d="M475.7,280 V137.4 q0,-4 4,-4 H520.3 q4,0 4,4 V280 Z" fill="#c27a2c"><title>2021: 146.6 micrograms per cubic metre, 2.4 times the limit</title></path>
+  <text x="500.0" y="127.4" font-size="12" fill="currentColor" text-anchor="middle">147</text>
+  <line x1="60" y1="220.0" x2="540" y2="220.0" stroke="#d0403b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="546" y="216.0" font-size="12" fill="#d0403b">national</text><text x="546" y="231.0" font-size="12" fill="#d0403b">limit, 60</text>
+</svg>
+</figure>
