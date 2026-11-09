@@ -1,0 +1,16 @@
+# Jekyll hides future-dated posts, and the Pages build only runs on push.
+# Rebuild daily at 00:05 IST so a post goes live on its date.
+name: Publish scheduled posts
+on:
+  schedule:
+    - cron: "35 18 * * *" # 18:35 UTC = 00:05 IST
+  workflow_dispatch:
+permissions:
+  pages: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+        env:
+          GH_TOKEN: ${{ github.token }}

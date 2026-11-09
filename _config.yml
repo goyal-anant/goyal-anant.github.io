@@ -8,6 +8,8 @@ title_hi_letters: "अ|नं|त| |गो|य|ल"
 description: "Writing, research, and books."
 url: "https://anantnug.com"
 baseurl: ""
+# Future-dated posts stay hidden until this date/time here; .github/workflows/publish-scheduled.yml rebuilds daily so they go live.
+timezone: Asia/Kolkata
 theme: null
 private_url: "https://anantgo.pages.dev"
 # Cloudflare Worker for post reactions (source in worker/); leave empty to hide the buttons
