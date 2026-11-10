@@ -30,6 +30,9 @@ layout: default
   <p lang="hi" class="hi-missing">इस पोस्ट का हिंदी वर्शन अभी नहीं बना है, तब तक अंग्रेज़ी में पढ़ लीजिए।</p>
   <div lang="en" data-keep data-sections data-minutes="{{ minutes | strip }}">{{ main | first }}</div>
   {% endif %}
+  {% comment %} the end of the post: a brush mark, then one row with reactions on the left and Share, Reply and References (moved in by the script) on the right {% endcomment %}
+  <div class="post-end-mark" aria-hidden="true"></div>
+  <div class="post-actions">
   {% if site.reactions_url and site.reactions_url != "" %}
   {% comment %} stays hidden until the counts load, so readers never see dead buttons if the Worker is down {% endcomment %}
   <div id="reactions" data-api="{{ site.reactions_url }}" data-post="{{ page.url }}" hidden>
@@ -38,6 +41,7 @@ layout: default
     <button type="button" data-kind="insightful" aria-pressed="false" aria-label="Insightful" data-label="Insightful" data-label-hi="कुछ नया सीखा"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5Z"/><path d="M9 18h6M10 22h4"/></svg><span class="count"></span></button>
   </div>
   {% endif %}
+  <div class="post-links">
   <button id="share" type="button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}" data-title-hi="{{ page.title_hi | default: page.title | escape }}">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M8 11H6a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-2"></path>
@@ -51,6 +55,8 @@ layout: default
     </svg>
     <span>{% include t.html en="Reply by email" hi="ईमेल से जवाब दें" %}</span>
   </a>
+  </div>
+  </div>
   {% include more-posts.html %}
   {% if page.hindi %}
   {% if main.size > 1 %}<div lang="en">{{ tail }}{{ main | last }}</div>{% endif %}
@@ -202,8 +208,8 @@ layout: default
     }
     update();
   })();
-  // references: the list leaves the end of the post and goes into a drawer. A quiet "References 67" button
-  // sits at the bottom right; it slides the list in from the right (from the bottom on a phone) over the
+  // references: the list leaves the end of the post and goes into a drawer. A "References 67" link sits
+  // with Share and Reply at the end of the post; it slides the list in from the right (from the bottom on a phone) over the
   // post, and closing it (x, Esc, or a tap outside) leaves the reader where they were. A citation number opens
   // its reference in a small pop-up next to it, whose "All references" opens the drawer at that reference.
   // Without JS the list stays at the end of the post as before; print always shows it there.
@@ -220,16 +226,19 @@ layout: default
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'ref-open';
-      btn.innerHTML = '<span>' + (hi ? 'संदर्भ' : 'References') + '</span><span class="ref-open-n">' + n + '</span>' +
-        '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>';
+      btn.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>' +
+        '<span>' + (hi ? 'संदर्भ' : 'References') + '</span><span class="ref-open-n">' + n + '</span>';
       var dlg = document.createElement('dialog');
       dlg.className = 'ref-drawer';
       dlg.setAttribute('aria-labelledby', h.id);
       dlg.innerHTML = '<div class="ref-drawer-head"><span class="references-count">' + n + '</span>' +
         '<button type="button" class="ref-close" aria-label="' + (hi ? 'बंद करें' : 'Close') + '">&times;</button></div>' +
         '<div class="ref-drawer-body" tabindex="-1" autofocus></div>'; // focus lands on the list, so arrow keys scroll it
-      fn.parentNode.insertBefore(btn, hr || (h.parentNode ? h : fn));
-      btn.after(dlg);
+      fn.parentNode.insertBefore(dlg, hr || (h.parentNode ? h : fn));
+      // the button joins Share and Reply in the row at the end of the post, shown with its own language
+      var box = fn.closest('[lang]');
+      if (box) { btn.lang = box.lang; if (box.hasAttribute('data-keep')) btn.setAttribute('data-keep', ''); }
+      (post.querySelector('.post-links') || dlg.parentNode).appendChild(btn);
       if (hr) hr.remove();
       dlg.firstChild.prepend(h);
       dlg.lastChild.appendChild(fn);

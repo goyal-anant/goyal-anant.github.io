@@ -439,8 +439,9 @@ body.layout-home {
 /* a footnote cited several times gets one ↩, which returns to wherever the reader came from */
 .reversefootnote + .reversefootnote { display: none; }
 /* "Keep reading" cards at the end of a post (see _includes/more-posts.html) */
-.more-posts { margin: 3rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--fg) 15%, transparent); }
-.more-posts h2 { margin: 0 0 1rem; font-size: 1.1rem; font-weight: normal; color: var(--muted); letter-spacing: 0.04em; }
+.more-posts { margin: 2.5rem 0 1rem; }
+.more-posts-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.more-posts h2 { margin: 0; font-size: 1.1rem; font-weight: normal; color: var(--muted); letter-spacing: 0.04em; }
 .more-posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 .more-post:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 3fr; column-gap: 1.25rem; align-content: center; }
 .more-post:only-child img { grid-row: 1 / span 3; margin: 0; }
@@ -453,7 +454,7 @@ body.layout-home {
   .more-post:only-child span { align-self: auto; }
   .more-post:only-child img { margin-bottom: 0.5rem; }
 }
-.more-posts-all { display: inline-block; margin-top: 1.25rem; font-size: 0.9rem; }
+.more-posts-all { font-size: 0.9rem; white-space: nowrap; }
 .more-post { display: flex; flex-direction: column; gap: 0.3rem; color: var(--fg); text-decoration: none; }
 .more-post img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin: 0 0 0.5rem; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .more-post:hover img, .more-post:focus-visible img { transform: translateY(-3px); box-shadow: 0 8px 20px color-mix(in srgb, #000 15%, transparent); }
@@ -462,26 +463,43 @@ body.layout-home {
 .more-post-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.4; }
 .more-post-meta { color: var(--muted); font-size: 0.8rem; }
 @media (prefers-reduced-motion: reduce) { .more-post img { transition: none; } }
-/* references: a button at the bottom right of the post opens them in a drawer (see _layouts/post.html) */
-.ref-open {
+/* the end of a post: a brush mark, then reactions on the left and Share, Reply and References on the right,
+   between two thin rules (see _layouts/post.html) */
+.post-end-mark { width: 4.5rem; height: 0.7rem; margin: 2.5rem auto 0; background: var(--brush-stroke) no-repeat center / 100% 100%; }
+.post-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
-  margin: 1.75rem 0 0 auto;
-  padding: 0.5rem 0.9rem 0.5rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
-  border-radius: 999px;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-top: 2rem;
+  padding: 0.85rem 0;
+  border-block: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+}
+.post-actions #reactions:not([hidden]) { margin: 0; } /* beats the older #reactions margin further down */
+.post-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.4rem; margin-left: auto; }
+.post-links #share, .post-links #reply { margin: 0; }
+/* References opens the drawer; it looks like Share and Reply */
+.ref-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  border: none;
   background: none;
-  color: var(--fg);
+  color: var(--muted);
   font: inherit;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: color 0.15s ease;
 }
-.ref-open:hover, .ref-open:focus-visible { border-color: color-mix(in srgb, var(--fg) 45%, transparent); background: color-mix(in srgb, var(--brush) 18%, transparent); }
-.ref-open-n { color: var(--muted); font-size: 0.8rem; }
-.ref-open svg { width: 1rem; height: 1rem; color: var(--muted); transition: transform 0.2s ease; }
-.ref-open:hover svg { transform: translateX(-2px); }
+.ref-open:hover, .ref-open:focus-visible { color: var(--fg); }
+.ref-open svg { width: 1rem; height: 1rem; }
+.ref-open-n { font-size: 0.8rem; opacity: 0.8; }
+@media (max-width: 520px) {
+  .post-actions { justify-content: flex-start; }
+  .post-links { margin-left: 0; }
+}
 dialog.ref-drawer {
   position: fixed;
   inset: 0 0 0 auto;

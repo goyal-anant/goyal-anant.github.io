@@ -2,7 +2,10 @@
 {% assign others = site.posts | where_exp: "p", "p.url != page.url" %}
 {% if others.size > 0 %}
 <nav class="more-posts" aria-labelledby="more-posts-h">
-  <h2 id="more-posts-h">{% include t.html en="Keep reading" hi="और पढ़िए" %}</h2>
+  <div class="more-posts-head">
+    <h2 id="more-posts-h">{% include t.html en="Keep reading" hi="और पढ़िए" %}</h2>
+    <a class="more-posts-all" href="{{ '/blog/' | relative_url }}">{% include t.html en="All posts" hi="सारी पोस्ट" %} &rarr;</a>
+  </div>
   <div class="more-posts-grid">
     {% for post in others limit: 2 %}
     {% comment %} same numbers as the post's own header: English from its body, Hindi from its Hindi body {% endcomment %}
@@ -16,6 +19,5 @@
     </a>
     {% endfor %}
   </div>
-  <a class="more-posts-all" href="{{ '/blog/' | relative_url }}">{% include t.html en="All posts" hi="सारी पोस्ट" %} &rarr;</a>
 </nav>
 {% endif %}
