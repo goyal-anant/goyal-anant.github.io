@@ -21,7 +21,7 @@ layout: default
   <h1>{% include t.html en=page.title hi=page.title_hi %}</h1>
   {% if page.subtitle %}<p class="post-subtitle">{% include t.html en=page.subtitle hi=page.subtitle_hi %}</p>{% endif %}
   {% comment %} abstract: front matter `abstract:` (and `abstract_hi:`), a few lines on what the post finds, shown before the body {% endcomment %}
-  {% if page.abstract %}<aside class="post-abstract"><span class="post-abstract-label">{% include t.html en="In short" hi="संक्षेप में" %}</span><p>{% include t.html en=page.abstract hi=page.abstract_hi %}</p></aside>{% endif %}
+  {% if page.abstract %}<aside class="post-abstract"><span class="post-abstract-label">{% include t.html en="Abstract" hi="सार" %}</span><p>{% include t.html en=page.abstract hi=page.abstract_hi %}</p></aside>{% endif %}
   {% comment %} share sits after the body, before the "---" + "## References" block if the post has one, else before the footnotes {% endcomment %}
   {% if page.hindi %}
   <div lang="en" data-sections data-minutes="{{ minutes | strip }}">{{ main | first }}</div>
