@@ -726,11 +726,33 @@ html:has([data-sections]) { scroll-padding-top: calc(var(--header-h, 0px) + 3rem
 .section-bar ol { margin: 0; padding: 0.25rem 0 0.75rem 1.5rem; max-height: 60vh; overflow-y: auto; }
 .section-bar li { margin: 0.3rem 0; }
 .section-bar li[aria-current] a { color: var(--fg); font-weight: 600; text-decoration: none; }
-.section-line { height: 2px; background: color-mix(in srgb, var(--fg) 12%, transparent); }
+.section-line { position: relative; height: 2px; background: color-mix(in srgb, var(--fg) 12%, transparent); cursor: pointer; touch-action: none; transition: height 0.15s ease; }
+/* a taller invisible strip makes the 2px line easy to grab */
+.section-line::before { content: ""; position: absolute; inset: -8px 0 -6px; }
+.section-line:hover, .section-line:focus-visible, .section-line.dragging { height: 4px; }
+.section-line:focus-visible { outline: none; }
+.section-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 1px 4px color-mix(in srgb, #000 25%, transparent);
+  opacity: 0;
+  scale: 0.4;
+  pointer-events: none;
+  transition: opacity 0.15s ease, scale 0.15s ease, left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.section-line:hover .section-thumb, .section-line:focus-visible .section-thumb, .section-line.dragging .section-thumb { opacity: 1; scale: 1; }
+/* while dragging, the line follows the pointer exactly */
+.section-line.dragging span, .section-line.dragging .section-thumb { transition: opacity 0.15s ease, scale 0.15s ease; }
 .section-line span { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); /* eases after the scroll, so it flows rather than ticks */
   will-change: transform; }
-@media (prefers-reduced-motion: reduce) { .section-line span { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .section-line span, .section-thumb { transition: none; } }
 .section-resume { margin: 0 0 1.5rem; font-size: 0.95rem; }
 /* "Continue where you left off:" sits on a brush stroke as tall as its letters; the section name after
    it stays a plain link. If the label wraps, each line gets its own stroke. */

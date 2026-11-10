@@ -147,7 +147,7 @@ layout: default
     var bar = document.createElement('div');
     bar.className = 'section-bar';
     bar.hidden = true;
-    bar.innerHTML = '<details><summary><span class="section-now"></span><span class="section-left"></span></summary><ol start="0"></ol></details><div class="section-line"><span></span></div>';
+    bar.innerHTML = '<details><summary><span class="section-now"></span><span class="section-left"></span></summary><ol start="0"></ol></details><div class="section-line" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span><i class="section-thumb"></i></div>';
     document.body.appendChild(bar);
     var details = bar.querySelector('details');
     function box() { return Array.from(boxes).find(function (b) { return b.offsetParent; }) || boxes[0]; }
@@ -170,7 +170,7 @@ layout: default
       var b = box(), r = b.getBoundingClientRect();
       var head = document.querySelector('.site-header');
       if (head) bar.style.top = head.getBoundingClientRect().bottom + 'px'; // flush under the header as it slims down
-      var inBody = b.heads.length && scrollY > 10 && r.bottom > innerHeight / 2; // from the first scroll to the end of the body
+      var inBody = dragging || b.heads.length && scrollY > 10 && r.bottom > innerHeight / 2; // from the first scroll to the end of the body; kept while dragging
       bar.hidden = !inBody;
       if (!inBody) {
         details.open = false;
@@ -189,13 +189,43 @@ layout: default
       var i = current(b), left = Math.ceil(+b.dataset.minutes * (b.total - read) / b.total); // the header's read time, scaled by what is left
       bar.querySelector('.section-now').textContent = i < 0 ? t('Introduction', 'शुरुआत') : (i + 1) + ' / ' + b.heads.length + ' · ' + b.heads[i].textContent;
       bar.querySelector('.section-left').textContent = left > 0 ? t(left + ' min left', left + ' मिनट बाकी') : '';
-      bar.querySelector('.section-line span').style.transform = 'scaleX(' + Math.min(1, Math.max(0, (mid - r.top) / r.height)) + ')';
+      var f = Math.min(1, Math.max(0, (mid - r.top) / r.height));
+      line.firstChild.style.transform = 'scaleX(' + f + ')';
+      line.querySelector('.section-thumb').style.left = (f * 100) + '%';
+      line.setAttribute('aria-valuenow', Math.round(f * 100));
+      line.setAttribute('aria-valuetext', bar.querySelector('.section-now').textContent);
       if (i !== last) {
         last = i;
         if (details.open) list();
         try { if (i > 0) localStorage.setItem(key, b.heads[i].id); } catch (e) {}
       }
     }
+    // the progress line is also a seek bar, like in a music player: press or drag anywhere on it to jump
+    // through the post, or focus it and use the arrow keys (Home and End go to the start and the end)
+    var line = bar.querySelector('.section-line'), dragging = false;
+    line.setAttribute('aria-label', t('Reading progress', 'पढ़ने की प्रगति'));
+    function seek(f) {
+      var r = box().getBoundingClientRect();
+      f = Math.min(0.995, Math.max(0, f)); // 0.995: the very end would hide the bar
+      scrollTo({ top: r.top + scrollY + f * r.height - innerHeight / 2, behavior: 'instant' });
+    }
+    function at(e) { var q = line.getBoundingClientRect(); return (e.clientX - q.left) / q.width; }
+    line.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      line.setPointerCapture(e.pointerId);
+      line.classList.add('dragging');
+      details.open = false;
+      seek(at(e));
+    });
+    line.addEventListener('pointermove', function (e) { if (dragging) seek(at(e)); });
+    function release() { dragging = false; line.classList.remove('dragging'); update(); }
+    line.addEventListener('pointerup', release);
+    line.addEventListener('pointercancel', release);
+    line.addEventListener('keydown', function (e) {
+      var f = +line.getAttribute('aria-valuenow') / 100, step = { ArrowRight: 0.02, ArrowUp: 0.02, ArrowLeft: -0.02, ArrowDown: -0.02 }[e.key];
+      if (step) seek(f + step); else if (e.key === 'Home') seek(0); else if (e.key === 'End') seek(1); else return;
+      e.preventDefault();
+    });
     details.addEventListener('toggle', function () { if (details.open) list(); });
     bar.addEventListener('click', function (e) { if (e.target.closest('a')) details.open = false; });
     document.addEventListener('click', function (e) { if (!bar.contains(e.target)) details.open = false; });
