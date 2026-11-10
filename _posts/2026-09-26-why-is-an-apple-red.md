@@ -5,6 +5,8 @@ title_hi: "सेब लाल क्यों होता है?"
 subtitle_hi: "और अगर उससे लाल छीन लें, तो क्या होता है?"
 hindi: true
 image: /assets/images/why-is-an-apple-red/watercore.jpg
+abstract: >-
+  An apple is green, then red, and then brown, and each colour comes from a different molecule: chlorophyll, anthocyanin, and a brown pigment which a broken cell builds within minutes. My own guess for the brown, that cells go missing, turns out to be wrong. I also look at all this as an electromagnetics person, where every pigment is a tiny tuned receiver, and under a yellow street lamp a red apple can look black.
 ---
 A few questions have been bothering me for a while:
 

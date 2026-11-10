@@ -2,6 +2,8 @@
 title: "The canal goes underground here"
 subtitle: "And how much of the valley is left?"
 image: /assets/images/dehradun/winterline-2010.jpg
+abstract: >-
+  Dehradun was made by water: the valley, the town, and a green century of canals and orchards all came from it. Within a few decades we covered the canals, filled the river beds with sewage and houses, and pumped the groundwater down, and the bowl of the valley now holds heat and smoke. The capital years sped this up, but the rot started long before 2000. Some of it can still be saved.
 ---
 
 I was born and brought up in Dehradun, back when it was a district of Uttar Pradesh. On 9 November 2000 it became the capital of a new state, the 27th state of India, named Uttaranchal.[^act00][^ukportal] So, I was born in one state, but my conscious birth was in Uttaranchal, and that is why Uttaranchal is always close to my heart. Its name was changed to Uttarakhand from 1 January 2007,[^act06] but I still like the old name more for what it means: *anchal* is the end of a mother's sari, the bit which shelters a child, so Uttaranchal is the lap of the north.

@@ -1,0 +1,21 @@
+{% comment %} "Keep reading": up to two other posts as cards (picture, title, subtitle, date and read time), newest first. Shown at the end of every post, above the references. {% endcomment %}
+{% assign others = site.posts | where_exp: "p", "p.url != page.url" %}
+{% if others.size > 0 %}
+<nav class="more-posts" aria-labelledby="more-posts-h">
+  <h2 id="more-posts-h">{% include t.html en="Keep reading" hi="और पढ़िए" %}</h2>
+  <div class="more-posts-grid">
+    {% for post in others limit: 2 %}
+    {% comment %} same numbers as the post's own header: English from its body, Hindi from its Hindi body {% endcomment %}
+    {% capture min %}{% assign post_html = post.content | markdownify %}{% include readtime.html html=post_html %}{% endcapture %}
+    {% if post.hindi %}{% capture post_hi %}{% include hindi.html doc=post %}{% endcapture %}{% capture min_hi %}{% include readtime.html html=post_hi %}{% endcapture %}{% else %}{% assign min_hi = min %}{% endif %}
+    <a class="more-post" href="{{ post.url | relative_url }}">
+      {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" loading="lazy">{% endif %}
+      <span class="more-post-title">{% include t.html en=post.title hi=post.title_hi %}</span>
+      {% if post.subtitle %}<span class="more-post-sub">{% include t.html en=post.subtitle hi=post.subtitle_hi %}</span>{% endif %}
+      <span class="more-post-meta">{% include date.html date=post.date %} &middot; <span lang="en">{{ min | strip }} min read</span><span lang="hi">{{ min_hi | strip }} मिनट</span></span>
+    </a>
+    {% endfor %}
+  </div>
+  <a class="more-posts-all" href="{{ '/blog/' | relative_url }}">{% include t.html en="All posts" hi="सारी पोस्ट" %} &rarr;</a>
+</nav>
+{% endif %}

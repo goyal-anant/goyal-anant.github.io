@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Checks that every "Keep reading" card shows the same read time (English and Hindi) as the post's own header.
+# Builds with future posts into a temp folder, so posts not yet live are checked too.
+set -euo pipefail
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+out="$(mktemp -d)"
+trap 'rm -rf "$out"' EXIT
+"$root/bin/jekyll" build --future --source "$root" --destination "$out" >/dev/null 2>&1
+python3 - "$out" <<'PY'
+import re, sys, pathlib
+site = pathlib.Path(sys.argv[1])
+own, cards = {}, []
+for f in site.glob('blog/**/index.html'):
+    s = f.read_text()
+    m = re.search(r'class="post-readtime">.*?<span lang="en">(\d+) min read</span><span lang="hi">(\d+) मिनट', s, re.S)
+    if not m:
+        continue
+    url = '/' + str(f.parent.relative_to(site)) + '/'
+    own[url] = m.groups()
+    for c in re.finditer(r'class="more-post" href="([^"]+)".*?<span lang="en">(\d+) min read</span><span lang="hi">(\d+) मिनट', s, re.S):
+        cards.append((url, c.group(1), c.groups()[1:]))
+bad = [f'{page}: card for {post} shows {got}, post says {own.get(post)}' for page, post, got in cards if own.get(post) != got]
+print(f'{len(own)} posts, {len(cards)} cards checked')
+if bad:
+    print('\n'.join(bad)); sys.exit(1)
+print('read times match')
+PY

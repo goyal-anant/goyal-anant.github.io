@@ -148,7 +148,7 @@
     var footnoteHash = null;
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a.footnote, a.reversefootnote');
-      if (!a) return;
+      if (!a || e.defaultPrevented) return; // a citation that opened its pop-up did not jump
       if (a.classList.contains('footnote')) {
         footnoteHash = a.hash;
       } else if (footnoteHash) {

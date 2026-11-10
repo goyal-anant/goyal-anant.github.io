@@ -17,6 +17,7 @@
   --accent: #2b5dd6;
   --strip: rgb(120, 0, 0);
   --brush: rgb(245, 190, 70);
+  --brush-stroke: #{"url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath fill='rgb(245,190,70)' fill-opacity='0.55' d='M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z'/%3E%3C/svg%3E\")"}; /* --brush as a stroke, for inline text that wraps */
   --strip-w: 64px;
   /* abstract art on the home page and the contact card */
   --art-ink: #1f1b18;
@@ -34,6 +35,7 @@
   --accent: #7aa6ff;
   --strip: #6b1d24;
   --brush: rgb(190, 130, 40);
+  --brush-stroke: #{"url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath fill='rgb(190,130,40)' fill-opacity='0.55' d='M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z'/%3E%3C/svg%3E\")"}; /* --brush as a stroke, for inline text that wraps */
   --art-ink: #e8e8e8;
   --art-maroon: #8e2a2f;
   --art-turmeric: rgb(200, 140, 40);
@@ -50,6 +52,7 @@
     --accent: #7aa6ff;
     --strip: #6b1d24;
   --brush: rgb(190, 130, 40);
+  --brush-stroke: #{"url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath fill='rgb(190,130,40)' fill-opacity='0.55' d='M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z'/%3E%3C/svg%3E\")"}; /* --brush as a stroke, for inline text that wraps */
     --art-ink: #e8e8e8;
     --art-maroon: #8e2a2f;
     --art-turmeric: rgb(200, 140, 40);
@@ -435,6 +438,76 @@ body.layout-home {
 .post { overflow-wrap: break-word; }
 /* a footnote cited several times gets one ↩, which returns to wherever the reader came from */
 .reversefootnote + .reversefootnote { display: none; }
+/* "Keep reading" cards at the end of a post (see _includes/more-posts.html) */
+.more-posts { margin: 3rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--fg) 15%, transparent); }
+.more-posts h2 { margin: 0 0 1rem; font-size: 1.1rem; font-weight: normal; color: var(--muted); letter-spacing: 0.04em; }
+.more-posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.more-post:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 3fr; column-gap: 1.25rem; align-content: center; }
+.more-post:only-child img { grid-row: 1 / span 3; margin: 0; }
+.more-post:only-child span { align-self: end; }
+.more-post:only-child .more-post-sub { align-self: start; }
+.more-post:only-child .more-post-meta { align-self: start; }
+@media (max-width: 520px) {
+  .more-posts-grid { grid-template-columns: 1fr; }
+  .more-post:only-child { display: flex; }
+  .more-post:only-child span { align-self: auto; }
+  .more-post:only-child img { margin-bottom: 0.5rem; }
+}
+.more-posts-all { display: inline-block; margin-top: 1.25rem; font-size: 0.9rem; }
+.more-post { display: flex; flex-direction: column; gap: 0.3rem; color: var(--fg); text-decoration: none; }
+.more-post img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin: 0 0 0.5rem; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.more-post:hover img, .more-post:focus-visible img { transform: translateY(-3px); box-shadow: 0 8px 20px color-mix(in srgb, #000 15%, transparent); }
+.more-post-title { font-size: 1.2rem; line-height: 1.3; }
+.more-post:hover .more-post-title, .more-post:focus-visible .more-post-title { color: var(--link); }
+.more-post-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.4; }
+.more-post-meta { color: var(--muted); font-size: 0.8rem; }
+@media (prefers-reduced-motion: reduce) { .more-post img { transition: none; } }
+/* references fold at the bottom of a post (see _layouts/post.html) */
+details.references > summary { display: flex; align-items: baseline; gap: 0.6rem; cursor: pointer; list-style: none; }
+details.references > summary::-webkit-details-marker { display: none; }
+details.references > summary h2 { margin: 0; }
+details.references > summary::after { content: "\25B8"; color: var(--muted); transition: transform 0.2s ease; }
+details.references[open] > summary::after { transform: rotate(90deg); }
+.references-count { color: var(--muted); font-size: 0.9rem; }
+details.references > .footnotes { margin-top: 1rem; }
+/* a citation number opens its reference here */
+#ref-pop {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  width: min(24rem, calc(100vw - 24px));
+  padding: 0.8rem 1rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 30px color-mix(in srgb, #000 18%, transparent);
+  overflow: visible;
+  opacity: 0;
+  translate: 0 4px;
+  transition: opacity 0.18s ease, translate 0.18s ease, display 0.18s allow-discrete, overlay 0.18s allow-discrete;
+}
+#ref-pop:popover-open { opacity: 1; translate: 0 0; }
+@starting-style { #ref-pop:popover-open { opacity: 0; translate: 0 4px; } }
+#ref-pop::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: calc(var(--arrow, 50%) - 6px);
+  width: 10px;
+  height: 10px;
+  background: var(--bg);
+  border-left: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  rotate: 45deg;
+}
+#ref-pop.above::before { top: auto; bottom: -6px; rotate: 225deg; }
+#ref-pop p { margin: 0; }
+.ref-pop-n { float: left; margin-right: 0.5rem; color: var(--muted); font-size: 0.8rem; line-height: 1.9; }
+.ref-pop-all { display: block; margin-top: 0.5rem; color: var(--muted); font-size: 0.8rem; text-align: right; }
+@media (prefers-reduced-motion: reduce) { #ref-pop { transition: none; } }
 /* wide display equations scroll inside themselves on phones */
 .post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
 .post-readtime { color: var(--muted); }
@@ -499,7 +572,84 @@ body.layout-home {
   color: var(--muted);
   font-size: 1.15rem;
 }
+/* the abstract under the title: a short summary set off by a brush-coloured rule */
+.post-abstract {
+  margin: 1.75rem 0 2rem;
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  border-left: 3px solid var(--brush);
+}
+.post-abstract-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.post-abstract p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: color-mix(in srgb, var(--fg) 85%, var(--bg));
+}
 .post figure { margin: 1.5rem auto; }
+/* sections (every post, see _layouts/post.html): a bar under the pinned header
+   with the current section and minutes left, and more room plus a "5 / 10" over each heading */
+.post [data-sections] > h2 { margin-top: 3.5rem; }
+.post [data-sections] > h2[data-n]::before {
+  content: attr(data-n);
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+}
+html:has([data-sections]) { scroll-padding-top: calc(var(--header-h, 0px) + 3rem); }
+.section-bar {
+  position: fixed;
+  top: var(--header-h, 0px);
+  left: var(--strip-w);
+  right: 0;
+  z-index: 4;
+  padding-inline: max(1.5rem, calc(50% - var(--strip-w) / 2 - 360px + 1.5rem));
+  background: color-mix(in srgb, var(--song-tint, var(--bg)) 20%, var(--bg)); /* same as body */
+  font-size: 0.85rem;
+}
+.section-bar[hidden] { display: none; }
+.section-bar summary {
+  display: flex;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  list-style: none;
+  cursor: pointer;
+  color: var(--fg);
+}
+.section-bar summary::-webkit-details-marker { display: none; }
+.section-now { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.section-now::after { content: " \25BE"; color: var(--muted); }
+.section-left { color: var(--muted); white-space: nowrap; }
+.section-bar ol { margin: 0; padding: 0.25rem 0 0.75rem 1.5rem; max-height: 60vh; overflow-y: auto; }
+.section-bar li { margin: 0.3rem 0; }
+.section-bar li[aria-current] a { color: var(--fg); font-weight: 600; text-decoration: none; }
+.section-line { height: 2px; background: color-mix(in srgb, var(--fg) 12%, transparent); }
+.section-line span { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); /* eases after the scroll, so it flows rather than ticks */
+  will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .section-line span { transition: none; } }
+.section-resume { margin: 0 0 1.5rem; font-size: 0.95rem; }
+/* "Continue where you left off:" sits on a brush stroke as tall as its letters; the section name after
+   it stays a plain link. If the label wraps, each line gets its own stroke. */
+.section-resume a { text-decoration: none; }
+.section-resume-label {
+  padding: 0.15em 0.45em 0.2em 0.35em;
+  color: var(--fg);
+  background: var(--brush-stroke) no-repeat center / 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.section-resume a:hover, .section-resume a:focus-visible { text-decoration: underline; text-underline-offset: 0.2em; }
 .post figure svg,
 .post figure img { display: block; margin: 0 auto; }
 .post img { display: block; max-width: 100%; height: auto; margin: 0 auto; }

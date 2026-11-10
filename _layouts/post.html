@@ -20,13 +20,15 @@ layout: default
   <p class="post-date">{% include date.html date=page.date %} <span class="post-readtime">&middot; <span lang="en">{{ minutes | strip }} min read</span><span lang="hi">{{ minutes_hi | default: minutes | strip }} मिनट</span></span></p>
   <h1>{% include t.html en=page.title hi=page.title_hi %}</h1>
   {% if page.subtitle %}<p class="post-subtitle">{% include t.html en=page.subtitle hi=page.subtitle_hi %}</p>{% endif %}
+  {% comment %} abstract: front matter `abstract:` (and `abstract_hi:`), a few lines on what the post finds, shown before the body {% endcomment %}
+  {% if page.abstract %}<aside class="post-abstract"><span class="post-abstract-label">{% include t.html en="In short" hi="संक्षेप में" %}</span><p>{% include t.html en=page.abstract hi=page.abstract_hi %}</p></aside>{% endif %}
   {% comment %} share sits after the body, before the "---" + "## References" block if the post has one, else before the footnotes {% endcomment %}
   {% if page.hindi %}
-  <div lang="en">{{ main | first }}</div>
-  <div lang="hi">{{ hi_main | first }}</div>
+  <div lang="en" data-sections data-minutes="{{ minutes | strip }}">{{ main | first }}</div>
+  <div lang="hi" data-sections data-minutes="{{ minutes_hi | strip }}">{{ hi_main | first }}</div>
   {% else %}
   <p lang="hi" class="hi-missing">इस पोस्ट का हिंदी वर्शन अभी नहीं बना है, तब तक अंग्रेज़ी में पढ़ लीजिए।</p>
-  <div lang="en" data-keep>{{ main | first }}</div>
+  <div lang="en" data-keep data-sections data-minutes="{{ minutes | strip }}">{{ main | first }}</div>
   {% endif %}
   {% if site.reactions_url and site.reactions_url != "" %}
   {% comment %} stays hidden until the counts load, so readers never see dead buttons if the Worker is down {% endcomment %}
@@ -49,6 +51,7 @@ layout: default
     </svg>
     <span>{% include t.html en="Reply by email" hi="ईमेल से जवाब दें" %}</span>
   </a>
+  {% include more-posts.html %}
   {% if page.hindi %}
   {% if main.size > 1 %}<div lang="en">{{ tail }}{{ main | last }}</div>{% endif %}
   {% if hi_main.size > 1 %}<div lang="hi">{{ hi_tail }}{{ hi_main | last }}</div>{% endif %}
@@ -102,6 +105,167 @@ layout: default
         .then(show)
         .catch(function () {});
     });
+  })();
+  // sections: every post with "## " headings gets a slim bar under the site header from the first scroll
+  // to the end of the body (current section, a progress line, minutes left, tap for the section list), a "5 / 10" over
+  // each "## " heading, and a link back to where a returning reader stopped. The post stays one page.
+  (function () {
+    var boxes = document.querySelectorAll('.post [data-sections]');
+    if (!boxes.length) return;
+    var key = 'section:' + location.pathname;
+    function words(el) {
+      // same rule as _includes/readtime.html: no figures, no "Figure N." captions, no footnote numbers
+      if (el.nodeType !== 1 || el.matches('figure')) return 0;
+      var em = el.firstElementChild;
+      if (el.matches('p') && em && em.matches('em') && /^(Figure|चित्र) \d/.test(em.textContent)) return 0;
+      var c = el.cloneNode(true);
+      c.querySelectorAll('figure, sup[role="doc-noteref"]').forEach(function (n) { n.remove(); });
+      return c.textContent.split(/\s+/).filter(Boolean).length;
+    }
+    boxes.forEach(function (box) {
+      box.blocks = Array.from(box.children).map(function (el) { return { el: el, w: words(el) }; });
+      box.total = box.blocks.reduce(function (a, b) { return a + b.w; }, 0);
+      box.heads = Array.from(box.querySelectorAll(':scope > h2'));
+      box.heads.forEach(function (h, i) { h.dataset.n = (i + 1) + ' / ' + box.heads.length; });
+    });
+    var bar = document.createElement('div');
+    bar.className = 'section-bar';
+    bar.hidden = true;
+    bar.innerHTML = '<details><summary><span class="section-now"></span><span class="section-left"></span></summary><ol start="0"></ol></details><div class="section-line"><span></span></div>';
+    document.body.appendChild(bar);
+    var details = bar.querySelector('details');
+    function box() { return Array.from(boxes).find(function (b) { return b.offsetParent; }) || boxes[0]; }
+    function current(b) {
+      // a heading in the top part of the screen (where #links land, even under the full header on load) counts as being in it
+      var y = Math.max(bar.getBoundingClientRect().bottom + 40, innerHeight * 0.3);
+      var i = -1;
+      b.heads.forEach(function (h, j) { if (h.getBoundingClientRect().top <= y + 1) i = j; });
+      return i;
+    }
+    function list() {
+      var b = box(), i = current(b);
+      // the opening, before the first heading, is item 0 and links back to the top of the post
+      bar.querySelector('ol').innerHTML = '<li' + (i < 0 ? ' aria-current="true"' : '') + '><a href="#">' + t('Introduction', 'शुरुआत') + '</a></li>' + b.heads.map(function (h, j) {
+        return '<li' + (j === i ? ' aria-current="true"' : '') + '><a href="#' + h.id + '">' + h.textContent + '</a></li>';
+      }).join('');
+    }
+    var last = null;
+    function update() {
+      var b = box(), r = b.getBoundingClientRect();
+      var head = document.querySelector('.site-header');
+      if (head) bar.style.top = head.getBoundingClientRect().bottom + 'px'; // flush under the header as it slims down
+      var inBody = b.heads.length && scrollY > 10 && r.bottom > innerHeight / 2; // from the first scroll to the end of the body
+      bar.hidden = !inBody;
+      if (!inBody) {
+        details.open = false;
+        if (r.bottom < innerHeight / 2) { try { localStorage.removeItem(key); } catch (e) {} } // read to the end
+        return;
+      }
+      // minutes left go by words read (blocks above the middle of the screen in full, the one crossing it
+      // by the part above); the line goes by distance through the body, so it moves with every pixel of
+      // scroll and does not stall over figures, which have no words
+      var read = 0, mid = innerHeight / 2;
+      b.blocks.forEach(function (k) {
+        if (!k.w) return;
+        var q = k.el.getBoundingClientRect();
+        if (q.top < mid) read += k.w * Math.min(1, (mid - q.top) / (q.height || 1));
+      });
+      var i = current(b), left = Math.ceil(+b.dataset.minutes * (b.total - read) / b.total); // the header's read time, scaled by what is left
+      bar.querySelector('.section-now').textContent = i < 0 ? t('Introduction', 'शुरुआत') : (i + 1) + ' / ' + b.heads.length + ' · ' + b.heads[i].textContent;
+      bar.querySelector('.section-left').textContent = left > 0 ? t(left + ' min left', left + ' मिनट बाकी') : '';
+      bar.querySelector('.section-line span').style.transform = 'scaleX(' + Math.min(1, Math.max(0, (mid - r.top) / r.height)) + ')';
+      if (i !== last) {
+        last = i;
+        if (details.open) list();
+        try { if (i > 0) localStorage.setItem(key, b.heads[i].id); } catch (e) {}
+      }
+    }
+    details.addEventListener('toggle', function () { if (details.open) list(); });
+    bar.addEventListener('click', function (e) { if (e.target.closest('a')) details.open = false; });
+    document.addEventListener('click', function (e) { if (!bar.contains(e.target)) details.open = false; });
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; update(); }); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    document.addEventListener('langchange', function () { last = null; update(); });
+    // a returning reader who stopped midway gets a link back to that section, under the title
+    var saved = null;
+    try { saved = localStorage.getItem(key); } catch (e) {}
+    var h = saved && !location.hash && document.getElementById(saved);
+    if (h) {
+      boxes.forEach(function (b) {
+        if (!b.contains(h)) return;
+        b.insertAdjacentHTML('afterbegin', '<p class="section-resume"><a href="#' + h.id + '"><span class="section-resume-label">' +
+          t('Continue where you left off:', 'जहाँ छोड़ा था वहीं से पढ़ें:') + '</span> ' + h.textContent + ' &darr;</a></p>');
+      });
+    }
+    update();
+  })();
+  // references: the list at the bottom starts folded ("References (67)"); a citation number opens its
+  // reference in a small pop-up next to it instead of jumping down. Without JS (or without the popover API)
+  // the list stays open and the numbers jump to it as before.
+  (function () {
+    var post = document.querySelector('.post');
+    var refs = [];
+    post.querySelectorAll('.footnotes').forEach(function (fn) {
+      var h = fn.previousElementSibling;
+      while (h && h.nodeName !== 'H2') h = h.previousElementSibling;
+      var d = document.createElement('details');
+      d.className = 'references';
+      var sm = document.createElement('summary');
+      var n = fn.querySelectorAll('li').length;
+      if (h) { fn.parentNode.insertBefore(d, h); sm.appendChild(h); }
+      else { fn.parentNode.insertBefore(d, fn); sm.innerHTML = '<h2>' + t('References', 'संदर्भ') + '</h2>'; }
+      sm.insertAdjacentHTML('beforeend', '<span class="references-count">' + n + '</span>');
+      d.appendChild(sm);
+      d.appendChild(fn);
+      refs.push(d);
+    });
+    // a link straight to a reference (#fn:..., or the pop-up's "all references") unfolds the list first
+    function unfold() {
+      var el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      refs.forEach(function (d) { if (el && d.contains(el) && !d.open) { d.open = true; el.scrollIntoView(); } });
+    }
+    addEventListener('hashchange', unfold);
+    unfold();
+
+    if (!HTMLElement.prototype.hasOwnProperty('popover')) return;
+    var pop = document.createElement('div');
+    pop.id = 'ref-pop';
+    pop.setAttribute('popover', '');
+    pop.setAttribute('role', 'note');
+    document.body.appendChild(pop);
+    var from = null;
+    function place() {
+      if (!from) return;
+      var a = from.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight, m = 12;
+      var x = Math.min(Math.max(m, a.left + a.width / 2 - w / 2), innerWidth - w - m);
+      var below = a.bottom + 8 + h < innerHeight - m || a.top - 8 - h < 80;
+      pop.style.left = x + 'px';
+      pop.style.top = (below ? a.bottom + 8 : a.top - 8 - h) + 'px';
+      pop.style.setProperty('--arrow', (a.left + a.width / 2 - x) + 'px');
+      pop.classList.toggle('above', !below);
+    }
+    post.addEventListener('click', function (e) {
+      var a = e.target.closest('a.footnote');
+      if (!a) return;
+      var li = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+      if (!li) return;
+      e.preventDefault();
+      if (from === a && pop.matches(':popover-open')) { pop.hidePopover(); return; }
+      var body = li.cloneNode(true);
+      body.querySelectorAll('.reversefootnote').forEach(function (r) { r.remove(); });
+      pop.innerHTML = '<span class="ref-pop-n">' + a.textContent + '</span>' + body.innerHTML +
+        '<a class="ref-pop-all" href="' + a.hash + '">' + t('All references', 'सभी संदर्भ') + ' &darr;</a>';
+      from = a;
+      if (!pop.matches(':popover-open')) pop.showPopover();
+      place();
+    });
+    pop.addEventListener('toggle', function (e) { if (e.newState === 'closed') from = null; });
+    pop.addEventListener('click', function (e) { if (e.target.closest('.ref-pop-all')) pop.hidePopover(); });
+    addEventListener('scroll', place, { passive: true });
+    addEventListener('resize', place);
   })();
   // footnote references written back to back ([^a][^b]) get a comma between them: 22,24 not 2224
   document.querySelectorAll('sup[role="doc-noteref"]').forEach(function (s) {
