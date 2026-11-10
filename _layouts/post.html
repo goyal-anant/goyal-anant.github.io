@@ -202,33 +202,73 @@ layout: default
     }
     update();
   })();
-  // references: the list at the bottom starts folded ("References (67)"); a citation number opens its
-  // reference in a small pop-up next to it instead of jumping down. Without JS (or without the popover API)
-  // the list stays open and the numbers jump to it as before.
+  // references: the list leaves the end of the post and goes into a drawer. A quiet "References 67" button
+  // sits at the bottom right; it slides the list in from the right (from the bottom on a phone) over the
+  // post, and closing it (x, Esc, or a tap outside) leaves the reader where they were. A citation number opens
+  // its reference in a small pop-up next to it, whose "All references" opens the drawer at that reference.
+  // Without JS the list stays at the end of the post as before; print always shows it there.
   (function () {
     var post = document.querySelector('.post');
-    var refs = [];
+    var drawers = [];
     post.querySelectorAll('.footnotes').forEach(function (fn) {
+      var hi = (fn.closest('[lang]') || {}).lang === 'hi';
+      var n = fn.querySelectorAll('li').length;
       var h = fn.previousElementSibling;
       while (h && h.nodeName !== 'H2') h = h.previousElementSibling;
-      var d = document.createElement('details');
-      d.className = 'references';
-      var sm = document.createElement('summary');
-      var n = fn.querySelectorAll('li').length;
-      if (h) { fn.parentNode.insertBefore(d, h); sm.appendChild(h); }
-      else { fn.parentNode.insertBefore(d, fn); sm.innerHTML = '<h2>' + t('References', 'संदर्भ') + '</h2>'; }
-      sm.insertAdjacentHTML('beforeend', '<span class="references-count">' + n + '</span>');
-      d.appendChild(sm);
-      d.appendChild(fn);
-      refs.push(d);
+      var hr = h && h.previousElementSibling && h.previousElementSibling.nodeName === 'HR' ? h.previousElementSibling : null;
+      if (!h) { h = document.createElement('h2'); h.id = hi ? 'hi-references' : 'references'; h.textContent = hi ? 'संदर्भ' : 'References'; }
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ref-open';
+      btn.innerHTML = '<span>' + (hi ? 'संदर्भ' : 'References') + '</span><span class="ref-open-n">' + n + '</span>' +
+        '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>';
+      var dlg = document.createElement('dialog');
+      dlg.className = 'ref-drawer';
+      dlg.setAttribute('aria-labelledby', h.id);
+      dlg.innerHTML = '<div class="ref-drawer-head"><span class="references-count">' + n + '</span>' +
+        '<button type="button" class="ref-close" aria-label="' + (hi ? 'बंद करें' : 'Close') + '">&times;</button></div>' +
+        '<div class="ref-drawer-body" tabindex="-1" autofocus></div>'; // focus lands on the list, so arrow keys scroll it
+      fn.parentNode.insertBefore(btn, hr || (h.parentNode ? h : fn));
+      btn.after(dlg);
+      if (hr) hr.remove();
+      dlg.firstChild.prepend(h);
+      dlg.lastChild.appendChild(fn);
+      btn.addEventListener('click', function () { open(dlg); });
+      dlg.querySelector('.ref-close').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (e) {
+        if (e.target === dlg) return dlg.close(); // the dimmed area outside the panel
+        // a reference's back link closes the drawer and shows where it is cited
+        var back = e.target.closest('a.reversefootnote');
+        if (!back) return;
+        e.preventDefault();
+        dlg.close();
+        var cite = document.getElementById(decodeURIComponent(back.hash.slice(1)));
+        if (cite) { cite.scrollIntoView({ block: 'center' }); flash(cite); }
+      });
+      drawers.push(dlg);
     });
-    // a link straight to a reference (#fn:..., or the pop-up's "all references") unfolds the list first
-    function unfold() {
-      var el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
-      refs.forEach(function (d) { if (el && d.contains(el) && !d.open) { d.open = true; el.scrollIntoView(); } });
+    function flash(el) {
+      el.classList.remove('ref-flash');
+      void el.offsetWidth;
+      el.classList.add('ref-flash');
     }
-    addEventListener('hashchange', unfold);
-    unfold();
+    function open(dlg, li) {
+      if (!dlg.open) dlg.showModal();
+      var body = dlg.querySelector('.ref-drawer-body');
+      if (li) { body.scrollTop = li.offsetTop - body.clientHeight / 3; flash(li); } else body.scrollTop = 0;
+    }
+    function openAt(el) {
+      var d = drawers.find(function (d) { return d.contains(el); });
+      if (d) open(d, el.closest('li'));
+      return !!d;
+    }
+    // a link straight to a reference (#fn:..., #references) opens the drawer at it
+    function route() {
+      var el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (el) openAt(el);
+    }
+    addEventListener('hashchange', route);
+    route();
 
     if (!HTMLElement.prototype.hasOwnProperty('popover')) return;
     var pop = document.createElement('div');
@@ -257,13 +297,19 @@ layout: default
       var body = li.cloneNode(true);
       body.querySelectorAll('.reversefootnote').forEach(function (r) { r.remove(); });
       pop.innerHTML = '<span class="ref-pop-n">' + a.textContent + '</span>' + body.innerHTML +
-        '<a class="ref-pop-all" href="' + a.hash + '">' + t('All references', 'सभी संदर्भ') + ' &darr;</a>';
+        '<a class="ref-pop-all" href="' + a.hash + '">' + t('All references', 'सभी संदर्भ') + ' &rarr;</a>';
       from = a;
       if (!pop.matches(':popover-open')) pop.showPopover();
       place();
     });
     pop.addEventListener('toggle', function (e) { if (e.newState === 'closed') from = null; });
-    pop.addEventListener('click', function (e) { if (e.target.closest('.ref-pop-all')) pop.hidePopover(); });
+    pop.addEventListener('click', function (e) {
+      var all = e.target.closest('.ref-pop-all');
+      if (!all) return;
+      e.preventDefault();
+      pop.hidePopover();
+      openAt(document.getElementById(decodeURIComponent(all.hash.slice(1))));
+    });
     addEventListener('scroll', place, { passive: true });
     addEventListener('resize', place);
   })();
