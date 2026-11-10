@@ -465,7 +465,7 @@ body.layout-home {
 @media (prefers-reduced-motion: reduce) { .more-post img { transition: none; } }
 /* the end of a post: a brush mark, then reactions on the left and Share, Reply and References on the right,
    between two thin rules (see _layouts/post.html) */
-.post-end-mark { width: 4.5rem; height: 0.7rem; margin: 2.5rem auto 0; background: var(--brush-stroke) no-repeat center / 100% 100%; }
+.post-end-mark { display: block; width: 4.5rem; height: 0.7rem; margin: 2.5rem auto 0; overflow: visible; }
 .post-actions {
   display: flex;
   flex-wrap: wrap;

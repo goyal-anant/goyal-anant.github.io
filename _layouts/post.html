@@ -31,7 +31,17 @@ layout: default
   <div lang="en" data-keep data-sections data-minutes="{{ minutes | strip }}">{{ main | first }}</div>
   {% endif %}
   {% comment %} the end of the post: a brush mark, then one row with reactions on the left and Share, Reply and References (moved in by the script) on the right {% endcomment %}
-  <div class="post-end-mark" aria-hidden="true"></div>
+  {% comment %} the brush stroke in the maroon and pigment grain of the big disc in the home art (assets/js/abstract-art.js) {% endcomment %}
+  <svg class="post-end-mark" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true">
+    <filter id="end-pigment" x="-10%" y="-30%" width="120%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="2" seed="9" result="g"/>
+      <feColorMatrix in="g" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.35 1.12" result="ga"/>
+      <feComposite in="d" in2="ga" operator="in"/>
+    </filter>
+    <path d="M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z" style="fill:var(--art-maroon)" filter="url(#end-pigment)"/>
+  </svg>
   <div class="post-actions">
   {% if site.reactions_url and site.reactions_url != "" %}
   {% comment %} stays hidden until the counts load, so readers never see dead buttons if the Worker is down {% endcomment %}
