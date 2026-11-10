@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- home-page art in miniature: turmeric stroke, maroon disc, indigo square -->
+  <rect width="64" height="64" rx="12" fill="#f6f1e7"/>
+  <path d="M8 48 Q32 40 56 46" stroke="rgb(226,158,38)" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <circle cx="38" cy="27" r="17" fill="rgb(120,0,0)"/>
+  <rect x="8" y="16" width="10" height="10" fill="rgb(36,52,104)" transform="rotate(-7 13 21)"/>
+</svg>

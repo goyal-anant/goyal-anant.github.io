@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-hi="{% if page.title %}{{ page.title_hi | default: page.title }} &middot; {% endif %}{{ site.title_hi }}">{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
+  <title data-hi="{% if page.title and page.layout != 'home' %}{{ page.title_hi | default: page.title }} &middot; {% endif %}{{ site.title_hi }}">{% if page.title and page.layout != 'home' %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
   {% assign description = page.subtitle | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | default: site.description %}
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta name="description" content="{{ description | escape }}">
@@ -15,6 +15,16 @@
   {% comment %}pages without their own image share the contact card{% endcomment %}
   <meta property="og:image" content="{{ page.image | default: '/assets/images/contact-card-ag.jpg' | absolute_url }}">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/images/favicon-48.png' | relative_url }}" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+  {% if page.layout == 'home' %}
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person", "name": "Anant Goyal", "alternateName": "अनंत गोयल",
+   "url": "{{ '/' | absolute_url }}", "image": "{{ '/assets/images/profile.jpg' | absolute_url }}",
+   "jobTitle": "PhD student", "affiliation": {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Madras"}}
+  </script>
+  {% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap">
