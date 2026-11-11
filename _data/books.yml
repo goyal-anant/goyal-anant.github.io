@@ -287,3 +287,10 @@
   author: "Douglas R. Hofstadter"
   genre: nonfiction
   status: want-to-read
+- title: "The Vegetarian"
+  link: "https://www.goodreads.com/book/show/25489025-the-vegetarian"
+  thumbnail: "/assets/images/books/the-vegetarian.jpg"
+  author: "Han Kang"
+  genre: nonfiction
+  status: half-done
+  summary: "sensual horror"
