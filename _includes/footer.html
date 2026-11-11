@@ -9,6 +9,9 @@
     <a href="mailto:anantnug@gmail.com" aria-label="Email" data-hi-aria-label="ईमेल">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
     </a>
+    <a href="{{ '/feed.xml' | relative_url }}" type="application/atom+xml" aria-label="Subscribe via RSS" title="Subscribe via RSS" data-hi-title="RSS से सब्सक्राइब करें" data-hi-aria-label="RSS से सब्सक्राइब करें">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.25" fill="currentColor"/></svg>
+    </a>
   </div>
   <p><a href="{{ site.private_url }}" style="color: inherit; text-decoration: inherit;">&copy;</a> {{ site.time | date: '%Y' }} {% include t.html en=site.title hi=site.title_hi %}</p>
   <p class="last-updated">{% include t.html en="Last updated:" hi="आख़िरी अपडेट:" %} {% include date.html date=site.time long=true %}</p>

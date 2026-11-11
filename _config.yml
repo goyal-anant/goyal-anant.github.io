@@ -5,7 +5,7 @@ title: Anant Goyal
 # The gap between the two words is a span of its own, hidden in English.
 title_hi: अनंत गोयल
 title_hi_letters: "अ|नं|त| |गो|य|ल"
-description: "Anant Goyal: PhD student in electromagnetics at IIT Madras. Writing, research, music, and books."
+description: "I am Anant Goyal, a PhD student at IIT Madras. I write about the things I build and the questions that keep bugging me."
 url: "https://anantnug.com"
 baseurl: ""
 # Future-dated posts stay hidden until this date/time here; .github/workflows/publish-scheduled.yml rebuilds daily so they go live.
@@ -60,6 +60,15 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
 
-# Generates /sitemap.xml so search engines can find every page
+# Generates /sitemap.xml so search engines can find every page,
+# and /feed.xml (Atom) of the posts for feed readers and RSS-to-email
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
+
+# Byline for feed entries
+author: Anant Goyal
+# Feed readers drop scripts and maths, so send the title and first paragraph
+# and let people click through to the real post
+feed:
+  excerpt_only: true
