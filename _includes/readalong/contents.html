@@ -1,0 +1,17 @@
+{% comment %} A book's contents for its read-along index: every chapter, and for the chapters started so far every
+  section, linked when it has a page. include.book is the key of its _data file (e.g. "balanis"). {% endcomment %}
+{% assign book = site.data[include.book] %}
+<ol class="readalong-contents">
+{% for ch in book.chapters %}
+  <li{% unless ch.sections %} class="readalong-later"{% endunless %}>
+    <span class="readalong-ch"><span class="readalong-n">{{ ch.n }}</span> {{ ch.title }}</span>
+    {% if ch.sections %}
+    <ol>
+    {% for s in ch.sections %}
+      <li>{% if s.slug %}{% capture url %}/read-along/{{ include.book }}/{{ s.slug }}/{% endcapture %}<a href="{{ url | relative_url }}" data-done-url="{{ url }}"><span class="readalong-n">§{{ s.n }}</span> {{ s.title }}</a>{% else %}<span class="readalong-n">§{{ s.n }}</span> {{ s.title }}{% endif %}</li>
+    {% endfor %}
+    </ol>
+    {% endif %}
+  </li>
+{% endfor %}
+</ol>

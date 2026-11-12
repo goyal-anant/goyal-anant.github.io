@@ -1,0 +1,52 @@
+---
+layout: default
+---
+{% comment %}
+  Read-along pages (_readalong/, rules in content/balanis/CLAUDE.md). A section page has front matter
+  `book: balanis` and `section: "2.2"`, and takes its number, title and pages from _data/<book>.yml. Any other page
+  (the landing page, a book's contents, the toolbox) is a plain page with the same look.
+  English only: no Hindi toggle, and the body is data-keep so it shows whatever language was stored.
+{% endcomment %}
+{% assign book = site.data[page.book] %}
+{% if page.section %}
+  {% assign order = "" | split: "" %}
+  {% for ch in book.chapters %}{% for s in ch.sections %}{% if s.slug %}{% assign order = order | push: s %}{% endif %}{% if s.n == page.section %}{% assign sec = s %}{% assign chapter = ch %}{% endif %}{% endfor %}{% endfor %}
+  {% for s in order %}{% if s.n == page.section %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+  {% if i > 0 %}{% assign h = i | minus: 1 %}{% assign before = order[h] %}{% endif %}
+  {% assign j = i | plus: 1 %}{% assign after = order[j] %}
+{% endif %}
+<article class="post readalong">
+  {% capture minutes %}{% include readtime.html html=content %}{% endcapture %}
+  {% capture tail %}<hr />
+
+<h2 id="references"{% endcapture %}
+  {% unless content contains tail %}{% assign tail = '<div class="footnotes"' %}{% endunless %}
+  {% assign main = content | split: tail %}
+  {% if sec %}
+  <p class="post-date readalong-crumb"><a href="{{ book.url | relative_url }}">{{ book.short }}, <i>{{ book.title }}</i></a> &middot; Ch {{ chapter.n }} &middot; pp. {{ sec.pages }} <span class="post-readtime">&middot; {{ minutes | strip }} min read</span></p>
+  <h1><span class="readalong-n">§{{ sec.n }}</span> {{ sec.title }}</h1>
+  {% else %}
+  <h1>{{ page.title }}</h1>
+  {% endif %}
+  {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
+  <div lang="en" data-keep data-sections data-minutes="{{ minutes | strip }}">{{ main | first }}</div>
+  {% if sec %}
+  <label class="readalong-done"><input type="checkbox" data-done="{{ page.url }}"> I have worked through §{{ sec.n }}</label>
+  <nav class="readalong-pager" aria-label="Sections">
+    {% if before %}<a rel="prev" href="{{ '/read-along/' | append: page.book | append: '/' | append: before.slug | append: '/' | relative_url }}"><span>&larr; §{{ before.n }}</span>{{ before.title }}</a>{% endif %}
+    {% if after %}<a rel="next" href="{{ '/read-along/' | append: page.book | append: '/' | append: after.slug | append: '/' | relative_url }}"><span>§{{ after.n }} &rarr;</span>{{ after.title }}</a>{% endif %}
+  </nav>
+  {% endif %}
+  <div class="post-actions">
+    <div class="post-links">
+      <a id="reply" href="mailto:anantnug@gmail.com?subject={{ 'Read-along: ' | append: page.title | url_encode | replace: '+', '%20' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="m3 7 9 6 9-6"></path></svg>
+        <span>Found an error or stuck somewhere? Email me</span>
+      </a>
+    </div>
+  </div>
+  {% if book %}<p class="readalong-note">A companion to {{ book.author }}, <i>{{ book.title }}: {{ book.subtitle }}</i>, {{ book.edition }} ({{ book.publisher }}, {{ book.year }}), written to be read alongside the book. It is not affiliated with the author or the publisher. Section, equation and page numbers follow the {{ book.edition }}.</p>{% endif %}
+  {% if main.size > 1 %}<div lang="en" data-keep>{{ tail }}{{ main | last }}</div>{% endif %}
+</article>
+<script src="{{ '/assets/js/readalong.js' | relative_url }}"></script>
+{% include reading.html %}

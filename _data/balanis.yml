@@ -1,0 +1,67 @@
+# Balanis, Antenna Theory: Analysis and Design, 3rd ed. (Wiley, 2005), for the read-along pages in _readalong/balanis/.
+# Numbering and pages follow the 3rd edition. A section with `slug:` has a page at /read-along/balanis/<slug>/
+# (file _readalong/balanis/<slug>.md, front matter `book: balanis` and `section: "2.2"`); sections without one are
+# listed but not linked. Rules: ~/development/content/balanis/CLAUDE.md.
+short: Balanis
+title: Antenna Theory
+subtitle: Analysis and Design
+author: Constantine A. Balanis
+edition: 3rd edition
+publisher: Wiley
+year: 2005
+url: /read-along/balanis/
+chapters:
+  - n: 1
+    title: Antennas
+  - n: 2
+    title: Fundamental Parameters of Antennas
+    sections:
+      - { n: "2.1", title: Introduction, pages: "27" }
+      - { n: "2.2", title: Radiation Pattern, pages: "27–38", slug: 2-2-radiation-pattern }
+      - { n: "2.3", title: Radiation Power Density, pages: "38–40" }
+      - { n: "2.4", title: Radiation Intensity, pages: "40–42" }
+      - { n: "2.5", title: Beamwidth, pages: "42–44" }
+      - { n: "2.6", title: Directivity, pages: "44–58" }
+      - { n: "2.7", title: Numerical Techniques, pages: "58–64" }
+      - { n: "2.8", title: Antenna Efficiency, pages: "64–65" }
+      - { n: "2.9", title: Gain, pages: "65–69" }
+      - { n: "2.10", title: Beam Efficiency, pages: "69–70" }
+      - { n: "2.11", title: Bandwidth, pages: "70" }
+      - { n: "2.12", title: Polarization, pages: "70–80" }
+      - { n: "2.13", title: Input Impedance, pages: "80–85" }
+      - { n: "2.14", title: Antenna Radiation Efficiency, pages: "85–87" }
+      - { n: "2.15", title: Antenna Vector Effective Length and Equivalent Areas, pages: "87–92" }
+      - { n: "2.16", title: Maximum Directivity and Maximum Effective Area, pages: "92–94" }
+      - { n: "2.17", title: Friis Transmission Equation and Radar Range Equation, pages: "94–104" }
+      - { n: "2.18", title: Antenna Temperature, pages: "104–108" }
+      - { n: "2.19", title: Multimedia, pages: "108" }
+  - n: 3
+    title: Radiation Integrals and Auxiliary Potential Functions
+  - n: 4
+    title: Linear Wire Antennas
+  - n: 5
+    title: Loop Antennas
+  - n: 6
+    title: "Arrays: Linear, Planar, and Circular"
+  - n: 7
+    title: Antenna Synthesis and Continuous Sources
+  - n: 8
+    title: Integral Equations, Moment Method, and Self and Mutual Impedances
+  - n: 9
+    title: Broadband Dipoles and Matching Techniques
+  - n: 10
+    title: Traveling Wave and Broadband Antennas
+  - n: 11
+    title: Frequency Independent Antennas, Antenna Miniaturization, and Fractal Antennas
+  - n: 12
+    title: Aperture Antennas
+  - n: 13
+    title: Horn Antennas
+  - n: 14
+    title: Microstrip Antennas
+  - n: 15
+    title: Reflector Antennas
+  - n: 16
+    title: Smart Antennas
+  - n: 17
+    title: Antenna Measurements

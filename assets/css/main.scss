@@ -1,7 +1,7 @@
 ---
 ---
 /* Fonts: change a font here and it changes across the site.
-   The maths font is set in the MathJax config in _layouts/post.html and _layouts/project.html. */
+   The maths font is set in the MathJax config in _includes/reading.html and _layouts/project.html. */
 :root {
   --font-text: "Sorts Mill Goudy", Georgia, serif;        /* posts, pages, menu */
   --font-hindi: "Tiro Devanagari Hindi", serif;           /* Hindi toggle */
@@ -1236,3 +1236,23 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 .fl-info { margin: 0.5rem 1rem 0.75rem; min-height: 3em; font-size: 0.9rem; line-height: 1.4; color: var(--anatomy-text); }
 .fl-hit { fill: transparent; }
 .iso-stage .fl-on .fl-hit { fill: color-mix(in srgb, #d0403b 22%, transparent); }
+
+/* read-along pages (_layouts/readalong.html, _includes/readalong/contents.html) */
+.readalong-crumb a { color: inherit; }
+.readalong-n { color: var(--muted); font-variant-numeric: tabular-nums; }
+h1 .readalong-n { margin-right: 0.15em; }
+.readalong-done { display: flex; align-items: center; gap: 0.5rem; margin-top: 2.5rem; color: var(--muted); font-size: 0.95rem; cursor: pointer; }
+.readalong-done input { width: 1.05rem; height: 1.05rem; margin: 0; accent-color: var(--art-maroon); }
+.readalong-pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+.readalong-pager a { display: flex; flex-direction: column; gap: 0.15rem; max-width: 48%; color: var(--fg); text-decoration: none; line-height: 1.3; }
+.readalong-pager a span { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.04em; }
+.readalong-pager a[rel="next"] { margin-left: auto; text-align: right; }
+.readalong-pager a:hover, .readalong-pager a:focus-visible { color: var(--link); }
+.readalong-note { margin-top: 1.25rem; color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+.readalong-contents, .readalong-contents ol { list-style: none; padding: 0; }
+.readalong-contents > li { margin: 0.6rem 0; }
+.readalong-contents > li.readalong-later { color: var(--muted); }
+.readalong-ch { font-size: 1.1rem; }
+.readalong-contents ol { margin: 0.5rem 0 1.25rem 1.6rem; }
+.readalong-contents ol li { margin: 0.3rem 0; }
+.readalong-contents a.is-done::after { content: " ✓"; color: var(--art-maroon); }

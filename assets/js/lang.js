@@ -32,7 +32,8 @@
   }
   var stored = null;
   try { stored = localStorage.getItem('lang'); } catch (e) {}
-  if (stored === 'hi') set('hi');
+  // pages in one language only (read-along) carry data-lang-fixed and have no toggle
+  if (stored === 'hi' && !root.hasAttribute('data-lang-fixed')) set('hi');
 
   document.addEventListener('DOMContentLoaded', function () {
     swapAttributes();

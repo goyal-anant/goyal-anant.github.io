@@ -22,8 +22,20 @@ collections:
   research:
     output: true
     permalink: /research/:path/
+  # read-along companions to textbooks (content/balanis/CLAUDE.md). Unlisted for now: no nav link,
+  # noindex, and out of the sitemap, search and feed; anyone with the link can read them
+  readalong:
+    output: true
+    permalink: /read-along/:path/
 
 defaults:
+  - scope:
+      path: ""
+      type: readalong
+    values:
+      layout: readalong
+      sitemap: false
+      noindex: true
   - scope:
       path: ""
       type: posts
