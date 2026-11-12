@@ -666,11 +666,11 @@ html:has(dialog.ref-drawer[open]) { overflow: hidden; }
   color: var(--muted);
   font-size: 1.15rem;
 }
-/* the abstract under the title: a short summary set off by a brush-coloured rule */
+/* the abstract under the title: a short summary set off by a maroon rule, the colour of the left strip */
 .post-abstract {
   margin: 1.75rem 0 2rem;
   padding: 0.2rem 0 0.2rem 1.1rem;
-  border-left: 3px solid var(--brush);
+  border-left: 3px solid var(--art-maroon);
 }
 .post-abstract-label {
   display: block;
