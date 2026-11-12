@@ -1,0 +1,10 @@
+{% comment %}
+  pattern-explorer widget (assets/js/readalong/pattern-explorer.js; checked by content/balanis/checks/pattern_explorer.py).
+  antenna = dipole | array | aperture; params = "N=10,d=0.25,beta=-0.6" (beta in units of pi, lengths in wavelengths);
+  scale = field | power | db; caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="pattern-explorer" data-antenna="{{ include.antenna | default: 'dipole' }}" data-params="{{ include.params }}" data-scale="{{ include.scale | default: 'db' }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/pattern-explorer.js' | relative_url }}" defer></script>
