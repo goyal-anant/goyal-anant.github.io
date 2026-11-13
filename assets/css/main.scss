@@ -22,6 +22,7 @@
   /* abstract art on the home page and the contact card */
   --art-ink: #1f1b18;
   --art-maroon: rgb(120, 0, 0);
+  --ra-warm: rgb(150, 20, 20);   /* read-along: inward flow, reactive power */
   --art-turmeric: rgb(226, 158, 38);
   --art-indigo: rgb(36, 52, 104);
   --art-blend: multiply;
@@ -38,6 +39,7 @@
   --brush-stroke: #{"url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath fill='rgb(190,130,40)' fill-opacity='0.55' d='M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z'/%3E%3C/svg%3E\")"}; /* --brush as a stroke, for inline text that wraps */
   --art-ink: #e8e8e8;
   --art-maroon: #8e2a2f;
+  --ra-warm: #e8806a;
   --art-turmeric: rgb(200, 140, 40);
   --art-indigo: rgb(88, 112, 186);
   --art-blend: normal;
@@ -55,6 +57,7 @@
   --brush-stroke: #{"url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath fill='rgb(190,130,40)' fill-opacity='0.55' d='M6 5C40 2 90 1 140 2c22 0 40 1 54 3 3 1 1 3-2 3 4 1 6 3 2 4 2 1 2 3-1 4C150 18 90 19 40 18 26 18 14 18 5 16 1 15 3 13 6 12 2 11 1 9 4 8 1 7 2 5 6 5zM150 1c18 0 34 1 46 2 1 0 1 1 0 1-12 0-28-1-46-2-1 0-1-1 0-1zM120 19c26 0 50 0 70-1 1 0 1 1 0 1-20 1-44 1-70 1-1 0-1-1 0-1z'/%3E%3C/svg%3E\")"}; /* --brush as a stroke, for inline text that wraps */
     --art-ink: #e8e8e8;
     --art-maroon: #8e2a2f;
+    --ra-warm: #e8806a;
     --art-turmeric: rgb(200, 140, 40);
     --art-indigo: rgb(88, 112, 186);
     --art-blend: normal;
@@ -1303,7 +1306,8 @@ h1 .readalong-n { margin-right: 0.15em; }
 .ra-toggle button { font: inherit; padding: 0.25rem 0.7rem; border: 0; background: none; color: var(--muted); cursor: pointer; }
 .ra-toggle button + button { border-left: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); }
 .ra-toggle button[aria-checked="true"] { color: var(--fg); background: color-mix(in srgb, var(--accent) 15%, transparent); }
-.ra-toggle button:focus-visible, .ra-pattern-3d:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ra-button { font: inherit; padding: 0.25rem 0.8rem; border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); border-radius: 6px; background: none; color: var(--fg); cursor: pointer; }
+.ra-toggle button:focus-visible, .ra-button:focus-visible, .ra-pattern-3d:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .ra-pattern-3d { display: block; width: 100%; height: 300px; touch-action: none; cursor: grab; }
 .ra-pattern-3d:active { cursor: grabbing; }
 .ra-pattern-stage { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1rem; align-items: center; }

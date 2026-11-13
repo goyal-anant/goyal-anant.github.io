@@ -1,0 +1,9 @@
+{% comment %}
+  power-flow widget (assets/js/readalong/power-flow.js; checked by content/balanis/checks/power_flow.py).
+  kr = starting distance (0.1 to 20); caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="power-flow" data-kr="{{ include.kr | default: 0.5 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/power-flow.js' | relative_url }}" defer></script>
