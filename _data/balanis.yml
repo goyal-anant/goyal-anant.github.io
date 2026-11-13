@@ -19,7 +19,7 @@ chapters:
       - { n: "2.1", title: Introduction, pages: "27" }
       - { n: "2.2", title: Radiation Pattern, pages: "27–38", slug: 2-2-radiation-pattern }
       - { n: "2.3", title: Radiation Power Density, pages: "38–40", slug: 2-3-radiation-power-density }
-      - { n: "2.4", title: Radiation Intensity, pages: "40–42" }
+      - { n: "2.4", title: Radiation Intensity, pages: "40–42", slug: 2-4-radiation-intensity }
       - { n: "2.5", title: Beamwidth, pages: "42–44" }
       - { n: "2.6", title: Directivity, pages: "44–58" }
       - { n: "2.7", title: Numerical Techniques, pages: "58–64" }

@@ -1,0 +1,11 @@
+{% comment %}
+  solid-angle widget (assets/js/readalong/solid-angle.js; checked by content/balanis/checks/solid_angle.py).
+  view = cone (a fixed cone through spheres around a half-wave dipole) or rings (power through 10 degree bands);
+  pattern = iso, short or half (rings view, starting pattern); caption = text under the widget.
+  A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="solid-angle" data-view="{{ include.view | default: 'cone' }}" data-pattern="{{ include.pattern | default: 'half' }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/solid-angle.js' | relative_url }}" defer></script>
