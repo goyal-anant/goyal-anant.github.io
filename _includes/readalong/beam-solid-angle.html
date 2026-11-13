@@ -1,0 +1,10 @@
+{% comment %}
+  beam-solid-angle widget (assets/js/readalong/beam-solid-angle.js; checked by content/balanis/checks/beam_solid_angle.py).
+  family = cosn | twolobe | sinn | dish; n = exponent (1 to 450); taper = 0, 1, 2 and dl = d/lambda (2 to 120) or
+  nexrad, for the dish; caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="beam-solid-angle" data-family="{{ include.family | default: 'cosn' }}" data-n="{{ include.n | default: 5 }}" data-taper="{{ include.taper | default: 1 }}" data-dl="{{ include.dl | default: 20 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/beam-solid-angle.js' | relative_url }}" defer></script>
