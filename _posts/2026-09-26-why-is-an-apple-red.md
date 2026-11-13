@@ -39,7 +39,7 @@ There is a second half to this story, which sits in our eyes. We have three type
 
 {% include why-is-an-apple-red/cones.svg %}
 
-*Figure 2. How sensitive each of the three cone types in our eye is, scaled to a peak of 1. Data: Stockman and Sharpe[^stockman], from the CVRL database. Ignore the dashed line for now.*
+*Figure 2. How sensitive each of the three cone types in our eye is, scaled to a peak of 1. Data: Stockman and Sharpe[^stockman], from the CVRL database. The dashed line marks 589 nm, the yellow of a sodium street lamp.*
 
 > **Going a bit deeper: why does a molecule absorb only some colours?**
 >
@@ -97,7 +97,7 @@ The figure below is a sketch of what this looks like as a spectrum.
 
 {% include why-is-an-apple-red/apple-skin.svg %}
 
-*Figure 4. Schematic, not measured data. I couldn't find an openly licensed measured spectrum of apple skin, so I drew the shapes from the absorption bands in Merzlyak et al.[^merzlyak] Ignore the dashed line for now.*
+*Figure 4. Schematic, not measured data; the shapes are drawn from the absorption bands of apple peel measured by Merzlyak et al.[^merzlyak] The dashed line marks 589 nm, the yellow of a sodium street lamp.*
 
 What decides *when* the apple starts making red? It turns out there is a master switch: a gene called MdMYB10. It codes for a protein which turns on all the genes needed to make anthocyanin. Its activity rises exactly when the colour forms, and apple plants engineered to make more of it become highly pigmented[^espley]. The two most interesting things I learned about this switch are about the weather:
 
