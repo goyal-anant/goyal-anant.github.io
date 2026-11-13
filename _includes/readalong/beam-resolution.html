@@ -1,0 +1,10 @@
+{% comment %}
+  beam-resolution widget (assets/js/readalong/beam-resolution.js; checked by content/balanis/checks/beam_resolution.py).
+  view = taper (the 8.54 m NEXRAD dish lit with three tapers: beamwidth against side lobes) or scan (the beam sweeps
+  two storm cells 100 km away); caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="beam-resolution" data-view="{{ include.view | default: 'taper' }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/beam-resolution.js' | relative_url }}" defer></script>
