@@ -463,6 +463,40 @@ body.layout-home {
 .more-post-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.4; }
 .more-post-meta { color: var(--muted); font-size: 0.8rem; }
 @media (prefers-reduced-motion: reduce) { .more-post img { transition: none; } }
+/* a post split into parts (see _layouts/series.html): the cover shows the parts as two cards with a seam between
+   them, and each part carries the series title and a link to every part above its own title */
+.diptych { display: grid; grid-template-columns: 1fr auto 1fr; grid-template-rows: auto auto; column-gap: 0.9rem; margin: 2.5rem 0 1rem; }
+.diptych-card { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0.9rem; color: var(--fg); text-decoration: none; }
+.diptych-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; margin: 0; border-radius: 8px; background: #fff; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.diptych-card:hover img, .diptych-card:focus-visible img { transform: translateY(-4px); box-shadow: 0 10px 24px color-mix(in srgb, #000 18%, transparent); }
+.diptych-text { display: flex; flex-direction: column; gap: 0.3rem; }
+.diptych-part { color: var(--art-maroon); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.diptych-title { font-size: 1.35rem; line-height: 1.25; }
+.diptych-card:hover .diptych-title, .diptych-card:focus-visible .diptych-title { color: var(--link); }
+.diptych-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.4; }
+.diptych-meta { color: var(--muted); font-size: 0.8rem; }
+.diptych-resume { color: var(--link); font-size: 0.85rem; }
+.diptych-card:first-child { grid-column: 1; }
+.diptych-card:last-child { grid-column: 3; }
+.diptych-seam { grid-row: 1; grid-column: 2; display: flex; align-items: center; justify-content: center; width: 1.4rem; position: relative; }
+.diptych-seam::before { content: ""; position: absolute; inset: 0 auto; left: 50%; width: 2px; margin-left: -1px; background: linear-gradient(transparent, var(--art-maroon) 18%, var(--art-maroon) 82%, transparent); }
+.diptych-seam span { position: relative; writing-mode: vertical-rl; padding: 0.6rem 0; background: var(--bg); color: var(--art-maroon); font-size: 0.75rem; letter-spacing: 0.24em; text-transform: uppercase; }
+@media (max-width: 520px) {
+  .diptych { display: flex; flex-direction: column; }
+  .diptych-card { display: flex; flex-direction: column; }
+  .diptych-card img { aspect-ratio: 16 / 10; }
+  .diptych-seam { width: auto; height: 2.6rem; }
+  .diptych-seam::before { inset: 50% 0 auto; left: 0; width: auto; height: 2px; margin: -1px 0 0; background: linear-gradient(90deg, transparent, var(--art-maroon) 18%, var(--art-maroon) 82%, transparent); }
+  .diptych-seam span { writing-mode: horizontal-tb; padding: 0 0.7rem; }
+}
+@media (prefers-reduced-motion: reduce) { .diptych-card img { transition: none; } }
+.series-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin: 0.25rem 0 0.4rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.series-nav-cover { color: var(--muted); text-decoration: none; }
+.series-nav-cover:hover { color: var(--link); }
+.series-nav-parts { display: inline-flex; gap: 0.35rem; }
+.series-nav-parts a { padding: 0.1rem 0.6rem; border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); border-radius: 999px; color: var(--muted); text-decoration: none; }
+.series-nav-parts a:hover { color: var(--link); border-color: var(--link); }
+.series-nav-parts a[aria-current] { background: var(--art-maroon); border-color: var(--art-maroon); color: #fff; }
 /* the end of a post: a brush mark, then reactions on the left and Share, Reply and References on the right,
    between two thin rules (see _layouts/post.html) */
 .post-end-mark { display: block; width: 4.5rem; height: 0.7rem; margin: 2.5rem auto 0; overflow: visible; }

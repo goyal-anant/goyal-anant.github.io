@@ -1,15 +1,19 @@
 {% comment %} "Keep reading": up to two other posts as cards (picture, title, subtitle, date and read time), newest first. Shown at the end of every post, above the references. {% endcomment %}
-{% assign others = site.posts | where_exp: "p", "p.url != page.url" %}
+{% comment %} A part of a series ends with its next part instead; parts are never shown on their own, only their cover {% endcomment %}
+{% assign others = nil %}{% assign heading_en = "Keep reading" %}{% assign heading_hi = "और पढ़िए" %}
+{% if page.part %}{% assign next_part = page.part | plus: 1 %}{% assign others = site.posts | where: "series", page.series | where: "part", next_part %}{% endif %}
+{% if others.size > 0 %}{% assign heading_en = "Continue with Part " | append: next_part %}{% assign heading_hi = "आगे पढ़िए: भाग " | append: next_part %}
+{% else %}{% assign others = site.posts | where_exp: "p", "p.url != page.url" | where_exp: "p", "p.part == nil" %}{% if page.series %}{% assign others = others | where_exp: "p", "p.series != page.series" %}{% endif %}{% endif %}
 {% if others.size > 0 %}
 <nav class="more-posts" aria-labelledby="more-posts-h">
   <div class="more-posts-head">
-    <h2 id="more-posts-h">{% include t.html en="Keep reading" hi="और पढ़िए" %}</h2>
+    <h2 id="more-posts-h">{% include t.html en=heading_en hi=heading_hi %}</h2>
     <a class="more-posts-all" href="{{ '/blog/' | relative_url }}">{% include t.html en="All posts" hi="सारी पोस्ट" %} &rarr;</a>
   </div>
   <div class="more-posts-grid">
     {% for post in others limit: 2 %}
     {% comment %} same numbers as the post's own header: English from its body, Hindi from its Hindi body {% endcomment %}
-    {% capture min %}{% assign post_html = post.content | markdownify %}{% include readtime.html html=post_html %}{% endcapture %}
+    {% capture min %}{% if post.layout == "series" %}{% include series-readtime.html series=post.series %}{% else %}{% assign post_html = post.content | markdownify %}{% include readtime.html html=post_html %}{% endif %}{% endcapture %}
     {% if post.hindi %}{% capture post_hi %}{% include hindi.html doc=post %}{% endcapture %}{% capture min_hi %}{% include readtime.html html=post_hi %}{% endcapture %}{% else %}{% assign min_hi = min %}{% endif %}
     <a class="more-post" href="{{ post.url | relative_url }}">
       {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" loading="lazy">{% endif %}

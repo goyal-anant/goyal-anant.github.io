@@ -18,6 +18,10 @@ layout: default
   {% assign hi_main = hi_html | split: hi_tail %}
   {% endif %}
   <p class="post-date">{% include date.html date=page.date %} <span class="post-readtime">&middot; <span lang="en">{{ minutes | strip }} min read</span><span lang="hi">{{ minutes_hi | default: minutes | strip }} मिनट</span></span></p>
+  {% comment %} a part of a series: the series title, back to its cover, and a link to every part {% endcomment %}
+  {% if page.part %}{% assign cover = site.posts | where: "series", page.series | where_exp: "p", "p.part == nil" | first %}{% assign series_parts = site.posts | where: "series", page.series | where_exp: "p", "p.part" | sort: "part" %}
+  <nav class="series-nav" aria-label="Parts"><a class="series-nav-cover" href="{{ cover.url | relative_url }}">{% include t.html en=cover.title hi=cover.title_hi %}</a><span class="series-nav-parts">{% for p in series_parts %}<a href="{{ p.url | relative_url }}"{% if p.url == page.url %} aria-current="page"{% endif %}>{% include t.html en="Part" hi="भाग" %} {{ p.part }}</a>{% endfor %}</span></nav>
+  {% endif %}
   <h1>{% include t.html en=page.title hi=page.title_hi %}</h1>
   {% if page.subtitle %}<p class="post-subtitle">{% include t.html en=page.subtitle hi=page.subtitle_hi %}</p>{% endif %}
   {% comment %} abstract: front matter `abstract:` (and `abstract_hi:`), a few lines on what the post finds, shown before the body {% endcomment %}

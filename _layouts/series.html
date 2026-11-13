@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{% comment %} The cover of a post split into parts (front matter `layout: series` and `series: <name>`; each part is a post
+  with the same `series:` and `part: 1`, `part: 2`, ...). The cover keeps the original link and shows the parts as cards;
+  `seam:` names the line between the cards. The parts link to each other through _layouts/post.html. {% endcomment %}
+{% assign cover_parts = site.posts | where: "series", page.series | where_exp: "p", "p.part" | sort: "part" %}
+<article class="post series">
+  {% capture minutes %}{% include series-readtime.html series=page.series %}{% endcapture %}
+  <p class="post-date">{% include date.html date=page.date %} <span class="post-readtime">&middot; <span lang="en">{{ minutes | strip }} min read</span><span lang="hi">{{ minutes | strip }} मिनट</span></span></p>
+  <h1>{% include t.html en=page.title hi=page.title_hi %}</h1>
+  {% if page.subtitle %}<p class="post-subtitle">{% include t.html en=page.subtitle hi=page.subtitle_hi %}</p>{% endif %}
+  {% if page.abstract %}<aside class="post-abstract"><span class="post-abstract-label">{% include t.html en="Abstract" hi="सार" %}</span><p>{% include t.html en=page.abstract hi=page.abstract_hi %}</p></aside>{% endif %}
+  <nav class="diptych" aria-label="Parts">
+    {% for p in cover_parts %}
+    {% capture min %}{% assign p_html = p.content | markdownify %}{% include readtime.html html=p_html %}{% endcapture %}
+    {% unless forloop.first %}<div class="diptych-seam" aria-hidden="true">{% if page.seam %}<span>{{ page.seam }}</span>{% endif %}</div>{% endunless %}
+    <a class="diptych-card" href="{{ p.url | relative_url }}">
+      {% if p.image %}<img src="{{ p.image | relative_url }}" alt="">{% endif %}
+      <span class="diptych-text"><span class="diptych-part">{% include t.html en="Part" hi="भाग" %} {{ p.part }}</span>
+      <span class="diptych-title">{% include t.html en=p.title hi=p.title_hi %}</span>
+      {% if p.subtitle %}<span class="diptych-sub">{% include t.html en=p.subtitle hi=p.subtitle_hi %}</span>{% endif %}
+      <span class="diptych-meta"><span lang="en">{{ min | strip }} min read</span><span lang="hi">{{ min | strip }} मिनट</span></span></span>
+    </a>
+    {% endfor %}
+  </nav>
+</article>
+<script>
+  // a part the reader stopped midway (saved by the section bar in _includes/reading.html) gets a "continue" line,
+  // and its card opens at that section
+  document.querySelectorAll('.diptych-card').forEach(function (a) {
+    var id = null;
+    try { id = localStorage.getItem('section:' + a.pathname); } catch (e) {}
+    if (!id) return;
+    a.hash = id;
+    a.classList.add('diptych-started');
+    a.querySelector('.diptych-meta').insertAdjacentHTML('afterend', '<span class="diptych-resume">' + t('Continue where you left off', 'जहाँ छोड़ा था वहीं से पढ़ें') + ' &rarr;</span>');
+  });
+</script>
