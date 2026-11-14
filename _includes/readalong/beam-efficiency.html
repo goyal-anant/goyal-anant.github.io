@@ -1,0 +1,12 @@
+{% comment %}
+  beam-efficiency widget (assets/js/readalong/beam-efficiency.js; checked by content/balanis/checks/beam_efficiency.py).
+  taper = 0 | 1 | 2 (uniform, parabolic, parabolic squared); dl = d/lambda (3 to 120) or nexrad;
+  cone = null | half | a value of u1 = ka sin(theta1), 0 to 16; radiometer = on | off; tmain, tside = kelvin (0 to 300).
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="beam-efficiency" data-taper="{{ include.taper | default: 0 }}" data-dl="{{ include.dl | default: 20 }}" data-cone="{{ include.cone | default: 'null' }}" data-radiometer="{{ include.radiometer | default: 'on' }}" data-tmain="{{ include.tmain | default: 100 }}" data-tside="{{ include.tside | default: 280 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/beam-solid-angle.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/readalong/beam-efficiency.js' | relative_url }}" defer></script>

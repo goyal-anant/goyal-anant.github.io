@@ -14,8 +14,9 @@
   var TAPERS = ['Uniform', 'Parabolic', 'Parabolic²'];
 
   // Bessel J_n(x) from its integral, (1/pi) times the integral over [0, pi] of cos(n t - x sin t), Simpson's rule
+  // with about two points per radian of x, so large arguments (big dishes, far side lobes) stay resolved
   function besselJ(n, x) {
-    var N = 200, h = PI / N, s = 0;
+    var N = 200 + 2 * Math.ceil(x), h = PI / N, s = 0;
     for (var i = 0; i <= N; i++) {
       var t = i * h, w = i === 0 || i === N ? 1 : i % 2 ? 4 : 2;
       s += w * Math.cos(n * t - x * Math.sin(t));
@@ -144,7 +145,7 @@
     var paintT = toggle(dishBox, 'Taper', TAPERS.map(function (t, i) { return [i, t]; }), function () { return p; }, function (v) { p = v; update(); });
     var dlInput = RA.slider(dishBox, { label: '<i>d</i>/<i>λ</i>', min: 0, max: 1, step: 'any', value: Math.log(dl / 2) / Math.log(60),
       fmt: function (s) { return sig(2 * Math.pow(60, s), 3); }, onInput: function (s) { dl = 2 * Math.pow(60, s); update(); } });
-    var nex = RA.el('button', { type: 'button', class: 'ra-button' }, dishBox, 'NEXRAD dish');
+    var nex = RA.el('button', { type: 'button', class: 'ra-button', 'aria-pressed': 'false' }, dishBox, 'NEXRAD dish');
     nex.addEventListener('click', function () {
       p = 1; dlInput.value = Math.log(NEXRAD / 2) / Math.log(60);
       dlInput.dispatchEvent(new Event('input'));
@@ -167,6 +168,7 @@
 
     function update() {
       paintF(); paintT();
+      nex.setAttribute('aria-pressed', String(p === 1 && Math.abs(dl - NEXRAD) < 0.05));   // pressed while on the NEXRAD preset
       nBox.style.display = fam === 'dish' ? 'none' : ''; dishBox.style.display = fam === 'dish' ? '' : 'none';
       var P = pattern(fam, n, p, dl), r = directivity(P), omA = r.omegaA;
 
