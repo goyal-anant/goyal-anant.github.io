@@ -1,0 +1,14 @@
+{% comment %}
+  antenna-circuit widget (assets/js/readalong/antenna-circuit.js; checked by content/balanis/checks/antenna_circuit.py).
+  case = transmit | terminals | receive.
+  transmit: gen = 50 | 75 | conj (the source impedance); starts on a half-wave copper dipole at 2.45 GHz.
+  terminals: length (0.05 to 1.5 wavelengths), radius = 0.5 | 0.05 (mm, for the moment-method curve).
+  receive: x = Da / Ds (0.01 to 1).
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="antenna-circuit" data-case="{{ include.case | default: 'transmit' }}" data-gen="{{ include.gen | default: 50 }}" data-length="{{ include.length | default: 0.75 }}" data-radius="{{ include.radius | default: 0.5 }}" data-x="{{ include.x | default: 1 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/efficiency-chain.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/readalong/antenna-circuit.js' | relative_url }}" defer></script>
