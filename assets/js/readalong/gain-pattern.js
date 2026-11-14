@@ -64,6 +64,7 @@
   var api = { dipoleU: dipoleU, dipoleD: dipoleD, DBD: DBD, dipoleCase: dipoleCase, shortCase: shortCase,
     NX: NX, rules: rules, dish: dish };
   if (node) { module.exports = api; return; }
+  window.GainPattern = api;   // bandwidth reuses the dipole pattern
 
   // ---- drawing ------------------------------------------------------------------------------------------------
 
