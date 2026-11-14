@@ -1302,6 +1302,7 @@ h1 .readalong-n { margin-right: 0.15em; }
 .ra-slider { display: flex; align-items: center; gap: 0.5rem; }
 .ra-slider input { width: 7.5rem; accent-color: var(--accent); }
 .ra-slider output { min-width: 3.6rem; font-variant-numeric: tabular-nums; color: var(--muted); }
+.ra-check { display: flex; align-items: center; gap: 0.3rem; color: var(--muted); } .ra-check input { accent-color: var(--accent); }
 .ra-toggle { display: inline-flex; border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); border-radius: 6px; overflow: hidden; }
 .ra-toggle button { font: inherit; padding: 0.25rem 0.7rem; border: 0; background: none; color: var(--muted); cursor: pointer; }
 .ra-toggle button + button { border-left: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); }

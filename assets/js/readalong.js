@@ -77,5 +77,72 @@ window.RA = (function () {
       svg('text', { x: 1.13, y: 0.12, 'font-size': 0.075, 'font-style': 'italic', 'text-anchor': 'middle', fill: 'currentColor' }, g).textContent = axis.right;
     }
   }
-  return { svg: svg, el: el, slider: slider, css: css, onTheme: onTheme, polarGrid: polarGrid };
+  // Plot pieces shared by the 2-D widgets (beam-solid-angle, grid-directivity)
+  function readout(parent, list) {
+    var table = el('table', { class: 'ra-readout' }, parent), rows = {};
+    list.forEach(function (r) {
+      var tr = el('tr', {}, table), th = el('th', {}, tr);
+      rows[r[0]] = { th: th, td: el('td', {}, tr) };
+      th.innerHTML = r[1];
+    });
+    return rows;
+  }
+  function toggle(parent, label, items, get, set) {
+    var tog = el('div', { class: 'ra-toggle', role: 'radiogroup', 'aria-label': label }, parent), btns = [];
+    items.forEach(function (it) {
+      var b = el('button', { type: 'button', role: 'radio' }, tog, it[1]);
+      b.addEventListener('click', function () { set(it[0]); });
+      btns.push([it[0], b]);
+    });
+    return function () { btns.forEach(function (x) { x[1].setAttribute('aria-checked', String(x[0] === get())); }); };
+  }
+  function sig(v, d) {   // d significant figures, plain notation, thousands separated
+    var r = +v.toPrecision(d), dec = Math.max(0, d - 1 - Math.floor(Math.log10(Math.abs(r) || 1)));
+    return r.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
+  function signed(v, d) { return (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(d); }
+  function niceStep(span, n) {
+    var raw = span / n, m = Math.pow(10, Math.floor(Math.log10(raw))), r = raw / m;
+    return m * (r < 1.5 ? 1 : r < 3.5 ? 2 : r < 7.5 ? 5 : 10);
+  }
+  // A plot box in a 320 x 210 viewBox; X and Y map data to the box (either may be logarithmic)
+  function frame(S, xr, yr, xticks, yticks, xlabel, ylabel, xfmt, yfmt, logx, logy) {
+    var L = 42, R = 310, T = 24, B = 176;
+    var fx = logx ? Math.log : function (x) { return x; };
+    var X = function (x) { return L + (R - L) * (fx(x) - fx(xr[0])) / (fx(xr[1]) - fx(xr[0])); };
+    var fy = logy ? Math.log : function (y) { return y; };
+    var Y = function (y) { return B - (B - T) * (fy(y) - fy(yr[0])) / (fy(yr[1]) - fy(yr[0])); };
+    var g = svg('g', {}, S);
+    yticks.forEach(function (y) {
+      svg('line', { x1: L, x2: R, y1: Y(y), y2: Y(y), stroke: 'currentColor', 'stroke-opacity': y === 0 ? 0.45 : 0.12 }, g);
+      svg('text', { x: L - 5, y: Y(y) + 3.5, 'font-size': 10, 'text-anchor': 'end', fill: 'currentColor', 'fill-opacity': 0.7 }, g).textContent = yfmt(y);
+    });
+    xticks.forEach(function (x) {
+      svg('line', { x1: X(x), x2: X(x), y1: T, y2: B, stroke: 'currentColor', 'stroke-opacity': 0.08 }, g);
+      svg('text', { x: X(x), y: B + 13, 'font-size': 10, 'text-anchor': 'middle', fill: 'currentColor', 'fill-opacity': 0.7 }, g).textContent = xfmt(x);
+    });
+    svg('line', { x1: L, x2: R, y1: B, y2: B, stroke: 'currentColor', 'stroke-opacity': 0.5 }, g);
+    svg('text', { x: (L + R) / 2, y: B + 28, 'font-size': 10, 'text-anchor': 'middle', fill: 'currentColor' }, g).textContent = xlabel;
+    svg('text', { x: L - 5, y: T - 6, 'font-size': 10, 'text-anchor': 'end', fill: 'currentColor', 'fill-opacity': 0.7 }, g).textContent = ylabel;
+    return { g: g, X: X, Y: Y, clampY: function (y) { return Math.max(T, Math.min(B, y)); }, clampX: function (x) { return Math.max(L, Math.min(R, x)); } };
+  }
+  function path(pts, F) {
+    return pts.map(function (q, i) { return (i ? 'L' : 'M') + F.clampX(F.X(q[0])).toFixed(2) + ' ' + F.clampY(F.Y(q[1])).toFixed(2); }).join('');
+  }
+  function plotBox(parent, caption) {
+    var box = el('div', { class: 'ra-pattern-cut' }, parent);
+    el('p', {}, box, caption);
+    var S = svg('svg', { viewBox: '0 0 320 210', role: 'img' }, box);
+    return { S: S, title: svg('title', {}, S) };
+  }
+  function legend(S, x, y, items) {
+    items.forEach(function (it, i) {
+      var yy = y + 13 * i;
+      svg('line', Object.assign({ x1: x, x2: x + 16, y1: yy - 3, y2: yy - 3 }, it[0]), S);
+      svg('text', { x: x + 20, y: yy, 'font-size': 9.5, fill: 'currentColor' }, S).textContent = it[1];
+    });
+  }
+
+  return { svg: svg, el: el, slider: slider, css: css, onTheme: onTheme, polarGrid: polarGrid, readout: readout, toggle: toggle,
+    sig: sig, signed: signed, niceStep: niceStep, frame: frame, path: path, plotBox: plotBox, legend: legend };
 })();
