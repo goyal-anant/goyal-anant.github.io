@@ -27,7 +27,7 @@ chapters:
       - { n: "2.9", title: Gain, pages: "65–69", slug: 2-9-gain }
       - { n: "2.10", title: Beam Efficiency, pages: "69–70", slug: 2-10-beam-efficiency }
       - { n: "2.11", title: Bandwidth, pages: "70", slug: 2-11-bandwidth }
-      - { n: "2.12", title: Polarization, pages: "70–80" }
+      - { n: "2.12", title: Polarization, pages: "70–80", slug: 2-12-polarization }
       - { n: "2.13", title: Input Impedance, pages: "80–85" }
       - { n: "2.14", title: Antenna Radiation Efficiency, pages: "85–87" }
       - { n: "2.15", title: Antenna Vector Effective Length and Equivalent Areas, pages: "87–92" }

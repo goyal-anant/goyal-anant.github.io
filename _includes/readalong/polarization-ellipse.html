@@ -1,0 +1,13 @@
+{% comment %}
+  polarization-ellipse widget (assets/js/readalong/polarization-ellipse.js; checked by content/balanis/checks/polarization_ellipse.py).
+  case = wave | link | turnstile.
+  wave: exo, eyo (0 to 1), dphi (degrees, -180 to 180), for the -z wave of Balanis (2-55).
+  link: wave, antenna = "sense,AR dB,tilt deg" with sense R, L or N (linear), e.g. "R,1.8,0".
+  turnstile: feed = ideal | h50 | h75 | trim, theta and phi (degrees) of the marked direction.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="polarization-ellipse" data-case="{{ include.case | default: 'wave' }}" data-exo="{{ include.exo | default: 1 }}" data-eyo="{{ include.eyo | default: 1 }}" data-dphi="{{ include.dphi | default: 90 }}" data-wave="{{ include.wave | default: 'R,0,0' }}" data-antenna="{{ include.antenna | default: 'L,0,0' }}" data-feed="{{ include.feed | default: 'ideal' }}" data-theta="{{ include.theta | default: 45 }}" data-phi="{{ include.phi | default: 0 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/polarization-ellipse.js' | relative_url }}" defer></script>
