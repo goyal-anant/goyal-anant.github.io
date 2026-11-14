@@ -100,6 +100,7 @@
   var api = { F: F, LAMBDA: LAMBDA, SIGMA: SIGMA, SUBS: SUBS, Si: Si, Ci: Ci, dipoleZ: dipoleZ, wireLoss: wireLoss,
     gamma: gamma, dipole: dipole, shortDipole: shortDipole, patch: patch };
   if (typeof module !== 'undefined') { module.exports = api; return; }
+  window.EfficiencyChain = api;   // gain-pattern reuses the dipole models
 
   // ---- drawing ------------------------------------------------------------------------------------------------
 
