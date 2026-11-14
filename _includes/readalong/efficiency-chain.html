@@ -1,0 +1,13 @@
+{% comment %}
+  efficiency-chain widget (assets/js/readalong/efficiency-chain.js; checked by content/balanis/checks/efficiency_chain.py).
+  case = dipole | short | patch, all at 2.45 GHz in copper.
+  dipole: length (in wavelengths, 0.40 to 0.55), radius (mm), z0 = 50 | 75.
+  short: length (0.04 to 0.3 wavelengths), radius (mm), q (coil quality factor, 20 to 500), coil = on | off.
+  patch: substrate = fr4 | ro4003, h (mm, 0.4 to 3.2).
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="efficiency-chain" data-case="{{ include.case | default: 'dipole' }}" data-length="{{ include.length | default: 0.5 }}" data-radius="{{ include.radius | default: 0.5 }}" data-z0="{{ include.z0 | default: 50 }}" data-q="{{ include.q | default: 100 }}" data-coil="{{ include.coil | default: 'on' }}" data-substrate="{{ include.substrate | default: 'fr4' }}" data-h="{{ include.h | default: 1.6 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/efficiency-chain.js' | relative_url }}" defer></script>
