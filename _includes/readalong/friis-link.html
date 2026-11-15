@@ -1,0 +1,11 @@
+{% comment %}
+  friis-link widget (assets/js/readalong/friis-link.js; checked by content/balanis/checks/friis_link.py).
+  case = link | radar | rcs.
+  link: preset = wifi | bench | voyager, hold = gain | area. radar: radius (sphere radius, m). rcs: ratio (sigma_s / sigma_a), phi (deg).
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="friis-link" data-case="{{ include.case | default: 'link' }}" data-preset="{{ include.preset | default: 'wifi' }}" data-hold="{{ include.hold | default: 'gain' }}" data-radius="{{ include.radius | default: 1 }}" data-ratio="{{ include.ratio | default: 4 }}" data-phi="{{ include.phi | default: 0 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/friis-link.js' | relative_url }}" defer></script>
