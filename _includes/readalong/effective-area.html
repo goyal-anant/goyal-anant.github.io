@@ -1,0 +1,14 @@
+{% comment %}
+  effective-area widget (assets/js/readalong/effective-area.js; checked by content/balanis/checks/effective_area.py).
+  case = flow | length | aperture.
+  flow: plane = H | E, load (RT / Rr, 0.01 to 100), loss = on | off.
+  length: length (l / lambda, 0.05 to 1.5), f (MHz), field (V/m).
+  aperture: taper (n in (1 - rho^2)^n, 0 to 3).
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="effective-area" data-case="{{ include.case | default: 'flow' }}" data-plane="{{ include.plane | default: 'H' }}" data-load="{{ include.load | default: 1 }}" data-loss="{{ include.loss | default: 'off' }}" data-length="{{ include.length | default: 0.5 }}" data-f="{{ include.f | default: 100 }}" data-field="{{ include.field | default: 0.001 }}" data-taper="{{ include.taper | default: 1 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/efficiency-chain.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/readalong/effective-area.js' | relative_url }}" defer></script>

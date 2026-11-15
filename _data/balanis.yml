@@ -30,7 +30,7 @@ chapters:
       - { n: "2.12", title: Polarization, pages: "70–80", slug: 2-12-polarization }
       - { n: "2.13", title: Input Impedance, pages: "80–85", slug: 2-13-input-impedance }
       - { n: "2.14", title: Antenna Radiation Efficiency, pages: "85–87", slug: 2-14-antenna-radiation-efficiency }
-      - { n: "2.15", title: Antenna Vector Effective Length and Equivalent Areas, pages: "87–92" }
+      - { n: "2.15", title: Antenna Vector Effective Length and Equivalent Areas, pages: "87–92", slug: 2-15-vector-effective-length-and-equivalent-areas }
       - { n: "2.16", title: Maximum Directivity and Maximum Effective Area, pages: "92–94" }
       - { n: "2.17", title: Friis Transmission Equation and Radar Range Equation, pages: "94–104" }
       - { n: "2.18", title: Antenna Temperature, pages: "104–108" }
