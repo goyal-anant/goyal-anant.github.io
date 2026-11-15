@@ -1,0 +1,13 @@
+{% comment %}
+  wire-loss widget (assets/js/readalong/wire-loss.js; checked by content/balanis/checks/wire_loss.py).
+  case = skin | dipole | loop.
+  f (MHz), radius (wire radius, mm), metal = cu | al | ss (copper, aluminium 6061-T6, stainless 304).
+  dipole: length (l / lambda, 0.001 to 1.5). loop: c (circumference / lambda, 0.01 to 0.3).
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="wire-loss" data-case="{{ include.case | default: 'skin' }}" data-f="{{ include.f | default: 1 }}" data-radius="{{ include.radius | default: 1 }}" data-metal="{{ include.metal | default: 'cu' }}" data-length="{{ include.length | default: 0.5 }}" data-c="{{ include.c | default: 0.05 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/efficiency-chain.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/readalong/wire-loss.js' | relative_url }}" defer></script>
