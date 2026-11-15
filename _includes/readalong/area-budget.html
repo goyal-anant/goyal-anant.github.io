@@ -1,0 +1,11 @@
+{% comment %}
+  area-budget widget (assets/js/readalong/area-budget.js; checked by content/balanis/checks/area_budget.py).
+  pattern = iso | short | half | dish; band = fm | gps | wifi | nexrad | ku; taper (0, 1, 2) and dl (d / lambda, or nexrad) for the dish.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="area-budget" data-pattern="{{ include.pattern | default: 'half' }}" data-band="{{ include.band | default: 'wifi' }}" data-taper="{{ include.taper | default: 1 }}" data-dl="{{ include.dl | default: 20 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/beam-solid-angle.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/readalong/area-budget.js' | relative_url }}" defer></script>
