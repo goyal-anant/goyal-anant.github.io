@@ -1,0 +1,13 @@
+{% comment %}
+  antenna-temperature widget (assets/js/readalong/antenna-temperature.js; checked by content/balanis/checks/antenna_temperature.py).
+  case = scene | chain.
+  scene: antenna = iso | dipole | dish, el (pointing elevation, deg), ground = dry | wet | sea, pol = h | v | avg, taper (0, 1, 2), dl (d / lambda), spill (%).
+  chain: preset = dss43 | xband | small.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="antenna-temperature" data-case="{{ include.case | default: 'scene' }}" data-antenna="{{ include.antenna | default: 'dish' }}" data-el="{{ include.el | default: 45 }}" data-ground="{{ include.ground | default: 'dry' }}" data-pol="{{ include.pol | default: 'h' }}" data-taper="{{ include.taper | default: 1 }}" data-dl="{{ include.dl | default: 30 }}" data-spill="{{ include.spill | default: 0 }}" data-preset="{{ include.preset | default: 'xband' }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/beam-solid-angle.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/readalong/antenna-temperature.js' | relative_url }}" defer></script>

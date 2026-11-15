@@ -33,7 +33,7 @@ chapters:
       - { n: "2.15", title: Antenna Vector Effective Length and Equivalent Areas, pages: "87–92", slug: 2-15-vector-effective-length-and-equivalent-areas }
       - { n: "2.16", title: Maximum Directivity and Maximum Effective Area, pages: "92–94", slug: 2-16-maximum-directivity-and-maximum-effective-area }
       - { n: "2.17", title: Friis Transmission Equation and Radar Range Equation, pages: "94–104", slug: 2-17-friis-transmission-and-radar-range-equations }
-      - { n: "2.18", title: Antenna Temperature, pages: "104–108" }
+      - { n: "2.18", title: Antenna Temperature, pages: "104–108", slug: 2-18-antenna-temperature }
       - { n: "2.19", title: Multimedia, pages: "108" }
   - n: 3
     title: Radiation Integrals and Auxiliary Potential Functions
