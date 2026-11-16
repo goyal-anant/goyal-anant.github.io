@@ -29,6 +29,8 @@ Field regions <span class="ra-ref">[§2.2](../2-2-radiation-pattern/) · pp. 34�
   </details>
   <!--/noread-->
 
+{% include readalong/sheet-fig-ch2-pattern.html %}
+
 Solid angle <span class="ra-ref">[§2.4](../2-4-radiation-intensity/) · (2-2)</span>
 : $$d\Omega = \sin\theta\,d\theta\,d\phi$$, in steradians: one steradian cuts an area $$r^2$$ out of a sphere of radius $$r$$. The whole sphere is $$4\pi$$ sr, i.e. 41,253 square degrees.[^sr]
 
@@ -70,6 +72,8 @@ Beam solid angle <span class="ra-ref">[§2.6](../2-6-directivity/) · (2-23), (2
   </details>
   <!--/noread-->
 
+{% include readalong/sheet-fig-ch2-cone.html %}
+
 Beamwidth <span class="ra-ref">[§2.5](../2-5-beamwidth/) · pp. 42–44</span>
 : *HPBW*: the angle between the $$-3$$ dB directions either side of the peak; *FNBW*: between the first nulls.[^bw] Tapering an aperture's excitation towards its edges lowers the side lobes and widens the beam. Two equal sources are resolved about FNBW/2 apart, which is close to the HPBW only for uniform excitation.
 
@@ -108,6 +112,8 @@ Efficiency chain <span class="ra-ref">[§2.8](../2-8-antenna-efficiency/) · (2-
 Input impedance <span class="ra-ref">[§2.13](../2-13-input-impedance/) · (2-72), (2-73), (2-79), (2-80)</span>
 : $$Z_A = R_A + jX_A$$ with $$R_A = R_r + R_L$$: radiation resistance plus loss resistance.[^za] In series with a generator $$Z_g$$ every power is $$\tfrac12\vert I\vert^2R$$; at conjugate match ($$R_r + R_L = R_g$$, $$X_A = -X_g$$) the antenna gets half the source's power. Receiving is the same circuit with the source in the antenna. $$R_r$$ depends on the current it is referred to: a full-wave dipole has 199 Ω at its current maximum, hundreds to thousands at its centre feed. Not valid with lossy dielectric or over lossy ground.
 
+{% include readalong/sheet-fig-ch2-circuit.html %}
+
 Radiation efficiency <span class="ra-ref">[§2.14](../2-14-antenna-radiation-efficiency/) · (2-90) to (2-90b)</span>
 : $$e_{cd} = \dfrac{R_r}{R_r + R_L}$$.[^ecd] For a wire of length $$l$$ and radius $$b$$, $$R_{dc} = \dfrac{l}{\sigma\pi b^2}$$ and at high frequency $$R_{hf} = \dfrac{l}{2\pi b}\sqrt{\dfrac{\omega\mu_0}{2\sigma}}$$, which needs $$b \gg \delta = 1/\sqrt{\pi f\mu_0\sigma}$$: it is 51% low at $$b = \delta$$ and 5% low at $$10\delta$$. A half-wave dipole's sinusoidal current halves it at the feed. The metal decides only $$R_L$$: the same copper gives 99.8% as a Wi-Fi dipole, 4.3% as a 10 m wire at 100 kHz.
 
@@ -121,6 +127,8 @@ Bandwidth <span class="ra-ref">[§2.11](../2-11-bandwidth/) · p. 70</span>
 
 Polarization <span class="ra-ref">[§2.12](../2-12-polarization/) · (2-55) to (2-68)</span>
 : The figure the tip of $$\mathbf E$$ traces in time at one point, seen with the wave travelling away: clockwise is right hand.[^pol] With amplitudes $$E_{xo}$$, $$E_{yo}$$ and phase difference $$\Delta\phi$$: linear for $$\Delta\phi = n\pi$$, circular for $$E_{xo} = E_{yo}$$ and $$\Delta\phi = \pm(\tfrac12 + 2n)\pi$$, elliptical otherwise. Axial ratio AR = major/minor axis, from 1 (circular) to $$\infty$$ (linear). An antenna's polarization is that of the wave it radiates, so it changes with direction.
+
+{% include readalong/sheet-fig-ch2-ellipse.html %}
 
 Polarization loss factor <span class="ra-ref">[§2.12](../2-12-polarization/) · (2-71)</span>
 : $$\mathrm{PLF} = \vert\hat{\boldsymbol\rho}_w\cdot\hat{\boldsymbol\rho}_a\vert^2 = \cos^2\psi_p$$, with $$\hat{\boldsymbol\rho}_a$$ the antenna's polarization in transmit mode and no complex conjugate.[^plf] Linear at angle $$\psi$$: $$\cos^2\psi$$. Linear on circular: 3 dB. Circular: 1 for the same sense, 0 for the opposite, but a real antenna with axial ratio AR takes $$(\mathrm{AR} - 1)^2/\big(2(\mathrm{AR}^2 + 1)\big)$$ of the opposite sense: only 15.5 dB of rejection at 3 dB AR.
@@ -141,6 +149,8 @@ Maximum effective area <span class="ra-ref">[§2.16](../2-16-maximum-directivity
   Balanis gets $$\lambda^2/4\pi$$ by comparing any antenna with a short dipole, whose $$A_{em}$$ he works out from its circuit. A more general route: put the antenna, matched, in a closed box at temperature $$T$$. The walls glow with a brightness of $$2kT/\lambda^2$$ per hertz per steradian, the antenna takes one polarization, i.e. half of it, so it receives $$(kT\,\Delta f/\lambda^2)\oint A_e\,d\Omega$$. In equilibrium that must equal the $$kT\,\Delta f$$ its matched load sends back, so $$\oint A_e\,d\Omega = \lambda^2$$ whatever the antenna's shape.
   </details>
   <!--/noread-->
+
+{% include readalong/sheet-fig-ch2-area.html %}
 
 ## Links and noise {#links}
 
@@ -164,6 +174,8 @@ Brightness temperature <span class="ra-ref">[§2.18](../2-18-antenna-temperature
 
 Antenna temperature <span class="ra-ref">[§2.18](../2-18-antenna-temperature/) · (2-144), (2-145)</span>
 : $$T_A = \dfrac{\oint T_B(\theta,\phi)\,G(\theta,\phi)\,d\Omega}{\oint G(\theta,\phi)\,d\Omega}$$ and the noise power is $$P = kT_A\,\Delta f$$, with $$k = 1.381\times10^{-23}$$ J/K.[^ta] The temperature of a matched resistor giving the same noise per hertz, not the antenna's own: a 290 K dish pointed at the zenith at X band reports about 5 K. Needs $$hf \ll kT$$ (Rayleigh–Jeans).
+
+{% include readalong/sheet-fig-ch2-link.html %}
 
 Receiver noise chain <span class="ra-ref">[§2.18](../2-18-antenna-temperature/) · (2-146) to (2-148)</span>
 : Balanis writes $$T_a = T_Ae^{-2\alpha l} + T_{AP}e^{-2\alpha l} + T_0\big(1 - e^{-2\alpha l}\big)$$ with $$T_{AP} = (1/e_A - 1)T_p$$, and the system temperature $$T_s = T_a + T_r$$.[^chain] A lossy part at $$T$$ passing a share $$e$$ adds $$(1 - e)T$$; applied to the antenna too, that gives $$T_a = \big[e_AT_A + (1 - e_A)T_p\big]e^{-2\alpha l} + T_0\big(1 - e^{-2\alpha l}\big)$$; eq. (2-146) makes the antenna's part $$1/e_A$$ too large.[^itu]
