@@ -212,7 +212,7 @@ html:not(:has(.layout-home)) { scroll-padding-top: calc(var(--header-h, 0px) + 1
 [data-theme="dark"] #theme-toggle .icon-sun { display: none; }
 [data-theme="dark"] #theme-toggle .icon-moon { display: block; }
 /* both languages sit in the HTML; data-lang on <html> picks which one shows */
-html:not([data-lang="hi"]) [lang="hi"],
+html:not([data-lang="hi"]) [lang="hi"]:not([data-keep]),
 html[data-lang="hi"] [lang="en"]:not([data-keep]) { display: none; }
 /* "no Hindi yet" note above a post or page still in English */
 .hi-missing { color: var(--muted); font-size: 0.9rem; font-style: italic; }
@@ -1215,6 +1215,32 @@ button.vinyl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
   border-radius: 6px;
 }
 /* music page: jump links to each genre, under the intro */
+/* a couplet at the top of a page, Hindi above its English translation;
+   both carry data-keep, so they show in either language */
+.epigraph {
+  margin: 0.5rem auto 2.25rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  text-align: center;
+}
+.epigraph blockquote, .epigraph p { margin: 0; }
+.epigraph p[lang="hi"] { font-size: 1.2rem; line-height: 1.8; }
+.epigraph p[lang="en"] { margin-top: 0.75rem; color: var(--muted); font-style: italic; line-height: 1.6; }
+/* --progress fills the underline as the clip plays */
+.epigraph-play {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  margin-top: 1rem; padding: 0.15rem 0.1rem;
+  border: none; background: linear-gradient(var(--fg), var(--fg)) no-repeat left bottom / var(--progress, 0%) 1px,
+    linear-gradient(color-mix(in srgb, var(--fg) 25%, transparent), color-mix(in srgb, var(--fg) 25%, transparent)) no-repeat left bottom / 100% 1px;
+  color: var(--fg); font: inherit; font-size: 0.9rem; cursor: pointer;
+}
+.epigraph-play svg { width: 0.9em; height: 0.9em; fill: currentColor; }
+.epigraph-play .icon-pause,
+.epigraph-play[aria-pressed="true"] .icon-play { display: none; }
+.epigraph-play[aria-pressed="true"] .icon-pause { display: block; }
+.epigraph footer { margin-top: 0.9rem; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.04em; }
+
 .genre-nav {
   display: flex;
   flex-wrap: wrap;

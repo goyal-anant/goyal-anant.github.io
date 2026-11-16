@@ -202,6 +202,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // The couplet at the top of the page plays its own short clip; it and
+  // the songs take turns, so starting one stops the other.
+  var couplet = document.querySelector('.epigraph-play');
+  if (couplet) {
+    var verse = new Audio(couplet.dataset.src);
+    var showVerse = function () {
+      couplet.setAttribute('aria-pressed', String(!verse.paused));
+      couplet.style.setProperty('--progress', (verse.duration ? verse.currentTime / verse.duration * 100 : 0) + '%');
+    };
+    ['play', 'pause', 'timeupdate'].forEach(function (event) { verse.addEventListener(event, showVerse); });
+    verse.addEventListener('ended', function () { verse.currentTime = 0; });
+    couplet.addEventListener('click', function () {
+      if (verse.paused) { stopPlayback(); verse.play(); } else verse.pause();
+    });
+    audio.addEventListener('play', function () { verse.pause(); });
+  }
+
   var allSongs = Array.from(document.querySelectorAll('.music-play'));
   var shuffleButton = document.querySelector('.music-shuffle');
   function shuffleOn() {

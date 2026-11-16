@@ -5,11 +5,20 @@ title_hi: म्यूज़िक
 permalink: /music/
 ---
 
+<figure class="epigraph">
+  <blockquote>
+    <p lang="hi" data-keep>अपने हाथों से ख़ंजर चला कर, कितना मासूम चेहरा बना कर<br>अपने काँधों पे अब मेरे क़ातिल, मेरी मय्यत उठाए हुए हैं</p>
+    <p lang="en" data-keep>With your own hand you drove the knife, then wore a face so innocent;<br>on your own shoulders now, my killer, you carry me to my grave.</p>
+  </blockquote>
+  <button class="epigraph-play" type="button" data-src="{{ '/assets/audio/gardashon-couplet.m4a' | relative_url }}" aria-pressed="false"><svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z"/></svg>{% include t.html en="Hear NFAK sing it" hi="नुसरत साहब की आवाज़ में सुनो" %}</button>
+  <footer>{% include t.html en="Nusrat Fateh Ali Khan, <cite>Gardishon Ke Hain Maare Hue</cite>" hi="नुसरत फ़तेह अली ख़ान, <cite>गर्दिशों के हैं मारे हुए</cite>" %}</footer>
+</figure>
+
 <p class="shelf-hint" lang="en">These are the songs I keep going back to: some for the lyrics, some for the voice, and some for reasons I can't put in words. It is a rough list and it will keep changing, the way taste does. Press a record to hear a preview and press it again to pause; to hear the full song, press its title. The music speaks for itself :)</p>
 <p class="shelf-hint" lang="hi">ये वो गाने हैं जिन पर मैं बार-बार लौट आता हूँ: कुछ बोलों के लिए, कुछ आवाज़ के लिए, और कुछ ऐसी वजहों से जो मैं शब्दों में नहीं कह सकता। ये एक कच्ची लिस्ट है और बदलती रहेगी, जैसे पसंद बदलती है। किसी रिकॉर्ड को दबाओ तो प्रीव्यू सुनाई देगा, दोबारा दबाओ तो रुक जाएगा; पूरा गाना सुनना हो तो उसके नाम पर दबाओ। बाक़ी म्यूज़िक ख़ुद बोलता है :)</p>
 
-<p class="shelf-hint" lang="en">If you don't know where to start, press 'Play all' below to hear every song on the page, or 'Play genre' next to a genre to hear only that one. Turn on the shuffle button next to 'Play all' and the page picks the order for you. To skip ahead in a song, drag the bar under it.</p>
-<p class="shelf-hint" lang="hi">समझ न आए कहाँ से शुरू करें, तो नीचे 'सब चलाओ' दबाओ और पेज के सारे गाने सुनो, या किसी जॉनर के आगे 'इसे चलाओ' दबाओ और सिर्फ़ वही सुनो। 'सब चलाओ' के बगल वाला शफ़ल बटन ऑन कर दो तो क्रम पेज ख़ुद चुन लेगा। गाने में आगे जाना हो तो उसके नीचे वाली पट्टी खींचो।</p>
+<p class="shelf-hint" lang="en">If you don't know where to start, press ‘Play all’ below to hear every song on the page, or ‘Play genre’ next to a genre to hear only that one. Turn on the shuffle button next to ‘Play all’ and the page picks the order for you. To skip ahead in a song, drag the bar under it.</p>
+<p class="shelf-hint" lang="hi">समझ न आए कहाँ से शुरू करें, तो नीचे ‘सब चलाओ’ दबाओ और पेज के सारे गाने सुनो, या किसी जॉनर के आगे ‘इसे चलाओ’ दबाओ और सिर्फ़ वही सुनो। ‘सब चलाओ’ के बगल वाला शफ़ल बटन ऑन कर दो तो क्रम पेज ख़ुद चुन लेगा। गाने में आगे जाना हो तो उसके नीचे वाली पट्टी खींचो।</p>
 
 {% assign genres = "sufi:Sufi &amp; Qawwali:सूफ़ी और क़व्वाली,ghazal:Ghazal:ग़ज़ल,classical:Classical &amp; Semi-classical:शास्त्रीय और उप-शास्त्रीय,film:Film:फ़िल्मी,rock:Rock:रॉक,pop-folk:Pop &amp; Folk:पॉप और लोक,punjabi:Punjabi:पंजाबी,indie:Indie &amp; Indi-pop:इंडी और इंडी-पॉप,soul-reggae-blues:Soul&#44; Reggae &amp; Blues:सोल&#44; रेगे और ब्लूज़" | split: "," %}
 <nav class="genre-nav" aria-label="Genres" data-hi-aria-label="जॉनर">
