@@ -108,18 +108,18 @@ which is $$-j$$, i.e. equal and $$90°$$ behind, only for $$Z_L = Z_0$$. The $$\
 
 ## In the book
 
-- §2.12, pp. 70–80. Definitions (pp. 70–73), the Poincaré sphere (p. 73, details in Fig. 17.24, p. 1040), §2.12.1 eqs. (2-55) to (2-68) with Fig. 2.23 (pp. 71–75), §2.12.2 eqs. (2-69) to (2-71a), Figs. 2.24 and 2.25, Examples 2.11 and 2.12 (pp. 76–79), crossed dipoles, Fig. 2.26 (p. 80).
+- [§2.12](../2-12-polarization/), pp. 70–80. Definitions (pp. 70–73), the Poincaré sphere (p. 73, details in Fig. 17.24, p. 1040), [§2.12.1](../2-12-polarization/#the-ellipse-at-one-point) eqs. (2-55) to (2-68) with Fig. 2.23 (pp. 71–75), [§2.12.2](../2-12-polarization/#how-much-a-mismatch-costs) eqs. (2-69) to (2-71a), Figs. 2.24 and 2.25, Examples 2.11 and 2.12 (pp. 76–79), crossed dipoles, Fig. 2.26 (p. 80).
 - Eq. (2-68) as printed uses $$\tan^{-1}$$; it needs the four-quadrant form when $$E_{yo} > E_{xo}$$ (see "The gap").
-- The far field as a local plane wave: §3.6. The vector effective length in eq. (2-71a): §2.15. Measuring polarization: Chapter 17.
+- The far field as a local plane wave: §3.6. The vector effective length in eq. (2-71a): [§2.15](../2-15-vector-effective-length-and-equivalent-areas/). Measuring polarization: Chapter 17.
 
 ---
 
 ## References
 
-[^def]: Balanis, §2.12, pp. 70–72, quoting IEEE Std 145 for the polarization of an antenna and of a wave.
-[^eq]: Balanis, §2.12.1, eqs. (2-55) to (2-57), p. 73; axial ratio eqs. (2-65) to (2-67) and tilt eq. (2-68), p. 74.
-[^plf]: Balanis, §2.12.2, eqs. (2-69) to (2-71), p. 76; the remark that no conjugate is used, and Example 2.12, pp. 77–79.
+[^def]: Balanis, [§2.12](../2-12-polarization/), pp. 70–72, quoting IEEE Std 145 for the polarization of an antenna and of a wave.
+[^eq]: Balanis, [§2.12.1](../2-12-polarization/#the-ellipse-at-one-point), eqs. (2-55) to (2-57), p. 73; axial ratio eqs. (2-65) to (2-67) and tilt eq. (2-68), p. 74.
+[^plf]: Balanis, [§2.12.2](../2-12-polarization/#how-much-a-mismatch-costs), eqs. (2-69) to (2-71), p. 76; the remark that no conjugate is used, and Example 2.12, pp. 77–79.
 [^gps]: IS-GPS-200N, *NAVSTAR GPS Space Segment/Navigation User Segment Interfaces* (Space Systems Command, 1 Aug 2022), §3.3.1.9, p. 18: the signal is right-hand circular, with L1 ellipticity no worse than 1.8 dB for Block IIR to IIIF satellites ([PDF](https://archive.gps.gov/technical/icwg/IS-GPS-200N.pdf)).
-[^cross]: Balanis, §2.12.2, Fig. 2.26 and the text around it, p. 80.
+[^cross]: Balanis, [§2.12.2](../2-12-polarization/#how-much-a-mismatch-costs), Fig. 2.26 and the text around it, p. 80.
 [^dip]: Balanis, §4.5, eq. (4-64), p. 173.
 [^z]: Balanis, §4.5, eq. (4-93a), p. 184.

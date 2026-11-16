@@ -65,7 +65,7 @@ That holds for a thin dipole and not in general. The Thevenin circuit only promi
 <details markdown="1">
 <summary markdown="span">Where the optical-theorem limits come from</summary>
 
-Measure areas in units of $$\lambda^2/4\pi$$. A matched, lossless antenna absorbs $$a = D_a$$ (the effective area of §2.15), and scatters a total of $$s$$. The optical theorem ties the total power taken out of the wave to the scattered field straight ahead, and bounding that field by its size gives
+Measure areas in units of $$\lambda^2/4\pi$$. A matched, lossless antenna absorbs $$a = D_a$$ (the effective area of [§2.15](../2-15-vector-effective-length-and-equivalent-areas/)), and scatters a total of $$s$$. The optical theorem ties the total power taken out of the wave to the scattered field straight ahead, and bounding that field by its size gives
 
 $$
 a + s \le 2\sqrt{D_s\,s},
@@ -88,19 +88,19 @@ The two limits meet at $$\eta = \tfrac12$$ only when $$D_s = D_a$$, i.e. when th
 
 ## In the book
 
-- §2.13, pp. 80–85. Eqs. (2-72) to (2-73) and Fig. 2.27, p. 81; transmit-mode powers (2-74) to (2-80), p. 82; conjugate match (2-81) to (2-85), p. 83; receive mode, Fig. 2.28 and (2-86) to (2-89), pp. 83–85.
+- [§2.13](../2-13-input-impedance/), pp. 80–85. Eqs. (2-72) to (2-73) and Fig. 2.27, p. 81; transmit-mode powers (2-74) to (2-80), p. 82; conjugate match (2-81) to (2-85), p. 83; receive mode, Fig. 2.28 and (2-86) to (2-89), pp. 83–85.
 - The footnote on p. 82: the series circuit doesn't hold for antennas with lossy dielectric or over lossy ground.
-- Radiation resistance at the current maximum: §4.5.3, eq. (4-70), p. 177; at the feed: §4.5.5, eqs. (4-77) to (4-79), pp. 179–180. The moment method: §8.5, p. 458; Table 8.2, p. 461. Scattering by a loaded antenna: §2.17, eqs. (2-127) to (2-133). Radiation efficiency, $$R_L$$ of a wire: §2.14.
+- Radiation resistance at the current maximum: §4.5.3, eq. (4-70), p. 177; at the feed: §4.5.5, eqs. (4-77) to (4-79), pp. 179–180. The moment method: §8.5, p. 458; Table 8.2, p. 461. Scattering by a loaded antenna: [§2.17](../2-17-friis-transmission-and-radar-range-equations/), eqs. (2-127) to (2-133). Radiation efficiency, $$R_L$$ of a wire: [§2.14](../2-14-antenna-radiation-efficiency/).
 
 ---
 
 ## References
 
-[^za]: Balanis, §2.13, eqs. (2-72) and (2-73), pp. 80–81, quoting the IEEE definition of input impedance.
-[^tx]: Balanis, §2.13, Fig. 2.27 and eqs. (2-74) to (2-85), pp. 81–83.
+[^za]: Balanis, [§2.13](../2-13-input-impedance/), eqs. (2-72) and (2-73), pp. 80–81, quoting the IEEE definition of input impedance.
+[^tx]: Balanis, [§2.13](../2-13-input-impedance/), Fig. 2.27 and eqs. (2-74) to (2-85), pp. 81–83.
 [^rmax]: Balanis, §4.5.3, eq. (4-70), p. 177.
 [^rin]: Balanis, §4.5.5, eqs. (4-77) to (4-79), pp. 179–180.
 [^mom]: Balanis, §8.5.1, pp. 458–459, and Table 8.2, p. 461 (magnetic-frill feed, eq. (8-32), p. 449). Our solver uses Hallén's equation with the exact kernel and pulse currents; for Balanis's 0.47 λ, 0.005 λ dipole it gives $$77.8 + j12.0\ \Omega$$ against his $$78.8 + j12.9\ \Omega$$ at 79 segments.
-[^rx]: Balanis, §2.13, Fig. 2.28 and eqs. (2-86) to (2-89), pp. 83–85.
+[^rx]: Balanis, [§2.13](../2-13-input-impedance/), Fig. 2.28 and eqs. (2-86) to (2-89), pp. 83–85.
 [^collin]: R. E. Collin, "Limitations of the Thevenin and Norton equivalent circuits for a receiving antenna," *IEEE Antennas and Propagation Magazine*, vol. 45, no. 2, pp. 119–124, 2003, [doi:10.1109/MAP.2003.1203128](https://doi.org/10.1109/MAP.2003.1203128) (abstract).
 [^af]: J. Bach Andersen and A. Frandsen, "Absorption efficiency of receiving antennas," *IEEE Transactions on Antennas and Propagation*, vol. 53, no. 9, pp. 2843–2849, 2005, [doi:10.1109/TAP.2005.854532](https://doi.org/10.1109/TAP.2005.854532) ([author copy](https://vbn.aau.dk/en/publications/absorption-efficiency-of-receiving-antennas)).

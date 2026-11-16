@@ -90,15 +90,15 @@ and since $$D_0 = 4\pi/\Omega_A$$, a main lobe of fixed shape gets less directiv
 
 ## In the book
 
-- §2.10, pp. 69–70: definition (2-53), the integral (2-54); the beam on the $$z$$-axis as in Fig. 2.1(a).
+- [§2.10](../2-10-beam-efficiency/), pp. 69–70: definition (2-53), the integral (2-54); the beam on the $$z$$-axis as in Fig. 2.1(a).
 - Beam efficiency of real apertures: §12.5.4, p. 682, Fig. 12.15 and Example 12.4 (square apertures); §12.6.3, p. 691, Fig. 12.21, p. 694 (circular apertures).
-- The beam solid angle: §2.6, eqs. (2-23) to (2-25). Tapers and side lobes: §7.10.2 and §12.7.
+- The beam solid angle: [§2.6](../2-6-directivity/), eqs. (2-23) to (2-25). Tapers and side lobes: §7.10.2 and §12.7.
 
 ---
 
 ## References
 
-[^be]: Balanis, §2.10, eqs. (2-53) and (2-54), pp. 69–70.
+[^be]: Balanis, [§2.10](../2-10-beam-efficiency/), eqs. (2-53) and (2-54), pp. 69–70.
 [^taper]: Balanis, §7.10.2, eqs. (7-45) and (7-46) and Table 7.2, pp. 421–422: circular apertures lit as $$(1-\rho^2)^n$$, $$n = 0, 1, 2$$.
 [^ch12]: Balanis, §12.6.3, p. 691, and Fig. 12.21, p. 694, after W. F. Croswell in D. G. Fink (ed.), *Electronics Engineers' Handbook* (McGraw-Hill, 1975). The square-aperture version is §12.5.4 and Fig. 12.15, pp. 682–683.
-[^omega]: Balanis, §2.6, eqs. (2-23) to (2-25), p. 50.
+[^omega]: Balanis, [§2.6](../2-6-directivity/), eqs. (2-23) to (2-25), p. 50.

@@ -30,13 +30,13 @@ Kraus's formula puts a box of width $$\Theta_1\Theta_2$$ there instead, the prod
 
 ## A real dish: NEXRAD
 
-The §2.5 page used the NEXRAD weather radar's 8.54 m dish at 2.85 GHz, i.e. 81 wavelengths across.[^nexrad] A dish has side lobes, and side lobes are exactly what the beamwidth formulas never see: they are weak but cover a lot of sky.
+The [§2.5](../2-5-beamwidth/) page used the NEXRAD weather radar's 8.54 m dish at 2.85 GHz, i.e. 81 wavelengths across.[^nexrad] A dish has side lobes, and side lobes are exactly what the beamwidth formulas never see: they are weak but cover a lot of sky.
 
 1. *NEXRAD dish* (parabolic taper): HPBW 0.896°, exact $$D_0$$ = 46.88 dBi, Kraus 47.11 dBi, Tai–Pereira 46.57 dBi. Both are within 0.3 dB, and the box is under one square degree: $$1/48{,}787$$ of the sky.
 2. Switch to *Uniform*: the beam narrows to 0.726° and $$D_0$$ rises to 48.13 dBi, but the side lobes come up to $$-17.6$$ dB and both formulas now over-shoot, Kraus by 20%, Tai–Pereira by 6%. On the right, the side lobes are the low hump past the box; small in height, wide in solid angle.
 3. Slide $$d/\lambda$$ anywhere above about 10: the errors barely move. For a big dish they depend on the taper, not on the size.
 
-The measured *gain* of the real NEXRAD dish is 45.8 dB,[^nexrad] about 1 dB under the directivity of the model. Gain counts what the antenna loses and wastes on the way; directivity doesn't. That is §2.9.
+The measured *gain* of the real NEXRAD dish is 45.8 dB,[^nexrad] about 1 dB under the directivity of the model. Gain counts what the antenna loses and wastes on the way; directivity doesn't. That is [§2.9](../2-9-gain/).
 
 {% include readalong/beam-solid-angle.html family="dish" taper="1" dl="nexrad" caption="A circular dish lit with one of three tapers, radiating into the front half only (Balanis eqs. 7-45, 7-46), here the size of the NEXRAD dish at 2.85 GHz (d/λ = 81). Same panels as above; the error curves now run over d/λ from 2 to 120 for the chosen taper." %}
 
@@ -78,16 +78,16 @@ a Gaussian. The larger $$n$$, the narrower the beam and the better the approxima
 
 ## In the book
 
-- §2.6, pp. 44–58: definitions eqs. (2-16) to (2-17b), Examples 2.5 and 2.6, Figs. 2.12 and 2.13; general form and $$\Omega_A$$ eqs. (2-19) to (2-25); §2.6.1 directional patterns, eqs. (2-26) to (2-31), Example 2.7, Table 2.1, Fig. 2.16; §2.6.2 omnidirectional patterns, eqs. (2-32) to (2-33b), Figs. 2.17, 2.18 and Example 2.8.
-- Radiation intensity and the solid angle: §2.4. Partial directivities (2-17) come back with polarization in §2.12. The half-wave dipole's exact $$D_0$$: §4.6, eq. (4-91), p. 183. Dish patterns: §7.10.2.
-- Next: §2.7 Numerical Techniques, where the integral for $$\Omega_A$$ is done on a computer, as the widget does here.
+- [§2.6](../2-6-directivity/), pp. 44–58: definitions eqs. (2-16) to (2-17b), Examples 2.5 and 2.6, Figs. 2.12 and 2.13; general form and $$\Omega_A$$ eqs. (2-19) to (2-25); [§2.6.1](../2-6-directivity/#one-lobe-two-lobes-omni) directional patterns, eqs. (2-26) to (2-31), Example 2.7, Table 2.1, Fig. 2.16; [§2.6.2](../2-6-directivity/#one-lobe-two-lobes-omni) omnidirectional patterns, eqs. (2-32) to (2-33b), Figs. 2.17, 2.18 and Example 2.8.
+- Radiation intensity and the solid angle: [§2.4](../2-4-radiation-intensity/). Partial directivities (2-17) come back with polarization in [§2.12](../2-12-polarization/). The half-wave dipole's exact $$D_0$$: §4.6, eq. (4-91), p. 183. Dish patterns: §7.10.2.
+- Next: [§2.7](../2-7-numerical-techniques/) Numerical Techniques, where the integral for $$\Omega_A$$ is done on a computer, as the widget does here.
 
 ---
 
 ## References
 
-[^omega]: Balanis, §2.6, eqs. (2-23) to (2-25), p. 50, and the definition of the beam solid angle on the same page.
-[^kraus]: Balanis, §2.6.1, eqs. (2-26) and (2-27), p. 51, after Kraus (Balanis ref. [5]).
+[^omega]: Balanis, [§2.6](../2-6-directivity/), eqs. (2-23) to (2-25), p. 50, and the definition of the beam solid angle on the same page.
+[^kraus]: Balanis, [§2.6.1](../2-6-directivity/#one-lobe-two-lobes-omni), eqs. (2-26) and (2-27), p. 51, after Kraus (Balanis ref. [5]).
 [^tp]: C.-T. Tai and C. S. Pereira, "An approximate formula for calculating the directivity of an antenna," *IEEE Trans. Antennas Propag.* 24(2), 235–236 (1976), doi:[10.1109/TAP.1976.1141313](https://doi.org/10.1109/TAP.1976.1141313); in Balanis as eqs. (2-29) to (2-30b), pp. 53–54.
 [^nexrad]: National Research Council, *Weather Radar Technology Beyond NEXRAD* (National Academies Press, 2002), Appendix A, pp. 69–70: reflector 8.54 m circular; one-way 3 dB beamwidth 0.96° at 2.7 GHz and 0.88° at 3.0 GHz; gain 45.8 dB at 2.85 GHz; first side lobe $$-29$$ dB.
 [^hw]: Balanis, §4.6, eq. (4-91), p. 183, gives 1.643 with $$\mathrm{Cin}(2\pi)$$ rounded to 2.435; with $$\mathrm{Cin}(2\pi) = 2.4376$$ it is 1.641.

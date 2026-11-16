@@ -20,7 +20,7 @@ A radar sees a big target at 200 km. How far away can it see a target with one t
 
 ## Friis: two areas and a sphere
 
-The factor $$(\lambda/4\pi R)^2$$ is called the *free-space loss*, but nothing is lost in free space. Write it as $$(\lambda^2/4\pi)/(4\pi R^2)$$: it is the area of an isotropic antenna, §2.16, over the area of the sphere. All the power is still out there; this is the share an isotropic receiver catches. Swap both gains for areas with $$G = 4\pi A/\lambda^2$$ and Friis becomes
+The factor $$(\lambda/4\pi R)^2$$ is called the *free-space loss*, but nothing is lost in free space. Write it as $$(\lambda^2/4\pi)/(4\pi R^2)$$: it is the area of an isotropic antenna, [§2.16](../2-16-maximum-directivity-and-maximum-effective-area/), over the area of the sphere. All the power is still out there; this is the share an isotropic receiver catches. Swap both gains for areas with $$G = 4\pi A/\lambda^2$$ and Friis becomes
 
 $$
 \frac{P_r}{P_t} = \frac{A_t A_r}{\lambda^2 R^2},
@@ -28,7 +28,7 @@ $$
 
 and there is no frequency in it at all except through $$\lambda^2$$ in the denominator. The equation goes back to a short note by Friis in 1946.[^hf] So whether a link gets better or worse with frequency depends on what you hold fixed: fixed gains lose $$\lambda^2$$, fixed dishes gain it.
 
-The formula also needs the far field. Inside $$2D^2/\lambda$$ (§2.5) the gains are not yet the far-field gains, and close enough in, Friis says the receiver gets back more than was sent.
+The formula also needs the far field. Inside $$2D^2/\lambda$$ ([§2.5](../2-5-beamwidth/)) the gains are not yet the far-field gains, and close enough in, Friis says the receiver gets back more than was sent.
 
 ### Things to try
 
@@ -36,7 +36,7 @@ The formula also needs the far field. Inside $$2D^2/\lambda$$ (§2.5) the gains 
 2. Still Wi-Fi, *Hold gains*, frequency up to 5 GHz: $$-42.1$$ dBm, 6.2 dB worse. Now *Hold areas* (keep the same two antennas and only change the frequency): $$-29.7$$ dBm, 6.2 dB *better*. The spreading bar is the same in both; only the gain bars move.
 3. *Two horns on a bench*, 20 dBi each at 10 GHz: the far field starts at 1.31 m. Slide in to 0.24 m and Friis gives back exactly what went in; at 0.1 m it says $$+7.6$$ dBm comes out of 0 dBm. The formula is fine; it is being used where it doesn't apply.
 4. *Voyager 2 to Canberra*, 1 Jan 1996, from JPL's own link budget: 12.3 W into a 3.66 m dish, 48.62 AU to a 70 m dish. The spreading is $$-308.2$$ dB and $$-145.5$$ dBm arrives, i.e. $$2.8\times10^{-18}$$ W, the same as JPL's table.[^voy]
-5. Twist the polarization by 45°: 3 dB gone, as $$\cos^2$$ of the twist (§2.12.2).
+5. Twist the polarization by 45°: 3 dB gone, as $$\cos^2$$ of the twist ([§2.12.2](../2-12-polarization/#how-much-a-mismatch-costs)).
 
 {% include readalong/friis-link.html case="link" preset="wifi" caption="Left: the link budget of Balanis eq. (2-118) in dB, one bar per term, from the power in (Pt) to the power delivered to the receiver's load (Pr); gains in blue, losses in red. 'space' is (λ/4πR)², 'match' is (1 − |Γt|²)(1 − |Γr|²), 'pol.' is cos² of the twist between two linear polarizations, and 'other' is the pointing, atmosphere and polarization losses in JPL's Voyager table. Right: received power against distance, log scale; shaded where the distance is inside the far-field boundary 2D²/λ, D the larger antenna's largest dimension; the red dashed line is the power sent. 'Hold gains' keeps the gains as the frequency moves (antennas scaled with λ); 'Hold areas' keeps the antennas, so G = 4πA/λ²." %}
 
@@ -92,7 +92,7 @@ Divide by $$\sigma_a$$ and this is the squared distance, in the plane of the loa
 <details markdown="1">
 <summary markdown="span">Friis in areas, and the radar equation, in three lines each</summary>
 
-Power density at $$R$$ from the transmitter: $$W = P_tG_t/4\pi R^2$$. Power into the receiver: $$P_r = WA_r$$, with $$A_r = \lambda^2G_r/4\pi$$ from §2.16. Multiply: eq. (2-119). Replace $$G_t$$ by $$4\pi A_t/\lambda^2$$ as well and the $$4\pi$$s cancel to $$A_tA_r/\lambda^2R^2$$.
+Power density at $$R$$ from the transmitter: $$W = P_tG_t/4\pi R^2$$. Power into the receiver: $$P_r = WA_r$$, with $$A_r = \lambda^2G_r/4\pi$$ from [§2.16](../2-16-maximum-directivity-and-maximum-effective-area/). Multiply: eq. (2-119). Replace $$G_t$$ by $$4\pi A_t/\lambda^2$$ as well and the $$4\pi$$s cancel to $$A_tA_r/\lambda^2R^2$$.
 
 For the radar, the target collects $$P_c = \sigma W$$, eq. (2-121), and re-radiates it over $$4\pi R^2$$, eq. (2-122). The radar collects $$A_r$$ of that:
 
@@ -120,21 +120,21 @@ Setting it to zero gives eqs. (2-139a) and (2-139b) at once. With $$\Gamma_A = 0
 ## Common confusion
 
 1. "Higher frequencies lose more in free space." Space treats every frequency the same. The $$\lambda^2$$ in eq. (2-119) belongs to the receiving antenna: at fixed gain its area shrinks as $$\lambda^2$$. Keep the dishes and raise the frequency, and the link gets better.
-2. "$$e_r$$ in eq. (2-115) is the reflection efficiency." Not here. In this section $$e_t$$ and $$e_r$$ are the radiation efficiencies of the two antennas ($$e_{cdt}$$, $$e_{cdr}$$ in eq. 2-118); in §2.8 the same $$e_r$$ meant reflection efficiency.
+2. "$$e_r$$ in eq. (2-115) is the reflection efficiency." Not here. In this section $$e_t$$ and $$e_r$$ are the radiation efficiencies of the two antennas ($$e_{cdt}$$, $$e_{cdr}$$ in eq. 2-118); in [§2.8](../2-8-antenna-efficiency/) the same $$e_r$$ meant reflection efficiency.
 
 ## In the book
 
-- §2.17, pp. 94–104. Friis: Fig. 2.31 and eqs. (2-113) to (2-119), pp. 94–96. Radar range: Fig. 2.32 and eqs. (2-120) to (2-126), pp. 96–98, Example 2.16. Antenna RCS: Table 2.2 and eqs. (2-127) to (2-142), pp. 98–103, Example 2.17; measured dipole RCS, Fig. 2.33, p. 104.
+- [§2.17](../2-17-friis-transmission-and-radar-range-equations/), pp. 94–104. Friis: Fig. 2.31 and eqs. (2-113) to (2-119), pp. 94–96. Radar range: Fig. 2.32 and eqs. (2-120) to (2-126), pp. 96–98, Example 2.16. Antenna RCS: Table 2.2 and eqs. (2-127) to (2-142), pp. 98–103, Example 2.17; measured dipole RCS, Fig. 2.33, p. 104.
 - Eq. (2-138) on p. 102, as printed, $$\vert\sigma_s - \sigma_a\vert \le \sigma \le \vert\sigma_s + \sigma_a\vert$$, is missing its square roots: from eq. (2-137) the bounds are $$(\sqrt{\sigma_s}\mp\sqrt{\sigma_a})^2$$. Example 2.17's own matched value, $$\sigma_a$$ with $$\sigma_s = 4\sigma_a$$, falls outside the printed range.
 - Eq. (2-142) takes $$\vert 2R_A/Z_A\vert^2 = 4$$, i.e. a resonant dipole with $$X_A = 0$$, a little shorter than $$\lambda/2$$. For the exact half wave, $$Z_A = 73 + j42.5\ \Omega$$, the factor is 2.99. The "computed value of −22.5 dBsm" on p. 104 is $$\lambda^2$$ at 4.02 GHz; $$0.86\lambda^2$$ is $$-23.2$$ dBsm, closer to the measured $$-24$$.
-- The effective area in Friis: §2.16, eqs. (2-110) to (2-112). Efficiencies: §2.8. Polarization loss factor: §2.12.2. Far-field distance: §2.5. A receiving antenna's scattered power: §2.13 and §2.15.
+- The effective area in Friis: [§2.16](../2-16-maximum-directivity-and-maximum-effective-area/), eqs. (2-110) to (2-112). Efficiencies: [§2.8](../2-8-antenna-efficiency/). Polarization loss factor: [§2.12.2](../2-12-polarization/#how-much-a-mismatch-costs). Far-field distance: [§2.5](../2-5-beamwidth/). A receiving antenna's scattered power: [§2.13](../2-13-input-impedance/) and [§2.15](../2-15-vector-effective-length-and-equivalent-areas/).
 
 ---
 
 ## References
 
-[^friis]: Balanis, §2.17.1, eqs. (2-113) to (2-119), pp. 94–96.
-[^radar]: Balanis, §2.17.2, eqs. (2-120) to (2-126), pp. 96–98.
+[^friis]: Balanis, [§2.17.1](../2-17-friis-transmission-and-radar-range-equations/#friis-two-areas-and-a-sphere), eqs. (2-113) to (2-119), pp. 94–96.
+[^radar]: Balanis, [§2.17.2](../2-17-friis-transmission-and-radar-range-equations/#radar-the-trip-both-ways), eqs. (2-120) to (2-126), pp. 96–98.
 [^hf]: H. T. Friis, "A Note on a Simple Transmission Formula," *Proceedings of the IRE* 34(5), 254–256 (1946), [doi:10.1109/JRPROC.1946.234568](https://doi.org/10.1109/JRPROC.1946.234568).
 [^voy]: R. Ludwig and J. Taylor, *Voyager Telecommunications*, DESCANSO Design and Performance Summary Series, Article 4 (JPL, March 2002), Table 5-3, "Voyager 2 downlink carrier design control table", for DSS-43 on 1 January 1996; [PDF at JPL](https://descanso.jpl.nasa.gov/DPSummary/Descanso4--Voyager_new.pdf).
 [^nrc]: National Research Council, *Weather Radar Technology Beyond NEXRAD* (National Academies Press, 2002), Appendix A, pp. 69–70.

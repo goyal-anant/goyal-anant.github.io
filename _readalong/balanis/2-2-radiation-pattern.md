@@ -6,7 +6,7 @@ section: "2.2"
 
 ## What this section is really saying
 
-A radiation pattern is a map of how strongly an antenna radiates in each direction, drawn on a sphere far away. Most of §2.2 is vocabulary for that map: field or power, linear or dB, lobes, principal planes. The one piece of physics is how far "far" is: the map stops changing beyond about $$2D^2/\lambda$$.
+A radiation pattern is a map of how strongly an antenna radiates in each direction, drawn on a sphere far away. Most of [§2.2](../2-2-radiation-pattern/) is vocabulary for that map: field or power, linear or dB, lobes, principal planes. The one piece of physics is how far "far" is: the map stops changing beyond about $$2D^2/\lambda$$.
 
 ## Predict first
 
@@ -33,7 +33,7 @@ A wire of length $$L$$ along $$z$$, fed at the red dot. It sends nothing along i
 Points along $$z$$ that radiate equally in all directions, spaced $$d$$ apart, each fed with a phase $$\beta$$ behind its neighbour: the *array factor* of Chapter 6.[^array] It opens on Balanis's Figures 2.2 and 2.4 array ($$N = 10$$, $$d = 0.25\lambda$$, $$\beta = -0.6\pi$$): HPBW 38.6°, biggest minor lobe $$-9.1$$ dB. Isotropic points have no polarization, so there are no E- or H-planes here.
 
 1. Set $$\beta = 0$$: the beam swings to $$\theta = 90°$$ and the HPBW drops to 20.5°. The Figure 2.2 caption leaves out $$\beta$$, and with $$\beta = 0$$ you won't get its 38.64°.
-2. Find the major lobe, the side lobes and the back lobe of §2.2.1 on the $$\theta$$ cut.
+2. Find the major lobe, the side lobes and the back lobe of [§2.2.1](../2-2-radiation-pattern/#three-antennas-in-3d-and-in-two-cuts) on the $$\theta$$ cut.
 3. With $$\beta = 0$$, push $$d$$ to $$1\lambda$$: two more beams as strong as the main one appear along $$z$$, i.e. more than one major lobe.
 
 {% include readalong/pattern-explorer.html antenna="array" params="N=10,d=0.25,beta=-0.6" %}
@@ -101,22 +101,22 @@ i.e. the path from the edge is off by at most $$\lambda/16$$.[^gap] The $$\pi/8$
 
 ## In the book
 
-- §2.2, pp. 27–38, Figures 2.1–2.10, eqs. (2-1) and (2-2).
+- [§2.2](../2-2-radiation-pattern/), pp. 27–38, Figures 2.1–2.10, eqs. (2-1) and (2-2).
 - Region boundaries: §4.4, pp. 166–170, eqs. (4-41) to (4-55c).
 - Dipoles: §4.5–4.6. Arrays: §6.3. Waveguide aperture: §12.5.3.
-- HPBW and FNBW in full: §2.5, Beamwidth.
+- HPBW and FNBW in full: [§2.5](../2-5-beamwidth/), Beamwidth.
 
 ---
 
 ## References
 
-[^radius]: Balanis, §2.2.1, p. 32: the radial distance in a 3D pattern plot represents $$\vert E\vert$$.
-[^cuts]: Balanis, §2.2, pp. 29–30.
-[^regions]: Balanis, §2.2.4, pp. 34–35, quoting the IEEE definitions, and eqs. (4-55a) to (4-55c), p. 170.
-[^fig29]: Balanis, §2.2.4, p. 36 and Figure 2.9; §4.4.1, p. 168.
+[^radius]: Balanis, [§2.2.1](../2-2-radiation-pattern/#three-antennas-in-3d-and-in-two-cuts), p. 32: the radial distance in a 3D pattern plot represents $$\vert E\vert$$.
+[^cuts]: Balanis, [§2.2](../2-2-radiation-pattern/), pp. 29–30.
+[^regions]: Balanis, [§2.2.4](../2-2-radiation-pattern/#near-field-and-far-field), pp. 34–35, quoting the IEEE definitions, and eqs. (4-55a) to (4-55c), p. 170.
+[^fig29]: Balanis, [§2.2.4](../2-2-radiation-pattern/#near-field-and-far-field), p. 36 and Figure 2.9; §4.4.1, p. 168.
 [^gap]: Balanis, §4.4.1, eqs. (4-41) to (4-45), pp. 166–167.
-[^sll]: Balanis, §2.2.1, pp. 31–32.
-[^small]: Balanis, §2.2.4, p. 34 and the footnotes on pp. 34–35; the radian distance $$kr = 1$$ and the far field $$kr \gg 1$$ of a short dipole are in §4.2, pp. 156–159.
+[^sll]: Balanis, [§2.2.1](../2-2-radiation-pattern/#three-antennas-in-3d-and-in-two-cuts), pp. 31–32.
+[^small]: Balanis, [§2.2.4](../2-2-radiation-pattern/#near-field-and-far-field), p. 34 and the footnotes on pp. 34–35; the radian distance $$kr = 1$$ and the far field $$kr \gg 1$$ of a short dipole are in §4.2, pp. 156–159.
 [^dipole]: Balanis, §4.5, eqs. (4-62a), (4-64) and (4-65), pp. 172–173: the pattern of a dipole of length $$l$$, and its half-power beamwidth, 78° for $$l = \lambda/2$$ and 90° for a very short one.
 [^array]: Balanis, §6.3, eq. (6-10c), p. 293: the normalised array factor of $$N$$ equally spaced, equally fed elements.
 [^aperture]: Balanis, §12.5.3, pp. 624–626: a rectangular waveguide with the TE$$_{10}$$ field distribution, mounted on an infinite ground plane. The widget uses the same far-field form.

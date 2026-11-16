@@ -86,16 +86,16 @@ i.e. eq. (2-90b) plus a quarter of the dc resistance, within 1% once $$b > 4.2\,
 
 ## In the book
 
-- §2.14, pp. 85–86: eq. (2-90), the dc resistance (2-90a) and the skin formula (2-90b), p. 86; Example 2.13, p. 86. Its dB line takes the logarithm of 0.9905 instead of 0.9952; the −0.02 dB it prints is right for 0.9952. The $$R_{hf}/2$$ factor is left to Problem 2.52.
-- The efficiency chain $$e_0 = e_r e_c e_d$$: §2.8. $$R_r$$ and $$R_L$$ in the antenna's circuit: §2.13.
+- [§2.14](../2-14-antenna-radiation-efficiency/), pp. 85–86: eq. (2-90), the dc resistance (2-90a) and the skin formula (2-90b), p. 86; Example 2.13, p. 86. Its dB line takes the logarithm of 0.9905 instead of 0.9952; the −0.02 dB it prints is right for 0.9952. The $$R_{hf}/2$$ factor is left to Problem 2.52.
+- The efficiency chain $$e_0 = e_r e_c e_d$$: [§2.8](../2-8-antenna-efficiency/). $$R_r$$ and $$R_L$$ in the antenna's circuit: [§2.13](../2-13-input-impedance/).
 - Dipole radiation resistance: §4.5.3, eq. (4-70), p. 177; §8.5, eq. (8-60a), p. 465. Small loop: §5.2, eq. (5-24), p. 238; its loss resistance and the proximity effect, eq. (5-25) and Fig. 5.3, pp. 239–240.
 
 ---
 
 ## References
 
-[^ecd]: Balanis, §2.14, eq. (2-90), pp. 85–86.
-[^rhf]: Balanis, §2.14, eqs. (2-90a) and (2-90b), p. 86.
+[^ecd]: Balanis, [§2.14](../2-14-antenna-radiation-efficiency/), eq. (2-90), pp. 85–86.
+[^rhf]: Balanis, [§2.14](../2-14-antenna-radiation-efficiency/), eqs. (2-90a) and (2-90b), p. 86.
 [^schel]: S. A. Schelkunoff, "The electromagnetic theory of coaxial transmission lines and cylindrical shields," *Bell System Technical Journal*, vol. 13, no. 4, pp. 532–579, 1934, [doi:10.1002/j.1538-7305.1934.tb00679.x](https://doi.org/10.1002/j.1538-7305.1934.tb00679.x), eqs. (65) to (67), pp. 551–552 ([scan](https://archive.org/details/bstj13-4-532)). He writes it with modified Bessel functions; ours is the same function.
 [^metals]: Copper: Balanis, Example 2.13, p. 86. The International Annealed Copper Standard, 58 m/(Ω·mm²) at 20 °C, i.e. $$5.8\times10^7$$ S/m: National Bureau of Standards, *Copper Wire Tables*, Handbook 100, 1966, p. 2 ([pdf](https://nvlpubs.nist.gov/nistpubs/Legacy/hb/nbshandbook100.pdf)). Aluminium 6061-T6, 43% IACS at 20 °C: Protolabs, "Sheet Coil & Plate Alloy 6061, Technical Data" ([pdf](https://Protolabs.com/media/1021492/6061-t651-cnc.pdf)). Stainless 304, 72 µΩ·cm at 20 °C: Cleveland-Cliffs, "304/304L Stainless Steel" product data bulletin, 2021 ([pdf](https://d1io3yog0oux5.cloudfront.net/_7ce3a04c09e74bf31ff5f89fc888db25/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf)).
 [^ex]: Balanis, Example 2.13, p. 86, which refers the factor to Problem 2.52.

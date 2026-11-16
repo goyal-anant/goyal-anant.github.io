@@ -36,7 +36,7 @@ $$
 
 Balanis defines $$\boldsymbol\ell_e$$ from the far field the antenna radiates with a current $$I_{in}$$ at its terminals, eq. (2-92). For the short dipole with its triangular current it is $$(l/2)\sin\theta$$, half the length, Balanis Example 2.14. A half-wave dipole does better, $$\lambda/\pi$$ or 0.64 of its length, because its current tapers less.
 
-But $$\boldsymbol\ell_e$$ is referred to a current, and on a long dipole the current at the feed is not the largest current on the wire. The same thing happened to $$R_r$$ in §2.13. Referred to the feed, $$\ell_e$$ grows past the physical length at $$0.74\lambda$$, and in the sinusoidal-current model it goes to infinity at one wavelength, where the feed sits at a current null. The available power stays finite, since $$\vert V_{oc}\vert^2$$ and $$R_{in}$$ both blow up together. So $$A_e$$ is the number that doesn't care where you feed.
+But $$\boldsymbol\ell_e$$ is referred to a current, and on a long dipole the current at the feed is not the largest current on the wire. The same thing happened to $$R_r$$ in [§2.13](../2-13-input-impedance/). Referred to the feed, $$\ell_e$$ grows past the physical length at $$0.74\lambda$$, and in the sinusoidal-current model it goes to infinity at one wavelength, where the feed sits at a current null. The available power stays finite, since $$\vert V_{oc}\vert^2$$ and $$R_{in}$$ both blow up together. So $$A_e$$ is the number that doesn't care where you feed.
 
 ### Things to try
 
@@ -50,7 +50,7 @@ But $$\boldsymbol\ell_e$$ is referred to a current, and on a long dipole the cur
 
 ## Apertures: never more than the opening
 
-For a dish or a horn the comparison goes the other way. A large aperture lit with uniform amplitude and phase has $$A_{em}$$ equal to its physical area, and any taper towards the rim makes it smaller; the ratio is the aperture efficiency $$\epsilon_{ap} = A_{em}/A_p$$, eq. (2-100). Real dishes taper on purpose, to keep their side lobes down (the taper view in §2.5).
+For a dish or a horn the comparison goes the other way. A large aperture lit with uniform amplitude and phase has $$A_{em}$$ equal to its physical area, and any taper towards the rim makes it smaller; the ratio is the aperture efficiency $$\epsilon_{ap} = A_{em}/A_p$$, eq. (2-100). Real dishes taper on purpose, to keep their side lobes down (the taper view in [§2.5](../2-5-beamwidth/)).
 
 ### Things to try
 
@@ -77,7 +77,7 @@ $$
 A_{em} = \frac{120\pi\,l^2}{4\cdot 80\pi^2 l^2/\lambda^2} = \frac{3\lambda^2}{8\pi}.
 $$
 
-Halving the effective length quarters the radiation resistance, so the area stays. It only depends on the pattern, which is $$\sin^2\theta$$ in both cases, and §2.16 turns this into $$A_{em} = \lambda^2D_0/4\pi$$.
+Halving the effective length quarters the radiation resistance, so the area stays. It only depends on the pattern, which is $$\sin^2\theta$$ in both cases, and [§2.16](../2-16-maximum-directivity-and-maximum-effective-area/) turns this into $$A_{em} = \lambda^2D_0/4\pi$$.
 
 </details>
 
@@ -88,16 +88,16 @@ Halving the effective length quarters the radiation resistance, so the area stay
 
 ## In the book
 
-- §2.15, pp. 87–92. Fig. 2.29, p. 87. Effective length, eqs. (2-91) to (2-93), p. 88; Example 2.14, pp. 88–89. Effective area, eqs. (2-94) to (2-96), p. 89. Scattering, loss and capture areas, eqs. (2-97) to (2-99), and aperture efficiency, eq. (2-100), p. 90. Example 2.15 and the effective width, pp. 91–92.
-- Balanis says on p. 89 that under conjugate matching half of the captured power is scattered, and on p. 90 that a lossless antenna's scattering area can equal its physical area. Both follow from the circuit of Fig. 2.28 and hold for a thin dipole, not for every antenna.[^af] See §2.13.
-- The vector effective length in the polarization loss factor: §2.12.2. The short dipole's field: §4.3, eq. (4-36a). Maximum effective area and directivity: §2.16, eq. (2-110), p. 93.
+- [§2.15](../2-15-vector-effective-length-and-equivalent-areas/), pp. 87–92. Fig. 2.29, p. 87. Effective length, eqs. (2-91) to (2-93), p. 88; Example 2.14, pp. 88–89. Effective area, eqs. (2-94) to (2-96), p. 89. Scattering, loss and capture areas, eqs. (2-97) to (2-99), and aperture efficiency, eq. (2-100), p. 90. Example 2.15 and the effective width, pp. 91–92.
+- Balanis says on p. 89 that under conjugate matching half of the captured power is scattered, and on p. 90 that a lossless antenna's scattering area can equal its physical area. Both follow from the circuit of Fig. 2.28 and hold for a thin dipole, not for every antenna.[^af] See [§2.13](../2-13-input-impedance/).
+- The vector effective length in the polarization loss factor: [§2.12.2](../2-12-polarization/#how-much-a-mismatch-costs). The short dipole's field: §4.3, eq. (4-36a). Maximum effective area and directivity: [§2.16](../2-16-maximum-directivity-and-maximum-effective-area/), eq. (2-110), p. 93.
 
 ---
 
 ## References
 
-[^le]: Balanis, §2.15.1, eqs. (2-91) to (2-93), p. 88.
-[^ae]: Balanis, §2.15.2, eq. (2-94), p. 89.
+[^le]: Balanis, [§2.15.1](../2-15-vector-effective-length-and-equivalent-areas/#effective-length-depends-on-the-current-you-pick), eqs. (2-91) to (2-93), p. 88.
+[^ae]: Balanis, [§2.15.2](../2-15-vector-effective-length-and-equivalent-areas/#where-the-power-comes-from), eq. (2-94), p. 89.
 [^bohren]: The same picture explains how a small particle can absorb more light than falls on its cross-section: C. F. Bohren, "How can a particle absorb more than the light incident on it?", *American Journal of Physics*, vol. 51, no. 4, pp. 323–327, 1983, [doi:10.1119/1.13262](https://doi.org/10.1119/1.13262).
 [^nexrad]: National Research Council, *Weather Radar Technology Beyond NEXRAD* (National Academies Press, 2002), Appendix A, "NEXRAD WSR-88D System Characteristics", pp. 69–70: reflector 8.54 m (28 ft) circular; gain 45.8 dB at 2.85 GHz.
 [^short]: Uniform current: Balanis, Example 2.15, p. 91. Triangular current: Example 2.14, p. 88, and §4.3.

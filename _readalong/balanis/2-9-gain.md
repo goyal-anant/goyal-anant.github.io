@@ -10,7 +10,7 @@ Directivity divides the radiation intensity by the power radiated; gain divides 
 
 ## Predict first
 
-A lossless short dipole has a directivity of 1.76 dBi, and a half-wave dipole 2.15 dBi. Now take the Wi-Fi wire from §2.8: a twentieth of a wavelength at 2.45 GHz, matched to 50 Ω with a coil of quality factor 100. What is its gain?
+A lossless short dipole has a directivity of 1.76 dBi, and a half-wave dipole 2.15 dBi. Now take the Wi-Fi wire from [§2.8](../2-8-antenna-efficiency/): a twentieth of a wavelength at 2.45 GHz, matched to 50 Ω with a coil of quality factor 100. What is its gain?
 
 ## From directivity to gain
 
@@ -72,17 +72,17 @@ The diameter cancels, so the product is a constant for a given kind of dish. For
 
 ## In the book
 
-- §2.9, pp. 65–69: gain (2-46), (2-46a); $$G = e_{cd}D$$ (2-47) to (2-49a); absolute gain (2-49b), (2-49c); partial gains (2-50) to (2-50b); the 30,000 rule (2-51); dB (2-52); Example 2.10 does the same ladder for a lossless dipole on a 50 Ω line.
-- Directivity and its beamwidth estimates: §2.6, eqs. (2-16) to (2-27a). The efficiencies: §2.8, eqs. (2-44), (2-45), and §2.14.
+- [§2.9](../2-9-gain/), pp. 65–69: gain (2-46), (2-46a); $$G = e_{cd}D$$ (2-47) to (2-49a); absolute gain (2-49b), (2-49c); partial gains (2-50) to (2-50b); the 30,000 rule (2-51); dB (2-52); Example 2.10 does the same ladder for a lossless dipole on a 50 Ω line.
+- Directivity and its beamwidth estimates: [§2.6](../2-6-directivity/), eqs. (2-16) to (2-27a). The efficiencies: [§2.8](../2-8-antenna-efficiency/), eqs. (2-44), (2-45), and [§2.14](../2-14-antenna-radiation-efficiency/).
 - Dipole pattern: §4.5, eq. (4-64). Circular apertures: §7.10.2, Table 7.2. Aperture efficiency of reflectors: Chapter 15.
 
 ---
 
 ## References
 
-[^gain]: Balanis, §2.9, eqs. (2-46) to (2-52), pp. 65–69, quoting the IEEE definitions (IEEE Std 145).
+[^gain]: Balanis, [§2.9](../2-9-gain/), eqs. (2-46) to (2-52), pp. 65–69, quoting the IEEE definitions (IEEE Std 145).
 [^dip]: Balanis, §4.5, eq. (4-64), p. 173. Its directivity at half a wavelength is 1.641, i.e. 2.15 dBi; Balanis eq. (4-91), p. 183, gives 1.643 with $$\mathrm{Cin}(2\pi)$$ rounded.
 [^cfr]: 47 CFR §2.1, definitions of "Effective radiated power", "Equivalent isotropically radiated power" and "Gain of an antenna" ([Cornell LII copy](https://www.law.cornell.edu/cfr/text/47/2.1)).
-[^rules]: Balanis, §2.6, eqs. (2-27) and (2-27a), p. 51, and §2.9, eq. (2-51), p. 68.
+[^rules]: Balanis, [§2.6](../2-6-directivity/), eqs. (2-27) and (2-27a), p. 51, and [§2.9](../2-9-gain/), eq. (2-51), p. 68.
 [^nexrad]: National Research Council, *Weather Radar Technology Beyond NEXRAD* (National Academies Press, 2002), Appendix A, pp. 69–70: reflector 8.54 m circular; one-way 3 dB beamwidth 0.96° at 2.7 GHz and 0.88° at 3.0 GHz; gain 45.8 dB at 2.85 GHz. The beamwidth at 2.85 GHz is the straight-line value between the two.
 [^taper]: Balanis, §7.10.2, eqs. (7-45) and (7-46) and Table 7.2, pp. 421–422: circular apertures lit as $$(1-\rho^2)^n$$, $$n = 0, 1, 2$$.

@@ -6,7 +6,7 @@ section: "2.4"
 
 ## What this section is really saying
 
-The power density $$W$$ of §2.3 falls as $$1/r^2$$, so it describes the distance as much as the antenna. Multiply it by $$r^2$$ and the distance drops out: what is left, $$U = r^2 W$$, is the power per unit solid angle, in watts per steradian, and it depends only on the direction. Add $$U$$ up over all directions and you get the radiated power.
+The power density $$W$$ of [§2.3](../2-3-radiation-power-density/) falls as $$1/r^2$$, so it describes the distance as much as the antenna. Multiply it by $$r^2$$ and the distance drops out: what is left, $$U = r^2 W$$, is the power per unit solid angle, in watts per steradian, and it depends only on the direction. Add $$U$$ up over all directions and you get the radiated power.
 
 ## Predict first
 
@@ -64,9 +64,9 @@ You can compute $$r^2\,\mathrm{Re}\,W_r$$ at any distance, but close to the ante
 | 30° | 2.33 | 1.43 | 1.096 | 1.023 | 1.004 | 1.000 |
 {: .ra-readout}
 
-At $$0.3\lambda$$ the real power leaves the sphere with more of it towards the wire's axis than the far pattern says, yet the total through the sphere is 36.56 W for every ampere squared of feed current at every radius in the table, as §2.3 says it must be.[^hw] Only the way it is spread over directions changes, and it settles to $$U$$ within a few wavelengths.
+At $$0.3\lambda$$ the real power leaves the sphere with more of it towards the wire's axis than the far pattern says, yet the total through the sphere is 36.56 W for every ampere squared of feed current at every radius in the table, as [§2.3](../2-3-radiation-power-density/) says it must be.[^hw] Only the way it is spread over directions changes, and it settles to $$U$$ within a few wavelengths.
 
-The short dipole of §2.3 is the exception: there $$r^2\,\mathrm{Re}\,W_r \propto \sin^2\theta$$ exactly at every distance (Balanis eq. 4-12a).
+The short dipole of [§2.3](../2-3-radiation-power-density/) is the exception: there $$r^2\,\mathrm{Re}\,W_r \propto \sin^2\theta$$ exactly at every distance (Balanis eq. 4-12a).
 
 </details>
 
@@ -77,17 +77,17 @@ The short dipole of §2.3 is the exception: there $$r^2\,\mathrm{Re}\,W_r \propt
 
 ## In the book
 
-- §2.4, pp. 40–42, eqs. (2-12) to (2-15), and Example 2.3 (same idea as our cone, on Example 2.2's pattern).
-- Radian and steradian: §2.2.5, pp. 36–37, eqs. (2-1), (2-2) and Fig. 2.10.
+- [§2.4](../2-4-radiation-intensity/), pp. 40–42, eqs. (2-12) to (2-15), and Example 2.3 (same idea as our cone, on Example 2.2's pattern).
+- Radian and steradian: [§2.2.5](../2-2-radiation-pattern/), pp. 36–37, eqs. (2-1), (2-2) and Fig. 2.10.
 - The half-wave dipole's $$U$$ and total power: §4.6, pp. 182–184, eqs. (4-87) to (4-90). Its exact near fields: §8.5.2, pp. 462–463, eqs. (8-53) to (8-55b).
-- Next: §2.5 Beamwidth, then §2.6 Directivity, which compares $$U$$ in one direction with its average $$P_{rad}/4\pi$$.
+- Next: [§2.5](../2-5-beamwidth/) Beamwidth, then [§2.6](../2-6-directivity/) Directivity, which compares $$U$$ in one direction with its average $$P_{rad}/4\pi$$.
 
 ---
 
 ## References
 
-[^sr]: Balanis, §2.2.5, pp. 36–37, Fig. 2.10.
-[^domega]: Balanis, §2.2.5, eqs. (2-1) and (2-2), p. 37.
-[^U]: Balanis, §2.4, eqs. (2-12) and (2-12a), pp. 40–41.
+[^sr]: Balanis, [§2.2.5](../2-2-radiation-pattern/), pp. 36–37, Fig. 2.10.
+[^domega]: Balanis, [§2.2.5](../2-2-radiation-pattern/), eqs. (2-1) and (2-2), p. 37.
+[^U]: Balanis, [§2.4](../2-4-radiation-intensity/), eqs. (2-12) and (2-12a), pp. 40–41.
 [^near]: Balanis, §8.5.2, eqs. (8-53), (8-55a) and (8-55b), pp. 462–463: the fields of a thin dipole with a sinusoidal current, valid at every distance. The table is computed from them.
 [^hw]: Balanis, §4.6, eqs. (4-87) to (4-90), pp. 182–183: $$P_{rad} = \eta\,\vert I_0\vert^2\,\mathrm{Cin}(2\pi)/8\pi$$. With $$\eta = 120\pi$$ Ω and $$\mathrm{Cin}(2\pi) = 2.438$$ this is 36.56 W per A².

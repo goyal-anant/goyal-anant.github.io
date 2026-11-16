@@ -14,7 +14,7 @@ A Wi-Fi antenna is a straight copper wire 6.1 mm long (a twentieth of a waveleng
 
 ## Mismatch: a half-wave dipole on a real line
 
-The reflection efficiency is $$e_r = 1 - \vert\Gamma\vert^2$$, with $$\Gamma = (Z_{in} - Z_0)/(Z_{in} + Z_0)$$. All the widgets below are at 2.45 GHz, in copper, and start with 1 W leaving a source matched to the line. The dipole's impedance comes from the induced-EMF formulas of §8.5,[^z] and its copper loss from the surface resistance of §2.14.[^rl]
+The reflection efficiency is $$e_r = 1 - \vert\Gamma\vert^2$$, with $$\Gamma = (Z_{in} - Z_0)/(Z_{in} + Z_0)$$. All the widgets below are at 2.45 GHz, in copper, and start with 1 W leaving a source matched to the line. The dipole's impedance comes from the induced-EMF formulas of §8.5,[^z] and its copper loss from the surface resistance of [§2.14](../2-14-antenna-radiation-efficiency/).[^rl]
 
 ### Things to try
 
@@ -68,7 +68,7 @@ $$
 R_L = \frac{R_s}{2\pi b}\,\frac{l/2 - \sin(kl)/2k}{\sin^2(kl/2)}
 $$
 
-At $$l = \lambda/2$$ this is half the resistance of the same wire carrying a uniform current, the factor $$\tfrac12$$ Balanis uses in §2.14.
+At $$l = \lambda/2$$ this is half the resistance of the same wire carrying a uniform current, the factor $$\tfrac12$$ Balanis uses in [§2.14](../2-14-antenna-radiation-efficiency/).
 
 </details>
 
@@ -79,17 +79,17 @@ At $$l = \lambda/2$$ this is half the resistance of the same wire carrying a uni
 
 ## In the book
 
-- §2.8, pp. 64–65: eqs. (2-44) and (2-45), Fig. 2.22 (the reference terminals and the losses).
-- $$e_{cd} = R_r/(R_r + R_L)$$ and the wire's resistance: §2.14, eqs. (2-90) to (2-90b). Gain $$G_0 = e_{cd}D_0$$ and the absolute gain that includes $$e_r$$: §2.9, next.
+- [§2.8](../2-8-antenna-efficiency/), pp. 64–65: eqs. (2-44) and (2-45), Fig. 2.22 (the reference terminals and the losses).
+- $$e_{cd} = R_r/(R_r + R_L)$$ and the wire's resistance: [§2.14](../2-14-antenna-radiation-efficiency/), eqs. (2-90) to (2-90b). Gain $$G_0 = e_{cd}D_0$$ and the absolute gain that includes $$e_r$$: [§2.9](../2-9-gain/), next.
 - The dipole's input impedance: §4.5, eq. (4-93a), and §8.5, eqs. (8-60a) to (8-62). Patch design and quality factors: §14.2, eqs. (14-1) to (14-7), (14-12) and (14-83) to (14-87).
 
 ---
 
 ## References
 
-[^eff]: Balanis, §2.8, eqs. (2-44) and (2-45) and Fig. 2.22, pp. 64–65.
+[^eff]: Balanis, [§2.8](../2-8-antenna-efficiency/), eqs. (2-44) and (2-45) and Fig. 2.22, pp. 64–65.
 [^z]: Balanis, §8.5, eqs. (8-60a), (8-60b), (8-61a) and (8-61b), pp. 465–466; at half a wavelength they give 73 + j42.5 Ω, eq. (4-93a), §4.5.
-[^rl]: Balanis, §2.14, eqs. (2-90) and (2-90b), pp. 85–86, with copper at $$\sigma = 5.7\times10^{7}$$ S/m as in the book.
+[^rl]: Balanis, [§2.14](../2-14-antenna-radiation-efficiency/), eqs. (2-90) and (2-90b), pp. 85–86, with copper at $$\sigma = 5.7\times10^{7}$$ S/m as in the book.
 [^short]: Short-dipole impedance: Balanis eq. (4-37) for the resistance and eq. (8-62), p. 466, for the reactance; the widget uses the full formulas of note 2, which agree with both to 2% at a twentieth of a wavelength.
 [^q]: Balanis, §14.2, eqs. (14-83) to (14-87), pp. 852–853; the patch is sized by eqs. (14-1) to (14-7) and its slot conductance is eq. (14-12).
 [^fr4]: Isola Group, [*370HR* laminate data sheet](https://www.isola-group.com/wp-content/uploads/data-sheets/370hr_2.pdf): Dk 4.04 and Df 0.0210 at 2 GHz (Bereskin stripline).

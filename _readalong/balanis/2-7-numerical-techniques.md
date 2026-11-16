@@ -10,11 +10,11 @@ For a real antenna the integral for $$P_{rad}$$ rarely has a closed form, so you
 
 ## Predict first
 
-The NEXRAD weather radar's beam is about 0.9° wide (§2.5)[^nexrad] and its exact directivity is 46.88 dBi (§2.6). Add up its pattern on the book's 10° grid. What directivity comes out?
+The NEXRAD weather radar's beam is about 0.9° wide ([§2.5](../2-5-beamwidth/))[^nexrad] and its exact directivity is 46.88 dBi ([§2.6](../2-6-directivity/)). Add up its pattern on the book's 10° grid. What directivity comes out?
 
 ## Why the book's example is exact
 
-All the patterns here are the same for every $$\phi$$, so only the $$\theta$$ sum matters. Each rectangle adds $$U(\theta_i)\sin\theta_i$$ times the step, and the $$\sin\theta$$ comes from the solid angle (§2.4). The book's Example 2.9 uses a pattern with a $$\sin\theta$$ of its own,[^ex] so the sum is over $$\sin^2\theta$$, i.e. one full period of $$\cos 2\theta$$ sitting on a constant. Equally spaced samples of a full cosine period add up to zero, for any number of samples from 2 up, so the rectangles get the constant exactly. *The gap* below has the one-line proof.
+All the patterns here are the same for every $$\phi$$, so only the $$\theta$$ sum matters. Each rectangle adds $$U(\theta_i)\sin\theta_i$$ times the step, and the $$\sin\theta$$ comes from the solid angle ([§2.4](../2-4-radiation-intensity/)). The book's Example 2.9 uses a pattern with a $$\sin\theta$$ of its own,[^ex] so the sum is over $$\sin^2\theta$$, i.e. one full period of $$\cos 2\theta$$ sitting on a constant. Equally spaced samples of a full cosine period add up to zero, for any number of samples from 2 up, so the rectangles get the constant exactly. *The gap* below has the one-line proof.
 
 ### sin θ against the dipoles
 
@@ -40,7 +40,7 @@ A beam pointing up the $$z$$ axis has its peak where $$\sin\theta = 0$$, so the 
 2. Step 0.25°, a quarter of the HPBW: $$+0.18$$ dB and $$-0.09$$ dB. At 0.1°, $$+0.03$$ dB. So a quarter of the beamwidth is good to about 0.2 dB, and a tenth to a few hundredths.
 3. Tick *Read Umax off the samples* at 0.25°: the trailing edge drops to $$-0.73$$ dB. Neither rule ever samples $$\theta = 0$$, so on a beam along $$z$$ the largest sample is below the real peak. With a measured or simulated table that is the only peak you have, so put $$\theta = 0$$ in the grid.
 
-{% include readalong/grid-directivity.html pattern="dish" step="10" caption="The same panels for a NEXRAD-sized dish (d/λ = 81, parabolic taper, as on the §2.5 and §2.6 pages). The left plot zooms in to a few beamwidths or a few steps, whichever is wider." %}
+{% include readalong/grid-directivity.html pattern="dish" step="10" caption="The same panels for a NEXRAD-sized dish (d/λ = 81, parabolic taper, as on the <a href='../2-5-beamwidth/'>§2.5</a> and <a href='../2-6-directivity/'>§2.6</a> pages). The left plot zooms in to a few beamwidths or a few steps, whichever is wider." %}
 
 ## The gap
 
@@ -77,14 +77,14 @@ For $$\cos^n\theta$$ with $$n \ge 2$$ the pattern also goes smoothly to zero at 
 
 ## In the book
 
-- §2.7, pp. 58–64: separable patterns eqs. (2-34) to (2-41), the sampling schemes (2-38b), (2-38c), (2-39b), (2-39c), the general form (2-43), Fig. 2.19 (the grid), Examples 2.9(a) and (b) with Fig. 2.20, and Fig. 2.21 (the rectangles of $$\sin^2\phi$$). The book's `Directivity` program uses the trailing edge, eq. (2-43).
-- $$D_0 = 4\pi U_{max}/P_{rad}$$ and the exact values used here: §2.6. Solid angle and $$d\Omega = \sin\theta\,d\theta\,d\phi$$: §2.4. The NEXRAD dish model: §2.5.
-- Next: §2.8 Antenna Efficiency.
+- [§2.7](../2-7-numerical-techniques/), pp. 58–64: separable patterns eqs. (2-34) to (2-41), the sampling schemes (2-38b), (2-38c), (2-39b), (2-39c), the general form (2-43), Fig. 2.19 (the grid), Examples 2.9(a) and (b) with Fig. 2.20, and Fig. 2.21 (the rectangles of $$\sin^2\phi$$). The book's `Directivity` program uses the trailing edge, eq. (2-43).
+- $$D_0 = 4\pi U_{max}/P_{rad}$$ and the exact values used here: [§2.6](../2-6-directivity/). Solid angle and $$d\Omega = \sin\theta\,d\theta\,d\phi$$: [§2.4](../2-4-radiation-intensity/). The NEXRAD dish model: [§2.5](../2-5-beamwidth/).
+- Next: [§2.8](../2-8-antenna-efficiency/) Antenna Efficiency.
 
 ---
 
 ## References
 
-[^sum]: Balanis, §2.7, eqs. (2-34) to (2-43), pp. 59–61.
-[^ex]: Balanis, §2.7, Examples 2.9(a) and (b), pp. 61–63, and Fig. 2.21, p. 64.
+[^sum]: Balanis, [§2.7](../2-7-numerical-techniques/), eqs. (2-34) to (2-43), pp. 59–61.
+[^ex]: Balanis, [§2.7](../2-7-numerical-techniques/), Examples 2.9(a) and (b), pp. 61–63, and Fig. 2.21, p. 64.
 [^nexrad]: National Research Council, *Weather Radar Technology Beyond NEXRAD* (National Academies Press, 2002), Appendix A, pp. 69–70: reflector 8.54 m circular; one-way 3 dB beamwidth 0.96° at 2.7 GHz and 0.88° at 3.0 GHz.

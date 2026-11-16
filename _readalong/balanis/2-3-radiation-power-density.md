@@ -63,9 +63,9 @@ The imaginary part has no such rule. For the short dipole it is $$2\omega(\tilde
 
 ## In the book
 
-- §2.3, pp. 38–40, eqs. (2-3) to (2-11), and Example 2.2.
+- [§2.3](../2-3-radiation-power-density/), pp. 38–40, eqs. (2-3) to (2-11), and Example 2.2.
 - The short dipole's fields and power at every distance: §4.2.1–4.2.2, pp. 151–155, eqs. (4-8b), (4-10a) to (4-10c) and (4-11) to (4-17). The radian distance: §4.2.3, p. 156.
-- Next: §2.4, Radiation Intensity, multiplies the density by $$r^2$$ so that distance drops out.
+- Next: [§2.4](../2-4-radiation-intensity/), Radiation Intensity, multiplies the density by $$r^2$$ so that distance drops out.
 
 ---
 
@@ -73,6 +73,6 @@ The imaginary part has no such rule. For the short dipole it is $$2\omega(\tilde
 
 [^fields]: Balanis, §4.2.1, eqs. (4-8a) to (4-10c), pp. 153–154: the fields are "valid everywhere, except on the source itself".
 [^power]: Balanis, §4.2.2, eqs. (4-12a) and (4-14), pp. 154–155. The widget uses the exact fields of eqs. (4-8b) and (4-10b).
-[^iso]: Balanis, §2.3, eqs. (2-10) and (2-11), p. 40.
-[^avg]: Balanis, §2.3, eqs. (2-5) to (2-8), p. 39.
+[^iso]: Balanis, [§2.3](../2-3-radiation-power-density/), eqs. (2-10) and (2-11), p. 40.
+[^avg]: Balanis, [§2.3](../2-3-radiation-power-density/), eqs. (2-5) to (2-8), p. 39.
 [^reactive]: Balanis, §4.2.2, eqs. (4-15) to (4-17), p. 155.

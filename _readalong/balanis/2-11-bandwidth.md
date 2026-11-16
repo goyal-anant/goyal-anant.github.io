@@ -85,15 +85,15 @@ For $$s = 2$$ this is $$0.707/Q$$. For the matched dipole above (radius 0.5 mm, 
 
 ## In the book
 
-- §2.11, p. 70. No equations; the IEEE definition, ratio and percentage, pattern and impedance bandwidth, frequency independent antennas (Chapter 11).
+- [§2.11](../2-11-bandwidth/), p. 70. No equations; the IEEE definition, ratio and percentage, pattern and impedance bandwidth, frequency independent antennas (Chapter 11).
 - $$Q$$ and the small-antenna limit: §11.5, pp. 637–641, eqs. (11-35) to (11-38), Figs. 11.16 and 11.17. Eq. (11-38) as printed is exactly $$1/6$$ of $$\vert X\vert/R$$ from its own eq. (11-37) (it gives $$Q = 90.8$$ for the tenth-wave dipole above, against 545); the full induced-EMF impedance of §8.5 agrees with (11-37) to within 10% up to $$kr = 0.62$$, so the widget uses $$\vert X\vert/R$$.
-- The dipole's impedance: §8.5, eqs. (8-60a) to (8-61b); its pattern: §4.5, eq. (4-64). The radiation efficiency $$e_{cd}$$: §2.8 and §2.14.
+- The dipole's impedance: §8.5, eqs. (8-60a) to (8-61b); its pattern: §4.5, eq. (4-64). The radiation efficiency $$e_{cd}$$: [§2.8](../2-8-antenna-efficiency/) and [§2.14](../2-14-antenna-radiation-efficiency/).
 
 ---
 
 ## References
 
-[^bw]: Balanis, §2.11, p. 70, quoting the IEEE definition (IEEE Std 145).
+[^bw]: Balanis, [§2.11](../2-11-bandwidth/), p. 70, quoting the IEEE definition (IEEE Std 145).
 [^z]: Balanis, §8.5, eqs. (8-60a), (8-60b), (8-61a) and (8-61b), pp. 465–466. Copper loss is left out here; at this length it is below 1% (see [§2.8](../2-8-antenna-efficiency/)).
 [^dip]: Balanis, §4.5, eq. (4-64), p. 173. Its directivity at half a wavelength is 1.641; Balanis eq. (4-91), p. 183, gives 1.643 with $$\mathrm{Cin}(2\pi)$$ rounded.
 [^fcc]: 47 CFR §15.247(a), 2400–2483.5 MHz ([Cornell LII copy](https://www.law.cornell.edu/cfr/text/47/15.247)), and §15.407(a), 5150–5350 MHz and 5470–5850 MHz ([Cornell LII copy](https://www.law.cornell.edu/cfr/text/47/15.407)).

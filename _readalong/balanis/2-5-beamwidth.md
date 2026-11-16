@@ -6,7 +6,7 @@ section: "2.5"
 
 ## What this section is really saying
 
-Beamwidth is the angle between two equal points on either side of the beam peak. Without a qualifier it means the half-power beamwidth (HPBW): the two directions where $$U$$ is half its peak, i.e. $$-3$$ dB. The first-null beamwidth (FNBW) uses the nulls instead. §2.2 already measures both live; this page is about the two claims at the end of the section: a narrow beam costs you side lobes, and the beamwidth decides whether you can tell two sources apart.
+Beamwidth is the angle between two equal points on either side of the beam peak. Without a qualifier it means the half-power beamwidth (HPBW): the two directions where $$U$$ is half its peak, i.e. $$-3$$ dB. The first-null beamwidth (FNBW) uses the nulls instead. [§2.2](../2-2-radiation-pattern/) already measures both live; this page is about the two claims at the end of the section: a narrow beam costs you side lobes, and the beamwidth decides whether you can tell two sources apart.
 
 ## Predict first
 
@@ -60,9 +60,9 @@ in radians. The two differ by 19%, which is what the "≈" in Balanis hides. For
 
 ## In the book
 
-- §2.5, pp. 42–44, Fig. 2.11 and Example 2.4. The exact root of Example 2.4 gives an HPBW of 28.75°; the book rounds $$\theta_h$$ to 0.25 rad and gets 28.65°.
-- HPBW in a pattern: §2.2, Fig. 2.2. Circular apertures with taper: §7.10.2, pp. 421–422, eqs. (7-45), (7-46) and Table 7.2; in full in §12.6. The radar range equation: §2.17.2, eq. (2-124).
-- Next: §2.6 Directivity, where a narrow beam turns into a high directivity.
+- [§2.5](../2-5-beamwidth/), pp. 42–44, Fig. 2.11 and Example 2.4. The exact root of Example 2.4 gives an HPBW of 28.75°; the book rounds $$\theta_h$$ to 0.25 rad and gets 28.65°.
+- HPBW in a pattern: [§2.2](../2-2-radiation-pattern/), Fig. 2.2. Circular apertures with taper: §7.10.2, pp. 421–422, eqs. (7-45), (7-46) and Table 7.2; in full in §12.6. The radar range equation: [§2.17.2](../2-17-friis-transmission-and-radar-range-equations/#radar-the-trip-both-ways), eq. (2-124).
+- Next: [§2.6](../2-6-directivity/) Directivity, where a narrow beam turns into a high directivity.
 
 ---
 
@@ -70,6 +70,6 @@ in radians. The two differ by 19%, which is what the "≈" in Balanis hides. For
 
 [^nexrad]: National Research Council, *Weather Radar Technology Beyond NEXRAD* (National Academies Press, 2002), Appendix A, "NEXRAD WSR-88D System Characteristics", pp. 69–70: reflector 8.54 m (28 ft) circular; one-way 3 dB beamwidth 0.96° at 2.7 GHz and 0.88° at 3.0 GHz; gain 45.8 dB at 2.85 GHz; first side lobe $$-29$$ dB; transmitter 2.7–3.0 GHz.
 [^taper]: Balanis, §7.10.2, eqs. (7-45) and (7-46) and Table 7.2, pp. 421–422: HPBW, FNBW, first side lobe and directivity factor of circular apertures with $$n = 0, 1, 2$$. Our numbers agree with the table to within 1%.
-[^res]: Balanis, §2.5, p. 43.
+[^res]: Balanis, [§2.5](../2-5-beamwidth/), p. 43.
 [^sparrow]: C. M. Sparrow, "On spectroscopic resolving power," *Astrophysical Journal* 44, 76 (1916), doi:[10.1086/142271](https://doi.org/10.1086/142271). He states Rayleigh's criterion, with a dip of $$8/\pi^2 \approx 0.81$$ for a $$(\sin u/u)^2$$ line, and finds the dip vanishing at a spacing of 2.606 in $$u$$ instead of $$\pi$$.
-[^radar]: Balanis, §2.17.2, eq. (2-124), p. 97: the received power goes as the product of the transmitting and receiving directivities in the target's direction; when one dish does both, that is its pattern squared.
+[^radar]: Balanis, [§2.17.2](../2-17-friis-transmission-and-radar-range-equations/#radar-the-trip-both-ways), eq. (2-124), p. 97: the received power goes as the product of the transmitting and receiving directivities in the target's direction; when one dish does both, that is its pattern squared.
