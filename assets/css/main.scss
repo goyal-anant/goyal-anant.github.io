@@ -1294,6 +1294,35 @@ h1 .readalong-n { margin-right: 0.15em; }
 .readalong-contents ol { margin: 0.5rem 0 1.25rem 1.6rem; }
 .readalong-contents ol li { margin: 0.3rem 0; }
 .readalong-contents a.is-done::after { content: " ✓"; color: var(--art-maroon); }
+/* chapter cheat sheets: a quiet line at the end of each section, the card on the contents, the last stop of the pager */
+.readalong-sheet-note { margin: 2.5rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.readalong-sheet-note + .readalong-done { margin-top: 0.75rem; }
+.readalong-sheet-card { display: flex; flex-direction: column; gap: 0.1rem; margin: 0.6rem 0 0.2rem 1.6rem; padding: 0.55rem 0.85rem; border-left: 3px solid var(--ra-warm); background: color-mix(in srgb, var(--ra-warm) 6%, transparent); border-radius: 0 6px 6px 0; color: var(--fg); text-decoration: none; line-height: 1.35; font-size: 0.92rem; }
+.readalong-sheet-card-k { color: var(--ra-warm); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.readalong-sheet-card:hover .readalong-sheet-card-k + span, .readalong-sheet-card:focus-visible .readalong-sheet-card-k + span { color: var(--link); }
+.readalong-pager a.readalong-pager-sheet { padding: 0.45rem 0.8rem; border-right: 3px solid var(--ra-warm); background: color-mix(in srgb, var(--ra-warm) 6%, transparent); border-radius: 6px 0 0 6px; }
+.readalong-pager a.readalong-pager-sheet span { color: var(--ra-warm); }
+/* the cheat sheet body: one entry per quantity, a definition list */
+.readalong-sheet dl { margin: 1rem 0 0; }
+.readalong-sheet dt { margin-top: 1.4rem; font-weight: 600; line-height: 1.35; }
+.readalong-sheet dt .ra-ref { font-weight: normal; color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+.readalong-sheet dt .ra-ref a { color: inherit; }
+.readalong-sheet dd { margin: 0.25rem 0 0; padding-left: 0.9rem; border-left: 1px solid color-mix(in srgb, var(--fg) 15%, transparent); }
+.readalong-sheet dd p { margin: 0.35rem 0; }
+.readalong-sheet dd details { margin: 0.35rem 0 0.2rem; color: var(--muted); font-size: 0.93rem; }
+.readalong-sheet dd details summary { cursor: pointer; width: fit-content; font-size: 0.85rem; letter-spacing: 0.03em; }
+.readalong-sheet dd details[open] summary { margin-bottom: 0.2rem; }
+.ra-map { margin: 1.5rem auto; max-width: 540px; }
+.ra-map a { color: var(--fg); text-decoration: none; }
+.ra-map svg { display: block; width: 100%; height: auto; font-family: var(--font-figure); }
+.ra-map .ra-map-box { fill: var(--bg); stroke: color-mix(in srgb, var(--fg) 30%, transparent); }
+.ra-map a:hover .ra-map-box, .ra-map a:focus-visible .ra-map-box { stroke: var(--accent); }
+.ra-map .ra-map-name { font-size: 10.8px; font-weight: 600; fill: currentColor; }
+.ra-map .ra-map-eq { font-size: 11px; fill: var(--muted); font-style: italic; }
+.ra-map .ra-map-badge { fill: var(--ra-warm); }
+.ra-map .ra-map-badge-n { font-size: 9px; fill: var(--bg); font-weight: 700; }
+.ra-map .ra-map-edge { stroke: color-mix(in srgb, var(--fg) 45%, transparent); fill: none; stroke-width: 1.2; }
+.ra-map .ra-map-label { font-size: 10px; fill: var(--muted); }
 
 /* read-along widgets (_includes/readalong/, helpers in assets/js/readalong.js) */
 .ra-widget { font-family: var(--font-figure); font-size: 0.85rem; }

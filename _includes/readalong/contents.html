@@ -5,6 +5,7 @@
 {% for ch in book.chapters %}
   <li{% unless ch.sections %} class="readalong-later"{% endunless %}>
     <span class="readalong-ch"><span class="readalong-n">{{ ch.n }}</span> {{ ch.title }}</span>
+    {% if ch.sheet %}{% capture url %}/read-along/{{ include.book }}/{{ ch.sheet }}/{% endcapture %}<a class="readalong-sheet-card" href="{{ url | relative_url }}"><span class="readalong-sheet-card-k">Cheat sheet</span><span>All of Chapter {{ ch.n }} on one page: every quantity, its equation and when it holds</span></a>{% endif %}
     {% if ch.sections %}
     <ol>
     {% for s in ch.sections %}

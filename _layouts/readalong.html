@@ -8,14 +8,21 @@ layout: default
   English only: no Hindi toggle, and the body is data-keep so it shows whatever language was stored.
 {% endcomment %}
 {% assign book = site.data[page.book] %}
-{% if page.section %}
-  {% assign order = "" | split: "" %}
-  {% for ch in book.chapters %}{% for s in ch.sections %}{% if s.slug %}{% assign order = order | push: s %}{% endif %}{% if s.n == page.section %}{% assign sec = s %}{% assign chapter = ch %}{% endif %}{% endfor %}{% endfor %}
-  {% for s in order %}{% if s.n == page.section %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
-  {% if i > 0 %}{% assign h = i | minus: 1 %}{% assign before = order[h] %}{% endif %}
-  {% assign j = i | plus: 1 %}{% assign after = order[j] %}
+{% assign base = '/read-along/' | append: page.book | append: '/' %}
+{% if page.section or page.sheet %}
+  {% comment %} Every page with a URL, in reading order: each chapter's sections, then its cheat sheet. {% endcomment %}
+  {% assign stops = "" | split: "" %}
+  {% for ch in book.chapters %}
+    {% for s in ch.sections %}{% if s.slug %}{% capture stop %}{{ s.slug }}|§{{ s.n }}|{{ s.title }}{% endcapture %}{% assign stops = stops | push: stop %}{% endif %}{% if s.n == page.section %}{% assign sec = s %}{% assign chapter = ch %}{% endif %}{% endfor %}
+    {% if ch.sheet %}{% capture stop %}{{ ch.sheet }}|Ch {{ ch.n }}|Cheat sheet{% endcapture %}{% assign stops = stops | push: stop %}{% endif %}
+    {% if page.sheet and ch.n == page.sheet %}{% assign chapter = ch %}{% endif %}
+  {% endfor %}
+  {% if sec %}{% assign here = sec.slug %}{% else %}{% assign here = chapter.sheet %}{% endif %}
+  {% for st in stops %}{% assign k = st | split: '|' | first %}{% if k == here %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+  {% if i > 0 %}{% assign h = i | minus: 1 %}{% assign before = stops[h] | split: '|' %}{% endif %}
+  {% assign j = i | plus: 1 %}{% if stops[j] %}{% assign after = stops[j] | split: '|' %}{% endif %}
 {% endif %}
-<article class="post readalong">
+<article class="post readalong{% if page.sheet %} readalong-sheet{% endif %}">
   {% capture minutes %}{% include readtime.html html=content %}{% endcapture %}
   {% capture tail %}<hr />
 
@@ -23,18 +30,23 @@ layout: default
   {% unless content contains tail %}{% assign tail = '<div class="footnotes"' %}{% endunless %}
   {% assign main = content | split: tail %}
   {% if sec %}
-  <p class="post-date readalong-crumb"><a href="{{ book.url | relative_url }}">{{ book.short }}, <i>{{ book.title }}</i></a> &middot; Ch {{ chapter.n }} &middot; pp. {{ sec.pages }} <span class="post-readtime">&middot; {{ minutes | strip }} min read</span></p>
+  <p class="post-date readalong-crumb"><a href="{{ book.url | relative_url }}">{{ book.short }}, <i>{{ book.title }}</i></a> &middot; {% if chapter.sheet %}<a href="{{ base | append: chapter.sheet | append: '/' | relative_url }}" title="Chapter {{ chapter.n }} cheat sheet">Ch {{ chapter.n }}</a>{% else %}Ch {{ chapter.n }}{% endif %} &middot; pp. {{ sec.pages }} <span class="post-readtime">&middot; {{ minutes | strip }} min read</span></p>
   <h1><span class="readalong-n">§{{ sec.n }}</span> {{ sec.title }}</h1>
+  {% elsif chapter %}
+  <p class="post-date readalong-crumb"><a href="{{ book.url | relative_url }}">{{ book.short }}, <i>{{ book.title }}</i></a> &middot; Ch {{ chapter.n }} &middot; pp. {{ chapter.pages }} <span class="post-readtime">&middot; {{ minutes | strip }} min read</span></p>
+  <h1><span class="readalong-n">Ch {{ chapter.n }}</span> Cheat sheet</h1>
+  <p class="post-subtitle">{{ chapter.title }}, on one page</p>
   {% else %}
   <h1>{{ page.title }}</h1>
   {% endif %}
-  {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
+  {% if page.subtitle and sec == nil %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
   <div lang="en" data-keep data-sections data-minutes="{{ minutes | strip }}">{{ main | first }}</div>
-  {% if sec %}
-  <label class="readalong-done"><input type="checkbox" data-done="{{ page.url }}"> I have worked through §{{ sec.n }}</label>
+  {% if sec and chapter.sheet and after[2] != 'Cheat sheet' %}<p class="readalong-sheet-note">All of Chapter {{ chapter.n }} on one page: <a href="{{ base | append: chapter.sheet | append: '/' | relative_url }}">the cheat sheet</a>.</p>{% endif %}
+  {% if sec %}<label class="readalong-done"><input type="checkbox" data-done="{{ page.url }}"> I have worked through §{{ sec.n }}</label>{% endif %}
+  {% if chapter %}
   <nav class="readalong-pager" aria-label="Sections">
-    {% if before %}<a rel="prev" href="{{ '/read-along/' | append: page.book | append: '/' | append: before.slug | append: '/' | relative_url }}"><span>&larr; §{{ before.n }}</span>{{ before.title }}</a>{% endif %}
-    {% if after %}<a rel="next" href="{{ '/read-along/' | append: page.book | append: '/' | append: after.slug | append: '/' | relative_url }}"><span>§{{ after.n }} &rarr;</span>{{ after.title }}</a>{% endif %}
+    {% if before %}<a rel="prev" href="{{ base | append: before[0] | append: '/' | relative_url }}"><span>&larr; {{ before[1] }}</span>{{ before[2] }}</a>{% endif %}
+    {% if after %}<a rel="next" href="{{ base | append: after[0] | append: '/' | relative_url }}"{% if after[2] == 'Cheat sheet' %} class="readalong-pager-sheet"{% endif %}><span>{{ after[1] }} &rarr;</span>{{ after[2] }}</a>{% endif %}
   </nav>
   {% endif %}
   <div class="post-actions">

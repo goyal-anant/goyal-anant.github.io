@@ -15,6 +15,8 @@ chapters:
     title: Antennas
   - n: 2
     title: Fundamental Parameters of Antennas
+    pages: "27–108"
+    sheet: ch2-cheat-sheet
     sections:
       - { n: "2.1", title: Introduction, pages: "27" }
       - { n: "2.2", title: Radiation Pattern, pages: "27–38", slug: 2-2-radiation-pattern }
