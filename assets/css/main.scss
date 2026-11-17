@@ -1398,6 +1398,7 @@ h1 .readalong-n { margin-right: 0.15em; }
 .ra-button.ra-layer-wA { border-left: 4px solid var(--accent); }
 .ra-button.ra-layer-gp { border-left: 4px solid var(--ra-warm); }
 .ra-button.ra-layer-E { border-left: 4px solid var(--fg); }
+.ra-button.ra-layer-circ { border-left: 4px dotted var(--fg); }
 .ra-key { margin: 0.4rem 0; text-align: center; color: var(--muted); }
 .ra-toggle button:focus-visible, .ra-button:focus-visible, .ra-pattern-3d:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .ra-pattern-3d { display: block; width: 100%; height: 300px; touch-action: none; cursor: grab; }

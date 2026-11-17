@@ -1,10 +1,11 @@
 {% comment %}
-  vector-potential widget (assets/js/readalong/vector-potential.js; checked by content/balanis/checks/vector_potential.py).
-  case = split | gauge; kr = starting distance of the probe ring (0.05 to 20); the map shows out to twice that.
+  vector-potential widget (assets/js/readalong/vector-potential.js; checked by content/balanis/checks/vector_potential.py and magnetic_current.py).
+  case = split | gauge | loop | loopcheck; kr = starting distance of the probe ring (0.05 to 20; loop from 0.02); the map shows out to twice that.
+  ka = starting loop size C/λ for loopcheck (0.003 to 1).
   caption = text under the widget. A <figure>, so the read time leaves it out.
 {% endcomment %}
 <figure class="ra-widget">
-  <div data-widget="vector-potential" data-case="{{ include.case | default: 'split' }}" data-kr="{{ include.kr | default: 1 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  <div data-widget="vector-potential" data-case="{{ include.case | default: 'split' }}" data-kr="{{ include.kr | default: 1 }}" data-ka="{{ include.ka | default: 0.1 }}"><noscript>This widget needs JavaScript.</noscript></div>
   {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
 </figure>
 <script src="{{ '/assets/js/readalong/vector-potential.js' | relative_url }}" defer></script>

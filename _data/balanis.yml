@@ -43,7 +43,7 @@ chapters:
     sections:
       - { n: "3.1", title: Introduction, pages: "133–135" }
       - { n: "3.2", title: The Vector Potential A for an Electric Current Source J, pages: "135–137", slug: 3-2-vector-potential-a }
-      - { n: "3.3", title: The Vector Potential F for a Magnetic Current Source M, pages: "137–138" }
+      - { n: "3.3", title: The Vector Potential F for a Magnetic Current Source M, pages: "137–138", slug: 3-3-vector-potential-f }
       - { n: "3.4", title: Electric and Magnetic Fields for Electric (J) and Magnetic (M) Current Sources, pages: "138–139" }
       - { n: "3.5", title: Solution of the Inhomogeneous Vector Potential Wave Equation, pages: "139–142" }
       - { n: "3.6", title: Far-Field Radiation, pages: "142–144" }

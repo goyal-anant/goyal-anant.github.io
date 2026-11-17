@@ -80,7 +80,7 @@ At a distance $$r$$ the potentials vary as $$e^{-jkr}/r$$ along the line of sigh
 - §3.1, pp. 133–135, Fig. 3.1 (the two paths). [§3.2](../3-2-vector-potential-a/), pp. 135–137, eqs. (3-1) to (3-15). §3.4, pp. 138–139, eqs. (3-27) to (3-30a) (the recipe).
 - Balanis calls (3-13) the Lorentz condition; it is due to L. V. Lorenz, in the 1860s, and was credited to H. A. Lorentz later.[^lorenz]
 - The short dipole done the book's way: §4.2.1, pp. 151–154, eqs. (4-4) to (4-10c).
-- Next: §3.3, the same construction for a magnetic current, with $$\mathbf{F}$$ in place of $$\mathbf{A}$$.
+- Next: [§3.3](../3-3-vector-potential-f/), the same construction for a magnetic current, with $$\mathbf{F}$$ in place of $$\mathbf{A}$$.
 
 ---
 
