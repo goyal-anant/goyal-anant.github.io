@@ -1,0 +1,10 @@
+{% comment %}
+  vector-potential widget (assets/js/readalong/vector-potential.js; checked by content/balanis/checks/vector_potential.py).
+  case = split | gauge; kr = starting distance of the probe ring (0.05 to 20); the map shows out to twice that.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="vector-potential" data-case="{{ include.case | default: 'split' }}" data-kr="{{ include.kr | default: 1 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/vector-potential.js' | relative_url }}" defer></script>

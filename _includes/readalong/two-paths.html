@@ -1,0 +1,21 @@
+<!--noread--><figure class="ra-sheet-fig" id="fig-two-paths" style="max-width: 480px"><svg viewBox="0 0 380 336" role="img" aria-labelledby="ra-paths-t ra-paths-d"><title id="ra-paths-t">Two paths from the current to the fields</title><desc id="ra-paths-d">Path 1 goes from the current J straight to the fields E and H with one integral whose kernel has parts in 1 over R, 1 over R squared and 1 over R cubed, pointing in several directions. Path 2 first integrates J against the scalar e to the minus jkR over 4 pi R to get A, which points along J, and then differentiates A to get H and E. Below, the four-step recipe: pick J and M, integrate for A and F, differentiate each, and add the fields.</desc><defs><marker id="ra-paths-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker><marker id="ra-paths-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z" style="fill: var(--accent)"/></marker></defs>
+<text class="ra-fig-t" x="190" y="18" text-anchor="middle">Path 1: one integral, straight to the fields</text>
+<text class="ra-fig-small" x="190" y="34" text-anchor="middle">its kernel has 1/R, 1/R² and 1/R³ parts,</text>
+<text class="ra-fig-small" x="190" y="47" text-anchor="middle">each pointing its own way</text>
+<path class="ra-fig-guide" d="M55,108 C55,50 325,50 325,106" marker-end="url(#ra-paths-arrow)"/>
+<rect class="ra-fig-part" x="10" y="110" width="90" height="44" rx="6"/><text class="ra-fig-t" x="55" y="129" text-anchor="middle">Current</text><text class="ra-fig-t" x="55" y="145" text-anchor="middle" font-style="italic" font-weight="600">J</text>
+<rect class="ra-fig-part" x="280" y="110" width="90" height="44" rx="6"/><text class="ra-fig-t" x="325" y="129" text-anchor="middle">Fields</text><text class="ra-fig-t" x="325" y="145" text-anchor="middle" font-style="italic" font-weight="600">E, H</text>
+<rect class="ra-fig-part" x="145" y="205" width="90" height="44" rx="6" style="stroke: var(--accent)"/><text class="ra-fig-t" x="190" y="224" text-anchor="middle">Potential</text><text class="ra-fig-t" x="190" y="240" text-anchor="middle" font-style="italic" font-weight="600">A</text>
+<text class="ra-fig-curve-t" x="190" y="196" text-anchor="middle">Path 2</text>
+<path class="ra-fig-curve" d="M55,156 C55,215 100,227 143,227" marker-end="url(#ra-paths-arrow-c)"/>
+<path class="ra-fig-curve" d="M237,227 C280,227 325,215 325,158" marker-end="url(#ra-paths-arrow-c)"/>
+<text class="ra-fig-curve-t" x="10" y="266">integrate</text>
+<text class="ra-fig-small" x="10" y="280">kernel e<tspan dy="-4" font-size="0.8em">−jkR</tspan><tspan dy="4">/4πR;</tspan></text>
+<text class="ra-fig-small" x="10" y="293">A points along J (3-27)</text>
+<text class="ra-fig-curve-t" x="370" y="266" text-anchor="end">differentiate</text>
+<text class="ra-fig-small" x="370" y="280" text-anchor="end">H = ∇ × A / μ (3-2a),</text>
+<text class="ra-fig-small" x="370" y="293" text-anchor="end">then E from A (3-15)</text>
+<line class="ra-fig-axis" x1="10" y1="305" x2="370" y2="305"/>
+<text class="ra-fig-small" x="10" y="319">§3.4 recipe: 1. pick J and M · 2. integrate for A and F ·</text>
+<text class="ra-fig-small" x="10" y="333">3. differentiate each · 4. add: E = E<tspan dy="3" font-size="0.75em">A</tspan><tspan dy="-3"> + E</tspan><tspan dy="3" font-size="0.75em">F</tspan><tspan dy="-3">, H = H</tspan><tspan dy="3" font-size="0.75em">A</tspan><tspan dy="-3"> + H</tspan><tspan dy="3" font-size="0.75em">F</tspan></text>
+</svg><figcaption><em>Figure 1.</em> Two ways from a current to its fields, the same idea as Balanis Fig. 3.1, redrawn. Path 2 has two steps, but each is easy: the integral has a plain scalar kernel and keeps the direction of the current, and the derivatives can always be taken. The strip below is the four-step recipe of §3.4, eqs. (3-27) to (3-30a); a magnetic current M goes the same way through F (§3.3). A diagram, not to scale.</figcaption></figure><!--/noread-->
