@@ -48,7 +48,7 @@ chapters:
       - { n: "3.5", title: Solution of the Inhomogeneous Vector Potential Wave Equation, pages: "139–142", slug: 3-5-radiation-integral }
       - { n: "3.6", title: Far-Field Radiation, pages: "142–144", slug: 3-6-far-field-radiation }
       - { n: "3.7", title: Duality Theorem, pages: "144", slug: 3-7-duality }
-      - { n: "3.8", title: Reciprocity and Reaction Theorems, pages: "144–150" }
+      - { n: "3.8", title: Reciprocity and Reaction Theorems, pages: "144–150", slug: 3-8-reciprocity }
   - n: 4
     title: Linear Wire Antennas
   - n: 5

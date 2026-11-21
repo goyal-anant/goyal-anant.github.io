@@ -60,15 +60,15 @@ const PY = (function makePoly(K) {
       [p(-1, -1, 1), p(1, -1, 1), p(1, 1, 1), p(-1, 1, 1)], [p(-1, -1, -1), p(-1, 1, -1), p(1, 1, -1), p(1, -1, -1)],
     ];
   }
-  // A rod (n-sided prism) from a to b with radius r.
-  function rod(a, b, r, n = 10) {
+  // A rod (n-sided prism) from a to b with radius r; with r1, a cone frustum from radius r at a to r1 at b.
+  function rod(a, b, r, n = 10, r1 = r) {
     const ax = unit(sub(b, a)), helper = Math.abs(ax[2]) > 0.9 ? [1, 0, 0] : [0, 0, 1];
     const u = unit(cross(helper, ax)), v = cross(ax, u);
-    const ring = (o) => Array.from({ length: n }, (_, i) => {
-      const t = (2 * Math.PI * i) / n, c = Math.cos(t) * r, s = Math.sin(t) * r;
+    const ring = (o, rr) => Array.from({ length: n }, (_, i) => {
+      const t = (2 * Math.PI * i) / n, c = Math.cos(t) * rr, s = Math.sin(t) * rr;
       return [o[0] + c * u[0] + s * v[0], o[1] + c * u[1] + s * v[1], o[2] + c * u[2] + s * v[2]];
     });
-    const A = ring(a), B = ring(b), faces = [];
+    const A = ring(a, r), B = ring(b, r1), faces = [];
     for (let i = 0; i < n; i++) { const j = (i + 1) % n; faces.push([A[i], A[j], B[j], B[i]]); }
     faces.push(A.slice().reverse(), B.slice());
     return faces;
@@ -100,6 +100,7 @@ const PY = (function makePoly(K) {
 const P = {"origin":[310.4624748921583,244.6889818848881],"scale":1.3154237285369832,"azimuth":60,"elevation":30};
 const C = [-55,-5], HGT = 62, ARM = 20, ARM_R = 1, PLAT_Z = 18, PEN_Y = -5;
 const R_MIN = 7, R_MAX = 38, FLOOR_DB = -30;
+const RECIP = false, MOUTH = 78;
 const rOf = (db) => R_MIN + (R_MAX - R_MIN) * (Math.max(FLOOR_DB, db) - FLOOR_DB) / -FLOOR_DB;
 const dipoleAt = function dipoleAt(phi, PY, K, P) {
   const c = [C[0], C[1], HGT], u = [Math.cos(phi), Math.sin(phi), 0], v = [-Math.sin(phi), Math.cos(phi), 0];
@@ -113,7 +114,7 @@ const stage = document.querySelector(".rg-stage");
 if (!stage) return;
 const svg = stage.querySelector("svg");
 const part = (n) => svg.querySelector('[data-part="' + n + '"]');
-const ticks = part("ticks"), trace = part("trace"), car = part("carriage"), dip = part("dipole");
+const ticks = part("ticks"), trace = part("trace"), car = part("carriage"), dip = part("dipole"), waves = part("waves");
 const readout = stage.closest(".iso-figure").querySelector("[data-readout]");
 const still = matchMedia("(prefers-reduced-motion: reduce)");
 const TAU = 2 * Math.PI, BINS = 360;
@@ -124,6 +125,39 @@ function level(psi) {
   return f > 0 ? Math.max(FLOOR_DB, 20 * Math.log10(f)) : FLOOR_DB;
 }
 let phi = 0, mark = new Float64Array(BINS).fill(NaN), lastBin = null;
+// Reciprocity version: two traces, one per direction. "tx": the dipole transmits and the horn's receiver reads the
+// level; "rx": the horn transmits and the dipole's receiver reads it. The level is the same function both ways.
+let mode = "tx", turned = 0, wave = 0;
+const marks = { tx: mark, rx: new Float64Array(BINS).fill(NaN) };
+const btns = RECIP ? [...stage.closest(".iso-figure").querySelectorAll("[data-mode]")] : [];
+function setMode(m) {
+  if (m === mode) return;
+  mode = m; mark = marks[m]; lastBin = null; turned = 0;
+  btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === m)));
+  write(); draw();
+}
+btns.forEach((b) => b.addEventListener("click", () => { idleFor = -3; setMode(b.dataset.mode); }));
+// Wavefronts at the antennas' height, one every 12 cm, moving at 12 cm a second (schematic): rings leaving the
+// dipole towards the horn, or flat fronts leaving the horn towards the dipole, as in the far field.
+function drawWaves() {
+  if (!RECIP) return;
+  const SP = 12, span = MOUTH - C[0] - 22, out = [];
+  for (let n = 0; n < 12; n++) {
+    const s = ((n + wave) * SP);
+    if (s > span) break;
+    const f = Math.min(1, s / 10, (span - s) / 10), op = (0.75 * f).toFixed(2);
+    let d = "";
+    if (mode === "tx") {
+      const r = 22 + s;
+      for (let i = 0; i <= 16; i++) { const a = (-0.32 + 0.64 * i / 16) * Math.min(1, 30 / r); const q = K.iso([C[0] + r * Math.cos(a), C[1] + r * Math.sin(a), HGT], P); d += (i ? "L" : "M") + q[0].toFixed(1) + " " + q[1].toFixed(1); }
+    } else {
+      const x = MOUTH - 4 - s, a = K.iso([x, C[1] - 9, HGT], P), b = K.iso([x, C[1] + 9, HGT], P);
+      d = "M" + a[0].toFixed(1) + " " + a[1].toFixed(1) + "L" + b[0].toFixed(1) + " " + b[1].toFixed(1);
+    }
+    out.push('<path class="iso-line" data-tone="hi" data-free="" style="stroke-width:1.1;stroke-opacity:' + op + '" d="' + d + '"/>');
+  }
+  waves.innerHTML = out.join("");
+}
 const binOf = (a) => ((Math.round(a * BINS / TAU) % BINS) + BINS) % BINS;
 // The pen writes where the probe direction lies on the platter: platter angle -phi.
 function write() {
@@ -143,27 +177,47 @@ function draw() {
   }
   ticks.innerHTML = K.lineSvg(ps.join(""), { tone: "lo" }) + K.lineSvg(K.lineOnTop([C[0] + 7 * Math.cos(phi), C[1] + 7 * Math.sin(phi)], [C[0] + 41 * Math.cos(phi), C[1] + 41 * Math.sin(phi)], PLAT_Z, P), { tone: "faint" });
   // the trace, in the platter's frame, turned with it
-  let d = "", open = false;
-  for (let i = 0; i <= BINS; i++) {
-    const j = i % BINS, r = mark[j];
-    if (isNaN(r)) { open = false; continue; }
-    const a = j * TAU / BINS + phi, q = K.iso([C[0] + r * Math.cos(a), C[1] + r * Math.sin(a), PLAT_Z], P);
-    d += (open ? "L" : "M") + q[0].toFixed(1) + " " + q[1].toFixed(1);
-    open = true;
+  const pathOf = (m) => {
+    let d = "", open = false;
+    for (let i = 0; i <= BINS; i++) {
+      const j = i % BINS, r = m[j];
+      if (isNaN(r)) { open = false; continue; }
+      const a = j * TAU / BINS + phi, q = K.iso([C[0] + r * Math.cos(a), C[1] + r * Math.sin(a), PLAT_Z], P);
+      d += (open ? "L" : "M") + q[0].toFixed(1) + " " + q[1].toFixed(1);
+      open = true;
+    }
+    return d;
+  };
+  if (RECIP) {
+    // transmit trace solid and lit; receive trace dashed and thicker on top, so where they agree the dashes sit on the line
+    const a = pathOf(marks.tx), b = pathOf(marks.rx);
+    trace.innerHTML = (a ? '<path class="iso-line" data-tone="lit" data-free="" style="stroke-width:1.3" d="' + a + '"/>' : "") +
+      (b ? '<path class="iso-line" data-tone="hi" data-free="" style="stroke-width:2.4;stroke-dasharray:3 3" d="' + b + '"/>' : "");
+  } else {
+    const d = pathOf(mark);
+    trace.innerHTML = d ? '<path class="iso-line" data-tone="lit" data-free="" style="stroke-width:1.3" d="' + d + '"/>' : "";
   }
-  trace.innerHTML = d ? '<path class="iso-line" data-tone="lit" data-free="" style="stroke-width:1.3" d="' + d + '"/>' : "";
   const db = level(-phi), r = rOf(db);
   car.setAttribute("transform", K.translateAlong(P, [r, 0, 0]));
   dip.innerHTML = dipoleAt(phi, PY, K, P);
   const deg = ((Math.round(phi * 180 / Math.PI) % 360) + 360) % 360;
-  const text = "turned " + deg + "° · " + (db <= FLOOR_DB ? "below " + FLOOR_DB : Math.abs(db) < 0.05 ? "0.0" : db.toFixed(1)).replace("-", "\u2212") + " dB";
+  const lvl = (db <= FLOOR_DB ? "below " + FLOOR_DB : Math.abs(db) < 0.05 ? "0.0" : db.toFixed(1)).replace("-", "\u2212") + " dB";
+  const text = RECIP ? deg + "° · " + (mode === "tx" ? "horn reads " : "dipole reads ") + lvl : "turned " + deg + "° · " + lvl;
+  drawWaves();
   if (readout.textContent !== text) readout.textContent = text;
 }
 let frame = 0, last = 0, visible = false, held = false, idleFor = 0;
 function tick(now) {
   const dt = last ? Math.min((now - last) / 1000, 1 / 20) : 1 / 60;
   last = now;
-  if (!held) { idleFor += dt; if (idleFor > 1.2) { phi += dt * TAU / 18; write(); draw(); } }
+  if (RECIP) { wave = (wave + dt) % 1; if (held || idleFor <= 1.2) drawWaves(); }
+  if (!held) {
+    idleFor += dt;
+    if (idleFor > 1.2) {
+      phi += dt * TAU / 18; turned += dt * TAU / 18; write(); draw();
+      if (RECIP && turned >= TAU) { if (mode === "tx") setMode("rx"); else { marks.tx.fill(NaN); marks.rx.fill(NaN); setMode("tx"); } }
+    }
+  }
   frame = visible ? requestAnimationFrame(tick) : 0;
 }
 const go = () => { if (!frame && visible && !still.matches) { last = 0; frame = requestAnimationFrame(tick); } };
@@ -196,7 +250,7 @@ stage.addEventListener("pointermove", (e) => {
   phi += d; write(); draw();
 });
 const up = () => {
-  if (grab !== null && moved < 4) { mark.fill(NaN); lastBin = null; write(); draw(); }
+  if (grab !== null && moved < 4) { marks.tx.fill(NaN); marks.rx.fill(NaN); lastBin = null; turned = 0; write(); draw(); }
   grab = null; held = false; idleFor = -2;   // wait a little longer before the idle turn takes over again
 };
 stage.addEventListener("pointerup", up);
@@ -205,9 +259,10 @@ stage.addEventListener("dragstart", (e) => e.preventDefault());
 stage.addEventListener("keydown", (e) => {
   const step = { ArrowLeft: 5, ArrowRight: -5 }[e.key];
   if (step) { e.preventDefault(); idleFor = -3; phi += step * Math.PI / 180; write(); draw(); }
-  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); mark.fill(NaN); lastBin = null; write(); draw(); }
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); marks.tx.fill(NaN); marks.rx.fill(NaN); lastBin = null; turned = 0; write(); draw(); }
+  if (RECIP && (e.key === "t" || e.key === "T")) { e.preventDefault(); idleFor = -3; setMode(mode === "tx" ? "rx" : "tx"); }
 });
-if (still.matches) { for (let i = 0; i < BINS; i++) mark[i] = rOf(level(i * TAU / BINS)); phi = 0.5; draw(); }
+if (still.matches) { for (let i = 0; i < BINS; i++) { marks.tx[i] = rOf(level(i * TAU / BINS)); if (RECIP) marks.rx[i] = marks.tx[i]; } phi = 0.5; draw(); }
 else { write(); draw(); }
 
 })();

@@ -1,0 +1,13 @@
+{% comment %}
+  reciprocity widget (assets/js/readalong/reciprocity.js; checked by content/balanis/checks/reciprocity.py).
+  case = link | faraday | solver.
+  link: d = spacing in wavelengths (0.1 to 10), l2 = length of antenna 2 (0.1 to 0.9), h = how far antenna 2 is raised (0 to 1).
+  faraday: medium = faraday | chiral, omega = rotation in the slab (degrees), psi = tilt of antenna 2 (degrees).
+  solver: mesh = index into MESHES (0 to 8), test = pulse | galerkin.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="reciprocity" data-case="{{ include.case | default: 'link' }}" data-d="{{ include.d | default: 0.5 }}" data-l2="{{ include.l2 | default: 0.5 }}" data-h="{{ include.h | default: 0 }}" data-medium="{{ include.medium | default: 'faraday' }}" data-omega="{{ include.omega | default: 45 }}" data-psi="{{ include.psi | default: 45 }}" data-mesh="{{ include.mesh | default: 4 }}" data-test="{{ include.test | default: 'pulse' }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/reciprocity.js' | relative_url }}" defer></script>
