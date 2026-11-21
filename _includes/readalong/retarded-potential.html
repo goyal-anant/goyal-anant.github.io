@@ -1,0 +1,11 @@
+{% comment %}
+  retarded-potential widget (assets/js/readalong/retarded-potential.js; checked by content/balanis/checks/retarded_potential.py).
+  case = turnon | sum. turnon: kind = out | in | line, t = starting time in periods (-5 to 12), r = probe distance in wavelengths.
+  sum: l = wire length in wavelengths (0.05 to 1.25), th = direction in degrees.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="retarded-potential" data-case="{{ include.case | default: 'turnon' }}" data-kind="{{ include.kind | default: 'out' }}" data-t="{{ include.t | default: 4 }}" data-r="{{ include.r | default: 3 }}" data-l="{{ include.l | default: 0.5 }}" data-th="{{ include.th | default: 30 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/retarded-potential.js' | relative_url }}" defer></script>
