@@ -1,0 +1,11 @@
+{% comment %}
+  far-field widget (assets/js/readalong/far-field.js; checked by content/balanis/checks/far_field.py).
+  case = distance | shadow. distance: l = wire length in wavelengths (0.05 to 5), r = probe distance in wavelengths (0.05 to 1000).
+  shadow: kind = wire | loop, th, ph = the chosen direction in degrees.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="far-field" data-case="{{ include.case | default: 'distance' }}" data-l="{{ include.l | default: 0.5 }}" data-r="{{ include.r | default: 0.5 }}" data-kind="{{ include.kind | default: 'wire' }}" data-th="{{ include.th | default: 45 }}" data-ph="{{ include.ph | default: 0 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/far-field.js' | relative_url }}" defer></script>

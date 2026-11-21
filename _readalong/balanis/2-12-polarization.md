@@ -110,7 +110,7 @@ which is $$-j$$, i.e. equal and $$90°$$ behind, only for $$Z_L = Z_0$$. The $$\
 
 - [§2.12](../2-12-polarization/), pp. 70–80. Definitions (pp. 70–73), the Poincaré sphere (p. 73, details in Fig. 17.24, p. 1040), [§2.12.1](../2-12-polarization/#the-ellipse-at-one-point) eqs. (2-55) to (2-68) with Fig. 2.23 (pp. 71–75), [§2.12.2](../2-12-polarization/#how-much-a-mismatch-costs) eqs. (2-69) to (2-71a), Figs. 2.24 and 2.25, Examples 2.11 and 2.12 (pp. 76–79), crossed dipoles, Fig. 2.26 (p. 80).
 - Eq. (2-68) as printed uses $$\tan^{-1}$$; it needs the four-quadrant form when $$E_{yo} > E_{xo}$$ (see "The gap").
-- The far field as a local plane wave: §3.6. The vector effective length in eq. (2-71a): [§2.15](../2-15-vector-effective-length-and-equivalent-areas/). Measuring polarization: Chapter 17.
+- The far field as a local plane wave: [§3.6](../3-6-far-field-radiation/). The vector effective length in eq. (2-71a): [§2.15](../2-15-vector-effective-length-and-equivalent-areas/). Measuring polarization: Chapter 17.
 
 ---
 

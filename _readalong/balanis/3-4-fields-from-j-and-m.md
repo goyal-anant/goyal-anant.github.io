@@ -85,7 +85,7 @@ $$\mathbf{E}_A$$ can come from (3-15) or from Ampère's law, $$\nabla\times\math
 ## In the book
 
 - [§3.4](../3-4-fields-from-j-and-m/), pp. 138–139, eqs. (3-27) to (3-30a). Steps 2 and 3 in detail: [§3.2](../3-2-vector-potential-a/) for $$\mathbf{A}$$, [§3.3](../3-3-vector-potential-f/) for $$\mathbf{F}$$; the integrals (3-27) and (3-28) are derived in [§3.5](../3-5-radiation-integral/).
-- Far-field forms used here: §3.6, eqs. (3-58a) and (3-59b), p. 143.
+- Far-field forms used here: [§3.6](../3-6-far-field-radiation/), eqs. (3-58a) and (3-59b), p. 143.
 - Huygens source as a reflector feed: §15.4.1 D, pp. 906–907, Fig. 15.17. Apertures with both currents: §12.2, p. 653, and Table 12.1, p. 672.
 
 ---
@@ -96,4 +96,4 @@ $$\mathbf{E}_A$$ can come from (3-15) or from Ampère's law, $$\nabla\times\math
 [^feed]: Balanis, §15.4.1 D, pp. 906–907, and Fig. 15.17: crossed electric and magnetic dipoles with moments in the ratio $$\sqrt{\mu/\epsilon}$$, free of cross-polarization, called a Huygens' source.
 [^ludwig]: A. C. Ludwig, "The definition of cross polarization," *IEEE Transactions on Antennas and Propagation*, vol. 21, no. 1, pp. 116–119, 1973, [doi:10.1109/TAP.1973.1140406](https://doi.org/10.1109/TAP.1973.1140406).
 [^aperture]: Balanis, §12.2, p. 653 (the equivalence principle), and Table 12.1, p. 672, the column for a uniform aperture in free space.
-[^far]: Balanis, §3.6, eqs. (3-58a) and (3-59b), p. 143.
+[^far]: Balanis, [§3.6](../3-6-far-field-radiation/), eqs. (3-58a) and (3-59b), p. 143.

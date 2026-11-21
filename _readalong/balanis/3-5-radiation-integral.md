@@ -78,7 +78,7 @@ which is Balanis eq. (4-19), the short dipole's radiation resistance, found here
 
 - [§3.5](../3-5-radiation-integral/), pp. 139–142, eqs. (3-31) to (3-54), Fig. 3.2. The integral is first quoted as (3-27), (3-28) in [§3.4](../3-4-fields-from-j-and-m/), p. 138, as step 2 of the recipe.
 - Used first in §4.2 (eq. 4-4, p. 153) for the infinitesimal dipole, and in §4.5 (eq. 4-56, p. 170) for the finite dipole.
-- Next: §3.6 takes $$R$$ apart far from the source.
+- Next: [§3.6](../3-6-far-field-radiation/) takes $$R$$ apart far from the source.
 
 ---
 

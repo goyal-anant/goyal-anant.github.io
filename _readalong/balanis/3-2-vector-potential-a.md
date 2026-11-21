@@ -28,7 +28,7 @@ Balanis gets $$\mathbf{E}_A = -\nabla\phi_e - j\omega\mathbf{A}$$ (eq. 3-7a) in 
 
 {% include readalong/vector-potential.html case="split" kr=1 caption="A short dipole, current along the vertical axis, with the e<sup>jωt</sup> convention of the book; one period takes 3 s. The plot is at 45° from the wire, each piece per unit of |−jω<b>A</b>| there: far out −∇φ<sub>e</sub> and <b>E</b> both settle at 0.71, i.e. cos 45° and sin 45° of the current term, and the radial part of <b>E</b> keeps falling as 2/kr." %}
 
-That last step is the far-field rule of §3.6: far from any antenna, $$\mathbf{E} \approx -j\omega\mathbf{A}$$ with its radial part dropped. The charges' only job out there is to cancel that radial part.
+That last step is the far-field rule of [§3.6](../3-6-far-field-radiation/): far from any antenna, $$\mathbf{E} \approx -j\omega\mathbf{A}$$ with its radial part dropped. The charges' only job out there is to cancel that radial part.
 
 ## A is a choice
 
