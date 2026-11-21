@@ -36,7 +36,7 @@ For a wire along $$z$$, $$\mathbf{A}$$ points along $$z$$ everywhere. Its shadow
 
 1. *Wire*, $$\theta = 45°$$. The dropped radial part is $$\cos 45° = 0.71$$ of $$\vert\mathbf{A}\vert$$, as big as the shadow. If you kept it, $$E_r$$ would equal $$E_\theta$$; the true $$E_r$$ has no $$1/r$$ part at all.
 2. Move the point up to $$\theta = 1°$$. $$\mathbf{A}$$ now points straight out of the sphere and its shadow is gone: the null along the wire.
-3. *Loop*. Now $$\mathbf{F}$$ points along $$z$$ (a small loop is a magnetic current, [§3.3](../3-3-vector-potential-f/)), its shadow is now $$\mathbf{H}$$, and $$\mathbf{E} = -\eta\,\hat{\mathbf{a}}_r\times\mathbf{H}$$ lies across it (eq. 3-59). Same $$\sin\theta$$ pattern, but at the chosen point $$\mathbf{E}$$ is horizontal: the wire's fields turned by 90°. This swap is §3.7.
+3. *Loop*. Now $$\mathbf{F}$$ points along $$z$$ (a small loop is a magnetic current, [§3.3](../3-3-vector-potential-f/)), its shadow is now $$\mathbf{H}$$, and $$\mathbf{E} = -\eta\,\hat{\mathbf{a}}_r\times\mathbf{H}$$ lies across it (eq. 3-59). Same $$\sin\theta$$ pattern, but at the chosen point $$\mathbf{E}$$ is horizontal: the wire's fields turned by 90°. This swap is [§3.7](../3-7-duality/).
 4. *Play*. $$\mathbf{E}$$ and $$\mathbf{H}$$ swing together, at right angles to each other and to $$\hat{\mathbf{a}}_r$$, everywhere on the sphere. That is "TEM to $$r$$".
 
 {% include readalong/far-field.html case="shadow" kind="wire" th=45 ph=0 caption="A sphere far from a short source at its centre; drag to turn it (or use the arrow keys), tap a dot to pick a direction. The key above says what each colour is. Arrow lengths are relative, with the −jω left out; Play swings E and H through one cycle every 2 seconds." %}
@@ -84,7 +84,7 @@ At $$r = 10\lambda$$, $$kr = 62.8$$: the phase is $$57.3°/62.8 = 0.91°$$ late 
 
 - [§3.6](../3-6-far-field-radiation/), pp. 142–144, eqs. (3-55) to (3-59b). Field regions: [§2.2.4](../2-2-radiation-pattern/#near-field-and-far-field), p. 34, Figs. 2.7 and 2.8 (pp. 34–35).
 - The short dipole's regions in §4.2.4 to §4.2.6, pp. 158–160; the far-field recipe as Table 4.1, p. 162; $$2D^2/\lambda$$ derived in §4.4.1, eqs. (4-40) to (4-55c), pp. 166–170.
-- Next: §3.7, duality, the wire-and-loop swap of the second widget.
+- Next: [§3.7](../3-7-duality/), duality, the wire-and-loop swap of the second widget.
 
 ---
 

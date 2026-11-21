@@ -1,0 +1,11 @@
+{% comment %}
+  duality widget (assets/js/readalong/duality.js; checked by content/balanis/checks/duality.py).
+  case = impedance | ground. impedance: kr = probe kr (0.01 to 100).
+  ground: kind = e | m, orient = v | h, wall = pec | pmc, h = height in wavelengths (0.01 to 1).
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="duality" data-case="{{ include.case | default: 'impedance' }}" data-kr="{{ include.kr | default: 0.1 }}" data-kind="{{ include.kind | default: 'm' }}" data-orient="{{ include.orient | default: 'v' }}" data-wall="{{ include.wall | default: 'pec' }}" data-h="{{ include.h | default: 0.05 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/duality.js' | relative_url }}" defer></script>

@@ -25,7 +25,7 @@ $$
 \end{alignat*}
 $$
 
-The minus sign in (3-16), which $$\mathbf{H}_A = \nabla\times\mathbf{A}/\mu$$ doesn't have, is the $$\mathbf{H}\to-\mathbf{E}$$ swap: it comes from the minus in front of $$\mathbf{M}$$ in Faraday's law. Balanis turns the swap into a theorem in §3.7.
+The minus sign in (3-16), which $$\mathbf{H}_A = \nabla\times\mathbf{A}/\mu$$ doesn't have, is the $$\mathbf{H}\to-\mathbf{E}$$ swap: it comes from the minus in front of $$\mathbf{M}$$ in Faraday's law. Balanis turns the swap into a theorem in [§3.7](../3-7-duality/).
 
 ## The two pieces of H
 
@@ -85,7 +85,7 @@ $$\mathbf{M}$$ is in V/m², so a magnetic current $$I_m$$ is in volts, the volta
 - [§3.3](../3-3-vector-potential-f/), pp. 137–138, eqs. (3-16) to (3-26). The recipe of [§3.4](../3-4-fields-from-j-and-m/), eqs. (3-28) to (3-30a), pp. 138–139.
 - Small loop as a magnetic dipole: §5.2.2, p. 237, eqs. (5-20a) to (5-21); large loop far field: §5.3, eq. (5-54b), p. 248; ferrite loop: §5.7, pp. 266–267.
 - Magnetic frill: §8.3.3, eq. (8-28), p. 447. Surface equivalence: §12.2, eqs. (12-1) to (12-4), pp. 654–655.
-- Next: §3.7 makes the swap a theorem.
+- Next: [§3.7](../3-7-duality/) makes the swap a theorem.
 
 ---
 
