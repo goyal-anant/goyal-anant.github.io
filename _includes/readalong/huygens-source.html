@@ -1,0 +1,10 @@
+{% comment %}
+  huygens-source widget (assets/js/readalong/huygens-source.js; checked by content/balanis/checks/huygens_source.py).
+  case = sum | sky. mag = starting |K| = |I_m l| / (eta |I l|) (0 to 2), phase = starting phase of K in degrees.
+  caption = text under the widget. A <figure>, so the read time leaves it out.
+{% endcomment %}
+<figure class="ra-widget">
+  <div data-widget="huygens-source" data-case="{{ include.case | default: 'sum' }}" data-mag="{{ include.mag | default: 1 }}" data-phase="{{ include.phase | default: 0 }}"><noscript>This widget needs JavaScript.</noscript></div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ '/assets/js/readalong/huygens-source.js' | relative_url }}" defer></script>

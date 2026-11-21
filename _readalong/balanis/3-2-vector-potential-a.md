@@ -6,7 +6,7 @@ section: "3.2"
 
 ## What this section is really saying
 
-Finding the fields of a current head-on is hard, so Balanis goes through a helper: the vector potential $$\mathbf{A}$$. Its curl gives $$\mathbf{H}$$, and $$\mathbf{E}$$ comes out in two pieces, $$-j\omega\mathbf{A}$$ from the moving current and $$-\nabla\phi_e$$ from the charges the current leaves at its ends. Balanis then picks the divergence of $$\mathbf{A}$$ (the Lorenz condition) so that $$\phi_e$$ follows from $$\mathbf{A}$$, and one wave equation for $$\mathbf{A}$$ alone is left. This page also covers §3.1 and §3.4, which have no page of their own.
+Finding the fields of a current head-on is hard, so Balanis goes through a helper: the vector potential $$\mathbf{A}$$. Its curl gives $$\mathbf{H}$$, and $$\mathbf{E}$$ comes out in two pieces, $$-j\omega\mathbf{A}$$ from the moving current and $$-\nabla\phi_e$$ from the charges the current leaves at its ends. Balanis then picks the divergence of $$\mathbf{A}$$ (the Lorenz condition) so that $$\phi_e$$ follows from $$\mathbf{A}$$, and one wave equation for $$\mathbf{A}$$ alone is left. This page also covers §3.1, which has no page of its own; [§3.4](../3-4-fields-from-j-and-m/) puts this section and the next together.
 
 ## Predict first
 
@@ -77,7 +77,7 @@ At a distance $$r$$ the potentials vary as $$e^{-jkr}/r$$ along the line of sigh
 
 ## In the book
 
-- §3.1, pp. 133–135, Fig. 3.1 (the two paths). [§3.2](../3-2-vector-potential-a/), pp. 135–137, eqs. (3-1) to (3-15). §3.4, pp. 138–139, eqs. (3-27) to (3-30a) (the recipe).
+- §3.1, pp. 133–135, Fig. 3.1 (the two paths). [§3.2](../3-2-vector-potential-a/), pp. 135–137, eqs. (3-1) to (3-15). [§3.4](../3-4-fields-from-j-and-m/), pp. 138–139, eqs. (3-27) to (3-30a) (the recipe).
 - Balanis calls (3-13) the Lorentz condition; it is due to L. V. Lorenz, in the 1860s, and was credited to H. A. Lorentz later.[^lorenz]
 - The short dipole done the book's way: §4.2.1, pp. 151–154, eqs. (4-4) to (4-10c).
 - Next: [§3.3](../3-3-vector-potential-f/), the same construction for a magnetic current, with $$\mathbf{F}$$ in place of $$\mathbf{A}$$.

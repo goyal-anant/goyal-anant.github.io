@@ -6,7 +6,7 @@ section: "3.5"
 
 ## What this section is really saying
 
-[§3.4](../3-2-vector-potential-a/#two-paths-from-a-current-to-its-fields) quoted the radiation integral; this section is where it comes from. Take one point of current. Away from it, $$A_z$$ is an outgoing spherical wave, $$e^{-jkr}/r$$. Right at it, the wave equation is the Poisson equation of electrostatics, which fixes the constant in front. Then every point of a real antenna gets its own spherical wave, with its own distance $$R$$, and the sum is $$\mathbf{A}$$ (eq. 3-49).[^steps]
+[§3.4](../3-4-fields-from-j-and-m/) quoted the radiation integral; this section is where it comes from. Take one point of current. Away from it, $$A_z$$ is an outgoing spherical wave, $$e^{-jkr}/r$$. Right at it, the wave equation is the Poisson equation of electrostatics, which fixes the constant in front. Then every point of a real antenna gets its own spherical wave, with its own distance $$R$$, and the sum is $$\mathbf{A}$$ (eq. 3-49).[^steps]
 
 ## Predict first
 
@@ -76,7 +76,7 @@ which is Balanis eq. (4-19), the short dipole's radiation resistance, found here
 
 ## In the book
 
-- [§3.5](../3-5-radiation-integral/), pp. 139–142, eqs. (3-31) to (3-54), Fig. 3.2. The integral is first quoted as (3-27), (3-28) in §3.4, p. 138, and the recipe it feeds is on the [§3.2 page](../3-2-vector-potential-a/#two-paths-from-a-current-to-its-fields).
+- [§3.5](../3-5-radiation-integral/), pp. 139–142, eqs. (3-31) to (3-54), Fig. 3.2. The integral is first quoted as (3-27), (3-28) in [§3.4](../3-4-fields-from-j-and-m/), p. 138, as step 2 of the recipe.
 - Used first in §4.2 (eq. 4-4, p. 153) for the infinitesimal dipole, and in §4.5 (eq. 4-56, p. 170) for the finite dipole.
 - Next: §3.6 takes $$R$$ apart far from the source.
 
