@@ -166,7 +166,8 @@
   thumbnail: "/assets/images/books/the-argumentative-indian.jpg"
   author: "Amartya Sen"
   genre: nonfiction
-  status: reading
+  status: half-done
+  summary: "boring sometimes"
 - title: "I Am That"
   link: "https://www.goodreads.com/book/show/299869.I_Am_That"
   thumbnail: "/assets/images/books/i-am-that.jpg"
@@ -294,3 +295,9 @@
   genre: nonfiction
   status: half-done
   summary: "sensual horror"
+- title: "The Trial"
+  link: "https://www.goodreads.com/book/show/17690.The_Trial"
+  thumbnail: "/assets/images/books/the-trial.jpg"
+  author: "Franz Kafka"
+  genre: nonfiction
+  status: reading
