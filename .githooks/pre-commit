@@ -1,0 +1,6 @@
+#!/bin/sh
+# Stamp the footer's "Last updated" date with this commit's time.
+# Pages also rebuilds nightly, so site.time would move every day.
+cd "$(git rev-parse --show-toplevel)" || exit 1
+printf 'date: %s\n' "$(date '+%Y-%m-%d %H:%M:%S %z')" > _data/updated.yml
+git add _data/updated.yml

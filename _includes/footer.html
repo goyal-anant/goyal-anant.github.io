@@ -14,5 +14,5 @@
     </a>
   </div>
   <p><a href="{{ site.private_url }}" style="color: inherit; text-decoration: inherit;">&copy;</a> {{ site.time | date: '%Y' }} {% include t.html en=site.title hi=site.title_hi %}</p>
-  <p class="last-updated">{% include t.html en="Last updated:" hi="आख़िरी अपडेट:" %} {% include date.html date=site.time long=true %}</p>
+  <p class="last-updated">{% include t.html en="Last updated:" hi="आख़िरी अपडेट:" %} {% include date.html date=site.data.updated.date long=true %}</p>
 </footer>
