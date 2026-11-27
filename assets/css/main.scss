@@ -724,6 +724,11 @@ html:has(dialog.ref-drawer[open]) { overflow: hidden; }
   color: color-mix(in srgb, var(--fg) 85%, var(--bg));
 }
 .post figure { margin: 1.5rem auto; }
+/* one blank line (one line-height) between paragraphs of the post body; captions keep hugging their figure or photo */
+.post [data-sections] > p { margin-block: 1.55em; }
+.post [data-sections] > figure + p { margin-top: 0; }
+.post [data-sections] > p:has(> img:only-child) { margin-bottom: 1em; }
+.post [data-sections] > p:has(> img:only-child) + p { margin-top: 0; }
 /* sections (every post, see _layouts/post.html): a bar under the pinned header
    with the current section and minutes left, and more room plus a "5 / 10" over each heading */
 .post [data-sections] > h2 { margin-top: 3.5rem; }
